@@ -1,0 +1,68 @@
+{
+  "people": {
+    "person_eden": {
+      "name": "עדן",
+      "description": "המתנדב הראשי, משתתף ברוב השיחות",
+      "color": "#667eea",
+      "status": "active",
+      "conversations": ["convo1", "convo2", "convo3", "convo4", "convo5"],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 0,
+      "createdAt": "2025-07-20T00:00:00.000Z",
+      "lastModified": "2025-07-20T00:00:00.000Z"
+    },
+    "person_avi": {
+      "name": "אבא",
+      "description": "משתתף בשיחות משפחתיות",
+      "color": "#28a745",
+      "status": "active", 
+      "conversations": ["convo1"],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-20T00:00:00.000Z",
+      "lastModified": "2025-07-20T00:00:00.000Z"
+    },
+    "person_adi": {
+      "name": "עדי ביטון",
+      "description": "משתתף בשיחות על הצבא",
+      "color": "#dc3545",
+      "status": "active",
+      "conversations": ["convo2"],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-20T00:00:00.000Z",
+      "lastModified": "2025-07-20T00:00:00.000Z"
+    }
+  },
+  "conversationAssignments": {
+    "convo1": ["person_eden", "person_avi"],
+    "convo2": ["person_eden", "person_adi"],
+    "convo3": ["person_eden"],
+    "convo4": ["person_eden"],
+    "convo5": ["person_eden"]
+  },
+  "speakerMappings": {
+    "convo1": {
+      "0": "person_eden",
+      "1": "person_avi"
+    },
+    "convo2": {
+      "0": "person_eden", 
+      "1": "person_adi"
+    },
+    "convo3": {
+      "0": "person_eden"
+    },
+    "convo4": {
+      "0": "person_eden"
+    },
+    "convo5": {
+      "0": "person_eden"
+    }
+  },
+  "lastUpdated": "2025-07-20T00:00:00.000Z",
+  "version": "1.0"
+} 

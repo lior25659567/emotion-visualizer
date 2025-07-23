@@ -1,0 +1,1283 @@
+{
+  "hebrew_patterns": {
+    "humor_indicators": {
+      "words": [
+        "חח", "חחח", "חחחח", "מצחיק", "קורע", "בצחוק", "lol", "LoL",
+        "הרגת אותי", "איזה בדיחה", "אתה צוחק", "את צוחקת", "סתם צחוק",
+        "מת מצחוק", "פיפי בעיניים", "בדיחה טובה", "קומדיה", "סטנדאפ",
+        "מת על המצחוק", "צחוק קל", "צחקתי עד דמעות", "ביי לול", "מצחיקה ברמות",
+        "גיחוך", "חיוך רחב", "משתולל מצחוק", "בא לי לצחוק", "צוחקים בקול"
+      ],
+      "phrases": [
+        "זה היה מצחיק", "צחקתי בקול", "לא הפסקתי לצחוק", "איזה הומור",
+        "אתה מצחיק אותי", "את מצחיקה אותי", "זה קרע אותי",
+        "לא ייאמן כמה מצחיק", "צחקתי עד שהכאב לי בבטן", "הבדיחה הזו הורגת אותי",
+        "כלום לא מצחיק כמוך", "צחוק בלתי פוסק", "עין דומעת מצחוק"
+      ],
+      "patterns": [
+        "\\bצחק(?:תי|ת|נו)?\\b",
+        "\\bמצחיק(?:ים|ות|ה)?\\b",
+        "\\bLOLZ?\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים, ביטויים ו-regex המעידים על הומור ושמחה"
+    },
+    "blur_indicators": {
+      "words": [
+        "מה?", "הא?", "לא הבנתי", "אמ...", "אה...", "אממ...", "אההה...",
+        "סליחה?", "מה אמרת?", "לא שמעתי", "תחזור", "תחזרי", "לא ברור",
+        "מבולבל", "מבולבלת", "לא מבין", "לא מבינה", "מעורפל", "עמום",
+        "טשטוש", "בחוסר הבנה", "קצת לא צלחתי", "איך זה היה", "לא תפסתי"
+      ],
+      "phrases": [
+        "לא הבנתי מה אמרת", "אפשר לחזור על זה", "מה הכוונה", "לא ברור לי",
+        "אני לא מבין", "אני לא מבינה", "זה מבלבל", "אני מבולבל", "אני מבולבלת",
+        "תסביר שוב בבקשה", "זה נשמע לא ברור", "לא תופס לי בראש"
+      ],
+      "patterns": [
+        "\\b(מה|איך) \\w+\\?\\b",
+        "\\bלא \\w+(תי|ת)?\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים, ביטויים ו-regex המעידים על חוסר בהירות או בלבול"
+    },
+    "agreement_indicators": {
+      "words": [
+        "כן", "נכון", "בדיוק", "מסכים", "מסכימה", "בטח", "מעולה", "אכן",
+        "ברור", "בוודאי", "בהחלט", "נכון מאוד", "מאה אחוז", "100%", "בול",
+        "תכל'ס", "כמובן", "אין על זה", "לגמרי", "מחוייב"
+      ],
+      "phrases": [
+        "אני מסכים איתך", "אני מסכימה איתך", "זה נכון", "זה בדיוק מה שחשבתי",
+        "גם אני חושב ככה", "גם אני חושבת ככה", "אתה צודק", "את צודקת",
+        "אין על זה ויכוח", "תכל'ס אתה צודק", "אין מה להוסיף"
+      ],
+      "patterns": [
+        "\\bמסכ(?:ים|ימות?)?\\b",
+        "\\bאין על זה\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים, ביטויים ו-regex המעידים על הסכמה"
+    },
+    "disagreement_indicators": {
+      "words": [
+        "לא", "ממש לא", "אבל", "מה פתאום", "בחיים לא", "לעולם לא",
+        "אי אפשר", "שטויות", "הזוי", "לא נכון", "טועה", "לחלוטין לא",
+        "להפך", "גול עצמי"
+      ],
+      "phrases": [
+        "אני לא מסכים", "אני לא מסכימה", "זה לא נכון", "אתה טועה", "את טועה",
+        "יש לי דעה אחרת", "לא בדיוק", "זה לא מדויק", "זה ממש לא עובד"
+      ],
+      "patterns": [
+        "\\bלא \\w+(ת|ים|ות)?\\b",
+        "\\bאבל\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים, ביטויים ו-regex המעידים על אי הסכמה"
+    },
+    "intensity_indicators": {
+      "words": [
+        "וואי", "וואו", "איזה", "נורא", "ממש ממש", "די!", "מספיק!", "עזוב!",
+        "תפסיק!", "בלאגן", "מטורף", "המם", "קיצוני", "מעולה", "מופרז"
+      ],
+      "phrases": [
+        "זה לא יאומן", "אני לא מאמין", "זה מטורף", "אין מילים לתאר",
+        "לפעמים זה מוגזם", "איזה באסה"
+      ],
+      "patterns": [
+        "\\b(משתולל|מטורף)(ת)?\\b",
+        "\\b(מופרז|קיצוני)\\b"
+      ],
+      "weight": 1.5,
+      "description": "מילים, ביטויים ו-regex המעידים על עוצמה רגשית גבוהה"
+    },
+    "sadness_indicators": {
+      "words": [
+        "עצוב", "עצובה", "בוכה", "דמעות", "כואב", "קשה", "מדוכא", "מאוכזב",
+        "בדידות", "שברון לב", "ממורמר", "כבד על הלב", "מחורר"
+      ],
+      "phrases": [
+        "אני עצוב", "זה מעציב", "בא לי לבכות", "הכל נשבר לי", "אין לי כוח"
+      ],
+      "patterns": [
+        "\\bעצוב(?:ים|ות)?\\b",
+        "\\b(מחורר|מאוכזב)\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים, ביטויים ו-regex המעידים על עצב"
+    },
+    "happiness_indicators": {
+      "words": [
+        "שמח", "שמחה", "מאושר", "כיף", "נהדר", "מצוין", "סבבה",
+        "יופי", "פנטסטי", "על הגל", "שיא אושר"
+      ],
+      "phrases": [
+        "אין לי גלגלי עצב", "לא הפסיק לחייך", "הכל טוב לי"
+      ],
+      "patterns": [
+        "\\b(שמח(?:ים|ות)?|מאושר(?:ת)?)\\b",
+        "\\b(פנטסטי|מדהים)\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים, ביטויים ו-regex המעידים על שמחה"
+    },
+    "anger_indicators": {
+      "words": [
+        "כועס", "כועסת", "עצבני", "עצבנית", "מעצבן", "רוגז", "זעם", "בזעם",
+        "מתוח", "מתוחה", "לעזאזל", "חרא", "זבל", "מחורבן",
+        "הגעיל אותי", "מרגיז בטירוף", "על הפנים"
+      ],
+      "phrases": [
+        "אני כועס", "אני כועסת", "זה מעצבן", "נמאס לי", "די כבר",
+        "אני עצבני", "אני עצבנית", "זה מכעיס", "אין לי סבלנות",
+        "זה פשוט מכעיס בטירוף", "אני בשלבים קיצוניים"
+      ],
+      "patterns": [
+        "\\bכועס(?:ים|ות)?\\b",
+        "\\bנמאס לי\\b",
+        "\\bמעצבן(?:ים|ות)?\\b"
+      ],
+      "weight": 1.4,
+      "description": "מילים, ביטויים ו-regex המעידים על כעס"
+    },
+    "fear_indicators": {
+      "words": [
+        "פוחד", "פוחדת", "מפחיד", "פחד", "חושש", "חוששת", "דואג", "דואגת",
+        "מודאג", "מודאגת", "לחוץ", "לחוצה", "סטרס", "חרדה",
+        "מתלפף בפחד", "בלבול מוחלט"
+      ],
+      "phrases": [
+        "אני פוחד", "אני פוחדת", "זה מפחיד", "יש לי פחד", "אני מודאג",
+        "אני מודאגת", "זה מלחיץ", "אני בסטרס", "זה מדאיג",
+        "לא נותן לי מנוח", "אני קופא במקום"
+      ],
+      "patterns": [
+        "\\bפוחד(?:ים|ות)?\\b",
+        "\\bמודאג(?:ים|ות)?\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים, ביטויים ו-regex המעידים על פחד או חרדה"
+    },
+    "surprise_indicators": {
+      "words": [
+        "וואו", "מה", "איך", "לא יאומן", "מפתיע", "הפתעה", "המום", "המומה",
+        "נדהם", "נדהמת", "בהלם", "שוק", "מופתע", "מופתעת",
+        "באסה של כול", "בא לי לעוף"
+      ],
+      "phrases": [
+        "לא האמנתי", "איך זה קרה", "מה קורה", "אני בשוק", "לא ציפיתי",
+        "זה מפתיע", "איזה הפתעה", "אני המום", "אני המומה",
+        "אין לי מילים", "זה שיגעון"
+      ],
+      "patterns": [
+        "\\b(מפתיע(?:ים|ות)?|נדהם(?:ים|ות)?)\\b",
+        "\\b(המום|בהלם)\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים, ביטויים ו-regex המעידים על הפתעה"
+    },
+    "curiosity_indicators": {
+      "words": [
+        "למה", "איך", "מתי", "איפה", "מי", "מה", "מעניין", "סקרן", "סקרנית",
+        "תהיה", "תהייה", "שאלה", "לדעת", "להבין",
+        "תסקרן אותי", "יש לי עניין", "בטוח יש סיבה"
+      ],
+      "phrases": [
+        "אני סקרן", "אני סקרנית", "מעניין אותי", "אני רוצה לדעת",
+        "איך זה עובד", "למה זה ככה", "מה הסיבה", "תסביר לי", "תסבירי לי",
+        "אשמח לפרטים", "מרתק אותי"
+      ],
+      "patterns": [
+        "\\bסקרנ(?:י|ית|יים|ות)?\\b",
+        "\\bשאלה\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים, ביטויים ו-regex המעידים על סקרנות"
+    },
+    "joy_indicators": {
+      "words": [
+        "עליז", "עליזה", "שמחה", "צהלה", "גיל", "רינה", "ששון", "חדווה",
+        "מבסוט", "מבסוטה", "כיף", "נהנה", "נהנית", "טוב", "מהנה",
+        "בלגן של אושר", "מעוף טוב"
+      ],
+      "phrases": [
+        "איזה כיף גדול", "אני עליז", "אני עליזה", "מלא שמחה", "רוקד משמחה",
+        "קופץ משמחה", "מרגיש נפלא", "מרגישה נפלאה",
+        "שמח עד השמיים", "אין על השמחה הזו"
+      ],
+      "patterns": [
+        "\\bעליז(?:ים|ות)?\\b",
+        "\\bחדווה\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים, ביטויים ו-regex המעידים על עליזות ושמחת חיים"
+    },
+    "disgust_indicators": {
+      "words": [
+        "מגעיל", "גועל", "בחילה", "דוחה", "מאוס", "נגעל", "נגעלת", "פוי",
+        "איכס", "בלע", "מסריח", "נורא", "זוועה",
+        "קיאתי", "לא עבר לי בבטן"
+      ],
+      "phrases": [
+        "זה מגעיל", "יש לי בחילה", "אני נגעל", "אני נגעלת", "זה דוחה",
+        "לא יכול לסבול את זה", "זה מאוס", "עושה לי רע",
+        "הפסקתי לנשום מזה", "אין מצב"
+      ],
+      "patterns": [
+        "\\b(?:מגעיל(?:ים|ות)?|דוחה|מאוס)\\b",
+        "\\bנגעל(?:ים|ות)?\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים, ביטויים ו-regex המעידים על גועל וסלידה"
+    },
+    "frustration_indicators": {
+      "words": [
+        "מתוסכל", "מתוסכלת", "תסכול", "עצבים", "נמאס", "מיואש", "מיואשת",
+        "מתייאש", "מתייאשת", "קשה", "מעצבן", "מרגיז",
+        "פרייאר של החיים", "לא לזוז"
+      ],
+      "phrases": [
+        "אני מתוסכל", "אני מתוסכלת", "זה מתסכל", "נמאס לי כבר", "אין לי כוח",
+        "לא מצליח", "לא מצליחה", "זה לא הולך", "תקוע במקום",
+        "תסכול מטורף", "אני בקצה"
+      ],
+      "patterns": [
+        "\\bמתוסכל(?:ים|ות)?\\b",
+        "\\bנמאס לי\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים, ביטויים ו-regex המעידים על תסכול"
+    },
+    "excitement_indicators": {
+      "words": [
+        "מתרגש", "מתרגשת", "התרגשות", "נרגש", "נרגשת", "להוט", "להוטה",
+        "מתלהב", "מתלהבת", "דופק", "אדרנלין", "וואו",
+        "לא יכול לחכות", "בפיצוץ אנרגיה"
+      ],
+      "phrases": [
+        "אני כל כך מתרגש", "אני כל כך מתרגשת", "לא יכול לחכות", "מת מהתרגשות",
+        "הלב שלי דופק", "איזה התרגשות", "אני על גחלים",
+        "זה פשוט הולך לי לקרוע את הלב", "אין עצבים יותר"
+      ],
+      "patterns": [
+        "\\bמתרגש(?:ים|ות)?\\b",
+        "\\bאדרנלין\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים, ביטויים ו-regex המעידים על התרגשות"
+    },
+    "love_indicators": {
+      "words": [
+        "אוהב", "אוהבת", "אהבה", "חיבה", "רגש", "נשמה", "יקר", "יקרה",
+        "מתוק", "מתוקה", "חמוד", "חמודה", "אהוב", "אהובה",
+        "כמה אני אוהב אותך", "נשמה שלי"
+      ],
+      "phrases": [
+        "אני אוהב אותך", "אני אוהבת אותך", "אתה יקר לי", "את יקרה לי",
+        "מלא אהבה", "אהבה גדולה", "אתה הכל שלי", "את הכל שלי",
+        "אין מילה לאהבה שלי אליך"
+      ],
+      "patterns": [
+        "\\bאוהב(?:ים|ות)?\\b",
+        "\\bאהבה\\b"
+      ],
+      "weight": 1.4,
+      "description": "מילים, ביטויים ו-regex המעידים על אהבה וחיבה"
+    },
+    "anxiety_indicators": {
+      "words": [
+        "חרד", "חרדה", "מוטרד", "מוטרדת", "דאגה", "חושש", "חוששת", "לחוץ",
+        "לחוצה", "מתוח", "על סף התמוטטות", "לא מפסיק לחשוב"
+      ],
+      "phrases": [
+        "יש לי חרדה", "אני חרד", "אני חרדה", "זה מלחיץ אותי", "אני מוטרד",
+        "אני מוטרדת", "לא רגוע", "לא רגועה", "על הקצה",
+        "לא מרפה לי", "הראש שלי קופא"
+      ],
+      "patterns": [
+        "\\bחרד(?:ים|ות)?\\b",
+        "\\bלחוץ(?:ים|ות)?\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים, ביטויים ו-regex המעידים על חרדה ודאגה"
+    },
+    "hope_indicators": {
+      "words": [
+        "מקווה", "תקווה", "מייחל", "מייחלת", "אופטימי", "אופטימית",
+        "מאמין", "מאמינה", "יהיה טוב", "בעזרת השם", "יש סיכוי", "מקווה לטוב"
+      ],
+      "phrases": [
+        "אני מקווה", "יש לי תקווה", "מלא תקווה", "מאמין שיהיה טוב",
+        "מאמינה שיהיה טוב", "הכל יסתדר", "יהיה בסדר",
+        "אני מחכה לימים טובים", "נגיע לשם בסוף"
+      ],
+      "patterns": [
+        "\\bמקווה\\b",
+        "\\bתקווה\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים, ביטויים ו-regex המעידים על תקווה ואופטימיות"
+    },
+    "pride_indicators": {
+      "words": [
+        "גאה", "גאווה", "מרוצה", "הישג", "הצלחה", "ניצחון", "מנצח", "אלוף",
+        "מצליח", "כבוד", "בלתי מעורער", "בזכותי", "על סף גאווה"
+      ],
+      "phrases": [
+        "אני גאה", "מלא גאווה", "הצלחתי", "עשיתי את זה",
+        "איזה הישג", "אני אלוף", "אני אלופה", "הרגשה מדהימה",
+        "אין כמו ההישג הזה"
+      ],
+      "patterns": [
+        "\\bגאה(?:ים|ות)?\\b",
+        "\\bגאווה\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים, ביטויים ו-regex המעידים על גאווה והישגיות"
+    },
+    "voice_intensity_indicators": {
+      "words": [
+        "!!!", "!!", "!", "???", "??", "?", "?!", "!?", "?!?", "!?!",
+        "אאאא", "וואאאא", "לאאאא", "מההה", "אוייי", "איייי", "וואיייי",
+        "נווווו", "דיייי", "אההההה", "וווווו", "יאאאא", "נוווו",
+        "בוקר טוב!!!", "בא לי לצעוק"
+      ],
+      "phrases": [
+        "תפסיק כבר", "די כבר", "מספיק כבר", "עזוב אותי", "תעזבי אותי",
+        "אל תצעק", "אל תצעקי", "למה אתה צועק", "למה את צועקת",
+        "אני צועק", "אני צועקת", "בקול רם", "חזק מדי", "תוריד קול",
+        "תורידי קול", "מה אתה צורח", "מה את צורחת",
+        "לא מסוגל יותר", "הקול עולה"
+      ],
+      "patterns": [
+        "![!]*", "\\?\\?*", "(?:אאאא|וואאאא|מההה|נ?וו+)"
+      ],
+      "weight": 2.0,
+      "description": "מילים, ביטויים ו-regex המעידים על עוצמת קול גבוהה או צעקות",
+      "punctuation_rules": {
+        "single_exclamation": {
+          "pattern": "!",
+          "voice_boost": 2,
+          "size_boost": 0.1
+        },
+        "double_exclamation": {
+          "pattern": "!!",
+          "voice_boost": 4,
+          "size_boost": 0.2
+        },
+        "triple_exclamation": {
+          "pattern": "!!!",
+          "voice_boost": 6,
+          "size_boost": 0.3
+        },
+        "question_exclamation": {
+          "pattern": "?!",
+          "voice_boost": 5,
+          "size_boost": 0.25,
+          "emotion_hint": "surprise"
+        },
+        "exclamation_question": {
+          "pattern": "!?",
+          "voice_boost": 5,
+          "size_boost": 0.25,
+          "emotion_hint": "confusion"
+        },
+        "multiple_question": {
+          "pattern": "???",
+          "voice_boost": 3,
+          "size_boost": 0.2,
+          "emotion_hint": "confusion"
+        }
+      },
+      "visual_effects": {
+        "character_size_multiplier": 1.5,
+        "exclamation_boost": 0.2,
+        "question_boost": 0.15,
+        "repetition_boost": 0.1,
+        "extended_vowel_boost": 0.15
+      }
+    },
+    "admiration_indicators": {
+      "words": [
+        "מעריץ", "מעריצה", "מעריצים", "מעריצות", "הערצה", "מעוררת הערצה", "מעורר הערצה",
+        "מדהים", "מדהימה", "מרשים", "מרשימה", "נפלא", "נפלאה", "יוצא דופן", "יוצאת דופן",
+        "מושלם", "מושלמת", "גאון", "גאונה", "אלוף", "אלופה", "מקצועי", "מקצועית",
+        "מעניין", "מענינת", "מרתק", "מרתקת", "כבוד", "כבודי", "רספקט"
+      ],
+      "phrases": [
+        "אני מעריץ אותך", "אני מעריצה אותך", "יש לי הערצה", "מלא הערצה",
+        "זה מרשים", "איזה מקצועיות", "כל הכבוד", "רספקט", "מעורר השראה",
+        "מעוררת השראה", "איזה רמה", "אתה אלוף", "את אלופה"
+      ],
+      "patterns": [
+        "\\bמעריץ(?:ים|ות)?\\b",
+        "\\bהערצה\\b",
+        "\\bכל הכבוד\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים וביטויים המבטאים הערצה וכבוד"
+    },
+    "amusement_indicators": {
+      "words": [
+        "משעשע", "משעשעת", "שעשוע", "מבדר", "מבדרת", "בידור", "קומי", "קומית",
+        "צחוק", "צוחק", "צוחקת", "מצחיק", "מצחיקה", "כיף", "כיפי", "כיפית",
+        "פאן", "fun", "מהנה", "הנאה", "קליל", "קלילה"
+      ],
+      "phrases": [
+        "איזה שעשוע", "משעשע אותי", "זה מבדר", "מלא כיף", "איזה בידור",
+        "שעשוע טוב", "איזה פאן", "מתבדר", "צחוק טוב", "לא מפסיק לצחוק"
+      ],
+      "patterns": [
+        "\\bשעשוע\\b",
+        "\\bמשעשע(?:ת)?\\b",
+        "\\bכיף\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים וביטויים המבטאים שעשוע ובידור"
+    },
+    "annoyance_indicators": {
+      "words": [
+        "מעצבן", "מעצבנת", "עצבנות", "מרגיז", "מרגיזה", "נמאס", "נמאסה",
+        "מתנרב", "מתנרבת", "חם לי", "חמה לי", "די כבר", "מספיק",
+        "בלאגן", "בלגן", "מה זה", "איך זה יכול", "לא יכול יותר"
+      ],
+      "phrases": [
+        "מעצבן אותי", "מרגיז אותי", "נמאס לי", "די כבר מספיק", "חם לי מזה",
+        "מתנרב מזה", "לא יכול יותר", "איך זה יכול להיות", "מה הבעיה"
+      ],
+      "patterns": [
+        "\\bמעצבן(?:ת)?\\b",
+        "\\bנמאס\\b",
+        "\\bדי כבר\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים וביטויים המבטאים עצבנות ורוגז"
+    },
+    "approval_indicators": {
+      "words": [
+        "מאשר", "מאשרת", "אישור", "בסדר", "אוקיי", "טוב", "נחמד", "נחמדה",
+        "יפה", "יפה מאוד", "בדיוק", "נכון", "מסכים", "מסכימה", "תמיכה",
+        "תומך", "תומכת", "בעד", "חיובי", "חיובית"
+      ],
+      "phrases": [
+        "אני מאשר", "יש לי אישור", "אני בעד", "זה בסדר", "אוקיי לי",
+        "אני תומך", "אני תומכת", "חיובי לגבי זה", "נשמע טוב"
+      ],
+      "patterns": [
+        "\\bמאשר(?:ת)?\\b",
+        "\\bאישור\\b",
+        "\\bבסדר\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים וביטויים המבטאים אישור ותמיכה"
+    },
+    "awe_indicators": {
+      "words": [
+        "יראת כבוד", "מרגש", "מרגשת", "מדהים", "מדהימה", "מרעיד", "מרעידה",
+        "מפעים", "מפעימה", "עוצר נשימה", "עוצרת נשימה", "מלכותי", "מלכותית",
+        "מרהיב", "מרהיבה", "מעורר יראה", "מעוררת יראה", "חסר מילים"
+      ],
+      "phrases": [
+        "יראת כבוד", "עוצר נשימה", "מלא יראה", "מרגש עד דמעות",
+        "חסר מילים", "לא מאמין", "לא מאמינה", "מדהים לגמרי"
+      ],
+      "patterns": [
+        "\\bיראת כבוד\\b",
+        "\\bעוצר נשימה\\b",
+        "\\bחסר מילים\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים וביטויים המבטאים יראת כבוד ותדהמה"
+    },
+    "caring_indicators": {
+      "words": [
+        "אכפת", "דואג", "דואגת", "דאגה", "אכפתיות", "חשוב לי", "חשובה לי",
+        "רגישות", "רגיש", "רגישה", "מתחשב", "מתחשבת", "אהבה", "חמלה",
+        "רחמים", "רחמנות", "תמיכה", "תומך", "תומכת", "מגן", "מגנה"
+      ],
+      "phrases": [
+        "אכפת לי", "דואג לך", "דואגת לך", "חשוב לי", "רגיש לזה",
+        "רגישה לזה", "מתחשב בך", "מתחשבת בך", "אהבה גדולה"
+      ],
+      "patterns": [
+        "\\bאכפת\\b",
+        "\\bדואג(?:ת)?\\b",
+        "\\bדאגה\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים וביטויים המבטאים דאגה ואכפתיות"
+    },
+    "concentration_indicators": {
+      "words": [
+        "ריכוז", "מרוכז", "מרוכזת", "קשוב", "קשובה", "ממוקד", "ממוקדת",
+        "תשומת לב", "מתרכז", "מתרכזת", "פוקוס", "מתמקד", "מתמקדת",
+        "עמוק", "עמוקה", "יסודי", "יסודית", "זהיר", "זהירה"
+      ],
+      "phrases": [
+        "אני מרוכז", "אני מרוכזת", "תשומת לב מלאה", "מתרכז בזה",
+        "מתרכזת בזה", "פוקוס מלא", "בריכוז", "קשוב לפרטים"
+      ],
+      "patterns": [
+        "\\bריכוז\\b",
+        "\\bמרוכז(?:ת)?\\b",
+        "\\bפוקוס\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים וביטויים המבטאים ריכוז ומיקוד"
+    },
+    "contentment_indicators": {
+      "words": [
+        "שביעות רצון", "שבע רצון", "שבעת רצון", "מרוצה", "מרוצה מאוד", "מרוצות",
+        "נח", "נחה", "מרגיע", "מרגיעה", "שלוותי", "שלוותית", "רגוע", "רגועה",
+        "מאושר", "מאושרת", "מסופק", "מסופקת", "בנחת", "בנוחות", "טוב לי"
+      ],
+      "phrases": [
+        "שביעות רצון מלאה", "מרוצה מזה", "שלווה גמורה", "רגוע לגמרי",
+        "טוב לי ככה", "מסופק מאוד", "בנחת מלאה", "הכל בסדר"
+      ],
+      "patterns": [
+        "\\bשביעות רצון\\b",
+        "\\bמרוצה\\b",
+        "\\bרגוע(?:ה)?\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים וביטויים המבטאים שביעות רצון ושלווה"
+    },
+    "desire_indicators": {
+      "words": [
+        "תשוקה", "משתוקק", "משתוקקת", "רוצה", "רוצה מאוד", "חושק", "חושקת",
+        "תאווה", "מתאווה", "מתאוווה", "רוצה בטירוף", "חלום", "חולם", "חולמת",
+        "כמיהה", "כמהה", "כמהות", "נכסף", "נכספת", "להוט", "להוטה"
+      ],
+      "phrases": [
+        "יש לי תשוקה", "משתוקק לזה", "משתוקקת לזה", "רוצה מאוד", "חלום שלי",
+        "כמהה לזה", "נכסף לזה", "להוט לזה", "תאווה גדולה", "מתאווה לזה"
+      ],
+      "patterns": [
+        "\\bתשוקה\\b",
+        "\\bמשתוקק(?:ת)?\\b",
+        "\\bרוצה מאוד\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים וביטויים המבטאים תשוקה ורצון"
+    },
+    "disappointment_indicators": {
+      "words": [
+        "אכזבה", "מאוכזב", "מאוכזבת", "אכזבת", "מאכזב", "מאכזבת",
+        "לא כמו שחיכיתי", "לא עבר", "לא עברה", "צער", "עצוב", "עצובה",
+        "הלו", "אוי לא", "אוף", "חבל", "חבל על הזמן", "זה לא"
+      ],
+      "phrases": [
+        "איזה אכזבה", "מאוכזב מאוד", "מאוכזבת מאוד", "לא עבר כמו שציפיתי",
+        "צערתי מזה", "חבל על הזמן", "אכזבת הלילה", "לא מה שקיוויתי"
+      ],
+      "patterns": [
+        "\\bאכזבה\\b",
+        "\\bמאוכזב(?:ת)?\\b",
+        "\\bחבל\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים וביטויים המבטאים אכזבה ועצב"
+    },
+    "disapproval_indicators": {
+      "words": [
+        "לא מאשר", "לא מאשרת", "אי אישור", "נגד", "מתנגד", "מתנגדת",
+        "לא בעד", "לא תומך", "לא תומכת", "שלילי", "שלילית", "לא חיובי",
+        "לא חיובית", "מתרעם", "מתרעמת", "ביקורת", "מבקר", "מבקרת"
+      ],
+      "phrases": [
+        "אני לא מאשר", "אני לא מאשרת", "אני נגד", "לא בעד זה",
+        "לא תומך בזה", "שלילי לגבי זה", "ביקורת קשה", "לא מסכים"
+      ],
+      "patterns": [
+        "\\bלא מאשר(?:ת)?\\b",
+        "\\bנגד\\b",
+        "\\bלא בעד\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים וביטויים המבטאים אי אישור והתנגדות"
+    },
+    "dreaminess_indicators": {
+      "words": [
+        "חלומי", "חלומית", "חלומיות", "מעונן", "מעוננת", "רחוק", "רחוקה",
+        "נפלא", "נפלאה", "פנטזיה", "פנטזטי", "פנטזטית", "מודמיין", "מודמיינת",
+        "רומנטי", "רומנטית", "בחלומות", "בחלום", "כמו בחלום"
+      ],
+      "phrases": [
+        "כמו בחלום", "בחלומות", "עולם אחר", "פנטזיה טהורה",
+        "רחוק מהמציאות", "מעונן בחלומות", "נפלא כמו חלום"
+      ],
+      "patterns": [
+        "\\bחלומי(?:ת)?\\b",
+        "\\bכמו בחלום\\b",
+        "\\bפנטזיה\\b"
+      ],
+      "weight": 1.0,
+      "description": "מילים וביטויים המבטאים חלומיות ופנטזיה"
+    },
+    "ecstasy_indicators": {
+      "words": [
+        "אקסטזה", "אקסטזטי", "אקסטזטית", "מעלפי", "מעלפית", "משוגע משמחה", "משוגעת משמחה",
+        "בשמיים", "בעננים", "מרוממת", "מרומם", "מעוף", "מעופף", "מעופפת",
+        "פסגת האושר", "גובה הכיף", "חדוות האולטימטיבי"
+      ],
+      "phrases": [
+        "בשמים השביעי", "פסגת האושר", "אקסטזה מלאה", "מעוף מלא",
+        "מרוממת לגמרי", "בעננים של שמחה", "חוויה אקסטזטית"
+      ],
+      "patterns": [
+        "\\bאקסטזה\\b",
+        "\\bבשמיים\\b",
+        "\\bפסגת האושר\\b"
+      ],
+      "weight": 1.4,
+      "description": "מילים וביטויים המבטאים אקסטזה ורוממות רוח קיצונית"
+    },
+    "elation_indicators": {
+      "words": [
+        "התרוממות רוח", "מרומם", "מרוממת", "עליז", "עליזה", "קל כפשתן", "קלה כפשתן",
+        "ברוממות", "ברום רוחו", "ברום רוחה", "גאה וזוהר", "גאה וזוהרת",
+        "מלא אנרגיה", "מלאת אנרגיה", "מתרומם", "מתרוממת"
+      ],
+      "phrases": [
+        "התרוממות רוח גדולה", "מרומם מאוד", "ברוממות הרוח", "קל כפשתן",
+        "מלא חיות", "מלאת חיות", "רוח גבוהה", "מרגיש מעל העולם"
+      ],
+      "patterns": [
+        "\\bהתרוממות רוח\\b",
+        "\\bמרומם(?:ת)?\\b",
+        "\\bברוממות\\b"
+      ],
+      "weight": 1.2,
+      "description": "מילים וביטויים המבטאים התרוממות רוח ועליצות"
+    },
+    "embarrassment_indicators": {
+      "words": [
+        "מבוכה", "מבוכה גדולה", "מבוך", "מבוכת", "נבוך", "נבוכה", "חרפה", "בושה",
+        "אדמדם", "אדומה", "נכלמה", "נכלם", "מתבייש", "מתביישת", "ביזיון", "זה ביש"
+      ],
+      "phrases": [
+        "איזה מבוכה", "מת מבושה", "מתה מבושה", "מבוך לגמרי", "נבוכה לגמרי",
+        "אדמדם מבושה", "זה מביך", "איזה חרפה", "ביזיון גמור"
+      ],
+      "patterns": [
+        "\\bמבוכה\\b",
+        "\\bמבוך(?:ת)?\\b",
+        "\\bבושה\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים וביטויים המבטאים מבוכה ובושה"
+    },
+    "entrancement_indicators": {
+      "words": [
+        "קסם", "קסום", "קסומה", "מוקסם", "מוקסמת", "היפנוט", "מהופנט", "מהופנטת",
+        "מרתק", "מרתקת", "סוחף", "סוחפת", "מעמיק", "מעמיקה", "חד משמעית",
+        "מגנטי", "מגנטית", "מושך", "מושכת", "מרגש", "מרגשת"
+      ],
+      "phrases": [
+        "מוקסם לגמרי", "מוקסמת לגמרי", "קסום מאוד", "היפנוט מלא",
+        "מהופנט מזה", "סוחף אותי", "מרתק עד הסוף", "מגנטי לגמרי"
+      ],
+      "patterns": [
+        "\\bקסם\\b",
+        "\\bמוקסם(?:ת)?\\b",
+        "\\bהיפנוט\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים וביטויים המבטאים קסם והיפנוט"
+    },
+    "grief_indicators": {
+      "words": [
+        "אבל", "אבלות", "צער", "צערה", "דכאון", "דכאונית", "אבדן", "חסר", "חסרה",
+        "התאבל", "התאבלה", "משבר", "משברת", "כואב", "כואבת", "נעדר", "נעדרת",
+        "מתגעגע", "מתגעגעת", "יתום", "יתומה", "אלמן", "אלמנה"
+      ],
+      "phrases": [
+        "באבל עמוק", "צער רב", "אבדן גדול", "מתאבל עליו", "מתאבלת עליה",
+        "נעדר מאוד", "מתגעגע נורא", "אבל כבד", "צער עמוק"
+      ],
+      "patterns": [
+        "\\bאבל\\b",
+        "\\bצער\\b",
+        "\\bאבדן\\b"
+      ],
+      "weight": 1.3,
+      "description": "מילים וביטויים המבטאים אבל וצער עמוק"
+    },
+    "gratitude_indicators": {
+      "words": [
+        "תודה", "תודות", "הכרת תודה", "מכיר תודה", "מכירת תודה", "אסיר תודה", "אסירת תודה",
+        "מודה", "מודה מאוד", "אסיר תודה", "חייב לך", "חייבת לך", "תודה רבה"
+      ],
+      "phrases": [
+        "הכרת תודה עמוקה", "תודה רבה", "מודה לך מאוד", "מודה לך מהלב",
+        "אסיר תודה", "אסירת תודה", "תודה לא נגמרת", "חייב לך הרבה"
+      ],
+      "patterns": [
+        "\\bתודה\\b",
+        "\\bהכרת תודה\\b",
+        "\\bמודה\\b"
+      ],
+      "weight": 1.1,
+      "description": "מילים וביטויים המבטאים הכרת תודה והערכה"
+    },
+    "filler_words": [
+      "כאילו", "יעני", "אז", "כזה", "סתם", "פשוט", "בעצם", "אממ", "אהה",
+      "נו", "טוב", "אוקיי", "או-קיי", "בסדר", "אה", "אמ", "טיפה"
+    ],
+    "repetition_words": [
+      "ממש ממש", "מאוד מאוד", "הרבה הרבה", "כל כך כל כך", "באמת באמת",
+      "נורא נורא", "ממש", "מאוד", "הרבה", "כל כך", "באמת", "נורא",
+      "עוד פעם עוד פעם"
+    ]
+  },
+  "emotion_mapping": {
+    "happiness": ["happiness_indicators", "humor_indicators"],
+    "joy": ["joy_indicators", "humor_indicators"],
+    "sadness": ["sadness_indicators"],
+    "anger": ["anger_indicators", "disagreement_indicators", "voice_intensity_indicators"],
+    "fear": ["fear_indicators", "anxiety_indicators"],
+    "surprise": ["surprise_indicators", "voice_intensity_indicators"],
+    "disgust": ["disgust_indicators"],
+    "neutral": ["filler_words"],
+    "curiosity": ["curiosity_indicators"],
+    "frustration": ["frustration_indicators", "disagreement_indicators", "voice_intensity_indicators"],
+    "excitement": ["excitement_indicators", "intensity_indicators", "voice_intensity_indicators"],
+    "love": ["love_indicators"],
+    "anxiety": ["anxiety_indicators"],
+    "hope": ["hope_indicators"],
+    "pride": ["pride_indicators"],
+    "admiration": ["admiration_indicators"],
+    "amusement": ["amusement_indicators", "humor_indicators"],
+    "annoyance": ["annoyance_indicators"],
+    "approval": ["approval_indicators", "agreement_indicators"],
+    "awe": ["awe_indicators"],
+    "caring": ["caring_indicators"],
+    "concentration": ["concentration_indicators"],
+    "contentment": ["contentment_indicators"],
+    "desire": ["desire_indicators"],
+    "disappointment": ["disappointment_indicators"],
+    "disapproval": ["disapproval_indicators"],
+    "dreaminess": ["dreaminess_indicators"],
+    "ecstasy": ["ecstasy_indicators"],
+    "elation": ["elation_indicators"],
+    "embarrassment": ["embarrassment_indicators"],
+    "entrancement": ["entrancement_indicators"],
+    "grief": ["grief_indicators"],
+    "gratitude": ["gratitude_indicators"]
+  },
+  "scoring_weights": {
+    "intensity_multiplier": 1.5,
+    "humor_bonus": 0.5,
+    "repetition_bonus": 0.2,
+    "question_mark_penalty": 0.3,
+    "blur_penalty": 0.4,
+    "agreement_bonus": 0.3,
+    "disagreement_penalty": 0.3,
+    "emotion_indicator_bonus": 0.6
+  },
+  "visualization_defaults": {
+    "blob_strength": 450,
+    "blob_size_scale": 5,
+    "blobiness": 3.5,
+    "character_sizing_base": 0.25,
+    "character_sizing_yell_boost": 0.3,
+    "character_sizing_rules": {
+      "voice_intensity_multiplier": 1.5,
+      "exclamation_mark_boost": 0.2,
+      "question_mark_boost": 0.15,
+      "caps_lock_boost": 0.4,
+      "repetition_char_boost": 0.1,
+      "emotional_intensity_boost": 0.25,
+      "min_size": 0.1,
+      "max_size": 2.0
+    },
+    "blur_base": 2,
+    "blur_max": 12,
+    "shine_base": 0,
+    "shine_max": 10,
+    "humor_base": 0,
+    "humor_max": 10
+  },
+  "multi_emotion_detection": {
+    "compatible_emotions": {
+      "happiness": ["joy", "excitement", "pride", "hope", "love", "admiration", "amusement", "contentment"],
+      "joy": ["happiness", "excitement", "love", "pride", "amusement", "contentment"],
+      "sadness": ["anxiety", "fear", "frustration", "hope", "disappointment", "caring"],
+      "anger": ["frustration", "disgust", "anxiety", "annoyance", "disapproval"],
+      "fear": ["anxiety", "sadness", "surprise", "caring"],
+      "surprise": ["excitement", "fear", "curiosity", "happiness", "awe"],
+      "disgust": ["anger", "frustration", "disapproval"],
+      "curiosity": ["surprise", "excitement", "hope", "concentration"],
+      "frustration": ["anger", "sadness", "anxiety", "annoyance", "disappointment"],
+      "excitement": ["happiness", "joy", "surprise", "curiosity", "desire"],
+      "love": ["happiness", "joy", "pride", "hope", "caring", "admiration"],
+      "anxiety": ["fear", "sadness", "frustration", "caring"],
+      "hope": ["happiness", "love", "curiosity", "sadness", "desire"],
+      "pride": ["happiness", "joy", "love", "excitement", "admiration"],
+      "admiration": ["happiness", "pride", "love", "awe", "approval"],
+      "amusement": ["happiness", "joy", "contentment"],
+      "annoyance": ["anger", "frustration", "disapproval"],
+      "approval": ["happiness", "admiration", "contentment"],
+      "awe": ["surprise", "admiration", "curiosity"],
+      "caring": ["love", "sadness", "anxiety", "fear"],
+      "concentration": ["curiosity", "contentment"],
+      "contentment": ["happiness", "approval", "concentration"],
+      "desire": ["excitement", "hope", "love"],
+      "disappointment": ["sadness", "frustration", "grief"],
+      "disapproval": ["anger", "disgust", "annoyance"],
+      "dreaminess": ["contentment", "love", "hope"],
+      "ecstasy": ["joy", "happiness", "elation", "excitement"],
+      "elation": ["happiness", "joy", "ecstasy", "pride"],
+      "embarrassment": ["shame", "anxiety", "fear"],
+      "entrancement": ["awe", "curiosity", "admiration"],
+      "grief": ["sadness", "disappointment", "caring"],
+      "gratitude": ["happiness", "love", "admiration", "contentment"]
+    },
+    "conflicting_emotions": {
+      "happiness": ["sadness", "anger", "fear", "disgust", "anxiety", "disappointment", "disapproval"],
+      "joy": ["sadness", "anger", "fear", "disgust", "disappointment"],
+      "sadness": ["happiness", "joy", "excitement", "amusement"],
+      "anger": ["happiness", "joy", "love", "hope", "contentment", "approval"],
+      "fear": ["happiness", "joy", "excitement", "pride", "contentment"],
+      "surprise": [],
+      "disgust": ["happiness", "joy", "love", "admiration", "contentment"],
+      "curiosity": ["anger", "disgust", "disappointment"],
+      "frustration": ["happiness", "joy", "excitement", "contentment"],
+      "excitement": ["sadness", "fear", "anxiety", "disappointment"],
+      "love": ["anger", "disgust", "fear", "disapproval"],
+      "anxiety": ["happiness", "joy", "excitement", "contentment"],
+      "hope": ["anger", "disgust", "disappointment"],
+      "pride": ["sadness", "fear", "anxiety", "disappointment"],
+      "admiration": ["disgust", "disapproval", "anger"],
+      "amusement": ["sadness", "anger", "fear"],
+      "annoyance": ["happiness", "joy", "contentment", "approval"],
+      "approval": ["anger", "disgust", "disapproval"],
+      "awe": ["disgust", "annoyance"],
+      "caring": ["anger", "disgust"],
+      "concentration": ["excitement", "anxiety"],
+      "contentment": ["anger", "frustration", "anxiety"],
+      "desire": ["sadness", "fear", "disappointment"],
+      "disappointment": ["happiness", "joy", "excitement", "pride"],
+      "disapproval": ["happiness", "approval", "admiration"],
+      "dreaminess": ["anger", "frustration", "anxiety"],
+      "ecstasy": ["sadness", "grief", "disappointment", "anger"],
+      "elation": ["sadness", "grief", "fear", "anxiety"],
+      "embarrassment": ["pride", "confidence", "joy"],
+      "entrancement": ["boredom", "disgust", "annoyance"],
+      "grief": ["happiness", "joy", "ecstasy", "elation"],
+      "gratitude": ["anger", "disgust", "resentment"]
+    },
+    "emotion_blending_weights": {
+      "primary_emotion_weight": 1.0,
+      "secondary_emotion_weight": 0.6,
+      "tertiary_emotion_weight": 0.3,
+      "max_secondary_emotions": 2,
+      "minimum_secondary_threshold": 0.4
+    },
+    "complex_emotion_patterns": {
+      "bittersweet": ["sadness", "happiness"],
+      "nervous_excitement": ["anxiety", "excitement"],
+      "angry_sadness": ["anger", "sadness"],
+      "fearful_curiosity": ["fear", "curiosity"],
+      "proud_anxiety": ["pride", "anxiety"],
+      "hopeful_fear": ["hope", "fear"],
+      "frustrated_love": ["frustration", "love"]
+    }
+  },
+  "dynamic_character_sizing": {
+    "base_sizing_rules": {
+      "colored_ascii_base_size": 1.0,
+      "regular_ascii_base_size": 0.8,
+      "hebrew_text_base_size": 1.0,
+      "punctuation_base_size": 0.9
+    },
+    "emotion_size_multipliers": {
+      "happiness": 1.1,
+      "joy": 1.2,
+      "sadness": 0.8,
+      "anger": 1.4,
+      "fear": 0.9,
+      "surprise": 1.3,
+      "disgust": 0.9,
+      "curiosity": 1.0,
+      "frustration": 1.2,
+      "excitement": 1.5,
+      "love": 1.1,
+      "anxiety": 0.85,
+      "hope": 1.05,
+      "pride": 1.15,
+      "neutral": 1.0,
+      "admiration": 1.1,
+      "amusement": 1.15,
+      "annoyance": 1.2,
+      "approval": 1.0,
+      "awe": 1.3,
+      "caring": 1.0,
+      "concentration": 0.95,
+      "contentment": 0.9,
+      "desire": 1.2,
+      "disappointment": 0.85,
+      "disapproval": 1.1,
+      "dreaminess": 0.9,
+      "ecstasy": 1.6,
+      "elation": 1.4,
+      "embarrassment": 0.8,
+      "entrancement": 1.1,
+      "grief": 0.7,
+      "gratitude": 1.05
+    },
+    "voice_intensity_scaling": {
+      "0-2": 0.8,
+      "3-4": 1.0,
+      "5-6": 1.2,
+      "7-8": 1.5,
+      "9-10": 1.8
+    },
+    "punctuation_effects": {
+      "!": {
+        "size_multiplier": 1.3,
+        "affects_preceding_words": 2,
+        "decay_rate": 0.8
+      },
+      "!!": {
+        "size_multiplier": 1.6,
+        "affects_preceding_words": 3,
+        "decay_rate": 0.7
+      },
+      "!!!": {
+        "size_multiplier": 2.0,
+        "affects_preceding_words": 4,
+        "decay_rate": 0.6
+      },
+      "?": {
+        "size_multiplier": 1.1,
+        "affects_preceding_words": 1,
+        "decay_rate": 0.9
+      },
+      "???": {
+        "size_multiplier": 1.4,
+        "affects_preceding_words": 2,
+        "decay_rate": 0.8
+      },
+      "?!": {
+        "size_multiplier": 1.5,
+        "affects_preceding_words": 2,
+        "decay_rate": 0.7
+      }
+    },
+    "word_importance_scaling": {
+      "emotional_keywords_boost": 1.3,
+      "intensity_words_boost": 1.4,
+      "voice_indicator_boost": 1.6,
+      "name_mention_boost": 1.2,
+      "repeated_word_boost": 1.25,
+      "caps_lock_boost": 1.5
+    },
+    "progressive_sizing": {
+      "sentence_crescendo": {
+        "enabled": true,
+        "start_multiplier": 0.9,
+        "peak_multiplier": 1.2,
+        "end_multiplier": 1.0
+      },
+      "emotion_buildup": {
+        "enabled": true,
+        "buildup_rate": 0.1,
+        "max_buildup": 0.5,
+        "decay_rate": 0.05
+      }
+    },
+    "character_type_rules": {
+      "hebrew_letters": {
+        "base_multiplier": 1.0,
+        "emotion_sensitivity": 1.2,
+        "voice_sensitivity": 1.1
+      },
+      "english_letters": {
+        "base_multiplier": 0.9,
+        "emotion_sensitivity": 1.0,
+        "voice_sensitivity": 1.0
+      },
+      "numbers": {
+        "base_multiplier": 0.8,
+        "emotion_sensitivity": 0.7,
+        "voice_sensitivity": 0.8
+      },
+      "special_characters": {
+        "base_multiplier": 1.1,
+        "emotion_sensitivity": 1.3,
+        "voice_sensitivity": 1.4
+      },
+      "colored_ascii": {
+        "base_multiplier": 1.2,
+        "emotion_sensitivity": 1.5,
+        "voice_sensitivity": 1.3
+      }
+    },
+    "size_limits": {
+      "minimum_size": 0.3,
+      "maximum_size": 3.0,
+      "comfortable_reading_min": 0.7,
+      "comfortable_reading_max": 1.8
+    }
+  },
+  "blobiness_rules": {
+    "base_blobiness": {
+      "neutral": 2.0,
+      "single_clear_emotion": 3.0,
+      "multiple_emotions": 5.0,
+      "conflicting_emotions": 7.0,
+      "emotional_chaos": 9.0
+    },
+    "emotion_complexity_factors": {
+      "single_emotion": {
+        "blobiness_base": 2.5,
+        "description": "Clear, single emotion - smooth, stable blob"
+      },
+      "dual_emotions": {
+        "compatible": {
+          "blobiness_base": 4.0,
+          "description": "Two compatible emotions - moderate blob complexity"
+        },
+        "conflicting": {
+          "blobiness_base": 6.5,
+          "description": "Two conflicting emotions - high blob turbulence"
+        }
+      },
+      "multiple_emotions": {
+        "3_emotions": {
+          "blobiness_base": 5.5,
+          "description": "Three emotions - complex blob patterns"
+        },
+        "4_plus_emotions": {
+          "blobiness_base": 8.0,
+          "description": "Four or more emotions - chaotic blob behavior"
+        }
+      }
+    },
+    "voice_intensity_impact": {
+      "0-2": {
+        "blobiness_modifier": -1.0,
+        "description": "Whisper/quiet - calmer, smaller blob fluctuations"
+      },
+      "3-4": {
+        "blobiness_modifier": 0.0,
+        "description": "Normal voice - baseline blob behavior"
+      },
+      "5-6": {
+        "blobiness_modifier": 1.0,
+        "description": "Raised voice - increased blob activity"
+      },
+      "7-8": {
+        "blobiness_modifier": 2.0,
+        "description": "Shouting - high blob turbulence"
+      },
+      "9-10": {
+        "blobiness_modifier": 3.0,
+        "description": "Screaming - maximum blob chaos"
+      }
+    },
+    "emotional_stability_factors": {
+      "stable_emotions": {
+        "happiness": -0.5,
+        "joy": -0.3,
+        "love": -0.7,
+        "hope": -0.4,
+        "pride": -0.2,
+        "contentment": -0.8,
+        "approval": -0.3,
+        "admiration": -0.2,
+        "caring": -0.4,
+        "concentration": -0.6,
+        "description": "Stable positive emotions reduce blobiness"
+      },
+      "unstable_emotions": {
+        "anger": 1.5,
+        "frustration": 1.3,
+        "anxiety": 1.8,
+        "fear": 1.2,
+        "surprise": 1.0,
+        "excitement": 0.8,
+        "annoyance": 1.4,
+        "disappointment": 1.1,
+        "disapproval": 1.0,
+        "desire": 0.9,
+        "awe": 1.2,
+        "ecstasy": 2.0,
+        "elation": 1.6,
+        "embarrassment": 1.5,
+        "entrancement": 0.8,
+        "grief": 1.4,
+        "description": "Unstable emotions increase blobiness"
+      },
+      "neutral_emotions": {
+        "curiosity": 0.2,
+        "sadness": 0.3,
+        "disgust": 0.5,
+        "neutral": 0.0,
+        "amusement": 0.1,
+        "dreaminess": -0.1,
+        "gratitude": -0.3,
+        "description": "Neutral emotions have minimal impact"
+      }
+    },
+    "text_characteristics_impact": {
+      "confusion_indicators": {
+        "high_blur": 2.0,
+        "question_marks": 0.5,
+        "uncertainty_words": 1.0,
+        "description": "Confusion and uncertainty increase blobiness"
+      },
+      "clarity_indicators": {
+        "clear_statements": -0.5,
+        "confident_language": -0.3,
+        "agreement": -0.2,
+        "description": "Clear, confident speech reduces blobiness"
+      },
+      "intensity_indicators": {
+        "exclamation_marks": 0.3,
+        "caps_lock": 0.8,
+        "repeated_letters": 1.0,
+        "extended_vowels": 1.2,
+        "description": "Text intensity increases blobiness"
+      }
+    },
+    "emotional_transition_impact": {
+      "smooth_transition": {
+        "blobiness_modifier": 0.0,
+        "description": "Gradual emotional change - stable blob"
+      },
+      "abrupt_transition": {
+        "blobiness_modifier": 2.0,
+        "description": "Sudden emotional change - blob turbulence"
+      },
+      "emotional_rollercoaster": {
+        "blobiness_modifier": 3.5,
+        "description": "Multiple rapid changes - maximum blob chaos"
+      }
+    },
+    "contextual_factors": {
+      "sentence_length": {
+        "short_sentence": {
+          "blobiness_modifier": -0.2,
+          "description": "Short sentences - more controlled blob"
+        },
+        "medium_sentence": {
+          "blobiness_modifier": 0.0,
+          "description": "Medium sentences - baseline blob"
+        },
+        "long_sentence": {
+          "blobiness_modifier": 0.5,
+          "description": "Long sentences - more complex blob patterns"
+        },
+        "very_long_sentence": {
+          "blobiness_modifier": 1.0,
+          "description": "Very long sentences - increased blob complexity"
+        }
+      },
+      "punctuation_complexity": {
+        "simple_punctuation": -0.1,
+        "mixed_punctuation": 0.3,
+        "complex_punctuation": 0.8,
+        "chaotic_punctuation": 1.5,
+        "description": "Punctuation complexity affects blob behavior"
+      }
+    },
+    "special_cases": {
+      "sarcasm": {
+        "blobiness_modifier": 1.5,
+        "description": "Sarcastic tone creates conflicting blob patterns"
+      },
+      "irony": {
+        "blobiness_modifier": 1.3,
+        "description": "Ironic statements increase blob complexity"
+      },
+      "internal_conflict": {
+        "blobiness_modifier": 2.5,
+        "description": "Internal emotional conflict - high blob turbulence"
+      },
+      "overwhelming_emotion": {
+        "blobiness_modifier": 2.0,
+        "description": "Overwhelming single emotion - chaotic blob"
+      },
+      "emotional_numbness": {
+        "blobiness_modifier": -1.5,
+        "description": "Emotional numbness - very low blob activity"
+      }
+    },
+    "calculation_rules": {
+      "base_calculation": "base_blobiness + emotion_complexity + voice_intensity_impact + emotional_stability + text_characteristics + contextual_factors",
+      "minimum_blobiness": 1.0,
+      "maximum_blobiness": 10.0,
+      "default_blobiness": 3.5,
+      "rounding": "round to nearest 0.5"
+    },
+    "visual_interpretation": {
+      "1.0-2.0": {
+        "description": "Very calm, stable blob - smooth, gentle movements",
+        "visual_effect": "Minimal distortion, peaceful appearance"
+      },
+      "2.5-3.5": {
+        "description": "Slightly active blob - gentle fluctuations",
+        "visual_effect": "Soft waves, comfortable to watch"
+      },
+      "4.0-5.0": {
+        "description": "Moderately active blob - noticeable movement",
+        "visual_effect": "Clear undulations, dynamic but controlled"
+      },
+      "5.5-6.5": {
+        "description": "Highly active blob - significant turbulence",
+        "visual_effect": "Strong distortions, attention-grabbing"
+      },
+      "7.0-8.0": {
+        "description": "Very turbulent blob - chaotic movements",
+        "visual_effect": "Rapid changes, high visual impact"
+      },
+      "8.5-10.0": {
+        "description": "Extremely chaotic blob - maximum turbulence",
+        "visual_effect": "Wild distortions, overwhelming visual effect"
+      }
+    }
+  },
+  "emotion_colors": {
+    "happiness": "#FFD700",
+    "joy": "#FF6B35", 
+    "sadness": "#4A90E2",
+    "anger": "#FF3B30",
+    "fear": "#6A4C93",
+    "surprise": "#FF9500",
+    "disgust": "#8E6A5B",
+    "neutral": "#8E8E93",
+    "curiosity": "#30D158",
+    "frustration": "#FF6B6B",
+    "excitement": "#FF2D92",
+    "love": "#FF1744",
+    "anxiety": "#9B59B6",
+    "hope": "#87CEEB",
+    "pride": "#FFD700",
+    "admiration": "#FFB347",
+    "amusement": "#FFA07A",
+    "annoyance": "#F4A460",
+    "approval": "#98FB98",
+    "awe": "#E6E6FA",
+    "caring": "#F0E68C",
+    "concentration": "#20B2AA",
+    "contentment": "#DDA0DD",
+    "desire": "#DC143C",
+    "disappointment": "#708090",
+    "disapproval": "#CD5C5C",
+    "dreaminess": "#DDB4F0",
+    "ecstasy": "#FF69B4",
+    "elation": "#FFD700",
+    "embarrassment": "#FFA0A0",
+    "entrancement": "#DA70D6",
+    "grief": "#2F4F4F",
+    "gratitude": "#F5DEB3"
+  },
+  "openai_prompts": {
+    "system_prompt_template": "You are an expert Hebrew linguist and conversation analyst. Analyze the given Hebrew text for emotional and conversational patterns.\n\nFocus on:\n1. **Primary Emotion**: The single most dominant emotion from: happiness, joy, sadness, anger, fear, surprise, disgust, neutral, curiosity, frustration, excitement, love, anxiety, hope, pride, admiration, amusement, annoyance, approval, awe, caring, concentration, contentment, desire, disappointment, disapproval, dreaminess, ecstasy, elation, embarrassment, entrancement, grief, gratitude, or any other emotion detected.\n2. **Secondary Emotions**: Up to 2 additional emotions that coexist with the primary emotion. Return as array: [\"emotion1\", \"emotion2\"]\n3. **Visual Effects**: \n   - `blur`: 0-12 (unclear speech, confusion)\n   - `shine`: 0-10 (emphasis, important moments)\n   - `humor`: 0-10 (playfulness, laughter)\n4. **Voice Intensity**: \n   - `voice_intensity`: 0-10 (loudness, yelling, raised voice)\n   - `character_size_boost`: 0-1.0 (how much to increase text size)\n5. **Dynamic Sizing**:\n   - `size_variation_pattern`: linear, crescendo, explosive, wave, steady\n   - `emphasis_words`: array of words that should be larger\n   - `whisper_words`: array of words that should be smaller\n6. **Blob Visuals**:\n   - `blobiness`: 1-10 (emotional complexity - calculate based on rules below)\n   - `blobSizeScale`: 1-20 (emotional intensity)\n   - `blobGrowthPattern`: hesitant, steady, explosive, building, curious, playful, anxious, confident\n\n**BLOBINESS CALCULATION RULES:**\nStart with base blobiness, then add/subtract modifiers:\n- Single emotion: 2.5 base\n- Dual compatible emotions: 4.0 base\n- Dual conflicting emotions: 6.5 base\n- 3+ emotions: 5.5-8.0 base\n\nVoice intensity modifiers:\n- Whisper (0-2): -1.0\n- Normal (3-4): 0.0\n- Raised (5-6): +1.0\n- Shouting (7-8): +2.0\n- Screaming (9-10): +3.0\n\nEmotion stability modifiers:\n- Stable emotions (love, happiness): -0.2 to -0.7\n- Unstable emotions (anxiety, anger): +0.8 to +1.8\n- Confusion/uncertainty: +1.0 to +2.0\n- Clear confident speech: -0.2 to -0.5\n\nSpecial cases:\n- Sarcasm/irony: +1.3 to +1.5\n- Internal conflict: +2.5\n- Emotional numbness: -1.5\n- Overwhelming single emotion: +2.0\n\nFinal range: 1.0 to 10.0 (round to nearest 0.5)\n7. **Analysis**:\n   - `analysis_confidence`: 0-100 (your confidence)\n   - `hebrew_insights`: Brief insight on Hebrew usage\n   - `emotion_complexity`: 1-10 (how many emotions are mixed)\n\nAnalyze for multi-emotion scenarios:\n- Mixed emotions like nervous excitement, bittersweet moments\n- Emotional transitions within the text\n- Conflicting emotions that create tension\n\nAnalyze for voice intensity and sizing:\n- Multiple exclamation marks (!!!) = high intensity\n- Extended vowels (אאאא, וואאאא) = yelling/emphasis\n- Caps or repeated characters = raised voice\n- Emotional intensity words = louder speech\n- Important words that need emphasis\n- Whispered or de-emphasized words\n\nUse these word patterns for analysis:\n{word_patterns}\n\nReturn ONLY a JSON object with these exact keys:\n{\n    \"primary_emotion\": \"...\",\n    \"secondary_emotions\": [...],\n    \"blur\": ..., \n    \"shine\": ...,\n    \"humor\": ...,\n    \"voice_intensity\": ...,\n    \"character_size_boost\": ...,\n    \"size_variation_pattern\": \"...\",\n    \"emphasis_words\": [...],\n    \"whisper_words\": [...],\n    \"blobiness\": ...,\n    \"blobSizeScale\": ...,\n    \"blobGrowthPattern\": \"...\",\n    \"analysis_confidence\": ...,\n    \"hebrew_insights\": \"...\",\n    \"emotion_complexity\": ...\n}",
+    "user_prompt_template": "Analyze this Hebrew conversation excerpt:\n\nText: \"{text}\"\nDetected emotions: {emotions}  \nWord count: {word_count}\n\nProvide detailed analysis focusing on Hebrew linguistic patterns, emotional undertones, and conversational dynamics."
+  }
+} 

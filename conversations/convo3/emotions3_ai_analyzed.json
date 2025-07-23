@@ -1,0 +1,269 @@
+{
+  "001.mp3": {
+    "speaker": 0,
+    "transcript": "איך קוראים לזה לקחת את החבילה?",
+    "emotions": [
+      "curiosity"
+    ],
+    "blur": 4,
+    "shine": 6,
+    "humor": 3,
+    "positioning": [
+      0,
+      0
+    ],
+    "connections": [],
+    "strength": 1,
+    "blobiness": 3.3,
+    "character_sizing": 1,
+    "words": "איך קוראים לזה לקחת את החבילה?",
+    "word_count": 4,
+    "circlesPerEmotion": 30,
+    "blobsVisible": true,
+    "blobStrength": 2500,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-left",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 0.7,
+    "regularAsciiCharSize": 0.3,
+    "blobSizeScale": 6,
+    "blobSpreadField": 2,
+    "blobGrowthPattern": "curious",
+    "blobInteractionForce": 200,
+    "blobMomentum": 0.5,
+    "forceCenter": false,
+    "ai_analysis_method": "openai_gpt4o",
+    "ai_confidence": 95,
+    "ai_insights": "השאלה מביעה סקרנות לגבי שם פעולה מסוימת, עם טון נייטרלי ובקשת מידע.",
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-18T11:40:05.109Z",
+    "emotionColors": {
+      "surprise": "#FF69B4",
+      "curiosity": "#ff00d0"
+    },
+    "blobSize": 5,
+    "gridResolution": 31,
+    "audio_volume": 0.5,
+    "audio_energy": 4049.173583984375,
+    "audio_duration": 1.112,
+    "emotionCharAmount": 129
+  },
+  "002.mp3": {
+    "speaker": 0,
+    "transcript": "אני עכשיו חוזר הביתה. אתה רוצה ללכת?",
+    "emotions": [
+      "curiosity"
+    ],
+    "blur": 3,
+    "shine": 7,
+    "humor": 3,
+    "positioning": [
+      0,
+      0
+    ],
+    "connections": [],
+    "strength": 1,
+    "blobiness": 3.3,
+    "character_sizing": 1,
+    "words": "אני עכשיו חוזר הביתה. אתה רוצה ללכת?",
+    "word_count": 7,
+    "circlesPerEmotion": 30,
+    "blobsVisible": true,
+    "blobStrength": 2500,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-right",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 0.25,
+    "regularAsciiCharSize": 0.25,
+    "blobSizeScale": 5,
+    "blobSpreadField": 2,
+    "blobGrowthPattern": "steady",
+    "blobInteractionForce": 200,
+    "blobMomentum": 0.5,
+    "forceCenter": false,
+    "ai_analysis_method": "openai_gpt4o",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מציג סקרנות ומציע פעולה של הליכה, בנימה קלילה ושואלת.",
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-18T11:40:13.344Z",
+    "emotionColors": {
+      "neutral": "#000000",
+      "curiosity": "#ff00d0"
+    },
+    "blobSize": 5,
+    "gridResolution": 80,
+    "audio_volume": 0.5,
+    "audio_energy": 2878.510498046875,
+    "audio_duration": 1.433
+  },
+  "003.mp3": {
+    "speaker": 1,
+    "transcript": "אוקיי אבל אני צריך לנסוע גם לאייבורי",
+    "emotions": [
+      "happiness"
+    ],
+    "blur": 4,
+    "shine": 7,
+    "humor": 6,
+    "positioning": [
+      0,
+      0
+    ],
+    "connections": [],
+    "strength": 1,
+    "blobiness": 3.0,
+    "character_sizing": 1,
+    "words": "אוקיי אבל אני צריך לנסוע גם לאייבורי",
+    "word_count": 10,
+    "circlesPerEmotion": 30,
+    "blobsVisible": true,
+    "blobStrength": 2500,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-left",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 2,
+    "regularAsciiCharSize": 0.45,
+    "blobSizeScale": 8,
+    "blobSpreadField": 2,
+    "blobGrowthPattern": "hesitant",
+    "blobInteractionForce": 200,
+    "blobMomentum": 0.5,
+    "forceCenter": false,
+    "ai_analysis_method": "openai_gpt4o",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מבטא הסכמה לנסיעה נוספת, עם נימה קלילה ושמחה.",
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-18T11:40:17.995Z",
+    "emotionColors": {
+      "approval": "#a600ff",
+      "annoyance": "#CD853F",
+      "happiness": "#FFD700"
+    },
+    "blobSize": 5,
+    "gridResolution": 51,
+    "audio_volume": 0.5,
+    "audio_energy": 2492.417724609375,
+    "audio_duration": 2.566,
+    "emotionCharAmount": 200
+  },
+  "004.mp3": {
+    "speaker": 1,
+    "transcript": "בכפר סבא",
+    "emotions": [
+      "Neutral"
+    ],
+    "blur": 6,
+    "shine": 5,
+    "humor": 5,
+    "positioning": [
+      0,
+      0
+    ],
+    "connections": [],
+    "strength": 1,
+    "blobiness": 3.0,
+    "character_sizing": 1,
+    "words": "בכפר סבא",
+    "word_count": 2,
+    "circlesPerEmotion": 30,
+    "blobsVisible": true,
+    "blobStrength": 2500,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-right",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 1,
+    "regularAsciiCharSize": 0.25,
+    "blobSizeScale": 5,
+    "blobSpreadField": 2,
+    "blobGrowthPattern": "hesitant",
+    "blobInteractionForce": 200,
+    "blobMomentum": 0.5,
+    "forceCenter": false,
+    "ai_analysis_method": "openai_gpt4o",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'בכפר סבא' הוא ניטרלי ומשמש לפתיחת שיחה פשוטה.",
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-18T11:40:21.916Z",
+    "emotionColors": {
+      "neutral": "#000000",
+      "Neutral": "#000000"
+    },
+    "blobSize": 5,
+    "gridResolution": 86,
+    "audio_volume": 0.5,
+    "audio_energy": 2592.1171875,
+    "audio_duration": 0.566,
+    "emotionCharAmount": 200
+  },
+  "conversation_details": {
+    "participants": "MP3 Conversation 4",
+    "date": "2025-06-26",
+    "time": "14:34",
+    "type": "imported_mp3",
+    "summary": "Imported from tmpr80rz7lm",
+    "source_file": "tmpr80rz7lm",
+    "processing_config": {
+      "aiModel": "openai",
+      "naturalSegmentation": true,
+      "autoSpeakerDetection": true,
+      "fileName": "שיחה עם עדן.m4a"
+    },
+    "file_info": {
+      "duration": 21.849,
+      "channels": 2,
+      "sample_rate": 44100,
+      "format": ".mp3",
+      "size_mb": 0.47412109375
+    },
+    "speaker_names": {
+      "speaker_0": "Speaker A",
+      "speaker_1": "Speaker B"
+    },
+    "emotion_mapping": {
+      "Joy": {
+        "hebrew": "שמחה",
+        "color": "#FFD700"
+      },
+      "Curiosity": {
+        "hebrew": "סקרנות",
+        "color": "#87CEEB"
+      },
+      "Neutral": {
+        "hebrew": "ניטרלי",
+        "color": "#D3D3D3"
+      },
+      "Frustration": {
+        "hebrew": "תסכול",
+        "color": "#E59400"
+      },
+      "Anger": {
+        "hebrew": "כעס",
+        "color": "#DC143C"
+      },
+      "Fear": {
+        "hebrew": "פחד",
+        "color": "#9370DB"
+      },
+      "Disgust": {
+        "hebrew": "גועל",
+        "color": "#3CB371"
+      },
+      "Surprise": {
+        "hebrew": "הפתעה",
+        "color": "#FFA500"
+      }
+    },
+    "ai_analysis": {
+      "method": "openai_enhanced",
+      "processed_entries": 4,
+      "openai_success_rate": "100.0%",
+      "enhanced_transcription": false,
+      "analysis_timestamp": "2024-01-01T00:00:00Z",
+      "version": "2.0 - OpenAI Enhanced"
+    }
+  }
+}

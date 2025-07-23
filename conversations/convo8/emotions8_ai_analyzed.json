@@ -1,0 +1,443 @@
+{
+  "001.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "Neutral"
+    ],
+    "transcript": "כי אני צריכה לשים נעליים",
+    "emotionColors": {
+      "neutral": "#000000",
+      "calm": "#4ECDC4",
+      "Neutral": "#000000"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "כי אני צריכה לשים נעליים",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T23:01:06.326346",
+    "audio_volume": 0.5,
+    "audio_energy": 2027.5771484375,
+    "audio_duration": 2.3,
+    "blur": 10,
+    "shine": 5,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 1013,
+    "gridResolution": 50,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:03:58.770Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'כי אני צריכה לשים נעליים' מזוהה כטקסט ניטרלי עם כוונה של הצעת פעולה. אין בו הומור רב והוא לא שאלה. עוצמת האודיו והאנרגיה יחסית גבוהות, מה שמביא לברק בינוני ולטשטוש קל. גודל ועוצמת ה'בלוב' מותאמים לעוצמת האודיו והרגש הניטרלי.",
+    "emotionCharAmount": 200,
+    "coloredCircleCharSize": 4,
+    "regularAsciiCharSize": 4
+  },
+  "002.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "anger",
+      "frustration"
+    ],
+    "transcript": "מה?? אבל אמרתי לך כבר שאני יוצא לפני רבע שעה",
+    "emotionColors": {
+      "thoughtful": "#45B7D1",
+      "anger": "#FF4500",
+      "frustration": "#B22222"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "מה?? אבל אמרתי לך כבר שאני יוצא לפני רבע שעה",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:58:14.385964",
+    "audio_volume": 0.5,
+    "audio_energy": 1504.19482421875,
+    "audio_duration": 2.389,
+    "blur": 2,
+    "shine": 8,
+    "humor": 1,
+    "blobSize": 7,
+    "blobStrength": 3000,
+    "gridResolution": 100,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:04.618Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מבטא כעס ותסכול, עם טון מתוח ושאלה שמביעה ביקורת. האנרגיה גבוהה, מה שמגביר את הברק והעוצמה הוויזואלית.",
+    "emotionCharAmount": 200
+  },
+  "003.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "casual",
+      "acceptance"
+    ],
+    "transcript": "נו בסדר זה שלוש דקות ממני",
+    "emotionColors": {
+      "engaged": "#D2B4DE",
+      "casual": "#44ff00",
+      "acceptance": "#ABEBC6"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "נו בסדר זה שלוש דקות ממני",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:58:21.920898",
+    "audio_volume": 0.5,
+    "audio_energy": 1750.366455078125,
+    "audio_duration": 1.683,
+    "blur": 8,
+    "shine": 6,
+    "humor": 3,
+    "blobSize": 5,
+    "blobStrength": 875,
+    "gridResolution": 60,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:10.960Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט משדר תחושת נינוחות והסכמה, עם נימה נייטרלית. אין בו שאלה או הומור בולט, אך יש בו קלילות מסוימת. האנרגיה והעוצמה בינוניות, מה שמוביל לגודל ועוצמת בלוב ממוצעים. הקרבה בין האלמנטים קרובה, מה שמצביע על אינטימיות מסוימת בטקסט.",
+    "emotionCharAmount": 200,
+    "coloredCircleCharSize": 4
+  },
+  "004.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "curiosity",
+      "anticipation"
+    ],
+    "transcript": "טוב בסדר, איפה אתה?",
+    "emotionColors": {
+      "neutral": "#000000",
+      "curiosity": "#ff00d0",
+      "anticipation": "#ABEBC6"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "טוב בסדר, איפה אתה?",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:58:31.058172",
+    "audio_volume": 0.5,
+    "audio_energy": 1580.0975341796875,
+    "audio_duration": 1.263,
+    "blur": 8,
+    "shine": 7,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 3000,
+    "gridResolution": 40,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:15.945Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'טוב בסדר, איפה אתה?' מביע סקרנות וציפייה, עם טון נייטרלי ובקשת מידע. עוצמת האודיו והאנרגיה מתונות, מה שמוביל לגודל ועוצמת בלוב בינוניים. הקרבה בין האלמנטים קרובה, והטשטוש נמוך יחסית לרגש הסקרנות."
+  },
+  "005.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "Neutral"
+    ],
+    "transcript": "ביריד הזה, אני ברכב",
+    "emotionColors": {
+      "happy": "#FFD700",
+      "excited": "#FF1493",
+      "Neutral": "#000000"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "ביריד הזה, אני ברכב",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:58:43.364197",
+    "audio_volume": 0.5,
+    "audio_energy": 1056.2371826171875,
+    "audio_duration": 1.811,
+    "blur": 12,
+    "shine": 5,
+    "humor": 1,
+    "blobSize": 5,
+    "blobStrength": 5000,
+    "gridResolution": 40,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:21.462Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'ביריד הזה, אני ברכב' מזוהה כטקסט ניטרלי עם מעט הומור. אין בו שאלה או כוונה לפתיחת שיחה, אלא ביטוי רגש פשוט. הפרמטרים הוויזואליים משקפים את הניטרליות והאנרגיה הממוצעת של האודיו, עם טשטוש גבוה וזוהר בינוני."
+  },
+  "006.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "curiosity",
+      "anticipation"
+    ],
+    "transcript": "אהה אתה כבר שם??",
+    "emotionColors": {
+      "curious": "#00CED1",
+      "curiosity": "#ff00d0",
+      "anticipation": "#ABEBC6"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "אהה אתה כבר שם??",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:58:51.373827",
+    "audio_volume": 0.5,
+    "audio_energy": 1811.2828369140625,
+    "audio_duration": 1.021,
+    "blur": 8,
+    "shine": 7,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 3000,
+    "gridResolution": 40,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:25.851Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'אהה אתה כבר שם??' מבטא סקרנות ופתיחת שיחה בצורה קלילה. השאלה מעידה על ציפייה לתגובה, עם רמת הומור נמוכה. האנרגיה הגבוהה באודיו תורמת לתחושת התרגשות, והקרבה בין האלמנטים מדגישה את האינטימיות של השיחה."
+  },
+  "007.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "excitement",
+      "happiness"
+    ],
+    "transcript": "כן! טוב אני יוצאת",
+    "emotionColors": {
+      "thoughtful": "#45B7D1",
+      "calm": "#4ECDC4",
+      "excitement": "#FF1493",
+      "happiness": "#FFD700"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "כן! טוב אני יוצאת",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:01.387435",
+    "audio_volume": 0.5,
+    "audio_energy": 1963.3677978515625,
+    "audio_duration": 2.176,
+    "blur": 2,
+    "shine": 9,
+    "humor": 2,
+    "blobSize": 7,
+    "blobStrength": 3926,
+    "gridResolution": 40,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:30.911Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מבטא התרגשות ושמחה, עם טון חם ואינטנסיביות גבוהה. אין הומור בולט, והכוונה היא ביטוי רגש. עוצמת האודיו והאנרגיה גבוהות, מה שמגביר את הברק והעוצמה הויזואלית."
+  },
+  "008.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "curiosity",
+      "affection",
+      "agreeable"
+    ],
+    "transcript": "אהה את רוצה שאני אאסוף אותך?",
+    "emotionColors": {
+      "engaged": "#D2B4DE",
+      "curiosity": "#ff00d0",
+      "affection": "#FFB6C1",
+      "agreeable": "#82E0AA"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "אהה את רוצה שאני אאסוף אותך?",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:09.387899",
+    "audio_volume": 0.5,
+    "audio_energy": 2202.319580078125,
+    "audio_duration": 1.179,
+    "blur": 4,
+    "shine": 7,
+    "humor": 3,
+    "blobSize": 7,
+    "blobStrength": 4400,
+    "gridResolution": 60,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:36.669Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'אהה את רוצה שאני אאסוף אותך?' מבטא סקרנות וחיבה, עם טון חם ונעים. מדובר בשאלה המציעה פעולה, עם עוצמת רגש גבוהה יחסית. האודיו תורם לאנרגיה גבוהה, מה שמוביל לברק וזוהר גבוהים בויזואליזציה. האלמנטים קרובים זה לזה, מה שמרמז על אינטימיות מסוימת."
+  },
+  "009.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "hesitation",
+      "approval",
+      "uncertainty"
+    ],
+    "transcript": "אהה לא חובה לא",
+    "emotionColors": {
+      "neutral": "#000000",
+      "hesitation": "#ABEBC6",
+      "approval": "#a600ff",
+      "uncertainty": "#4ECDC4"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "אהה לא חובה לא",
+    "blur": 8,
+    "shine": 6,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 2108,
+    "gridResolution": 40,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:47.103Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'אהה לא חובה לא' משדר היסוס ואי ודאות, עם גוון נייטרלי. הכוונה היא ביטוי רגש, והאנרגיה האודיו גבוהה יחסית, מה שמוסיף לברק ולנזילות הוויזואלית.",
+    "audio_volume": 0.5,
+    "audio_energy": 2108.745849609375,
+    "audio_duration": 1.673
+  },
+  "010.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "casual",
+      "caring",
+      "curiosity"
+    ],
+    "transcript": "מה שאתה רוצה, כאילו זה פשוט יהיה יותר מהיר אם תבוא, אבל זה לא חייב.",
+    "emotionColors": {
+      "happy": "#FFD700",
+      "casual": "#44ff00",
+      "caring": "#20B2AA",
+      "curiosity": "#ff00d0"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "מה שאתה רוצה, כאילו זה פשוט יהיה יותר מהיר אם תבוא, אבל זה לא חייב.",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:20.123888",
+    "audio_volume": 0.5,
+    "audio_energy": 1980.8603515625,
+    "audio_duration": 3.8,
+    "blur": 8,
+    "shine": 5,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 1980,
+    "gridResolution": 150,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:52.970Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מציג הצעת פעולה בצורה נינוחה עם נימה נייטרלית. יש נוכחות קלה של דאגה וסקרנות, אך הרגש הדומיננטי הוא נינוחות. עוצמת האודיו והאנרגיה בינוניות, מה שמוביל למידת טשטוש בינונית ולברק מתון. קרבת האלמנטים משקפת אינטימיות יחסית, והנזילות משקפת את הרגש הרך."
+  },
+  "011.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "Neutral"
+    ],
+    "transcript": "הזית 210",
+    "emotionColors": {
+      "thoughtful": "#45B7D1",
+      "Neutral": "#000000"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "הזית 210",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:27.190336",
+    "audio_volume": 0.5,
+    "audio_energy": 1877.4639892578125,
+    "audio_duration": 1.647,
+    "blur": 12,
+    "shine": 5,
+    "humor": 0,
+    "blobSize": 5,
+    "blobStrength": 1877,
+    "gridResolution": 20,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:04:59.591Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'הזית 210' מזוהה כטקסט ניטרלי עם כוונה של בקשת מידע. אין בו הומור או רגשות חזקים, ולכן הוא מתאפיין בטשטוש גבוה וברק בינוני. עוצמת האודיו והאנרגיה תורמות לגודל ועוצמת ה'בלוב' הוויזואלי."
+  },
+  "012.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "casual",
+      "anticipation"
+    ],
+    "transcript": "סבבה, אז אני עוד חמש דקות",
+    "emotionColors": {
+      "calm": "#4ECDC4",
+      "engaged": "#D2B4DE",
+      "casual": "#44ff00",
+      "anticipation": "#ABEBC6"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "סבבה, אז אני עוד חמש דקות",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:33.743915",
+    "audio_volume": 0.5,
+    "audio_energy": 1188.911376953125,
+    "audio_duration": 2.463,
+    "blur": 8,
+    "shine": 6,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 3000,
+    "gridResolution": 60,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:05:05.543Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מבטא הסכמה בצורה נינוחה וקלילה, עם רמיזה קלה להומור. האנרגיה והעוצמה של האודיו מצביעים על נינוחות וציפייה, מה שמוביל ליצירת ויזואליזציה עם ברק בינוני וטשטוש נמוך. האלמנטים קרובים זה לזה, מה שמדגיש את האינטימיות של השיחה."
+  },
+  "013.mp3": {
+    "speaker": 0,
+    "emotions": [
+      "farewell"
+    ],
+    "transcript": "טוב אני יורדת ביי",
+    "emotionColors": {
+      "neutral": "#000000",
+      "farewell": "#D7BDE2"
+    },
+    "blobHomeRegion": "center-left",
+    "words": "טוב אני יורדת ביי",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:41.526145",
+    "audio_volume": 0.5,
+    "audio_energy": 1918.82177734375,
+    "audio_duration": 1.634,
+    "blur": 10,
+    "shine": 6,
+    "humor": 2,
+    "blobSize": 5,
+    "blobStrength": 3837,
+    "gridResolution": 40,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:05:09.718Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט מכיל ביטוי רגש של פרידה, עם טון נייטרלי ומעט הומור. האנרגיה גבוהה יחסית, מה שמצביע על התרגשות מסוימת. הנזילות של האלמנטים וקרבתם משקפות את האופי הרך של הפרידה."
+  },
+  "014.mp3": {
+    "speaker": 1,
+    "emotions": [
+      "confusion",
+      "approval",
+      "discomfort"
+    ],
+    "transcript": "רעש של רכב",
+    "emotionColors": {
+      "satisfied": "#F9E79F",
+      "confusion": "#DDA0DD",
+      "approval": "#a600ff",
+      "discomfort": "#F5B7B1"
+    },
+    "blobHomeRegion": "center-right",
+    "words": "רעש של רכב",
+    "transcribed": true,
+    "transcription_method": "openai_fast",
+    "transcription_date": "2025-07-19T22:59:52.682543",
+    "audio_volume": 0.5,
+    "audio_energy": 2537.116455078125,
+    "audio_duration": 4.052,
+    "blur": 8,
+    "shine": 5,
+    "humor": 1,
+    "blobSize": 5,
+    "blobStrength": 2500,
+    "gridResolution": 30,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-07-19T20:05:15.777Z",
+    "ai_confidence": 95,
+    "ai_insights": "הטקסט 'רעש של רכב' מבטא תחושת בלבול עם נגיעה קלה של אישור ואי נוחות. הרגש המרכזי הוא בלבול, והטון הכללי נייטרלי. אין הומור בטקסט, והכוונה היא לביטוי רגש. האודיו מצביע על עוצמת קול ואנרגיה בינוניות, מה שמשפיע על המאפיינים הוויזואליים כמו טשטוש, ברק וגודל האלמנטים."
+  }
+}

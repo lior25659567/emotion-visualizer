@@ -1,0 +1,319 @@
+{
+  "conversations": {
+    "convo1": {
+      "number": 1,
+      "mp3_count": 73,
+      "emotion_file": "conversations/convo1/emotions1.json",
+      "ai_file": "conversations/convo1/emotions1_ai_analyzed.json",
+      "image_path": "conversion images/convo1.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "שיחה עם אבא ",
+        "mainParticipant": "custom",
+        "customParticipantName": "אבא  ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "confusion"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 1",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:04.302Z",
+        "duration": "1:50",
+        "totalWords": 330,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "אבא  "
+        ]
+      }
+    },
+    "convo2": {
+      "number": 2,
+      "mp3_count": 174,
+      "emotion_file": "conversations/convo2/emotions2.json",
+      "ai_file": "conversations/convo2/emotions2_ai_analyzed.json",
+      "image_path": "conversion images/convo2.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "שיחה על הצבא ",
+        "mainParticipant": "custom",
+        "customParticipantName": "עדי ביטון",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "fear"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 2",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:12.351Z",
+        "duration": "4:21",
+        "totalWords": 1249,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "עדי ביטון"
+        ]
+      }
+    },
+    "convo3": {
+      "number": 3,
+      "mp3_count": 4,
+      "emotion_file": "conversations/convo3/emotions3.json",
+      "ai_file": "conversations/convo3/emotions3_ai_analyzed.json",
+      "image_path": "conversion images/convo3.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "שיחה על חבילה ",
+        "mainParticipant": "custom",
+        "customParticipantName": "עדן",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "neutral"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 3",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-18T11:38:41.378Z",
+        "duration": "0:06",
+        "totalWords": 23,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "עדן"
+        ]
+      }
+    },
+    "convo4": {
+      "number": 4,
+      "mp3_count": 20,
+      "emotion_file": "conversations/convo4/emotions4.json",
+      "ai_file": "conversations/convo4/emotions4_ai_analyzed.json",
+      "image_path": "conversion images/convo4.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "על החיים",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "דובר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "surprise"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 4",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:21.067Z",
+        "duration": "0:30",
+        "totalWords": 105,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ]
+      }
+    },
+    "convo5": {
+      "number": 5,
+      "mp3_count": 73,
+      "emotion_file": "conversations/convo5/emotions5.json",
+      "ai_file": "conversations/convo5/emotions5_ai_analyzed.json",
+      "image_path": "conversion images/convo5.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "שיעור ודגחמ ",
+        "mainParticipant": "custom",
+        "customParticipantName": "גיליבר ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "love"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 5",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:24.817Z",
+        "duration": "1:50",
+        "totalWords": 587,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר "
+        ]
+      }
+    },
+    "convo6": {
+      "number": 6,
+      "mp3_count": 104,
+      "emotion_file": "conversations/convo6/emotions6.json",
+      "ai_file": "conversations/convo6/emotions6_ai_analyzed.json",
+      "image_path": "conversion images/convo6.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "ביום יום עם פרדי ",
+        "mainParticipant": "פרדי פיזנטי",
+        "customParticipantName": "דובר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "caring"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 6",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:30.984Z",
+        "duration": "2:36",
+        "totalWords": 964,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי פיזנטי"
+        ]
+      }
+    },
+    "convo7": {
+      "number": 7,
+      "mp3_count": 68,
+      "emotion_file": "conversations/convo7/emotions7.json",
+      "ai_file": "conversations/convo7/emotions7_ai_analyzed.json",
+      "image_path": "conversion images/convo7.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "מבחן של יואב ",
+        "mainParticipant": "custom",
+        "customParticipantName": "גיליבר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "annoyance"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 7",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:34.283Z",
+        "duration": "1:42",
+        "totalWords": 479,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo8": {
+      "number": 8,
+      "mp3_count": 14,
+      "emotion_file": "conversations/convo8/emotions8.json",
+      "ai_file": "conversations/convo8/emotions8_ai_analyzed.json",
+      "image_path": "conversion images/convo8.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "נפגשים ביריד ",
+        "mainParticipant": "custom",
+        "customParticipantName": "טל בן אברהם ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "love"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 8",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:15:38.134Z",
+        "duration": "0:21",
+        "totalWords": 77,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל בן אברהם "
+        ]
+      }
+    },
+    "convo10": {
+      "number": 10,
+      "mp3_count": 104,
+      "emotion_file": "conversations/convo10/emotions10.json",
+      "ai_file": "conversations/convo10/emotions10_ai_analyzed.json",
+      "image_path": "conversion images/convo10.png",
+      "metadata": {
+        "date": "2025-07-16",
+        "name": "פרידה מגיליבר",
+        "mainParticipant": "custom",
+        "customParticipantName": "בר מזרחי ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "excitement"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "שיחה מספר 10",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:14:56.236Z",
+        "duration": "2:36",
+        "totalWords": 801,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי "
+        ]
+      }
+    },
+    "convo19": {
+      "number": 19,
+      "mp3_count": 24,
+      "ai_file": "conversations/convo19/emotions19_ai_analyzed.json",
+      "emotion_file": "conversations/convo19/emotions19_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-20",
+        "name": "לא נפגש עם גיליבר",
+        "mainParticipant": "custom",
+        "customParticipantName": "גיליבר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "happiness"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "",
+        "tags": [
+          "general"
+        ],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-07-20T17:14:47.136Z",
+        "duration": "0:36",
+        "totalWords": 134,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    }
+  },
+  "total_conversations": 10,
+  "file_mappings": {
+    "convo1": "conversations/convo1/emotions1.json",
+    "convo2": "conversations/convo2/emotions2.json",
+    "convo3": "conversations/convo3/emotions3.json",
+    "convo4": "conversations/convo4/emotions4.json",
+    "convo5": "conversations/convo5/emotions5.json",
+    "convo6": "conversations/convo6/emotions6.json",
+    "convo7": "conversations/convo7/emotions7.json",
+    "convo8": "conversations/convo8/emotions8.json",
+    "convo10": "conversations/convo10/emotions10.json",
+    "convo19": "conversations/convo19/emotions19_ai_analyzed.json"
+  },
+  "last_metadata_update": "2025-07-20T17:15:38.134Z"
+}

@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversation Visualization</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  
+  <script>
+    // Single, clean workaround for iframe issues
+    if (typeof self === 'undefined') {
+      window.self = window;
+    }
+    if (typeof global === 'undefined') {
+      window.global = window;
+    }
+    
+    // Load p5.sound with proper error handling
+    window.p5SoundLoaded = false;
+    window.p5SoundFailed = false;
+    
+    const loadP5Sound = () => {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js';
+      script.onload = () => {
+        window.p5SoundLoaded = true;
+        console.log('✅ p5.sound loaded successfully');
+      };
+      script.onerror = () => {
+        window.p5SoundFailed = true;
+        console.warn('⚠️ p5.sound failed to load, continuing without audio');
+      };
+      document.head.appendChild(script);
+    };
+    
+    loadP5Sound();
+  </script>
+  
+  <script>
+    // --- ENHANCED DYNAMIC DATA LOADING WITH VIDEO CAPTURE SUPPORT ---
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const folder = params.get('folder');
+      const viewMode = params.get('viewMode');
+      const noSidepanel = params.get('noSidepanel') === 'true';
+      const noTimeline = params.get('noTimeline') === 'true';
+      const visualOnly = params.get('visualOnly') === 'true';
+      const autostart = params.get('autostart') === 'true';
+      const animate = params.get('animate') !== 'false'; // Default to true
+      const static = params.get('static') === 'true';
+      
+      // New clean capture parameters
+      const fullscreen = params.get('fullscreen') === 'true';
+      const hideUI = params.get('hideUI') === 'true';
+      const canvasOnly = params.get('canvasOnly') === 'true';
+      const noControls = params.get('noControls') === 'true';
+      const cleanCapture = params.get('cleanCapture') === 'true';
+      
+      // Handle clean capture mode - hide ALL UI elements for video capture
+      if (cleanCapture || canvasOnly || hideUI) {
+        console.log('🎬 Clean capture mode - hiding all UI elements for video recording');
+        
+        // Add class to body for clean capture styling
+        document.body.classList.add('clean-capture', 'no-sidebar');
+        
+        // Comprehensive CSS to hide all UI and show only the visualization canvas
+        const cleanCaptureStyle = document.createElement('style');
+        cleanCaptureStyle.textContent = `
+          /* Ensure consistent background color for video capture */
+          html, body { 
+            background-color: #f7f9f3 !important; 
+            background: #f7f9f3 !important; 
+          }
+          
+          /* Hide all UI elements for clean video capture */
+          #sidebar { display: none !important; }
+          #external-toggle { display: none !important; }
+          #bottom-controls-container { display: none !important; }
+          .timeline-container { display: none !important; }
+          .control-panel { display: none !important; }
+          .toggle-panel-btn { display: none !important; }
+          .audio-prompt { display: none !important; }
+          .loading-indicator { display: none !important; }
+          .exit-tooltip { display: none !important; }
+          .hover-info-panel { display: none !important; }
+          
+          /* Make visualization container fill entire screen */
+          #main-content-wrapper { 
+            display: block !important; 
+            width: 100vw !important;
+            height: 100vh !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f7f9f3 !important;
+          }
+          #visualization-canvas-container { 
+            width: 100vw !important; 
+            height: 100vh !important;
+            margin: 0 !important; 
+            padding: 0 !important;
+            flex: none !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            z-index: 1 !important;
+            background-color: #f7f9f3 !important;
+          }
+          
+          /* Ensure canvas fills the container */
+          #visualization-canvas-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+          }
+          
+          /* Hide any other potential UI elements */
+          .ui-element, .control, .button, .panel, .overlay { display: none !important; }
+        `;
+        document.head.appendChild(cleanCaptureStyle);
+        
+        // Set global flags for clean capture
+        window.isCleanCaptureMode = true;
+        window.hideAllUI = true;
+        
+      } else if (noSidepanel) {
+        console.log('🚫 noSidepanel=true - hiding sidebar');
+        
+        // Add class to body for proper CSS styling
+        document.body.classList.add('no-sidebar');
+        
+        // Also add inline CSS to ensure sidebar is hidden
+        const style = document.createElement('style');
+        style.textContent = `
+          #sidebar { display: none !important; }
+          #external-toggle { display: none !important; }
+          #visualization-canvas-container { 
+            width: 100% !important; 
+            margin-left: 0 !important; 
+            flex: 1 !important;
+          }
+          #main-content-wrapper { 
+            display: block !important; 
+          }
+        `;
+        document.head.appendChild(style);
+        
+        // Wait for DOM to be ready then hide elements
+        setTimeout(() => {
+          const sidebar = document.getElementById('sidebar');
+          const canvasContainer = document.getElementById('visualization-canvas-container');
+          const externalToggle = document.getElementById('external-toggle');
+          
+          if (sidebar) {
+            sidebar.style.display = 'none';
+            sidebar.classList.add('closed');
+            console.log('✅ Sidebar hidden via JavaScript');
+          }
+          if (canvasContainer) {
+            canvasContainer.classList.add('expanded');
+            canvasContainer.style.marginLeft = '0';
+            canvasContainer.style.width = '100%';
+            console.log('✅ Canvas container expanded');
+          }
+          if (externalToggle) {
+            externalToggle.style.display = 'none';
+            console.log('✅ External toggle hidden');
+          }
+        }, 100);
+      }
+      
+      // Handle preview mode with performance optimizations
+      if (viewMode === 'preview') {
+        
+        // Performance optimizations for preview mode
+        const previewFast = params.get('preview') === 'fast';
+        const previewInstant = params.get('preview') === 'instant';
+        const noAudio = params.get('noaudio') === 'true';
+        const optimize = params.get('optimize') === 'true';
+        const noLoading = params.get('noloading') === 'true';
+        const noMP3 = params.get('nomp3') === 'true';
+        const visualOnly = params.get('visual-only') === 'true';
+        
+        // Pass optimized preview parameters to sketch
+        window.isPreviewMode = true;
+        window.isPreviewFast = previewFast || previewInstant;
+        window.isPreviewInstant = previewInstant;
+        window.previewNoAudio = noAudio || noMP3; // No MP3s implies no audio
+        window.previewOptimized = optimize;
+        window.previewNoLoading = noLoading || previewInstant; // Instant implies no loading
+        window.previewNoMP3 = noMP3; // Skip MP3 loading entirely
+        window.previewVisualOnly = visualOnly; // Visual representation only
+        window.noTimeline = noTimeline;
+        
+        // Skip all console logs for optimized previews to improve performance
+        if (previewInstant || noMP3 || visualOnly) {
+            console.log = function() {}; // Disable console logging for fast previews
+        }
+        
+        console.log(`🚀 Preview mode optimizations: fast=${previewFast}, instant=${previewInstant}, noAudio=${noAudio}, optimize=${optimize}, noLoading=${noLoading}, noMP3=${noMP3}, visualOnly=${visualOnly}`);
+      }
+      
+      // Listen for performance optimization messages from parent
+      window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'optimize-performance') {
+          console.log('📈 Received performance optimization request:', event.data.layout);
+          
+          // Send optimization message to sketch
+          if (window.p5SketchInstance && window.p5SketchInstance.optimizeForLayout) {
+            window.p5SketchInstance.optimizeForLayout(event.data.layout);
+          }
+          
+          // Apply immediate visual optimizations based on layout
+          const canvasContainer = document.getElementById('visualization-canvas-container');
+          if (canvasContainer && event.data.layout) {
+            switch (event.data.layout) {
+              case 'emotions':
+                canvasContainer.style.transform = 'scale(0.8)';
+                canvasContainer.style.filter = 'contrast(1.2)';
+                break;
+              case 'timeline':
+                canvasContainer.style.transform = 'scale(1.0)';
+                canvasContainer.style.filter = 'none';
+                break;
+              case 'people':
+                canvasContainer.style.transform = 'scale(0.9)';
+                canvasContainer.style.filter = 'brightness(1.1)';
+                break;
+              default:
+                canvasContainer.style.transform = 'scale(1.0)';
+                canvasContainer.style.filter = 'none';
+            }
+          }
+        }
+      });
+      
+      // Default to convo1 if no folder is specified
+      const conversationFolder = folder || 'convo1';
+      
+      // Set global video capture optimization flags
+      window.isVideoMode = visualOnly || (viewMode === 'iframe' && autostart) || cleanCapture;
+      window.autoStart = autostart || cleanCapture; // Auto-start for clean capture
+      window.isAnimationPaused = static || !animate;
+      window.staticMode = static;
+      
+      // Clean capture mode forces immediate start and full animation
+      if (cleanCapture || canvasOnly) {
+        window.isVideoMode = true;
+        window.autoStart = true;
+        window.isAnimationPaused = false; // Force animation for video capture
+        window.staticMode = false;
+        window.isVisualizationRunning = true;
+        window.forceImmediateStart = true;
+        
+        console.log('🎬 Clean capture mode: Forcing immediate animation start');
+      }
+      
+      console.log(`🎬 Visualization mode settings: videoMode=${window.isVideoMode}, autostart=${window.autoStart}, paused=${window.isAnimationPaused}, static=${window.staticMode}, cleanCapture=${cleanCapture}`);
+      
+      try {
+        // Load conversation configuration dynamically
+        const response = await fetch('config/conversations_config.json');
+        const config = await response.json();
+        
+        // Get the conversation configuration
+        const conversationConfig = config.conversations[conversationFolder];
+        
+        if (conversationConfig && conversationConfig.ai_file) {
+          // Use the AI file path from configuration (already contains full path)
+          const jsonPath = conversationConfig.ai_file;
+          console.log(`✅ Loading visualization for: ${jsonPath} (from dynamic config)`);
+          
+          // Pass the path to the p5 sketch
+          if (typeof window.setConversationDataPath === 'function') {
+            window.setConversationDataPath(jsonPath);
+          } else {
+            // If sketch.js loads first, store it for sketch.js to pick up
+            window.conversationDataPath = jsonPath;
+          }
+        } else {
+          throw new Error(`Configuration not found for ${conversationFolder}`);
+        }
+        
+      } catch (error) {
+        console.warn('❌ Failed to load dynamic configuration, using fallback mapping:', error);
+        
+        // Enhanced fallback mapping with more conversations
+        const fallbackMapping = {
+          'convo1': 'conversations/convo1/emotions1_ai_analyzed.json',
+          'convo2': 'conversations/convo2/emotions2_ai_analyzed.json', 
+          'convo3': 'conversations/convo3/emotions3_ai_analyzed.json',
+          'convo4': 'conversations/convo4/emotions4_ai_analyzed.json',
+          'convo5': 'conversations/convo5/emotions5_ai_analyzed.json',
+          'convo6': 'conversations/convo6/emotions6_ai_analyzed.json',
+          'convo7': 'conversations/convo7/emotions7_ai_analyzed.json',
+          'convo8': 'conversations/convo8/emotions8_ai_analyzed.json',
+          'convo9': 'conversations/convo9/emotions9_ai_analyzed.json',
+          'convo10': 'conversations/convo10/emotions10_ai_analyzed.json',
+          'convo11': 'conversations/convo11/emotions11_ai_analyzed.json',
+          'convo12': 'conversations/convo12/emotions12_ai_analyzed.json'
+        };
+        
+        const jsonPath = fallbackMapping[conversationFolder] || 'conversations/convo1/emotions1_ai_analyzed.json';
+
+        console.log(`⚠️ Loading visualization for: ${jsonPath} (from fallback mapping)`);
+        
+        // Pass the path to the p5 sketch
+        if (typeof window.setConversationDataPath === 'function') {
+          window.setConversationDataPath(jsonPath);
+        } else {
+          // If sketch.js loads first, store it for sketch.js to pick up
+          window.conversationDataPath = jsonPath;
+        }
+      }
+      
+      // Enhanced fallback system for video capture
+      if (window.isVideoMode) {
+        console.log('🎬 Video mode detected - enabling enhanced fallback system');
+        
+        // Create fallback emotion data after a delay if none loads
+        setTimeout(() => {
+          if (!window.emotionData || Object.keys(window.emotionData).length === 0) {
+            console.log('🎬 VIDEO CAPTURE FALLBACK: Creating synthetic emotion data for immediate visibility');
+            
+            // Create synthetic emotion data based on conversation folder
+            const syntheticData = {};
+            const baseEmotions = [
+              ['happy', 'excited', 'joyful'],
+              ['calm', 'thoughtful', 'peaceful'],
+              ['surprised', 'curious', 'engaged'],
+              ['determined', 'focused', 'confident']
+            ];
+            
+            // Generate 4-6 segments for video capture
+            for (let i = 1; i <= 6; i++) {
+              const segmentId = String(i).padStart(3, '0') + '.mp3';
+              syntheticData[segmentId] = {
+                speaker: i % 2,
+                emotions: baseEmotions[(i - 1) % baseEmotions.length],
+                transcript: `Synthetic data segment ${i} for video capture`
+              };
+            }
+            
+            window.emotionData = syntheticData;
+            window.conversationDataPath = `conversations/${conversationFolder}/emotions${conversationFolder.replace('convo', '')}_ai_analyzed.json`;
+            
+            console.log('🎬 Synthetic emotion data created:', Object.keys(syntheticData).length, 'segments');
+            
+            // Force p5 sketch to reinitialize
+            if (window.p5SketchInstance && window.p5SketchInstance.initializeSketch) {
+              console.log('🎬 Reinitializing p5 sketch with synthetic data');
+              window.p5SketchInstance.initializeSketch();
+            }
+            
+            // Force blob visibility for video capture
+            setTimeout(() => {
+              if (window.blobs && window.blobs.length > 0) {
+                console.log('🎬 FORCING BLOB VISIBILITY for video capture');
+                window.blobs.forEach((blob, i) => {
+                  if (blob.target) {
+                    blob.target.blobVisibility = 1.0;
+                    blob.target.blobSizeScale = 15;
+                    blob.target.blobStrength = 1500;
+                  }
+                  blob.isVisible = true;
+                  blob.blobVisibility = 1.0;
+                  
+                  // Force bright, distinct colors for video capture
+                  const videoColors = [
+                    [255, 120, 120], // Bright red-pink
+                    [120, 180, 255], // Bright blue
+                    [120, 255, 180], // Bright green
+                    [255, 200, 120]  // Bright orange
+                  ];
+                  blob.displayColors = [videoColors[i % videoColors.length]];
+                  blob.setEmotions(baseEmotions[i % baseEmotions.length]);
+                  
+                  console.log(`🎬 Blob ${i} forced visible with color [${blob.displayColors[0]}]`);
+                });
+              } else {
+                console.log('🎬 No blobs found yet for video capture - will retry...');
+                // Retry blob visibility setup
+                const retryBlobSetup = () => {
+                  if (window.blobs && window.blobs.length > 0) {
+                    window.blobs.forEach((blob, i) => {
+                      if (blob.target) {
+                        blob.target.blobVisibility = 1.0;
+                        blob.target.blobSizeScale = 15;
+                        blob.target.blobStrength = 1500;
+                      }
+                      blob.isVisible = true;
+                      blob.blobVisibility = 1.0;
+                      
+                      const videoColors = [
+                        [255, 120, 120], [120, 180, 255], 
+                        [120, 255, 180], [255, 200, 120]
+                      ];
+                      blob.displayColors = [videoColors[i % videoColors.length]];
+                      blob.setEmotions(baseEmotions[i % baseEmotions.length]);
+                    });
+                    console.log('🎬 RETRY: Blob visibility forced for video capture');
+                  } else {
+                    setTimeout(retryBlobSetup, 500);
+                  }
+                };
+                retryBlobSetup();
+              }
+            }, 1000);
+          }
+        }, 2000); // Wait 2 seconds for normal loading, then activate fallback
+      }
+    });
+  </script>
+  
+  <script src="performance_monitor.js?v=2.3&bust=1751295800"></script>
+  <script src="frontend/sketch.js" defer></script>
+  <script src="frontend/sidepanel.js" defer></script>
+  
+  <style>
+    /* 80k Font Rules */
+    @font-face {
+      font-family: '80k';
+      src: url('assets/Fonts/80kb_desk/80-kb-Sharp.otf') format('opentype');
+      font-weight: 400; /* Regular */
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '80k';
+      src: url('assets/Fonts/80kb_desk/80-kb-SharpBold.otf') format('opentype');
+      font-weight: 700; /* Bold */
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '80k';
+      src: url('assets/Fonts/80kb_desk/80-kb-SharpItalic.otf') format('opentype');
+      font-weight: 400; /* Regular Italic */
+      font-style: italic;
+    }
+    @font-face {
+      font-family: '80k';
+      src: url('assets/Fonts/80kb_desk/80-kb-SharpBoldItalic.otf') format('opentype');
+      font-weight: 700; /* Bold Italic */
+      font-style: italic;
+    }
+    
+    :root { 
+      --main-font-family: '80k', sans-serif;
+      --sidebar-width: 320px;
+      --panel-bg: #f7f9f3;
+      --panel-overlay: #f7f9f3;
+      --hover-bg: transparent;
+      --border-color: rgba(128, 128, 128, 0.15);
+      --text-primary: #222;
+      --text-secondary: #666;
+      --text-tertiary: #999;
+      --accent-color: #8B7355;
+      --accent-hover: #6d5943;
+      --success-color: #4CAF50;
+      --warning-color: #FF9800;
+      --grid-pattern: linear-gradient(to right, rgba(128, 128, 128, 0.15) 1px, transparent 1px), 
+                      linear-gradient(to bottom, rgba(128, 128, 128, 0.15) 1px, transparent 1px);
+    }
+
+    /* FORCE CONSISTENT BACKGROUND COLOR - OVERRIDE ANY INTERFERENCE */
+    *, *::before, *::after {
+      /* Force all elements (except canvas) to have transparent background by default */
+      background-color: transparent !important;
+    }
+    
+    html, body, #main-content-wrapper, #visualization-canvas-container {
+      /* Force the main background elements to use the exact color */
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+    
+    /* Sidebar and panels should also use the exact same background */
+    #sidebar, .sidebar-header, .sidebar-content {
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+    
+    /* Canvas elements should not override the container background */
+    canvas {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+    
+    /* Specifically for the visualization canvas container */
+    #visualization-canvas-container canvas {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+    
+    /* Remove any filters or effects that might alter color perception */
+    *, *::before, *::after {
+      filter: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      opacity: 1 !important;
+    }
+    
+    /* Override any specific filter rules that might exist */
+    .loading, .error, .info-section, .sidebar-content, .panel-tab-content {
+      filter: none !important;
+      backdrop-filter: none !important;
+    }
+    
+    /* COMPREHENSIVE BACKGROUND COLOR ENFORCEMENT - MATCH INDEX.HTML EXACTLY */
+    body::before,
+    body::after,
+    #main-content-wrapper::before,
+    #main-content-wrapper::after {
+      display: none !important;
+    }
+    
+    /* Force exact hex color on all critical elements */
+    html {
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+    
+    body {
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+    
+    #main-content-wrapper {
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+    
+    #visualization-canvas-container {
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: var(--main-font-family);
+      color: #333;
+      height: 100vh;
+      width: 100vw;
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+    }
+
+    /* Main container that fills the iframe */
+    #main-content-wrapper {
+      width: 100%;
+      height: 100%;
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+    
+    /* When sidebar is hidden from the start */
+    body.no-sidebar #sidebar {
+      display: none !important;
+    }
+    
+    body.no-sidebar #visualization-canvas-container {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+    
+    body.no-sidebar #external-toggle {
+      display: none !important;
+    }
+
+    #sidebar {
+      position: relative;
+      width: var(--sidebar-width);
+      background: var(--panel-bg);
+      border-right: 1px solid var(--border-color);
+      /* box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08); REMOVED ALL SHADOWS */
+      z-index: 10;
+      overflow-y: auto;
+      overflow-x: hidden;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transform: translateX(0);
+    }
+
+
+    #sidebar.closed {
+      transform: translateX(calc(-1 * var(--sidebar-width)));
+    }
+
+    #visualization-canvas-container {
+      flex: 1;
+      position: relative;
+      background: #f7f9f3 !important;
+      background-color: #f7f9f3 !important;
+      transition: margin-left 0.3s ease;
+    }
+
+    #visualization-canvas-container.expanded {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    /* External toggle button */
+    #external-toggle {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background-color: var(--panel-bg);
+      background-image: var(--grid-pattern);
+      background-size: 10px 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 15;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); REMOVED ALL SHADOWS */
+    }
+
+    #external-toggle.visible {
+      opacity: 1;
+    }
+
+    #external-toggle:hover {
+      transform: translateY(-50%) scale(1.1);
+      /* box-shadow: 0 6px 20px rgba(139, 115, 85, 0.25); REMOVED ALL SHADOWS */
+      border-color: var(--accent-color);
+      background-color: #f7f9f3;
+    }
+
+    #external-toggle svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--accent-color);
+      transition: fill 0.2s ease;
+    }
+
+    #external-toggle:hover svg {
+      fill: var(--accent-hover);
+    }
+
+    .sidebar-header {
+      padding: 25px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--panel-bg);
+    }
+
+    .sidebar-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--main-font-family);
+      letter-spacing: -0.5px;
+    }
+
+    .toggle-btn {
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 8px;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--main-font-family);
+      background: none;
+    }
+
+    .toggle-btn:hover {
+      transform: translateY(-1px);
+      /* box-shadow: 0 2px 8px rgba(139, 115, 85, 0.2); REMOVED ALL SHADOWS */
+      border-color: var(--accent-color);
+    }
+
+    .toggle-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent-color);
+      transition: fill 0.2s ease;
+    }
+
+    .toggle-btn:hover svg {
+      fill: var(--accent-hover);
+    }
+
+    .sidebar-content {
+      padding: 25px 20px;
+    }
+
+    .info-section {
+      margin-bottom: 30px;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .info-section:hover {
+      transform: translateY(-1px);
+      /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); REMOVED ALL SHADOWS */
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: var(--main-font-family);
+    }
+
+    .info-value {
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 0;
+      font-family: var(--main-font-family);
+      line-height: 1.5;
+    }
+
+    .transcript-text {
+      padding: 15px;
+      border-radius: 8px;
+      font-style: normal;
+      line-height: 1.6;
+      font-family: var(--main-font-family);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .emotion-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .emotion-tag {
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: var(--main-font-family);
+      border: 1px solid var(--border-color);
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); REMOVED ALL SHADOWS */
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .emotion-tag:hover {
+      transform: scale(1.05);
+      /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); REMOVED ALL SHADOWS */
+    }
+
+    .controls-section {
+      margin-top: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .audio-controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .control-btn {
+      flex: 1;
+      padding: 12px 8px;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--main-font-family);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); REMOVED ALL SHADOWS */
+      background: none;
+    }
+
+    .control-btn:hover {
+      transform: translateY(-2px);
+      /* box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3); REMOVED ALL SHADOWS */
+    }
+
+    .control-btn:active {
+      transform: translateY(0);
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); REMOVED ALL SHADOWS */
+    }
+
+    .control-btn:disabled {
+      color: var(--text-tertiary);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      background: none;
+    }
+
+    .volume-control {
+      margin-top: 15px;
+    }
+
+    .volume-slider {
+      width: 100%;
+      margin-top: 12px;
+      height: 8px;
+      border-radius: 4px;
+      outline: none;
+      border: 1px solid var(--border-color);
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid var(--border-color);
+      /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); REMOVED ALL SHADOWS */
+      transition: all 0.2s ease;
+      background: var(--accent-color); /* Kept for visibility on slider */
+    }
+
+    .volume-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      /* box-shadow: 0 3px 8px rgba(139, 115, 85, 0.4); REMOVED ALL SHADOWS */
+    }
+
+    .volume-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid var(--border-color);
+      /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); REMOVED ALL SHADOWS */
+      background: var(--accent-color); /* Kept for visibility on slider */
+    }
+
+    /* Hide scrollbar but keep functionality */
+    #sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    #sidebar::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 3px;
+    }
+
+    #sidebar::-webkit-scrollbar-thumb:hover {
+      background: transparent;
+    }
+
+    /* Loading state */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    /* Error state */
+    .error {
+      color: #e74c3c;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Tab navigation */
+    .panel-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      margin: 0 -20px 25px -20px;
+    }
+
+    .panel-tab {
+      flex: 1;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      font-family: var(--main-font-family);
+      letter-spacing: 0.3px;
+    }
+
+    .panel-tab:hover {
+      color: var(--text-primary);
+      background: var(--hover-bg);
+      transform: translateY(-1px);
+    }
+
+    .panel-tab.active {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .panel-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+      border-radius: 2px;
+    }
+
+    .panel-tab-content {
+      display: none;
+    }
+
+    .panel-tab-content.active {
+      display: block;
+    }
+
+    /* Eye icon styles */
+    .eye-icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    /* Summary Tab Styles */
+    .summary-loading {
+      text-align: center;
+      color: var(--text-secondary);
+      font-style: italic;
+      padding: 20px;
+    }
+
+    .summary-content {
+      padding: 15px;
+      border-radius: 8px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .themes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .theme-item {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-color);
+      font-size: 14px;
+    }
+
+    .theme-item .theme-title {
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    .theme-item .theme-description {
+      color: var(--text-secondary);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .progression-chart {
+      padding: 15px;
+      border-radius: 8px;
+      min-height: 120px;
+      position: relative;
+    }
+
+    .progression-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .progression-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .progression-time {
+      font-size: 11px;
+      color: var(--text-secondary);
+      min-width: 60px;
+    }
+
+    .progression-emotion {
+      flex: 1;
+      font-size: 13px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metric-item {
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .metric-label {
+      display: block;
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    .emotion-progression-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .emotion-progression-fill {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .summary-highlight {
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    /* Transcript Tab Styles */
+    .transcript-loading {
+      text-align: center;
+      color: var(--text-secondary);
+      font-style: italic;
+      padding: 20px;
+    }
+
+    #full-transcript-container {
+      max-height: 400px;
+      overflow-y: auto;
+      border-radius: 8px;
+      padding: 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    .transcript-segment {
+      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .transcript-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .transcript-time {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: bold;
+    }
+
+    .transcript-speaker {
+      font-size: 12px;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .transcript-text {
+      line-height: 1.5;
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+
+    .transcript-emotions {
+      margin-top: 8px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .transcript-emotion-tag {
+      color: var(--accent-color);
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid rgba(139, 115, 85, 0.2);
+    }
+
+    .transcript-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .search-container {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin-top: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: var(--main-font-family);
+      font-size: 14px;
+      margin-bottom: 8px;
+      background: none;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+
+    .search-results {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .transcript-highlight {
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    /* Meeting Summary Styles */
+    .topics-container,
+    .decisions-container,
+    .actions-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .topic-item,
+    .decision-item,
+    .action-item {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-color);
+      font-size: 14px;
+    }
+
+    .decision-item {
+      border-left-color: var(--success-color);
+    }
+
+    .action-item {
+      border-left-color: var(--warning-color);
+    }
+
+    .item-title {
+      font-weight: bold;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .item-description {
+      color: var(--text-secondary);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .atmosphere-container {
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .mood-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .mood-emoji {
+      font-size: 24px;
+    }
+
+    .mood-text {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-content-wrapper">
+      <div id="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-title">פרטי השיחה</div>
+          <button class="toggle-btn" id="sidebar-toggle">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 19l-7-7 7-7M15 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="sidebar-content" id="conversationSidePanel">
+          <div class="panel-tabs">
+            <button class="panel-tab active" data-tab="view-tab">
+              תצוגה
+              <svg class="eye-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+            <button class="panel-tab" data-tab="data-tab">נתונים</button>
+            <button class="panel-tab" data-tab="transcript-tab">תמלול</button>
+            <button class="panel-tab" data-tab="summary-tab">סיכום ישיבה</button>
+            <button class="panel-tab" data-tab="settings-tab">הגדרות</button>
+          </div>
+
+          <div id="view-tab" class="panel-tab-content active">
+            <div class="info-section">
+              <div class="info-label">קובץ נוכחי</div>
+              <div class="info-value" id="current-file">טוען...</div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">טקסט</div>
+              <div class="info-value" id="current-transcript">
+                <div class="transcript-text">בחר קובץ כדי לראות את הטקסט</div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">רגשות</div>
+              <div class="emotion-tags" id="current-emotions">
+                </div>
+            </div>
+            
+            <div class="controls-section">
+              <div class="info-label">בקרות שמע</div>
+              <div class="audio-controls">
+                <button class="control-btn" id="play-audio">נגן</button>
+                <button class="control-btn" id="pause-audio">עצור</button>
+              </div>
+              <div class="volume-control">
+                <div class="info-label">עוצמת קול</div>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="50">
+              </div>
+            </div>
+          </div>
+
+          <div id="data-tab" class="panel-tab-content">
+            <div class="info-section">
+              <div class="info-label">מידע על השיחה</div>
+              <div class="info-value">
+                <div id="conversation-stats">טוען נתונים...</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="transcript-tab" class="panel-tab-content">
+            <div class="info-section">
+              <div class="info-label">תמלול מלא</div>
+              <div class="info-value">
+                <div id="full-transcript-container">
+                  <div class="transcript-loading">🔍 טוען תמלול...</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">בקרות תמלול</div>
+              <div class="info-value">
+                <div class="transcript-controls">
+                  <button class="control-btn" id="export-transcript">ייצא תמלול</button>
+                  <button class="control-btn" id="search-transcript">חפש בתמלול</button>
+                </div>
+                <div class="search-container" id="search-container" style="display: none;">
+                  <input type="text" class="search-input" id="transcript-search" placeholder="חפש מילה או ביטוי...">
+                  <button class="control-btn" id="search-next">הבא</button>
+                  <button class="control-btn" id="search-prev">הקודם</button>
+                  <div class="search-results" id="search-results"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="summary-tab" class="panel-tab-content">
+            <div class="info-section">
+              <div class="info-label">סיכום ישיבה</div>
+              <div class="info-value">
+                <div id="meeting-summary">
+                  <div class="summary-loading">🔍 מייצר סיכום ישיבה...</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">נושאים עיקריים</div>
+              <div class="info-value">
+                <div id="key-topics">
+                  <div class="topics-container"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">החלטות והסכמות</div>
+              <div class="info-value">
+                <div id="decisions-agreements">
+                  <div class="decisions-container"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">משימות ופעולות</div>
+              <div class="info-value">
+                <div id="action-items">
+                  <div class="actions-container"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">אווירה ותחושות</div>
+              <div class="info-value">
+                <div id="meeting-atmosphere">
+                  <div class="atmosphere-container">
+                    <div class="progression-chart"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-section">
+              <div class="info-label">מדדי הישיבה</div>
+              <div class="info-value">
+                <div id="meeting-metrics">
+                  <div class="metrics-grid">
+                    <div class="metric-item">
+                      <span class="metric-label">משך הישיבה:</span>
+                      <span class="metric-value" id="meeting-duration">חישוב...</span>
+                    </div>
+                    <div class="metric-item">
+                      <span class="metric-label">משתתפים:</span>
+                      <span class="metric-value" id="meeting-participants">זיהוי...</span>
+                    </div>
+                    <div class="metric-item">
+                      <span class="metric-label">נושאים:</span>
+                      <span class="metric-value" id="topics-count">ספירה...</span>
+                    </div>
+                    <div class="metric-item">
+                      <span class="metric-label">אווירה כללית:</span>
+                      <span class="metric-value" id="overall-mood">ניתוח...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="settings-tab" class="panel-tab-content">
+            <div class="info-section">
+              <div class="info-label">הגדרות תצוגה</div>
+              <div class="info-value">
+                <label>
+                  <input type="checkbox" id="show-connections"> הצג חיבורים בין בועות
+                </label>
+                <br>
+                <label>
+                  <input type="checkbox" id="show-regions"> הצג אזורי בית
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="external-toggle">
+        <svg viewBox="0 0 24 24">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </button>
+
+      <div id="visualization-canvas-container">
+        <div class="loading" id="loading-indicator">טוען ויזואליזציה...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sidebar toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const externalToggle = document.getElementById('external-toggle');
+      const canvasContainer = document.getElementById('visualization-canvas-container');
+      
+      function toggleSidebar() {
+        const isClosed = sidebar.classList.contains('closed');
+        
+        if (isClosed) {
+          // Open sidebar
+          sidebar.classList.remove('closed');
+          canvasContainer.classList.remove('expanded');
+          externalToggle.classList.remove('visible');
+        } else {
+          // Close sidebar
+          sidebar.classList.add('closed');
+          canvasContainer.classList.add('expanded');
+          setTimeout(() => {
+            externalToggle.classList.add('visible');
+          }, 150);
+        }
+      }
+      
+      sidebarToggle.addEventListener('click', toggleSidebar);
+      externalToggle.addEventListener('click', toggleSidebar);
+      
+      // Enhanced p5 sketch initialization with better error handling
+      let initAttempts = 0;
+      const maxInitAttempts = 20;
+      
+      function safeInitializeP5Sketch() {
+        initAttempts++;
+        
+        // Check if we've exceeded max attempts
+        if (initAttempts > maxInitAttempts) {
+          console.error('❌ Failed to initialize p5 sketch after maximum attempts');
+          const loadingIndicator = document.getElementById('loading-indicator');
+          if (loadingIndicator) {
+            loadingIndicator.innerHTML = 'Failed to load visualization. Please refresh the page.';
+            loadingIndicator.style.color = '#e74c3c';
+          }
+          return;
+        }
+        
+        // Check if required elements and functions are available
+        const container = document.getElementById('visualization-canvas-container');
+        if (!container) {
+          console.warn('⚠️ Container not ready, retrying...');
+          setTimeout(safeInitializeP5Sketch, 200);
+          return;
+        }
+        
+        if (typeof p5SketchFunction === 'undefined') {
+          console.warn('⚠️ p5SketchFunction not ready, retrying...', initAttempts);
+          setTimeout(safeInitializeP5Sketch, 200);
+          return;
+        }
+        
+        try {
+          console.log('✅ Creating p5 instance for visualization...');
+          
+          // Clean up any existing instances first
+          if (window.p5SketchInstance) {
+            try {
+              window.p5SketchInstance.remove();
+            } catch (e) {
+              console.warn('Could not remove existing p5 instance:', e);
+            }
+          }
+          
+          // Clear the container
+          container.innerHTML = '';
+          
+          // Remove loading indicator
+          const loadingIndicator = document.getElementById('loading-indicator');
+          if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+          }
+          
+          // Create new p5 instance
+          window.p5SketchInstance = new p5(p5SketchFunction, container);
+          
+          console.log('✅ p5 instance created successfully');
+          
+        } catch (error) {
+          console.error('❌ Error creating p5 instance:', error);
+          
+          // Retry after a delay
+          setTimeout(safeInitializeP5Sketch, 500);
+        }
+      }
+      
+      // Start initialization after libraries are loaded
+      const startInitialization = () => {
+        // Wait for both p5.js and either p5.sound or sound failure confirmation
+        const checkLibraries = () => {
+          if (typeof p5 !== 'undefined' && (window.p5SoundLoaded || window.p5SoundFailed)) {
+            setTimeout(safeInitializeP5Sketch, 100);
+          } else {
+            setTimeout(checkLibraries, 100);
+          }
+        };
+        
+        checkLibraries();
+      };
+      
+      startInitialization();
+      
+      // Handle URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      // Check if this is a simplified preview
+      if (urlParams.get('simplified') === 'true') {
+        // Don't initialize full p5.js for simplified preview
+        console.log('Simplified preview mode - skipping full initialization');
+        
+        // Just show a simple static preview
+        const container = document.getElementById('visualization-canvas-container');
+        if (container) {
+          container.innerHTML = `
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f7f9f3;">
+              <canvas id="simple-preview-canvas" style="width: 100%; height: 100%;"></canvas>
+            </div>
+          `;
+          
+          // Create a simple static visualization
+          setTimeout(() => {
+            const canvas = document.getElementById('simple-preview-canvas');
+            if (canvas) {
+              const ctx = canvas.getContext('2d');
+              const rect = canvas.getBoundingClientRect();
+              canvas.width = rect.width;
+              canvas.height = rect.height;
+              
+              // Draw simple blobs
+              ctx.fillStyle = '#f7f9f3';
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              
+              // Draw two simple circles as blobs (using stroke instead of fill)
+              const centerY = canvas.height / 2;
+              const blob1X = canvas.width * 0.3;
+              const blob2X = canvas.width * 0.7;
+              const blobRadius = Math.min(canvas.width, canvas.height) * 0.15;
+              
+              ctx.strokeStyle = '#cccccc';
+              ctx.lineWidth = 2;
+              
+              // Blob 1
+              ctx.beginPath();
+              ctx.arc(blob1X, centerY, blobRadius, 0, Math.PI * 2);
+              ctx.stroke();
+              
+              // Blob 2
+              ctx.beginPath();
+              ctx.arc(blob2X, centerY, blobRadius * 0.8, 0, Math.PI * 2);
+              ctx.stroke();
+              
+              // Add some text
+              ctx.fillStyle = '#666';
+              ctx.font = '12px Arial';
+              ctx.textAlign = 'center';
+              ctx.fillText('תצוגה מקדימה', canvas.width / 2, canvas.height - 20);
+            }
+          }, 100);
+        }
+        
+        return; // Don't continue with full initialization
+      }
+      
+      // Normal initialization continues here
+      
+      // Notify parent window that visualization is ready (for control panel)
+      if (urlParams.get('controlPanel') === 'true' && window.parent !== window) {
+        setTimeout(() => {
+          window.parent.postMessage({
+            type: 'visualizationReady',
+            message: 'Visualization iframe loaded'
+          }, '*');
+        }, 1000);
+      }
+      
+      // Handle focus file mode
+      if (urlParams.get('focusFile') === 'true') {
+        const focusedFile = urlParams.get('file');
+        const shouldLoop = urlParams.get('loop') === 'true';
+        
+        // Set loop mode
+        window.isLoopMode = shouldLoop;
+        
+        // Store focused file for sketch to use
+        window.focusedMP3File = focusedFile;
+        
+        console.log('Focus file mode enabled:', {
+          file: focusedFile,
+          loop: shouldLoop
+        });
+      }
+    });
+  </script>
+</body>
+</html>

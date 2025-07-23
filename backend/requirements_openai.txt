@@ -1,0 +1,7 @@
+openai>=1.0.0
+python-dotenv>=1.0.0
+pydub
+speech_recognition
+librosa
+numpy
+scipy 

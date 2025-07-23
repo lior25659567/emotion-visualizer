@@ -1,0 +1,246 @@
+{
+  "visualization_parameters": {
+    "canvas": {
+      "background_color": [
+        247,
+        249,
+        243
+      ],
+      "min_width": 800,
+      "min_height": 600,
+      "frame_skip": 1
+    },
+    "grid": {
+      "default_size": 120,
+      "ascii_threshold": 0.3,
+      "final_draw_threshold": 0.15
+    },
+    "blobs": {
+      "count": 2,
+      "speaker_positioning_system": {
+        "description": "Consistent speaker positioning across all conversations",
+        "דובר_1_speaker_0": "LEFT side (center-left)",
+        "דובר_2_speaker_1": "RIGHT side (center-right)",
+        "silence_speaker_minus_1": "CENTER"
+      },
+      "default_home_regions": [
+        "center-left",
+        "center-right"
+      ],
+      "spacing_presets": {
+        "merged": 0,
+        "very close": 80,
+        "close": 150,
+        "middle": 250,
+        "far": 400,
+        "farest": 600
+      },
+      "default_visuals": {
+        "blobSizeScale": 4,
+        "blobStrength": 1000,
+        "blobDensity": 1.2,
+        "blobSpreadField": 2.5,
+        "blobiness": 3.0,
+        "gradientStrength": 0.8,
+        "breathSpeed": 0.02,
+        "volumeImpact": 800,
+        "blobMotionRange": 0.3,
+        "movementEasing": 0.05,
+        "blobVisibility": 1.0,
+        "blobGrowthPattern": "steady"
+      },
+      "visual_effects": {
+        "blur": {
+          "max_value": 10,
+          "movement_reduction_factor": 0.9,
+          "opacity_reduction_factor": 0.8
+        },
+        "shine": {
+          "max_value": 10,
+          "brightness_multiplier": 1.5,
+          "pulse_speed": 0.1
+        },
+        "humor": {
+          "max_value": 10,
+          "jitter_multiplier": 2.0,
+          "randomness_factor": 0.3
+        }
+      },
+      "character_sizing": {
+        "colored_circle_base": 0.25,
+        "regular_ascii_base": 0.25,
+        "size_range": {
+          "min": 0.15,
+          "max": 0.7
+        }
+      }
+    },
+    "audio": {
+      "smoothing_factor": 0.15,
+      "history_length": 10,
+      "default_volume": 0.5,
+      "auto_start": true,
+      "audio_response": {
+        "base_multiplier": 0.03,
+        "growth_patterns": {
+          "linear": 1.0,
+          "exponential": 2.0,
+          "logarithmic": 0.5,
+          "sine": 1.5
+        }
+      }
+    },
+    "movement": {
+      "damping_factor": 0.98,
+      "max_velocity": 2.0,
+      "home_pull_strength": 0.08,
+      "repulsion_strength": 0.03,
+      "edge_margin": 10,
+      "movement_patterns": {
+        "orbital": {
+          "radius_factor": 0.3,
+          "speed": 0.02,
+          "easing": 0.1
+        },
+        "figure8": {
+          "scale_factor": 0.4,
+          "speed": 0.015,
+          "easing": 0.08
+        },
+        "pulsing": {
+          "radius_factor": 0.6,
+          "easing": 0.12
+        },
+        "wandering": {
+          "radius_factor": 0.5,
+          "noise_scale": 0.005,
+          "easing": 0.06
+        }
+      }
+    },
+    "colors": {
+      "emotion_palette": {
+        "happiness": "#FFD700",
+        "sadness": "#4169E1",
+        "anger": "#FF4500",
+        "fear": "#8A2BE2",
+        "surprise": "#FF1493",
+        "disgust": "#32CD32",
+        "neutral": "#808080",
+        "joy": "#FFA500",
+        "curiosity": "#00CED1",
+        "frustration": "#DC143C"
+      },
+      "fallback_palette": [
+        "#FF6B6B",
+        "#4ECDC4",
+        "#45B7D1",
+        "#96CEB4",
+        "#FFEAA7",
+        "#DDA0DD",
+        "#98D8C8",
+        "#F7DC6F"
+      ],
+      "generation": {
+        "saturation": 0.85,
+        "brightness": 0.9
+      }
+    },
+    "text": {
+      "ascii_characters": [
+        "\u2588",
+        "\u2589",
+        "\u258a",
+        "\u258b",
+        "\u258c",
+        "\u258d",
+        "\u258e",
+        "\u258f",
+        "\u2591",
+        "\u2592",
+        "\u2593"
+      ],
+      "font_family": "monospace",
+      "alignment": "center"
+    },
+    "connections": {
+      "enabled": false,
+      "max_distance_factor": 0.6,
+      "opacity_range": [
+        20,
+        180
+      ],
+      "weight_range": [
+        1,
+        3
+      ],
+      "animation_speed": 0.02
+    }
+  },
+  "debug": {
+    "show_home_regions": false,
+    "show_blob_ids": false,
+    "console_logging": {
+      "blob_updates": false,
+      "audio_levels": false,
+      "positioning": true,
+      "errors": true
+    },
+    "performance": {
+      "log_frame_rate": false,
+      "log_interval": 300
+    },
+    "fallback_visualization": {
+      "enabled": true,
+      "circle_size": 50,
+      "stroke_weight": 2,
+      "show_labels": true
+    }
+  },
+  "hebrew_analysis": {
+    "emotion_detection": {
+      "confidence_threshold": 0.7,
+      "multi_emotion_limit": 3
+    },
+    "text_processing": {
+      "min_word_count": 1,
+      "ignore_fillers": true,
+      "filler_words": [
+        "\u05d0\u05de",
+        "\u05d0\u05d4",
+        "\u05db\u05d0\u05d9\u05dc\u05d5",
+        "\u05d9\u05e2\u05e0\u05d9",
+        "\u05d0\u05d6",
+        "\u05e0\u05d5"
+      ]
+    }
+  },
+  "performance": {
+    "optimization": {
+      "enable_frame_skipping": true,
+      "skip_frames_count": 1,
+      "reduce_calculations": false
+    },
+    "memory": {
+      "cache_region_centers": true,
+      "audio_history_limit": 10,
+      "clear_cache_on_resize": true
+    }
+  },
+  "experimental": {
+    "features": {
+      "advanced_blob_physics": false,
+      "particle_effects": false,
+      "3d_visualization": false
+    },
+    "ai_integration": {
+      "real_time_analysis": false,
+      "sentiment_adaptation": false,
+      "dynamic_color_generation": false
+    }
+  },
+  "videoCapture": {
+    "backgroundColor": "#f7f9f3",
+    "forceBackground": true
+  }
+}

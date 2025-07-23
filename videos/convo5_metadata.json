@@ -1,0 +1,16 @@
+{
+  "conversationFolder": "convo5",
+  "filename": "convo5.mp4",
+  "path": "videos/convo5.mp4",
+  "quality": "720",
+  "duration": 12,
+  "fps": 15,
+  "captureMode": "clean",
+  "smartCrop": true,
+  "autoStart": true,
+  "loop": true,
+  "muted": true,
+  "hoverOnly": false,
+  "generatedAt": "2025-07-18T20:21:28.826622",
+  "fileSize": "0.56MB"
+}

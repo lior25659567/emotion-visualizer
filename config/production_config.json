@@ -1,0 +1,54 @@
+{
+  "server": {
+    "port": 8000,
+    "host": "0.0.0.0",
+    "debug_mode": false,
+    "auto_reload": false,
+    "threaded": true,
+    "processes": 1
+  },
+  "security": {
+    "enable_admin_panel": false,
+    "enable_file_upload": false,
+    "enable_editing": false,
+    "allowed_origins": ["http://localhost:8000"],
+    "disable_right_click": true
+  },
+  "performance": {
+    "cache_timeout": 3600,
+    "max_concurrent_requests": 50,
+    "preload_conversations": true,
+    "compress_responses": true,
+    "bundle_assets": true
+  },
+  "exhibition": {
+    "kiosk_mode": true,
+    "idle_timeout_seconds": 300,
+    "auto_return_home": true,
+    "show_intro_on_idle": true,
+    "disable_external_links": true,
+    "fullscreen": true,
+    "hide_cursor_after": 5000
+  },
+  "ui": {
+    "language": "he",
+    "show_language_selector": false,
+    "large_touch_targets": true,
+    "simplified_navigation": true,
+    "show_help_button": true,
+    "animation_quality": "high"
+  },
+  "monitoring": {
+    "enable_analytics": true,
+    "log_interactions": true,
+    "error_reporting": true,
+    "health_check_endpoint": true,
+    "backup_interval_hours": 24
+  },
+  "audio": {
+    "auto_play": false,
+    "default_volume": 0.7,
+    "fade_in_duration": 1000,
+    "show_audio_prompt": true
+  }
+} 

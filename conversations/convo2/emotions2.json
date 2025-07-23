@@ -1,0 +1,229 @@
+{
+  "001.mp3": {
+    "speaker": 0,
+    "words": "איך קורא לקראת את החבילה?",
+    "word_count": 5,
+    "emotions": [
+      "curious"
+    ],
+    "emotionDistribution": {
+      "curious": 80,
+      "neutral": 20
+    },
+    "circlesPerEmotion": 36,
+    "blur": 1,
+    "shine": 2,
+    "humor": 0,
+    "blobsVisible": true,
+    "blobStrength": 427,
+    "blobiness": 6,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-left",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 0.25,
+    "regularAsciiCharSize": 0.25,
+    "blobSizeScale": 6,
+    "blobSpreadField": 3,
+    "blobGrowthPattern": "curious",
+    "blobInteractionForce": 289,
+    "blobMomentum": 0.78,
+    "forceCenter": false,
+    "gridsize": 200,
+    "ai_analysis_method": "openai_enhanced",
+    "ai_confidence": 85,
+    "ai_insights": "Processed with Hebrew-aware AI analysis",
+    "emotionColors": {
+      "curious": "#00CED1"
+    }
+  },
+  "002.mp3": {
+    "speaker": 1,
+    "words": "אני עכשיו חוזר הביתה, אני רוצה ללכת",
+    "word_count": 7,
+    "emotions": [
+      "calm",
+      "assertive"
+    ],
+    "emotionDistribution": {
+      "calm": 60,
+      "assertive": 40
+    },
+    "circlesPerEmotion": 34,
+    "blur": 1,
+    "shine": 9,
+    "humor": 0,
+    "blobsVisible": true,
+    "blobStrength": 492,
+    "blobiness": 8,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-right",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 0.45,
+    "regularAsciiCharSize": 0.45,
+    "blobSizeScale": 9,
+    "blobSpreadField": 3,
+    "blobGrowthPattern": "pulsing",
+    "blobInteractionForce": 178,
+    "blobMomentum": 0.94,
+    "forceCenter": false,
+    "gridsize": 200,
+    "ai_analysis_method": "openai_enhanced",
+    "ai_confidence": 85,
+    "ai_insights": "Processed with Hebrew-aware AI analysis",
+    "emotionColors": {
+      "calm": "#4ECDC4",
+      "assertive": "#FFEAA7"
+    }
+  },
+  "003.mp3": {
+    "speaker": 0,
+    "words": "‫אוקיי, אבל יש לי... ‫אבל אני צריך גם לסלול העיבור.",
+    "word_count": 10,
+    "emotions": [
+      "frustration",
+      "assertiveness"
+    ],
+    "emotionDistribution": {
+      "frustration": 60,
+      "assertiveness": 40
+    },
+    "circlesPerEmotion": 50,
+    "blur": 2,
+    "shine": 2,
+    "humor": 10,
+    "blobsVisible": true,
+    "blobStrength": 446,
+    "blobiness": 11,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-left",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 0.25,
+    "regularAsciiCharSize": 0.25,
+    "blobSizeScale": 7,
+    "blobSpreadField": 2,
+    "blobGrowthPattern": "building",
+    "blobInteractionForce": 544,
+    "blobMomentum": 0.84,
+    "forceCenter": false,
+    "gridsize": 200,
+    "ai_analysis_method": "openai_enhanced",
+    "ai_confidence": 85,
+    "ai_insights": "Processed with Hebrew-aware AI analysis",
+    "emotionColors": {
+      "frustration": "#B22222",
+      "assertiveness": "#D7BDE2"
+    }
+  },
+  "004.mp3": {
+    "speaker": 1,
+    "words": "מקפא חסר.",
+    "word_count": 2,
+    "emotions": [
+      "frustration",
+      "disappointment"
+    ],
+    "emotionDistribution": {
+      "frustration": 60,
+      "disappointment": 40
+    },
+    "circlesPerEmotion": 24,
+    "blur": 2,
+    "shine": 1,
+    "humor": 2,
+    "blobsVisible": true,
+    "blobStrength": 326,
+    "blobiness": 4,
+    "connectBlobs": false,
+    "blobHomeRegion": "center-right",
+    "minBlobSpacing": "middle",
+    "volumeImpact": 800,
+    "coloredCircleCharSize": 0.25,
+    "regularAsciiCharSize": 0.25,
+    "blobSizeScale": 6,
+    "blobSpreadField": 3,
+    "blobGrowthPattern": "steady",
+    "blobInteractionForce": 146,
+    "blobMomentum": 0.7,
+    "forceCenter": false,
+    "gridsize": 200,
+    "ai_analysis_method": "openai_enhanced",
+    "ai_confidence": 85,
+    "ai_insights": "Processed with Hebrew-aware AI analysis",
+    "emotionColors": {
+      "frustration": "#B22222",
+      "disappointment": "#ABEBC6"
+    }
+  },
+  "conversation_details": {
+    "participants": "MP3 Conversation 3",
+    "date": "2025-06-26",
+    "time": "14:30",
+    "type": "imported_mp3",
+    "summary": "Imported from tmpyearlr_e",
+    "source_file": "tmpyearlr_e",
+    "processing_config": {
+      "naturalSegmentation": true,
+      "silenceThreshold": -18,
+      "minSilenceLength": 400,
+      "aiModel": "openai",
+      "autoSpeakerDetection": true,
+      "speakerMode": "auto"
+    },
+    "file_info": {
+      "duration": 21.849,
+      "channels": 2,
+      "sample_rate": 44100,
+      "format": ".mp3",
+      "size_mb": 0.47412109375
+    },
+    "speaker_names": {
+      "speaker_0": "Speaker A",
+      "speaker_1": "Speaker B"
+    },
+    "emotion_mapping": {
+      "Joy": {
+        "hebrew": "שמחה",
+        "color": "#FFD700"
+      },
+      "Curiosity": {
+        "hebrew": "סקרנות",
+        "color": "#87CEEB"
+      },
+      "Neutral": {
+        "hebrew": "ניטרלי",
+        "color": "#D3D3D3"
+      },
+      "Frustration": {
+        "hebrew": "תסכול",
+        "color": "#E59400"
+      },
+      "Anger": {
+        "hebrew": "כעס",
+        "color": "#DC143C"
+      },
+      "Fear": {
+        "hebrew": "פחד",
+        "color": "#9370DB"
+      },
+      "Disgust": {
+        "hebrew": "גועל",
+        "color": "#3CB371"
+      },
+      "Surprise": {
+        "hebrew": "הפתעה",
+        "color": "#FFA500"
+      }
+    },
+    "ai_analysis": {
+      "method": "openai_enhanced",
+      "processed_entries": 4,
+      "transcription_success_rate": "100.0%",
+      "hebrew_detection_rate": "100.0%",
+      "processing_timestamp": "2025-06-26T14:30:28.214970",
+      "version": "3.0 - MP3 Processor Enhanced"
+    }
+  }
+}

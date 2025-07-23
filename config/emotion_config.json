@@ -1,0 +1,91 @@
+{
+    "emotions": {
+        "happiness": {
+            "color": "#FFD700",
+            "charset": ["☺", "😊", "✨", "★", "◉", "●", "○"],
+            "description": "שמחה ואושר"
+        },
+        "joy": {
+            "color": "#FFA500",
+            "charset": ["●", "◉", "⬢", "⬡", "◯", "○", "◦", "•", "∘", "⊙", "⊚", "⊛"],
+            "description": "עליזות"
+        },
+        "sadness": {
+            "color": "#4169E1",
+            "charset": ["💧", "◔", "◕", "○", "◯", "•", "·"],
+            "description": "עצב"
+        },
+        "anger": {
+            "color": "#DC143C",
+            "charset": ["▲", "▼", "◆", "■", "●", "▪", "♦"],
+            "description": "כעס"
+        },
+        "fear": {
+            "color": "#8B008B",
+            "charset": ["!", "‼", "⚡", "◊", "◈", "◉", "○"],
+            "description": "פחד"
+        },
+        "surprise": {
+            "color": "#FF69B4",
+            "charset": ["!", "?", "◉", "○", "◎", "◯", "●"],
+            "description": "הפתעה"
+        },
+        "disgust": {
+            "color": "#228B22",
+            "charset": ["×", "✕", "✖", "◈", "◊", "○", "●"],
+            "description": "גועל"
+        },
+        "neutral": {
+            "color": "#808080",
+            "charset": ["—", "–", "−", "•", "·", "∘", "○"],
+            "description": "ניטרלי"
+        },
+        "curiosity": {
+            "color": "#FF8C00",
+            "charset": ["?", "¿", "◔", "◕", "○", "◯", "●"],
+            "description": "סקרנות"
+        },
+        "frustration": {
+            "color": "#B22222",
+            "charset": ["●", "◉", "⬢", "⬡", "◯", "○", "◦", "•", "∘", "⊙", "⊚", "⊛"],
+            "description": "תסכול"
+        },
+        "excitement": {
+            "color": "#FF1493",
+            "charset": ["✨", "★", "☆", "◉", "●", "○", "◎"],
+            "description": "התרגשות"
+        },
+        "love": {
+            "color": "#FF69B4",
+            "charset": ["♥", "❤", "💕", "●", "◉", "○", "◯"],
+            "description": "אהבה"
+        },
+        "anxiety": {
+            "color": "#9370DB",
+            "charset": ["~", "≈", "◔", "◕", "○", "◯", "•"],
+            "description": "חרדה"
+        },
+        "hope": {
+            "color": "#87CEEB",
+            "charset": ["☆", "★", "✨", "◯", "○", "◦", "•"],
+            "description": "תקווה"
+        },
+        "pride": {
+            "color": "#DAA520",
+            "charset": ["★", "☆", "◉", "●", "⬢", "⬡", "○"],
+            "description": "גאווה"
+        }
+    },
+    "emotionGroups": {
+        "positive": ["happiness", "joy", "excitement", "love", "hope", "pride"],
+        "negative": ["sadness", "anger", "fear", "disgust", "frustration", "anxiety"],
+        "neutral": ["neutral", "curiosity", "surprise"]
+    },
+    "defaultCharset": ["●", "◉", "○", "◯", "◦", "•", "∘", "⦿", "⊙", "⊚", "⊛", "⊜"],
+    "characterSpacingMultiplier": 1.0,
+    "emotionIntensityMapping": {
+        "low": 0.3,
+        "medium": 0.6,
+        "high": 1.0
+    }
+} 

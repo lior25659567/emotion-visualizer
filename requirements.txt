@@ -1,0 +1,9 @@
+flask==3.0.0
+flask-cors==4.0.0
+gunicorn==21.2.0
+python-dotenv==1.0.0
+requests==2.31.0
+pydub==0.25.1
+selenium==4.15.2
+Pillow==10.1.0
+imageio==2.31.5

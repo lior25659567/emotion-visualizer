@@ -1,0 +1,554 @@
+{
+  "Neutral": {
+    "color": "#000000",
+    "emoji": "😐",
+    "hebrew": "ניטרלי",
+    "active": true
+  },
+  "acceptance": {
+    "color": "#ABEBC6",
+    "emoji": "🤝",
+    "hebrew": "קבלה",
+    "active": true
+  },
+  "accusation": {
+    "color": "#A3E4D7",
+    "emoji": "👉",
+    "hebrew": "האשמה",
+    "active": true
+  },
+  "admiration": {
+    "color": "#F7DC6F",
+    "emoji": "🤩",
+    "hebrew": "הערצה",
+    "active": true
+  },
+  "affection": {
+    "color": "#FFB6C1",
+    "emoji": "🥰",
+    "hebrew": "חיבה",
+    "active": true
+  },
+  "agreeable": {
+    "color": "#82E0AA",
+    "emoji": "😊",
+    "hebrew": "נעים",
+    "active": true
+  },
+  "agreement": {
+    "color": "#FAD7A0",
+    "emoji": "✅",
+    "hebrew": "הסכמה",
+    "active": true
+  },
+  "amusement": {
+    "color": "#DDA0DD",
+    "emoji": "😄",
+    "hebrew": "שעשוע",
+    "active": true
+  },
+  "anger": {
+    "color": "#FF4500",
+    "emoji": "😠",
+    "hebrew": "כעס",
+    "active": true
+  },
+  "annoyance": {
+    "color": "#CD853F",
+    "emoji": "😤",
+    "hebrew": "עצבנות",
+    "active": true
+  },
+  "anticipation": {
+    "color": "#ABEBC6",
+    "emoji": "👀",
+    "hebrew": "ציפייה",
+    "active": true
+  },
+  "anxious": {
+    "color": "#9370DB",
+    "emoji": "😰",
+    "hebrew": "חרד",
+    "active": true
+  },
+  "appreciation": {
+    "color": "#90EE90",
+    "emoji": "🙏",
+    "hebrew": "הערכה",
+    "active": true
+  },
+  "approval": {
+    "color": "#a600ff",
+    "emoji": "👍",
+    "hebrew": "אישור",
+    "active": true
+  },
+  "assertive": {
+    "color": "#FFEAA7",
+    "emoji": "💪",
+    "hebrew": "נחרץ",
+    "active": true
+  },
+  "assertiveness": {
+    "color": "#D7BDE2",
+    "emoji": "💪",
+    "hebrew": "נחרצות",
+    "active": true
+  },
+  "calm": {
+    "color": "#4ECDC4",
+    "emoji": "😌",
+    "hebrew": "רגוע",
+    "active": true
+  },
+  "caring": {
+    "color": "#20B2AA",
+    "emoji": "🤗",
+    "hebrew": "דאגה",
+    "active": true
+  },
+  "casual": {
+    "color": "#44ff00",
+    "emoji": "😊",
+    "hebrew": "נינוח",
+    "active": true
+  },
+  "cautiousness": {
+    "color": "#85C1E9",
+    "emoji": "⚠️",
+    "hebrew": "זהירות",
+    "active": true
+  },
+  "concern": {
+    "color": "#D5A6BD",
+    "emoji": "😟",
+    "hebrew": "דאגה",
+    "active": true
+  },
+  "concerned": {
+    "color": "#98D8C8",
+    "emoji": "😟",
+    "hebrew": "דואג",
+    "active": true
+  },
+  "conditional": {
+    "color": "#AED6F1",
+    "emoji": "❓",
+    "hebrew": "מותנה",
+    "active": true
+  },
+  "confidence": {
+    "color": "#ABEBC6",
+    "emoji": "😎",
+    "hebrew": "ביטחון",
+    "active": true
+  },
+  "confident": {
+    "color": "#98D8C8",
+    "emoji": "😎",
+    "hebrew": "בטוח",
+    "active": true
+  },
+  "confused": {
+    "color": "#DDA0DD",
+    "emoji": "😵",
+    "hebrew": "מבולבל",
+    "active": true
+  },
+  "confusion": {
+    "color": "#DDA0DD",
+    "emoji": "😵",
+    "hebrew": "בלבול",
+    "active": true
+  },
+  "contemplative": {
+    "color": "#45B7D1",
+    "emoji": "🤔",
+    "hebrew": "מהרהר",
+    "active": true
+  },
+  "content": {
+    "color": "#DDA0DD",
+    "emoji": "😊",
+    "hebrew": "מרוצה",
+    "active": true
+  },
+  "curiosity": {
+    "color": "#ff00d0",
+    "emoji": "🤔",
+    "hebrew": "סקרנות",
+    "active": true
+  },
+  "curious": {
+    "color": "#00CED1",
+    "emoji": "🤔",
+    "hebrew": "סקרן",
+    "active": true
+  },
+  "defensiveness": {
+    "color": "#D7BDE2",
+    "emoji": "🛡️",
+    "hebrew": "הגנתיות",
+    "active": true
+  },
+  "determination": {
+    "color": "#D2B4DE",
+    "emoji": "💪",
+    "hebrew": "נחישות",
+    "active": true
+  },
+  "determined": {
+    "color": "#FAD7A0",
+    "emoji": "💪",
+    "hebrew": "נחוש",
+    "active": true
+  },
+  "difficulty": {
+    "color": "#82E0AA",
+    "emoji": "😰",
+    "hebrew": "קושי",
+    "active": true
+  },
+  "disagreement": {
+    "color": "#ABEBC6",
+    "emoji": "❌",
+    "hebrew": "אי הסכמה",
+    "active": true
+  },
+  "disappointment": {
+    "color": "#ABEBC6",
+    "emoji": "😞",
+    "hebrew": "אכזבה",
+    "active": true
+  },
+  "disbelief": {
+    "color": "#A3E4D7",
+    "emoji": "😮",
+    "hebrew": "חוסר אמון",
+    "active": true
+  },
+  "discomfort": {
+    "color": "#F5B7B1",
+    "emoji": "😣",
+    "hebrew": "אי נוחות",
+    "active": true
+  },
+  "disgust": {
+    "color": "#228B22",
+    "emoji": "🤢",
+    "hebrew": "גועל",
+    "active": true
+  },
+  "dismissive": {
+    "color": "#ABEBC6",
+    "emoji": "🙄",
+    "hebrew": "מזלזל",
+    "active": true
+  },
+  "emphatic": {
+    "color": "#F1948A",
+    "emoji": "‼️",
+    "hebrew": "נלהב",
+    "active": true
+  },
+  "encouragement": {
+    "color": "#D2B4DE",
+    "emoji": "👏",
+    "hebrew": "עידוד",
+    "active": true
+  },
+  "encouraging": {
+    "color": "#96CEB4",
+    "emoji": "👏",
+    "hebrew": "מעודד",
+    "active": true
+  },
+  "engaged": {
+    "color": "#D2B4DE",
+    "emoji": "🎯",
+    "hebrew": "מעורב",
+    "active": true
+  },
+  "excited": {
+    "color": "#FF1493",
+    "emoji": "🤩",
+    "hebrew": "מתרגש",
+    "active": true
+  },
+  "excitement": {
+    "color": "#FF1493",
+    "emoji": "🤩",
+    "hebrew": "התרגשות",
+    "active": true
+  },
+  "exhaustion": {
+    "color": "#0055ff",
+    "emoji": "😴",
+    "hebrew": "תשישות",
+    "active": true
+  },
+  "farewell": {
+    "color": "#D7BDE2",
+    "emoji": "👋",
+    "hebrew": "פרידה",
+    "active": true
+  },
+  "friendly": {
+    "color": "#D2B4DE",
+    "emoji": "😊",
+    "hebrew": "ידידותי",
+    "active": true
+  },
+  "frustrated": {
+    "color": "#B22222",
+    "emoji": "😫",
+    "hebrew": "מתוסכל",
+    "active": true
+  },
+  "frustration": {
+    "color": "#B22222",
+    "emoji": "😫",
+    "hebrew": "תסכול",
+    "active": true
+  },
+  "gratitude": {
+    "color": "#90EE90",
+    "emoji": "🙏",
+    "hebrew": "הכרת תודה",
+    "active": true
+  },
+  "happiness": {
+    "color": "#FFD700",
+    "emoji": "😊",
+    "hebrew": "שמחה",
+    "active": true
+  },
+  "happy": {
+    "color": "#FFD700",
+    "emoji": "😊",
+    "hebrew": "שמח",
+    "active": true
+  },
+  "helpful": {
+    "color": "#AED6F1",
+    "emoji": "🤝",
+    "hebrew": "עוזר",
+    "active": true
+  },
+  "hesitant": {
+    "color": "#FAD7A0",
+    "emoji": "🤔",
+    "hebrew": "מהסס",
+    "active": true
+  },
+  "hesitation": {
+    "color": "#ABEBC6",
+    "emoji": "🤔",
+    "hebrew": "היסוס",
+    "active": true
+  },
+  "hopeful": {
+    "color": "#32CD32",
+    "emoji": "🌟",
+    "hebrew": "מלא תקווה",
+    "active": true
+  },
+  "hopefulness": {
+    "color": "#32CD32",
+    "emoji": "🌟",
+    "hebrew": "תקווה",
+    "active": true
+  },
+  "impatience": {
+    "color": "#85C1E9",
+    "emoji": "😤",
+    "hebrew": "חוסר סבלנות",
+    "active": true
+  },
+  "indecision": {
+    "color": "#ABEBC6",
+    "emoji": "🤷",
+    "hebrew": "חוסר החלטיות",
+    "active": true
+  },
+  "informative": {
+    "color": "#A3E4D7",
+    "emoji": "📚",
+    "hebrew": "מידעי",
+    "active": true
+  },
+  "interest": {
+    "color": "#A3E4D7",
+    "emoji": "🤔",
+    "hebrew": "עניין",
+    "active": true
+  },
+  "interested": {
+    "color": "#BB8FCE",
+    "emoji": "🤔",
+    "hebrew": "מעוניין",
+    "active": true
+  },
+  "joy": {
+    "color": "#FFFF00",
+    "emoji": "😄",
+    "hebrew": "שמחה גדולה",
+    "active": true
+  },
+  "longing": {
+    "color": "#4ECDC4",
+    "emoji": "💭",
+    "hebrew": "כמיהה",
+    "active": true
+  },
+  "love": {
+    "color": "#193861",
+    "emoji": "❤️",
+    "hebrew": "אהבה",
+    "active": true
+  },
+  "motivated": {
+    "color": "#ABEBC6",
+    "emoji": "🔥",
+    "hebrew": "מונע",
+    "active": true
+  },
+  "nostalgia": {
+    "color": "#A3E4D7",
+    "emoji": "💭",
+    "hebrew": "נוסטלגיה",
+    "active": true
+  },
+  "obligation": {
+    "color": "#A3E4D7",
+    "emoji": "📋",
+    "hebrew": "חובה",
+    "active": true
+  },
+  "playfulness": {
+    "color": "#F7DC6F",
+    "emoji": "😜",
+    "hebrew": "שובבות",
+    "active": true
+  },
+  "politeness": {
+    "color": "#FAD7A0",
+    "emoji": "😊",
+    "hebrew": "נימוס",
+    "active": true
+  },
+  "reassured": {
+    "color": "#F7DC6F",
+    "emoji": "😌",
+    "hebrew": "מרגיע",
+    "active": true
+  },
+  "reflection": {
+    "color": "#D2B4DE",
+    "emoji": "🤔",
+    "hebrew": "השתקפות",
+    "active": true
+  },
+  "relief": {
+    "color": "#BB8FCE",
+    "emoji": "😌",
+    "hebrew": "הקלה",
+    "active": true
+  },
+  "resignation": {
+    "color": "#96CEB4",
+    "emoji": "😔",
+    "hebrew": "כניעה",
+    "active": true
+  },
+  "sadness": {
+    "color": "#4169E1",
+    "emoji": "😢",
+    "hebrew": "עצב",
+    "active": true
+  },
+  "satisfaction": {
+    "color": "#85C1E9",
+    "emoji": "😊",
+    "hebrew": "סיפוק",
+    "active": true
+  },
+  "satisfied": {
+    "color": "#F9E79F",
+    "emoji": "😊",
+    "hebrew": "מרוצה",
+    "active": true
+  },
+  "self-reflection": {
+    "color": "#85C1E9",
+    "emoji": "🤔",
+    "hebrew": "הרהור עצמי",
+    "active": true
+  },
+  "skepticism": {
+    "color": "#eeff00",
+    "emoji": "🤨",
+    "hebrew": "ספקנות",
+    "active": true
+  },
+  "slightly stressed": {
+    "color": "#85C1E9",
+    "emoji": "😅",
+    "hebrew": "מתוח קלות",
+    "active": true
+  },
+  "supportive": {
+    "color": "#82E0AA",
+    "emoji": "🤝",
+    "hebrew": "תומך",
+    "active": true
+  },
+  "surprise": {
+    "color": "#FF69B4",
+    "emoji": "😲",
+    "hebrew": "הפתעה",
+    "active": true
+  },
+  "thoughtful": {
+    "color": "#45B7D1",
+    "emoji": "🤔",
+    "hebrew": "מתחשב",
+    "active": true
+  },
+  "thoughtfulness": {
+    "color": "#FFEAA7",
+    "emoji": "🤔",
+    "hebrew": "התחשבות",
+    "active": true
+  },
+  "uncertain": {
+    "color": "#FFEAA7",
+    "emoji": "🤷",
+    "hebrew": "לא בטוח",
+    "active": true
+  },
+  "uncertainty": {
+    "color": "#4ECDC4",
+    "emoji": "🤷",
+    "hebrew": "אי ודאות",
+    "active": true
+  },
+  "understanding": {
+    "color": "#FFEAA7",
+    "emoji": "💡",
+    "hebrew": "הבנה",
+    "active": true
+  },
+  "urgency": {
+    "color": "#FF6B6B",
+    "emoji": "⚡",
+    "hebrew": "דחיפות",
+    "active": true
+  },
+  "urgent": {
+    "color": "#A3E4D7",
+    "emoji": "⚡",
+    "hebrew": "דחוף",
+    "active": true
+  }
+}

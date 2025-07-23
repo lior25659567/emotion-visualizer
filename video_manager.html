@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Video Manager - Emotion Visualizer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e74c3c'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='16' fill='white'%3E🎬%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            direction: rtl;
+            color: #1a1a1a;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .header p {
+            margin: 0.5rem 0 0 0;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem 2rem;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        
+        .tab-button {
+            padding: 1rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: #666;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .tab-button:hover {
+            background: rgba(103, 126, 234, 0.1);
+            color: #667eea;
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 16px rgba(103, 126, 234, 0.3);
+        }
+        
+        .tab-button .material-icons {
+            font-size: 1.2rem;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Upload Area */
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9ff, #e8f4fd);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .upload-area:hover {
+            border-color: #e74c3c;
+            background: linear-gradient(135deg, #fff0f0, #ffe8e8);
+            transform: translateY(-2px);
+        }
+        
+        .upload-area.dragover {
+            border-color: #4CAF50;
+            background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 4rem;
+            color: #667eea;
+            display: block;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover .upload-icon {
+            color: #e74c3c;
+            transform: scale(1.1);
+        }
+        
+        .upload-title {
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .upload-subtitle {
+            color: #666;
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Video Cards */
+        .video-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .video-preview {
+            width: 100%;
+            height: 150px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background: #f0f2f5;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        
+        .video-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .video-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Status Badge */
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-success {
+            background: rgba(0, 184, 148, 0.1);
+            color: #00b894;
+        }
+        
+        .status-warning {
+            background: rgba(243, 156, 18, 0.1);
+            color: #f39c12;
+        }
+        
+        .status-danger {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 8px;
+            margin: 1rem 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Status Messages */
+        .status-message {
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .status-info {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .status-success {
+            background: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+        
+        .status-warning {
+            background: rgba(243, 156, 18, 0.1);
+            color: #f39c12;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+        }
+        
+        .status-error {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        
+        /* Processing Options */
+        .processing-options {
+            background: linear-gradient(135deg, #f8f9ff, #e8f4fd);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(103, 126, 234, 0.2);
+        }
+        
+        .processing-steps {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .step-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .step-item:last-child {
+            border-bottom: none;
+        }
+        
+        .step-item.completed {
+            color: #27ae60;
+        }
+        
+        /* File Info */
+        .file-info {
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+        
+        .file-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .file-info-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .file-info-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .file-info-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+        
+        .file-info-value {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Video Generation Options */
+        .video-options {
+            background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        
+        .option-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .option-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 2rem;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 1rem center;
+            background-size: 1.5rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+        }
+        
+        /* Loading Spinner */
+        .loading-spinner {
+            border: 3px solid rgba(103, 126, 234, 0.3);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 1rem 1rem;
+            }
+            
+            .header {
+                padding: 1rem 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .tab-nav {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Hide scrollbar */
+        .tab-nav::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .tab-nav::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+        
+        .tab-nav::-webkit-scrollbar-thumb {
+            background: rgba(103, 126, 234, 0.5);
+            border-radius: 2px;
+        }
+        
+        /* Custom Range Slider */
+        .range-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+            outline: none;
+        }
+        
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Preview source indicators */
+        .preview-source-auto {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .preview-source-custom {
+            background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Enhanced video cards */
+        .video-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-card.has-custom-preview::before {
+            content: "👤";
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(250, 112, 154, 0.9);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            z-index: 1;
+        }
+
+        .video-card.has-auto-preview::before {
+            content: "🤖";
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(79, 172, 254, 0.9);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            z-index: 1;
+        }
+
+        /* Status badges enhancement */
+        .status-badge.status-success.preview-custom {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .status-badge.status-success.preview-auto {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>
+            <i class="material-icons" style="font-size: 2.5rem;">movie</i>
+            Video Manager
+        </h1>
+        <p>ניהול מלא של MP3, ניתוח רגשות וייצור וידאו - הכל במקום אחד</p>
+    </header>
+
+    <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-button active" onclick="switchTab('upload')">
+                <i class="material-icons">cloud_upload</i>
+                העלאה ועיבוד
+            </button>
+            <button class="tab-button" onclick="switchTab('videos')">
+                <i class="material-icons">videocam</i>
+                ניהול וידאו
+            </button>
+            <button class="tab-button" onclick="switchTab('generation')">
+                <i class="material-icons">smart_display</i>
+                ייצור וידאו
+            </button>
+            <button class="tab-button" onclick="switchTab('analysis')">
+                <i class="material-icons">psychology</i>
+                ניתוח רגשות
+            </button>
+            <button class="tab-button" onclick="switchTab('settings')">
+                <i class="material-icons">tune</i>
+                הגדרות
+            </button>
+        </nav>
+
+        <!-- Upload & Process Tab -->
+        <div id="upload-tab" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="material-icons">audio_file</i>
+                        העלאת קובץ MP3 חדש
+                    </h2>
+                </div>
+                
+                <!-- File Upload Area -->
+                <div class="upload-area" id="upload-area">
+                    <i class="material-icons upload-icon">cloud_upload</i>
+                    <h3 class="upload-title">גרור קובץ MP3 לכאן או לחץ לבחירה</h3>
+                    <p class="upload-subtitle">תומך בקבצי MP3 בלבד • מקסימום 100MB</p>
+                    <input type="file" id="fileInput" accept=".mp3" style="display: none;">
+                </div>
+                
+                <!-- File Status -->
+                <div id="file-status"></div>
+
+                <!-- Processing Options -->
+                <div id="processing-options" class="processing-options" style="display: none;">
+                    <h3 style="margin: 0 0 1.5rem 0; color: #333;">⚙️ הגדרות עיבוד</h3>
+                    
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label">שם השיחה:</label>
+                            <input type="text" id="conversation-name" class="form-input" placeholder="הזן שם לשיחה">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">סוג השיחה:</label>
+                            <select id="conversation-type" class="form-select">
+                                <option value="general">כללי</option>
+                                <option value="therapy">טיפול</option>
+                                <option value="interview">ראיון</option>
+                                <option value="meeting">פגישה</option>
+                                <option value="conversation">שיחה</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">אורך קטע (שניות):</label>
+                            <select id="segment-length" class="form-select">
+                                <option value="10">10 שניות (מפורט מאוד)</option>
+                                <option value="15">15 שניות (מפורט)</option>
+                                <option value="20" selected>20 שניות (רגיל)</option>
+                                <option value="30">30 שניות (כללי)</option>
+                                <option value="60">60 שניות (בסיסי)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">איכות תמלול:</label>
+                            <select id="transcription-quality" class="form-select">
+                                <option value="fast">מהיר (ללא תמלול)</option>
+                                <option value="basic" selected>בסיסי (תמלול מקומי)</option>
+                                <option value="high">גבוה (Whisper מקומי)</option>
+                                <option value="premium">פרימיום (WhisperX מקומי)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <button id="start-processing-btn" class="btn btn-primary" disabled>
+                            <i class="material-icons">play_arrow</i>
+                            התחל עיבוד
+                        </button>
+                        <button id="cancel-upload-btn" class="btn btn-secondary">
+                            <i class="material-icons">cancel</i>
+                            ביטול
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Processing Progress -->
+                <div id="processing-progress" style="display: none;">
+                    <h3 style="margin: 0 0 1rem 0; color: #333;">🔄 מעבד קובץ...</h3>
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div id="progress-text" class="progress-text">מכין לעיבוד...</div>
+                    <div id="progress-steps" class="processing-steps"></div>
+                </div>
+
+                <!-- File Info Display -->
+                <div id="file-info" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Video Management Tab -->
+        <div id="videos-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="material-icons">video_library</i>
+                        ניהול וידאו
+                    </h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <button onclick="refreshVideoList()" class="btn btn-secondary">
+                            <i class="material-icons">refresh</i>
+                            רענן
+                        </button>
+                        <button onclick="bulkVideoOperations()" class="btn btn-primary">
+                            <i class="material-icons">video_library</i>
+                            פעולות מרובות
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Search -->
+                <div class="search-container">
+                    <input type="text" id="searchBox" class="search-input" placeholder="חפש שיחות..." onkeyup="filterVideos()">
+                </div>
+                
+                <!-- Video Grid -->
+                <div id="video-grid" class="grid grid-3"></div>
+                
+                <!-- Status Display -->
+                <div id="status-display"></div>
+            </div>
+        </div>
+
+        <!-- Video Generation Tab -->
+        <div id="generation-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="material-icons">smart_display</i>
+                        ייצור וידאו מתקדם
+                    </h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <button onclick="generateAllVideos()" class="btn btn-primary">
+                            <i class="material-icons">play_circle</i>
+                            צור את כל הוידאו
+                        </button>
+                        <button onclick="checkVideoStatus()" class="btn btn-secondary">
+                            <i class="material-icons">info</i>
+                            בדוק סטטוס
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Preview Operations -->
+                <div class="video-options">
+                    <h3 style="margin: 0 0 1rem 0; color: #333;">🎬 פעולות תצוגה מקדימה</h3>
+                    <div class="grid grid-3" style="gap: 1rem;">
+                        <button onclick="generateAllPreviews()" class="btn btn-primary">
+                            <i class="material-icons">smart_display</i>
+                            צור תצוגות מקדימות לכל השיחות
+                        </button>
+                        <button onclick="uploadBulkPreviews()" class="btn btn-secondary">
+                            <i class="material-icons">upload</i>
+                            העלאה מרובה
+                        </button>
+                        <button onclick="previewSettings()" class="btn btn-secondary">
+                            <i class="material-icons">settings</i>
+                            הגדרות תצוגה מקדימה
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conversation Selection -->
+                <div class="video-options">
+                    <h3 style="margin: 0 0 1rem 0; color: #333;">📋 בחירת שיחות</h3>
+                    <div class="form-group">
+                        <label class="form-label">בחר שיחה לייצור וידאו:</label>
+                        <select id="generation-conversation-select" class="form-select">
+                            <option value="all">כל השיחות</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Video Settings -->
+                <div class="video-options">
+                    <h3 style="margin: 0 0 1.5rem 0; color: #333;">🎬 הגדרות וידאו</h3>
+                    <div class="grid grid-3">
+                        <div class="form-group">
+                            <label class="form-label">איכות וידאו:</label>
+                            <select id="video-quality" class="form-select">
+                                <option value="480">480p (קטן, מהיר)</option>
+                                <option value="720" selected>720p (איכות טובה)</option>
+                                <option value="1080">1080p (איכות גבוהה)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">משך וידאו (שניות): <span id="duration-value">15</span></label>
+                            <input type="range" id="video-duration" class="range-slider" min="5" max="60" value="15">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">FPS:</label>
+                            <select id="video-fps" class="form-select">
+                                <option value="10">10 FPS (קטן)</option>
+                                <option value="15" selected>15 FPS (מותאם)</option>
+                                <option value="24">24 FPS (סיניי)</option>
+                                <option value="30">30 FPS (חלק)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Options -->
+                <div class="video-options">
+                    <h3 style="margin: 0 0 1.5rem 0; color: #333;">⚙️ אפשרויות מתקדמות</h3>
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label">מצב צילום:</label>
+                            <select id="capture-mode" class="form-select">
+                                <option value="clean" selected>נקי (ללא ממשק)</option>
+                                <option value="full">מלא (עם ממשק)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">רקע:</label>
+                            <input type="color" id="background-color" class="form-input" value="#f7f9f3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generation Progress -->
+                <div id="video-generation-progress" style="display: none;">
+                    <h3 style="margin: 0 0 1rem 0; color: #333;">🎬 יוצר קבצי וידאו...</h3>
+                    <div class="progress-container">
+                        <div id="video-progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div id="video-progress-text" class="progress-text">מכין...</div>
+                    <div id="video-progress-steps" class="processing-steps"></div>
+                </div>
+
+                <!-- Video Status Info -->
+                <div id="video-status-info" class="card" style="margin-top: 2rem;">
+                    <h3 style="margin: 0 0 1rem 0; color: #333;">📊 סטטוס יכולות ייצור וידאו</h3>
+                    <div id="video-status-details">טוען...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Tab -->
+        <div id="analysis-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="material-icons">psychology</i>
+                        ניתוח רגשות מתקדם
+                    </h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <button onclick="bulkAnalyzeEmotions()" class="btn btn-primary">
+                            <i class="material-icons">auto_awesome</i>
+                            נתח את כל השיחות
+                        </button>
+                        <button onclick="fixAllMissingAnalysis()" class="btn btn-warning">
+                            <i class="material-icons">healing</i>
+                            תקן ניתוחים חסרים
+                        </button>
+                        <button onclick="refreshAnalysisList()" class="btn btn-secondary">
+                            <i class="material-icons">refresh</i>
+                            רענן
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Analysis Options -->
+                <div class="processing-options">
+                    <h3 style="margin: 0 0 1.5rem 0; color: #333;">🧠 הגדרות ניתוח</h3>
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label">רגישות AI:</label>
+                            <input type="range" id="ai-sensitivity" class="range-slider" min="0.1" max="1.0" step="0.1" value="0.7">
+                            <div style="text-align: center; margin-top: 0.5rem; color: #666;">
+                                <span id="sensitivity-value">0.7</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">מודל ניתוח:</label>
+                            <select id="analysis-model" class="form-select">
+                                <option value="basic" selected>בסיסי (מהיר)</option>
+                                <option value="advanced">מתקדם (מדויק)</option>
+                                <option value="premium">פרימיום (איטי אבל מדויק)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analysis Results -->
+                <div id="analysis-results"></div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="material-icons">settings</i>
+                        הגדרות מערכת
+                    </h2>
+                </div>
+                
+                <!-- API Settings -->
+                <div class="processing-options">
+                    <h3 style="margin: 0 0 1.5rem 0; color: #333;">🔧 הגדרות API</h3>
+                    <div class="form-group">
+                        <label class="form-label">כתובת שרת:</label>
+                        <input type="text" id="api-base-url" class="form-input" value="http://localhost:8000">
+                    </div>
+                </div>
+                
+                <!-- Default Settings -->
+                <div class="processing-options">
+                    <h3 style="margin: 0 0 1.5rem 0; color: #333;">⚙️ הגדרות ברירת מחדל</h3>
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label">אורך קטע ברירת מחדל:</label>
+                            <select id="default-segment-length" class="form-select">
+                                <option value="15">15 שניות</option>
+                                <option value="20" selected>20 שניות</option>
+                                <option value="30">30 שניות</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">איכות וידאו ברירת מחדל:</label>
+                            <select id="default-video-quality" class="form-select">
+                                <option value="480">480p</option>
+                                <option value="720" selected>720p</option>
+                                <option value="1080">1080p</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Save Settings -->
+                <div style="margin-top: 2rem;">
+                    <button onclick="saveSettings()" class="btn btn-primary">
+                        <i class="material-icons">save</i>
+                        שמור הגדרות
+                    </button>
+                    <button onclick="resetSettings()" class="btn btn-secondary">
+                        <i class="material-icons">restore</i>
+                        איפוס
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        const API_BASE = 'http://localhost:8000';
+        let conversations = [];
+        let videos = [];
+        let uploadedFile = null;
+        let processingInProgress = false;
+        let videoGenerationInProgress = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEventListeners();
+            loadData();
+            updateDurationDisplay();
+            updateSensitivityDisplay();
+        });
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            event.target.closest('.tab-button').classList.add('active');
+            
+            // Load tab-specific data
+            if (tabName === 'videos') {
+                loadVideoData();
+            } else if (tabName === 'generation') {
+                loadConversationOptions();
+                checkVideoStatus();
+            } else if (tabName === 'analysis') {
+                loadAnalysisData();
+            }
+        }
+
+        // Event listeners
+        function initializeEventListeners() {
+            const fileInput = document.getElementById('fileInput');
+            const uploadArea = document.getElementById('upload-area');
+            const startBtn = document.getElementById('start-processing-btn');
+            const cancelBtn = document.getElementById('cancel-upload-btn');
+            const durationSlider = document.getElementById('video-duration');
+            const sensitivitySlider = document.getElementById('ai-sensitivity');
+
+            // File upload
+            fileInput.addEventListener('change', handleFileSelect);
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', handleDragOver);
+            uploadArea.addEventListener('dragleave', handleDragLeave);
+            uploadArea.addEventListener('drop', handleDrop);
+
+            // Processing
+            startBtn.addEventListener('click', startProcessing);
+            cancelBtn.addEventListener('click', cancelUpload);
+
+            // Sliders
+            if (durationSlider) {
+                durationSlider.addEventListener('input', updateDurationDisplay);
+            }
+            if (sensitivitySlider) {
+                sensitivitySlider.addEventListener('input', updateSensitivityDisplay);
+            }
+        }
+
+        // File handling
+        function handleDragOver(e) {
+            e.preventDefault();
+            document.getElementById('upload-area').classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('upload-area').classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            document.getElementById('upload-area').classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect({ target: { files: files } });
+            }
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.name.toLowerCase().endsWith('.mp3')) {
+                updateStatus('נא לבחור קובץ MP3 בלבד', 'error');
+                return;
+            }
+
+            if (file.size > 100 * 1024 * 1024) {
+                updateStatus('הקובץ גדול מדי. מקסימום 100MB', 'error');
+                return;
+            }
+
+            uploadedFile = file;
+            showFileInfo(file);
+            document.getElementById('processing-options').style.display = 'block';
+            document.getElementById('start-processing-btn').disabled = false;
+            
+            // Suggest conversation name
+            const suggestedName = file.name.replace('.mp3', '').replace(/[_-]/g, ' ');
+            document.getElementById('conversation-name').value = suggestedName;
+        }
+
+        function showFileInfo(file) {
+            const duration = Math.round(file.size / (1024 * 10)); // Rough estimate
+            const estimatedSegments = Math.ceil(duration / 20);
+            
+            document.getElementById('file-status').innerHTML = `
+                <div class="file-info">
+                    <h3 style="margin: 0 0 1rem 0; color: #27ae60;">✅ קובץ נבחר בהצלחה!</h3>
+                    <div class="file-info-grid">
+                        <div class="file-info-item">
+                            <div class="file-info-icon">📁</div>
+                            <div class="file-info-label">שם הקובץ</div>
+                            <div class="file-info-value">${file.name}</div>
+                        </div>
+                        <div class="file-info-item">
+                            <div class="file-info-icon">📊</div>
+                            <div class="file-info-label">גודל</div>
+                            <div class="file-info-value">${(file.size / 1024 / 1024).toFixed(2)} MB</div>
+                        </div>
+                        <div class="file-info-item">
+                            <div class="file-info-icon">⏱️</div>
+                            <div class="file-info-label">משך משוער</div>
+                            <div class="file-info-value">${duration} שניות</div>
+                        </div>
+                        <div class="file-info-item">
+                            <div class="file-info-icon">🎵</div>
+                            <div class="file-info-label">קטעים משוערים</div>
+                            <div class="file-info-value">${estimatedSegments}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Processing functions
+        async function startProcessing() {
+            if (!uploadedFile || processingInProgress) return;
+
+            const conversationName = document.getElementById('conversation-name').value.trim();
+            const conversationType = document.getElementById('conversation-type').value;
+            const segmentLength = parseInt(document.getElementById('segment-length').value);
+            const transcriptionQuality = document.getElementById('transcription-quality').value;
+
+            if (!conversationName) {
+                updateStatus('נא להזין שם לשיחה', 'error');
+                return;
+            }
+
+            processingInProgress = true;
+            document.getElementById('processing-progress').style.display = 'block';
+            
+            try {
+                updateProgress(0, 'מכין לעיבוד...');
+
+                // Step 1: Upload and create conversation
+                updateProgress(10, 'יוצר תיקיית שיחה חדשה...');
+                const formData = new FormData();
+                formData.append('mp3File', uploadedFile);
+                formData.append('conversationName', conversationName);
+                formData.append('conversationType', conversationType);
+                formData.append('segmentLength', segmentLength);
+                formData.append('transcriptionQuality', transcriptionQuality);
+
+                const uploadResponse = await fetch(`${API_BASE}/api/upload-and-process`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!uploadResponse.ok) {
+                    throw new Error(`Upload failed: ${uploadResponse.status}`);
+                }
+
+                const uploadResult = await uploadResponse.json();
+                const conversationFolder = uploadResult.conversationFolder;
+                
+                updateProgress(25, `נוצרה תיקייה: ${conversationFolder}`);
+
+                // Step 2: Segment audio
+                updateProgress(30, 'מחלק את האודיו לקטעים...');
+                const segmentResponse = await fetch(`${API_BASE}/api/segment-audio`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        conversationFolder,
+                        segmentLength,
+                        originalFile: uploadResult.uploadedPath
+                    })
+                });
+
+                if (!segmentResponse.ok) {
+                    throw new Error('Audio segmentation failed');
+                }
+
+                const segmentResult = await segmentResponse.json();
+                updateProgress(60, `נוצרו ${segmentResult.segmentCount} קטעי אודיו`);
+
+                // Step 3: Transcription
+                if (transcriptionQuality !== 'fast') {
+                    updateProgress(65, 'מבצע תמלול...');
+                    await processTranscription(conversationFolder, transcriptionQuality);
+                    updateProgress(85, 'תמלול הושלם');
+                }
+
+                // Step 4: Emotion analysis
+                updateProgress(90, 'מנתח רגשות...');
+                const emotionResult = await generateEmotionAnalysis(conversationFolder);
+                if (!emotionResult || !emotionResult.success) {
+                    throw new Error('Emotion analysis failed');
+                }
+
+                // Step 5: Update system
+                updateProgress(95, 'משלב במערכת...');
+                const configResult = await updateSystemConfiguration(conversationFolder, {
+                    name: conversationName,
+                    type: conversationType,
+                    segmentCount: segmentResult.segmentCount,
+                    duration: segmentResult.totalDuration
+                });
+                if (!configResult || !configResult.success) {
+                    // Don't fail completely if config update fails - the conversation still exists
+                    console.warn('Config update failed, but conversation was created successfully');
+                }
+
+                updateProgress(100, '✅ השיחה נוצרה בהצלחה!');
+                updateStatus(`🎉 השיחה "${conversationName}" נוצרה בהצלחה ומוכנה לשימוש!`, 'success');
+                
+                resetUploadForm();
+                loadData();
+
+            } catch (error) {
+                console.error('Processing error:', error);
+                updateStatus(`שגיאה בעיבוד: ${error.message}`, 'error');
+            } finally {
+                processingInProgress = false;
+            }
+        }
+
+        async function processTranscription(conversationFolder, quality) {
+            const response = await fetch(`${API_BASE}/api/transcribe`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    conversationFolder,
+                    quality
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Transcription failed');
+            }
+
+            return await response.json();
+        }
+
+        async function generateEmotionAnalysis(conversationFolder) {
+            const response = await fetch(`${API_BASE}/api/analyze-emotions`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    conversationFolder
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Emotion analysis failed');
+            }
+
+            return await response.json();
+        }
+
+        async function updateSystemConfiguration(conversationFolder, metadata) {
+            const response = await fetch(`${API_BASE}/api/update-system-config`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    conversationFolder,
+                    metadata
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('System configuration update failed');
+            }
+
+            return await response.json();
+        }
+
+        function cancelUpload() {
+            uploadedFile = null;
+            processingInProgress = false;
+            resetUploadForm();
+            updateStatus('העלאה בוטלה', 'info');
+        }
+
+        function resetUploadForm() {
+            document.getElementById('file-status').innerHTML = '';
+            document.getElementById('processing-options').style.display = 'none';
+            document.getElementById('processing-progress').style.display = 'none';
+            document.getElementById('conversation-name').value = '';
+            document.getElementById('conversation-type').value = 'general';
+            document.getElementById('segment-length').value = '20';
+            document.getElementById('transcription-quality').value = 'basic';
+            document.getElementById('fileInput').value = '';
+            document.getElementById('progress-steps').innerHTML = '';
+            document.getElementById('start-processing-btn').disabled = true;
+        }
+
+        function updateProgress(percentage, message) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const progressSteps = document.getElementById('progress-steps');
+
+            if (progressBar) progressBar.style.width = `${percentage}%`;
+            if (progressText) progressText.textContent = message;
+
+            if (progressSteps && message) {
+                const step = document.createElement('div');
+                step.className = 'step-item completed';
+                step.innerHTML = `<span style="color: #4caf50;">✓</span> ${message}`;
+                progressSteps.appendChild(step);
+                progressSteps.scrollTop = progressSteps.scrollHeight;
+            }
+        }
+
+        // Data loading
+        async function loadData() {
+            try {
+                await Promise.all([
+                    loadConversations(),
+                    loadVideos()
+                ]);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                updateStatus('שגיאה בטעינת נתונים', 'error');
+            }
+        }
+
+        async function loadConversations() {
+            try {
+                const response = await fetch(`${API_BASE}/config/conversations_config.json`);
+                if (response.ok) {
+                    const data = await response.json();
+                    conversations = data.conversations ? Object.keys(data.conversations).map(key => ({
+                        id: key,
+                        number: data.conversations[key].number,
+                        name: data.conversations[key].metadata?.name || `שיחה ${key.replace('convo', '')}`
+                    })) : [];
+                }
+            } catch (error) {
+                console.error('Error loading conversations:', error);
+                conversations = [];
+            }
+        }
+
+        async function loadVideos() {
+            try {
+                // Load both video list and metadata
+                const response = await fetch(`${API_BASE}/api/videos`);
+                if (response.ok) {
+                    videos = await response.json();
+                } else {
+                    videos = [];
+                }
+
+                // Enhanced: Load metadata for each video if available
+                for (let i = 0; i < videos.length; i++) {
+                    const video = videos[i];
+                    try {
+                        const metadataResponse = await fetch(`${API_BASE}/videos/${video.conversationFolder}_metadata.json`);
+                        if (metadataResponse.ok) {
+                            const metadata = await metadataResponse.json();
+                            videos[i] = { ...video, ...metadata };
+                        }
+                    } catch (error) {
+                        // Metadata not available, continue with basic video info
+                        console.log(`No metadata found for ${video.conversationFolder}`);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading videos:', error);
+                videos = [];
+            }
+        }
+
+        async function loadVideoData() {
+            await loadVideos();
+            displayVideoGrid();
+        }
+
+        // Video management
+        function displayVideoGrid() {
+            const grid = document.getElementById('video-grid');
+            grid.innerHTML = '';
+
+            if (conversations.length === 0) {
+                grid.innerHTML = '<div style="text-align: center; color: #666; padding: 2rem;">אין שיחות זמינות</div>';
+                return;
+            }
+
+            conversations.forEach(conv => {
+                const existingVideo = videos.find(v => v.conversationFolder === conv.id);
+                // Use enhanced card creation for better preview support
+                const card = createVideoCardEnhanced ? createVideoCardEnhanced(conv, existingVideo) : createVideoCard(conv, existingVideo);
+                grid.appendChild(card);
+            });
+        }
+
+        function createVideoCard(conversation, existingVideo) {
+            const card = document.createElement('div');
+            card.className = 'video-card fade-in';
+            card.dataset.conversation = conversation.id;
+
+            const hasVideo = !!existingVideo;
+            const statusClass = hasVideo ? 'status-success' : 'status-danger';
+            const statusText = hasVideo ? 'קיים' : 'חסר';
+
+            card.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 class="video-title">${conversation.name}</h3>
+                    <span class="status-badge ${statusClass}">${statusText}</span>
+                </div>
+                
+                ${hasVideo ? `
+                    <video controls class="video-preview">
+                        <source src="${API_BASE}/videos/${conversation.id}.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-meta">
+                        <div>📊 גודל: ${existingVideo.fileSize || 'לא ידוע'}</div>
+                        <div>⏱️ משך: ${existingVideo.duration || 'לא ידוע'}</div>
+                        <div>📅 נוצר: ${existingVideo.generatedAt ? new Date(existingVideo.generatedAt).toLocaleDateString('he-IL') : 'לא ידוע'}</div>
+                    </div>
+                ` : `
+                    <div style="background: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px; padding: 2rem; text-align: center; color: #6c757d; margin-bottom: 1rem;">
+                        <i class="material-icons" style="font-size: 2rem; margin-bottom: 0.5rem;">video_call</i>
+                        <div>אין וידאו</div>
+                    </div>
+                `}
+                
+                <div class="video-actions">
+                    ${hasVideo ? `
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <button onclick="downloadVideo('${conversation.id}')" class="btn btn-sm btn-success">
+                                <i class="material-icons">download</i>
+                                הורד
+                            </button>
+                            <button onclick="deleteVideo('${conversation.id}')" class="btn btn-sm btn-danger">
+                                <i class="material-icons">delete</i>
+                                מחק
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button onclick="regeneratePreview('${conversation.id}')" class="btn btn-sm btn-primary" title="צור מחדש מהויזואליזציה">
+                                <i class="material-icons">refresh</i>
+                                צור מחדש
+                            </button>
+                            <button onclick="uploadCustomPreview('${conversation.id}')" class="btn btn-sm btn-secondary" title="העלה קובץ MP4 מותאם אישית">
+                                <i class="material-icons">upload</i>
+                                העלה
+                            </button>
+                        </div>
+                    ` : `
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <button onclick="generatePreview('${conversation.id}')" class="btn btn-sm btn-primary" style="flex: 1;">
+                                <i class="material-icons">smart_display</i>
+                                צור מהויזואליזציה
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button onclick="uploadCustomPreview('${conversation.id}')" class="btn btn-sm btn-secondary" style="flex: 1;">
+                                <i class="material-icons">upload</i>
+                                העלה MP4
+                            </button>
+                        </div>
+                    `}
+                    <button onclick="fixEmotionAnalysis('${conversation.id}')" class="btn btn-sm btn-warning" title="תקן ניתוח רגשות חסר" style="margin-top: 0.5rem; width: 100%;">
+                        <i class="material-icons">psychology</i>
+                        תקן ניתוח
+                    </button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        async function generateVideo(conversation) {
+            try {
+                updateStatus(`מכין סרטון עבור ${conversation}...`, 'info');
+                
+                const response = await fetch(`${API_BASE}/api/generate-video`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        conversationFolder: conversation,
+                        options: {
+                            quality: '720',
+                            duration: 15,
+                            fps: 15,
+                            captureMode: 'clean',
+                            smartCrop: true,
+                            autoStart: true,
+                            loop: true,
+                            muted: true,
+                            hoverOnly: false
+                        },
+                        useVideoVisualization: true
+                    })
+                });
+                
+                if (response.ok) {
+                    updateStatus(`סרטון נוצר בהצלחה עבור ${conversation}`, 'success');
+                    await loadData();
+                    displayVideoGrid();
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(`HTTP ${response.status}: ${errorData.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                updateStatus(`שגיאה ביצירת סרטון: ${error.message}`, 'error');
+            }
+        }
+
+        async function generateSingleVideo(conversationId) {
+            try {
+                const videoSettings = getVideoSettings();
+                updateStatus(`יוצר וידאו עבור ${conversationId}...`, 'info');
+                
+                const response = await fetch(`${API_BASE}/api/generate-video`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        conversationFolder: conversationId,
+                        options: videoSettings,
+                        useVideoVisualization: true
+                    })
+                });
+                
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const result = await response.json();
+                updateStatus(`וידאו עבור ${conversationId} נוצר בהצלחה`, 'success');
+                await loadVideoData();
+                
+            } catch (error) {
+                console.error('Error generating video:', error);
+                updateStatus(`שגיאה ביצירת וידאו עבור ${conversationId}`, 'error');
+            }
+        }
+
+        function downloadVideo(conversationId) {
+            const link = document.createElement('a');
+            link.href = `${API_BASE}/videos/${conversationId}.mp4`;
+            link.download = `${conversationId}_visualization.mp4`;
+            link.click();
+        }
+
+        async function deleteVideo(conversationId) {
+            if (!confirm(`האם אתה בטוח שברצונך למחוק את הוידאו של ${conversationId}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/delete-video`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ conversation: conversationId })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Delete failed: ${response.status}`);
+                }
+
+                updateStatus(`וידאו של ${conversationId} נמחק בהצלחה`, 'success');
+                await loadVideoData();
+                
+            } catch (error) {
+                console.error('Error deleting video:', error);
+                updateStatus(`שגיאה במחיקת וידאו: ${error.message}`, 'error');
+            }
+        }
+
+        function filterVideos() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const cards = document.querySelectorAll('.video-card');
+            
+            cards.forEach(card => {
+                const conversation = card.dataset.conversation;
+                const isVisible = conversation.toLowerCase().includes(searchTerm) ||
+                                card.querySelector('.video-title').textContent.toLowerCase().includes(searchTerm);
+                card.style.display = isVisible ? 'block' : 'none';
+            });
+        }
+
+        async function refreshVideoList() {
+            updateStatus('מרענן רשימת וידאו...', 'info');
+            await loadVideoData();
+            updateStatus('רשימת וידאו עודכנה בהצלחה', 'success');
+        }
+
+        // Video generation functions
+        async function loadConversationOptions() {
+            await loadConversations();
+            const select = document.getElementById('generation-conversation-select');
+            select.innerHTML = '<option value="all">כל השיחות</option>';
+            
+            conversations.forEach(conv => {
+                const option = document.createElement('option');
+                option.value = conv.id;
+                option.textContent = conv.name;
+                select.appendChild(option);
+            });
+        }
+
+        async function generateAllVideos() {
+            if (videoGenerationInProgress) {
+                updateStatus('ייצור וידאו כבר בתהליך', 'info');
+                return;
+            }
+
+            const selectedConversation = document.getElementById('generation-conversation-select').value;
+            const videoSettings = getVideoSettings();
+            
+            let conversationsToProcess = [];
+            
+            if (selectedConversation === 'all' || !selectedConversation) {
+                conversationsToProcess = conversations.map(c => c.id);
+            } else {
+                conversationsToProcess = [selectedConversation];
+            }
+
+            if (conversationsToProcess.length === 0) {
+                updateStatus('אין שיחות זמינות לייצור וידאו', 'error');
+                return;
+            }
+
+            videoGenerationInProgress = true;
+            showVideoProgress();
+
+            try {
+                const totalConversations = conversationsToProcess.length;
+                let completedCount = 0;
+
+                updateVideoProgress(0, `מתחיל ייצור וידאו עבור ${totalConversations} שיחות...`);
+
+                for (const conversationFolder of conversationsToProcess) {
+                    const conversation = conversations.find(c => c.id === conversationFolder);
+                    const displayName = conversation ? conversation.name : conversationFolder;
+                    
+                    updateVideoProgress(
+                        (completedCount / totalConversations) * 100,
+                        `מייצר וידאו עבור ${displayName} (${completedCount + 1}/${totalConversations})`
+                    );
+
+                    try {
+                        await generateVideoForConversation(conversationFolder, videoSettings);
+                        completedCount++;
+                        addVideoProgressStep(`✅ הושלם: ${displayName}`);
+                    } catch (error) {
+                        console.error(`Error generating video for ${conversationFolder}:`, error);
+                        addVideoProgressStep(`❌ נכשל: ${displayName} - ${error.message}`);
+                    }
+                }
+
+                updateVideoProgress(100, '✅ ייצור הוידאו הושלם!');
+                updateStatus(`הושלם ייצור וידאו עבור ${completedCount} מתוך ${totalConversations} שיחות`, 'success');
+                
+                await loadVideoData();
+
+            } catch (error) {
+                console.error('Error in video generation:', error);
+                updateStatus(`שגיאה בייצור וידאו: ${error.message}`, 'error');
+            } finally {
+                videoGenerationInProgress = false;
+                setTimeout(() => {
+                    hideVideoProgress();
+                }, 3000);
+            }
+        }
+
+        async function generateVideoForConversation(conversationFolder, options) {
+            const response = await fetch(`${API_BASE}/api/generate-video`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    conversationFolder,
+                    options,
+                    useVideoVisualization: true
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Video generation failed: ${response.status} - ${errorText}`);
+            }
+
+            return await response.json();
+        }
+
+        function getVideoSettings() {
+            return {
+                quality: document.getElementById('video-quality').value,
+                duration: parseInt(document.getElementById('video-duration').value),
+                fps: parseInt(document.getElementById('video-fps').value),
+                captureMode: document.getElementById('capture-mode').value,
+                backgroundColor: document.getElementById('background-color').value,
+                smartCrop: true,
+                autoStart: true,
+                loop: true,
+                muted: true,
+                hoverOnly: false
+            };
+        }
+
+        function showVideoProgress() {
+            document.getElementById('video-generation-progress').style.display = 'block';
+            document.getElementById('video-progress-steps').innerHTML = '';
+        }
+
+        function hideVideoProgress() {
+            document.getElementById('video-generation-progress').style.display = 'none';
+        }
+
+        function updateVideoProgress(percentage, message) {
+            const progressBar = document.getElementById('video-progress-bar');
+            const progressText = document.getElementById('video-progress-text');
+
+            if (progressBar) progressBar.style.width = `${percentage}%`;
+            if (progressText) progressText.textContent = message;
+        }
+
+        function addVideoProgressStep(message) {
+            const stepsContainer = document.getElementById('video-progress-steps');
+            if (stepsContainer) {
+                const step = document.createElement('div');
+                step.className = 'step-item completed';
+                step.textContent = message;
+                stepsContainer.appendChild(step);
+                stepsContainer.scrollTop = stepsContainer.scrollHeight;
+            }
+        }
+
+        async function checkVideoStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/api/video-status`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const status = await response.json();
+                displayVideoStatus(status);
+
+            } catch (error) {
+                console.error('Error checking video status:', error);
+                document.getElementById('video-status-details').innerHTML = 
+                    '<span style="color: #f44336;">❌ שגיאה בבדיקת סטטוס</span>';
+            }
+        }
+
+        function displayVideoStatus(status) {
+            const container = document.getElementById('video-status-details');
+            
+            const statusHtml = `
+                <div class="grid grid-2" style="gap: 1rem; font-size: 0.9rem;">
+                    <div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <span style="color: ${status.selenium_available ? '#4caf50' : '#f44336'};">
+                                ${status.selenium_available ? '✅' : '❌'} Selenium WebDriver
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <span style="color: ${status.ffmpeg_available ? '#4caf50' : '#f44336'};">
+                                ${status.ffmpeg_available ? '✅' : '❌'} FFmpeg
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <span style="color: ${status.chrome_available ? '#4caf50' : '#f44336'};">
+                                ${status.chrome_available ? '✅' : '❌'} Chrome Browser
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <strong>שיטה:</strong> ${getMethodDisplayName(status.video_generation_method)}
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <strong>איכות:</strong> ${getQualityDisplayName(status.quality)}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = statusHtml;
+        }
+
+        function getMethodDisplayName(method) {
+            const methods = {
+                'selenium_webdriver': 'Selenium (איכות גבוהה)',
+                'ffmpeg_test_pattern': 'FFmpeg (דמה)',
+                'simple_fallback': 'בסיסי (חלופה)',
+                'none': 'לא זמין'
+            };
+            return methods[method] || method;
+        }
+
+        function getQualityDisplayName(quality) {
+            const qualities = {
+                'high_quality_real_capture': 'צילום אמיתי באיכות גבוהה',
+                'test_pattern_only': 'דמה בלבד',
+                'basic_mp4_file': 'קובץ MP4 בסיסי'
+            };
+            return qualities[quality] || quality;
+        }
+
+        // Analysis functions
+        async function loadAnalysisData() {
+            await loadConversations();
+            displayAnalysisOptions();
+        }
+
+        function displayAnalysisOptions() {
+            const results = document.getElementById('analysis-results');
+            results.innerHTML = `
+                <div class="grid grid-2">
+                    ${conversations.map(conv => `
+                        <div class="card">
+                            <h3>${conv.name}</h3>
+                            <p>שיחה ${conv.number}</p>
+                            <div style="margin-top: 1rem;">
+                                <button onclick="analyzeSingleConversation('${conv.id}')" class="btn btn-primary btn-sm">
+                                    <i class="material-icons">psychology</i>
+                                    נתח רגשות
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        async function analyzeSingleConversation(conversationId) {
+            try {
+                updateStatus(`מנתח רגשות עבור ${conversationId}...`, 'info');
+                
+                const response = await fetch(`${API_BASE}/api/analyze-emotions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        conversationFolder: conversationId,
+                        sensitivity: parseFloat(document.getElementById('ai-sensitivity').value),
+                        model: document.getElementById('analysis-model').value
+                    })
+                });
+                
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const result = await response.json();
+                updateStatus(`ניתוח רגשות עבור ${conversationId} הושלם בהצלחה`, 'success');
+                
+            } catch (error) {
+                console.error('Error analyzing emotions:', error);
+                updateStatus(`שגיאה בניתוח רגשות עבור ${conversationId}`, 'error');
+            }
+        }
+
+        async function bulkAnalyzeEmotions() {
+            updateStatus('מתחיל ניתוח רגשות מרובה...', 'info');
+            
+            for (const conv of conversations) {
+                await analyzeSingleConversation(conv.id);
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Wait between requests
+            }
+            
+            updateStatus('ניתוח רגשות מרובה הושלם', 'success');
+        }
+
+        async function refreshAnalysisList() {
+            await loadAnalysisData();
+            updateStatus('רשימת ניתוח עודכנה', 'success');
+        }
+
+        // Settings functions
+        function saveSettings() {
+            const settings = {
+                apiBaseUrl: document.getElementById('api-base-url').value,
+                defaultSegmentLength: document.getElementById('default-segment-length').value,
+                defaultVideoQuality: document.getElementById('default-video-quality').value
+            };
+            
+            localStorage.setItem('videoManagerSettings', JSON.stringify(settings));
+            updateStatus('הגדרות נשמרו בהצלחה', 'success');
+        }
+
+        function resetSettings() {
+            if (confirm('האם אתה בטוח שברצונך לאפס את ההגדרות?')) {
+                localStorage.removeItem('videoManagerSettings');
+                document.getElementById('api-base-url').value = 'http://localhost:8000';
+                document.getElementById('default-segment-length').value = '20';
+                document.getElementById('default-video-quality').value = '720';
+                updateStatus('הגדרות אופסו בהצלחה', 'success');
+            }
+        }
+
+        // UI update functions
+        function updateDurationDisplay() {
+            const slider = document.getElementById('video-duration');
+            const display = document.getElementById('duration-value');
+            if (slider && display) {
+                display.textContent = slider.value;
+            }
+        }
+
+        function updateSensitivityDisplay() {
+            const slider = document.getElementById('ai-sensitivity');
+            const display = document.getElementById('sensitivity-value');
+            if (slider && display) {
+                display.textContent = slider.value;
+            }
+        }
+
+        function updateStatus(message, type = 'info') {
+            const statusDisplay = document.getElementById('status-display');
+            if (statusDisplay) {
+                statusDisplay.innerHTML = `
+                    <div class="status-message status-${type}">
+                        <i class="material-icons">${getStatusIcon(type)}</i>
+                        ${message}
+                    </div>
+                `;
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    statusDisplay.innerHTML = '';
+                }, 5000);
+            }
+        }
+
+        function getStatusIcon(type) {
+            const icons = {
+                'info': 'info',
+                'success': 'check_circle',
+                'warning': 'warning',
+                'error': 'error'
+            };
+            return icons[type] || 'info';
+        }
+
+        // Bulk operations
+        function bulkVideoOperations() {
+            // This would open a modal or expanded interface for bulk operations
+            updateStatus('פעולות מרובות - בפיתוח', 'info');
+        }
+
+        // Fix emotion analysis for conversations that might be missing it
+        async function fixEmotionAnalysis(conversationId) {
+            try {
+                updateStatus(`מתקן ניתוח רגשות עבור ${conversationId}...`, 'info');
+                
+                // Step 1: Run emotion analysis
+                const emotionResponse = await fetch(`${API_BASE}/api/analyze-emotions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        conversationFolder: conversationId,
+                        useAI: true
+                    })
+                });
+
+                if (!emotionResponse.ok) {
+                    throw new Error(`Emotion analysis failed: ${emotionResponse.status}`);
+                }
+
+                const emotionResult = await emotionResponse.json();
+                
+                // Step 2: Update system configuration
+                const configResponse = await fetch(`${API_BASE}/api/update-system-config`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        conversationFolder: conversationId,
+                        metadata: {
+                            name: `שיחה ${conversationId.replace('convo', '')}`,
+                            type: 'general',
+                            segmentCount: emotionResult.segmentCount || 1,
+                            duration: 20.0
+                        }
+                    })
+                });
+
+                if (configResponse.ok) {
+                    updateStatus(`✅ ניתוח רגשות עבור ${conversationId} תוקן בהצלחה!`, 'success');
+                } else {
+                    updateStatus(`⚠️ ניתוח רגשות הושלם, אך עדכון התצורה נכשל עבור ${conversationId}`, 'warning');
+                }
+                
+                // Refresh data
+                await loadData();
+                if (document.getElementById('videos-tab').classList.contains('active')) {
+                    displayVideoGrid();
+                }
+
+            } catch (error) {
+                console.error('Error fixing emotion analysis:', error);
+                updateStatus(`שגיאה בתיקון ניתוח רגשות עבור ${conversationId}: ${error.message}`, 'error');
+            }
+        }
+
+        // Fix emotion analysis for all conversations that might be missing it
+        async function fixAllMissingAnalysis() {
+            if (!confirm('האם אתה בטוח שברצונך לתקן ניתוח רגשות עבור כל השיחות החסרות?')) {
+                return;
+            }
+
+            try {
+                updateStatus('בודק שיחות עם ניתוח רגשות חסר...', 'info');
+                await loadConversations();
+                
+                const missingAnalysis = [];
+                
+                for (const conv of conversations) {
+                    try {
+                        // Check if emotion file exists
+                        const checkResponse = await fetch(`${API_BASE}/conversations/${conv.id}/emotions${conv.id.replace('convo', '')}_ai_analyzed.json`);
+                        if (!checkResponse.ok) {
+                            missingAnalysis.push(conv.id);
+                        }
+                    } catch (error) {
+                        missingAnalysis.push(conv.id);
+                    }
+                }
+
+                if (missingAnalysis.length === 0) {
+                    updateStatus('כל השיחות כבר כוללות ניתוח רגשות מלא', 'success');
+                    return;
+                }
+
+                updateStatus(`נמצאו ${missingAnalysis.length} שיחות עם ניתוח רגשות חסר. מתחיל תיקון...`, 'info');
+
+                let fixedCount = 0;
+                for (const conversationId of missingAnalysis) {
+                    try {
+                        await fixEmotionAnalysis(conversationId);
+                        fixedCount++;
+                        updateStatus(`תוקן ${fixedCount}/${missingAnalysis.length}: ${conversationId}`, 'info');
+                    } catch (error) {
+                        console.error(`Failed to fix ${conversationId}:`, error);
+                    }
+                }
+
+                updateStatus(`✅ הושלם תיקון ניתוח רגשות עבור ${fixedCount} שיחות`, 'success');
+                await loadData();
+
+            } catch (error) {
+                console.error('Error in bulk fix:', error);
+                updateStatus(`שגיאה בתיקון מרובה: ${error.message}`, 'error');
+            }
+        }
+
+        // MP4 Preview Generation and Upload Functions
+        async function generatePreview(conversationId) {
+            try {
+                const videoSettings = getVideoSettings();
+                updateStatus(`יוצר תצוגה מקדימה עבור ${conversationId}...`, 'info');
+                
+                const response = await fetch(`${API_BASE}/api/generate-preview`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        conversation_id: conversationId,
+                        options: videoSettings
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `HTTP ${response.status}`);
+                }
+                
+                const result = await response.json();
+                updateStatus(`✅ תצוגה מקדימה עבור ${conversationId} נוצרה בהצלחה`, 'success');
+                await loadVideoData();
+                
+            } catch (error) {
+                console.error('Error generating preview:', error);
+                updateStatus(`שגיאה ביצירת תצוגה מקדימה עבור ${conversationId}: ${error.message}`, 'error');
+            }
+        }
+
+        async function regeneratePreview(conversationId) {
+            if (!confirm(`האם אתה בטוח שברצונך ליצור מחדש את התצוגה המקדימה עבור ${conversationId}?`)) {
+                return;
+            }
+            
+            await generatePreview(conversationId);
+        }
+
+        function uploadCustomPreview(conversationId) {
+            // Create a hidden file input element
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.mp4';
+            fileInput.style.display = 'none';
+            
+            fileInput.onchange = async function(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                // Validate file
+                if (!file.name.toLowerCase().endsWith('.mp4')) {
+                    updateStatus('נא לבחור קובץ MP4 בלבד', 'error');
+                    return;
+                }
+                
+                if (file.size > 50 * 1024 * 1024) { // 50MB limit
+                    updateStatus('הקובץ גדול מדי. מקסימום 50MB', 'error');
+                    return;
+                }
+                
+                try {
+                    updateStatus(`מעלה תצוגה מקדימה מותאמת אישית עבור ${conversationId}...`, 'info');
+                    
+                    const formData = new FormData();
+                    formData.append('preview_file', file);
+                    formData.append('conversation_id', conversationId);
+                    
+                    const response = await fetch(`${API_BASE}/api/upload-preview`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || `HTTP ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    updateStatus(`✅ תצוגה מקדימה מותאמת אישית עבור ${conversationId} הועלתה בהצלחה`, 'success');
+                    
+                    // Show file info
+                    const fileSizeMB = (result.file_size / 1024 / 1024).toFixed(2);
+                    updateStatus(`📁 ${file.name} (${fileSizeMB} MB) הועלה בהצלחה`, 'info');
+                    
+                    await loadVideoData();
+                    
+                } catch (error) {
+                    console.error('Error uploading preview:', error);
+                    updateStatus(`שגיאה בהעלאת תצוגה מקדימה עבור ${conversationId}: ${error.message}`, 'error');
+                }
+                
+                // Clean up
+                document.body.removeChild(fileInput);
+            };
+            
+            // Add to DOM and trigger click
+            document.body.appendChild(fileInput);
+            fileInput.click();
+        }
+
+        // Enhanced video card to show preview source
+        function createVideoCardEnhanced(conversation, existingVideo) {
+            const card = document.createElement('div');
+            card.className = 'video-card fade-in';
+            card.dataset.conversation = conversation.id;
+
+            const hasVideo = !!existingVideo;
+            let statusClass = hasVideo ? 'status-success' : 'status-danger';
+            const statusText = hasVideo ? 'קיים' : 'חסר';
+            
+            // Determine preview source and add appropriate classes
+            let sourceInfo = '';
+            if (hasVideo && existingVideo.type) {
+                if (existingVideo.type === 'custom_upload') {
+                    card.classList.add('has-custom-preview');
+                    statusClass += ' preview-custom';
+                    sourceInfo = '<div class="preview-source-custom">📁 הועלה על ידי משתמש</div>';
+                } else if (existingVideo.type === 'auto_generated') {
+                    card.classList.add('has-auto-preview');
+                    statusClass += ' preview-auto';
+                    sourceInfo = '<div class="preview-source-auto">🤖 נוצר אוטומטית</div>';
+                }
+            }
+
+            card.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 class="video-title">${conversation.name}</h3>
+                    <span class="status-badge ${statusClass}">${statusText}</span>
+                </div>
+                
+                ${sourceInfo}
+                
+                ${hasVideo ? `
+                    <video controls class="video-preview">
+                        <source src="${API_BASE}/videos/${conversation.id}.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-meta">
+                        <div>📊 גודל: ${existingVideo.fileSize || (existingVideo.file_size ? (existingVideo.file_size / 1024 / 1024).toFixed(2) + ' MB' : 'לא ידוע')}</div>
+                        <div>⏱️ משך: ${existingVideo.duration || 'לא ידוע'}</div>
+                        <div>📅 נוצר: ${existingVideo.generatedAt ? new Date(existingVideo.generatedAt).toLocaleDateString('he-IL') : 
+                                      (existingVideo.generation_date ? new Date(existingVideo.generation_date).toLocaleDateString('he-IL') :
+                                       (existingVideo.upload_date ? new Date(existingVideo.upload_date).toLocaleDateString('he-IL') : 'לא ידוע'))}</div>
+                    </div>
+                ` : `
+                    <div style="background: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px; padding: 2rem; text-align: center; color: #6c757d; margin-bottom: 1rem;">
+                        <i class="material-icons" style="font-size: 2rem; margin-bottom: 0.5rem;">video_call</i>
+                        <div>אין תצוגה מקדימה</div>
+                        <div style="font-size: 0.8rem; margin-top: 0.5rem;">ניתן ליצור או להעלות</div>
+                    </div>
+                `}
+                
+                <div class="video-actions">
+                    ${hasVideo ? `
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <button onclick="downloadVideo('${conversation.id}')" class="btn btn-sm btn-success">
+                                <i class="material-icons">download</i>
+                                הורד
+                            </button>
+                            <button onclick="deleteVideo('${conversation.id}')" class="btn btn-sm btn-danger">
+                                <i class="material-icons">delete</i>
+                                מחק
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button onclick="regeneratePreview('${conversation.id}')" class="btn btn-sm btn-primary" title="צור מחדש מהויזואליזציה">
+                                <i class="material-icons">refresh</i>
+                                צור מחדש
+                            </button>
+                            <button onclick="uploadCustomPreview('${conversation.id}')" class="btn btn-sm btn-secondary" title="העלה קובץ MP4 מותאם אישית">
+                                <i class="material-icons">upload</i>
+                                העלה
+                            </button>
+                        </div>
+                    ` : `
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <button onclick="generatePreview('${conversation.id}')" class="btn btn-sm btn-primary" style="flex: 1;">
+                                <i class="material-icons">smart_display</i>
+                                צור מהויזואליזציה
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button onclick="uploadCustomPreview('${conversation.id}')" class="btn btn-sm btn-secondary" style="flex: 1;">
+                                <i class="material-icons">upload</i>
+                                העלה MP4
+                            </button>
+                        </div>
+                    `}
+                    <button onclick="fixEmotionAnalysis('${conversation.id}')" class="btn btn-sm btn-warning" title="תקן ניתוח רגשות חסר" style="margin-top: 0.5rem; width: 100%;">
+                        <i class="material-icons">psychology</i>
+                        תקן ניתוח
+                    </button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Bulk Preview Operations
+        async function generateAllPreviews() {
+            if (!confirm('האם אתה בטוח שברצונך ליצור תצוגות מקדימות עבור כל השיחות?')) {
+                return;
+            }
+
+            try {
+                await loadConversations();
+                const totalConversations = conversations.length;
+                
+                if (totalConversations === 0) {
+                    updateStatus('אין שיחות זמינות', 'error');
+                    return;
+                }
+
+                updateStatus(`מתחיל ייצור תצוגות מקדימות עבור ${totalConversations} שיחות...`, 'info');
+                showVideoProgress();
+
+                let completedCount = 0;
+                let errorCount = 0;
+
+                for (const conversation of conversations) {
+                    try {
+                        updateVideoProgress(
+                            (completedCount / totalConversations) * 100,
+                            `יוצר תצוגה מקדימה עבור ${conversation.name} (${completedCount + 1}/${totalConversations})`
+                        );
+
+                        await generatePreview(conversation.id);
+                        completedCount++;
+                        addVideoProgressStep(`✅ הושלם: ${conversation.name}`);
+                        
+                        // Small delay to prevent overwhelming the server
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        
+                    } catch (error) {
+                        errorCount++;
+                        console.error(`Error generating preview for ${conversation.id}:`, error);
+                        addVideoProgressStep(`❌ נכשל: ${conversation.name} - ${error.message}`);
+                    }
+                }
+
+                updateVideoProgress(100, '✅ ייצור תצוגות מקדימות הושלם!');
+                updateStatus(`הושלם ייצור תצוגות מקדימות: ${completedCount} הצליחו, ${errorCount} נכשלו`, 
+                           errorCount === 0 ? 'success' : 'warning');
+                
+                await loadVideoData();
+
+            } catch (error) {
+                console.error('Error in bulk preview generation:', error);
+                updateStatus(`שגיאה בייצור תצוגות מקדימות: ${error.message}`, 'error');
+            } finally {
+                setTimeout(hideVideoProgress, 3000);
+            }
+        }
+
+        function uploadBulkPreviews() {
+            // Create a hidden file input for multiple files
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.mp4';
+            fileInput.multiple = true;
+            fileInput.style.display = 'none';
+            
+            fileInput.onchange = async function(event) {
+                const files = Array.from(event.target.files);
+                if (files.length === 0) return;
+
+                updateStatus(`מעלה ${files.length} תצוגות מקדימות...`, 'info');
+                
+                const uploadResults = [];
+                
+                for (const file of files) {
+                    try {
+                        // Try to extract conversation ID from filename
+                        const filename = file.name.toLowerCase();
+                        let conversationId = null;
+                        
+                        // Look for pattern like "convo1.mp4" or "1.mp4"
+                        const patterns = [
+                            /^convo(\d+)\.mp4$/,
+                            /^(\d+)\.mp4$/,
+                            /convo(\d+)/,
+                            /(\d+)/
+                        ];
+                        
+                        for (const pattern of patterns) {
+                            const match = filename.match(pattern);
+                            if (match) {
+                                conversationId = `convo${match[1]}`;
+                                break;
+                            }
+                        }
+                        
+                        if (!conversationId) {
+                            // Prompt user to select conversation
+                            conversationId = await selectConversationForFile(file.name);
+                            if (!conversationId) continue;
+                        }
+                        
+                        // Check if conversation exists
+                        const conversation = conversations.find(c => c.id === conversationId);
+                        if (!conversation) {
+                            uploadResults.push({ file: file.name, status: 'error', message: `שיחה ${conversationId} לא נמצאה` });
+                            continue;
+                        }
+                        
+                        // Upload the file
+                        const formData = new FormData();
+                        formData.append('preview_file', file);
+                        formData.append('conversation_id', conversationId);
+                        
+                        const response = await fetch(`${API_BASE}/api/upload-preview`, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (response.ok) {
+                            const result = await response.json();
+                            uploadResults.push({ 
+                                file: file.name, 
+                                status: 'success', 
+                                conversationId: conversationId,
+                                size: (file.size / 1024 / 1024).toFixed(2) + ' MB'
+                            });
+                        } else {
+                            const errorData = await response.json();
+                            uploadResults.push({ file: file.name, status: 'error', message: errorData.error });
+                        }
+                        
+                    } catch (error) {
+                        uploadResults.push({ file: file.name, status: 'error', message: error.message });
+                    }
+                }
+                
+                // Show results
+                const successCount = uploadResults.filter(r => r.status === 'success').length;
+                const errorCount = uploadResults.filter(r => r.status === 'error').length;
+                
+                updateStatus(`העלאה הושלמה: ${successCount} הצליחו, ${errorCount} נכשלו`, 
+                           errorCount === 0 ? 'success' : 'warning');
+                
+                // Show detailed results
+                displayUploadResults(uploadResults);
+                
+                await loadVideoData();
+                document.body.removeChild(fileInput);
+            };
+            
+            document.body.appendChild(fileInput);
+            fileInput.click();
+        }
+
+        async function selectConversationForFile(filename) {
+            return new Promise((resolve) => {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                    background: rgba(0,0,0,0.5); display: flex; align-items: center; 
+                    justify-content: center; z-index: 10000; direction: rtl;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="background: white; padding: 2rem; border-radius: 12px; max-width: 400px; width: 90%;">
+                        <h3 style="margin: 0 0 1rem 0;">בחר שיחה עבור ${filename}</h3>
+                        <select id="conversation-select" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+                            <option value="">בחר שיחה...</option>
+                            ${conversations.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}
+                        </select>
+                        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                            <button onclick="this.closest('[style*=\"position: fixed\"]').remove(); arguments[0].resolve(null)" 
+                                    style="padding: 0.5rem 1rem; border: 1px solid #ddd; background: white; border-radius: 4px;">ביטול</button>
+                            <button onclick="
+                                const select = this.closest('[style*=\"background: white\"]').querySelector('#conversation-select');
+                                const value = select.value;
+                                this.closest('[style*=\"position: fixed\"]').remove();
+                                arguments[0].resolve(value);
+                            " style="padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px;">אישור</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Inject resolve function
+                modal.querySelectorAll('button').forEach(btn => {
+                    const onclick = btn.getAttribute('onclick');
+                    btn.onclick = new Function('arguments', onclick).bind(btn, [{ resolve }]);
+                });
+                
+                document.body.appendChild(modal);
+            });
+        }
+
+        function displayUploadResults(results) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.5); display: flex; align-items: center; 
+                justify-content: center; z-index: 10000; direction: rtl;
+            `;
+            
+            const successResults = results.filter(r => r.status === 'success');
+            const errorResults = results.filter(r => r.status === 'error');
+            
+            modal.innerHTML = `
+                <div style="background: white; padding: 2rem; border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+                    <h3 style="margin: 0 0 1rem 0;">תוצאות העלאה</h3>
+                    
+                    ${successResults.length > 0 ? `
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="color: green; margin: 0 0 0.5rem 0;">✅ הצליחו (${successResults.length})</h4>
+                            ${successResults.map(r => `
+                                <div style="padding: 0.5rem; background: #f0f8f0; margin-bottom: 0.25rem; border-radius: 4px;">
+                                    📁 ${r.file} → ${r.conversationId} (${r.size})
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                    
+                    ${errorResults.length > 0 ? `
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="color: red; margin: 0 0 0.5rem 0;">❌ נכשלו (${errorResults.length})</h4>
+                            ${errorResults.map(r => `
+                                <div style="padding: 0.5rem; background: #fdf0f0; margin-bottom: 0.25rem; border-radius: 4px;">
+                                    📁 ${r.file} - ${r.message}
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                    
+                    <div style="text-align: center;">
+                        <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" 
+                                style="padding: 0.5rem 2rem; background: #007bff; color: white; border: none; border-radius: 4px;">סגור</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        function previewSettings() {
+            updateStatus('הגדרות תצוגה מקדימה - בפיתוח', 'info');
+            // This could open a modal with preview-specific settings like:
+            // - Default quality for auto-generation
+            // - Naming conventions for bulk uploads
+            // - Auto-backup settings
+            // - Compression settings
+        }
+    </script>
+</body>
+</html>

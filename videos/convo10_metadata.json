@@ -1,0 +1,16 @@
+{
+  "conversationFolder": "convo10",
+  "filename": "convo10.mp4",
+  "path": "videos/convo10.mp4",
+  "quality": "720",
+  "duration": 12,
+  "fps": 15,
+  "captureMode": "clean",
+  "smartCrop": true,
+  "autoStart": true,
+  "loop": true,
+  "muted": true,
+  "hoverOnly": false,
+  "generatedAt": "2025-07-15T22:34:18.640934",
+  "fileSize": "0.32MB"
+}
