@@ -1,0 +1,26 @@
+{
+  "wizard_recording.wav": {
+    "emotions": [
+      "ניטרלי"
+    ],
+    "transcript": "שגיאה בתמלול",
+    "blur": 0,
+    "shine": 0,
+    "humor": 0,
+    "blobSize": 3,
+    "blobStrength": 1000,
+    "gridResolution": 60,
+    "blobHomeRegion": "center-left",
+    "confidence": 0.95,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-08-04T09:54:03.979522",
+    "audio_volume": 0.5,
+    "audio_energy": 0.5,
+    "audio_duration": 1,
+    "primary_emotion": null,
+    "detected_emotions_original": null,
+    "duration": 0,
+    "speaker": 0,
+    "words": "שגיאה בתמלול"
+  }
+}

@@ -121,7 +121,7 @@ def create_emotion_entry(speaker: int, is_silent: bool, duration_ms: int) -> dic
         
     entry = {
         "speaker": speaker,
-        "emotions": ["silent"] if is_silent else ["neutral"],
+        "emotions": ["שתיקה"] if is_silent else ["חיבה"],  # 🚫 NEVER NEUTRAL: Use affection for speech
         "transcript": "" if not is_silent else "SILENCE",
         "words": "" if not is_silent else "SILENCE",
         "word_count": 0,
@@ -136,18 +136,18 @@ def create_emotion_entry(speaker: int, is_silent: bool, duration_ms: int) -> dic
         "blobStrength": 100 if is_silent else 400,
         "blobSizeScale": 1 if is_silent else 4,
         "blobiness": 1 if is_silent else 3,
-        "coloredCircleCharSize": 0 if is_silent else 0.25,
-        "regularAsciiCharSize": 0 if is_silent else 0.25,
+        "coloredCircleCharSize": 0 if is_silent else 1.2,  # Minimum 1.2 for emotion emphasis
+        "regularAsciiCharSize": 0 if is_silent else 1.0,  # Minimum 1.0 for readability
         
         # Standard parameters with consistent positioning
         "positioning": [0, 0],
         "connections": [],
         "strength": 1,
         "character_sizing": 1,
-        "circlesPerEmotion": 30,
+        "circlesPerEmotion": 10 if is_silent else 200,  # Always maximum for emotional impact
         "connectBlobs": False,
         "blobHomeRegion": home_region,  # This ensures consistent positioning
-        "minBlobSpacing": "middle",
+        "minBlobSpacing": "close",  # Use new preset system
         "volumeImpact": 800,
         "blobSpreadField": 2,
         "blobGrowthPattern": "steady",

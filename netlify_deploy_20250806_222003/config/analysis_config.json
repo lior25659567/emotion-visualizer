@@ -1,0 +1,35 @@
+{
+  "hebrew_patterns": {
+    "humor_indicators": [
+      "חח", "חחח", "מצחיק", "קורע", "בצחוק", "lol"
+    ],
+    "agreement_indicators": [
+      "כן", "נכון", "בדיוק", "מסכים", "בטח", "מעולה"
+    ],
+    "disagreement_indicators": [
+      "לא", "ממש לא", "אבל", "מה פתאום", "זה לא נכון"
+    ],
+    "unclear_speech_indicators": [
+      "מה?", "הא?", "לא הבנתי", "אמ...", "אה..."
+    ],
+    "intensity_indicators": [
+      "וואי", "איזה", "נורא", "ממש ממש", "די!", "מספיק!"
+    ],
+    "filler_words": [
+      "כאילו", "יעני", "אז", "כזה"
+    ]
+  },
+  "scoring_weights": {
+    "intensity_multiplier": 1.5,
+    "humor_bonus": 0.5,
+    "repetition_bonus": 0.2,
+    "question_mark_penalty": 0.3
+  },
+  "visualization_defaults": {
+    "blob_strength": 450,
+    "blob_size_scale": 5,
+    "blobiness": 3.5,
+    "character_sizing_base": 0.25,
+    "character_sizing_yell_boost": 0.3
+  }
+} 

@@ -338,7 +338,7 @@ class ThreadedHTTPServer(HTTPServer):
         self.daemon_threads = True
 
 
-def start_simple_server(port=8000):
+def start_simple_server(port=8001):
     """Start the enhanced HTTP server"""
     try:
         # Change to the project directory
@@ -384,11 +384,11 @@ def start_simple_server(port=8000):
 
 if __name__ == '__main__':
     # Get port from command line args
-    port = 8000
+    port = 8001
     if len(sys.argv) > 1:
         try:
             port = int(sys.argv[1])
         except ValueError:
-            print("Invalid port number, using default 8000")
+            print("Invalid port number, using default 8001")
     
     start_simple_server(port)

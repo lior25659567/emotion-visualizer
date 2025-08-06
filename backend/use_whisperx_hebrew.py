@@ -124,7 +124,7 @@ def create_emotion_segments_with_whisperx(audio_dir, output_file):
             "fear": 0,
             "surprise": 0,
             "disgust": 0,
-            "neutral": 1
+            "שמחה": 1  # 🚫 NEVER NEUTRAL
         }
         
         segments.append(segment)

@@ -73,7 +73,7 @@ def capture_video_visualization(conversation_folder, output_path, options=None):
             chrome_options.add_experimental_option('useAutomationExtension', False)
             
             # STATIC BACKGROUND MATCHING INDEX.HTML - NO ANIMATIONS OR FLASHING  
-            url = f"http://localhost:8000/visualization.html?folder={conversation_folder}&viewMode=preview&autostart=false&animate=false&static=true&paused=true&scale=1.0&noSidepanel=true&noTimeline=true&visualOnly=true&noMP3=true&noaudio=true&optimize=true&fullscreen=true&hideUI=true&canvasOnly=true&noControls=true&zoomLevel=1.0&backgroundColor=%23f7f9f3&forceBackground=true&simplified=true&immediate=true"
+            url = f"http://localhost:8001/visualization.html?folder={conversation_folder}&viewMode=preview&autostart=false&animate=false&static=true&paused=true&scale=1.0&noSidepanel=true&noTimeline=true&visualOnly=true&noMP3=true&noaudio=true&optimize=true&fullscreen=true&hideUI=true&canvasOnly=true&noControls=true&zoomLevel=1.0&backgroundColor=%23f7f9f3&forceBackground=true&simplified=true&immediate=true"
             
             print(f"🌐 Opening URL: {url}")
             

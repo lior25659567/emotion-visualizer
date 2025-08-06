@@ -1,0 +1,35 @@
+{
+  "conversationFolder": "convo3",
+  "filename": "convo3.mp4",
+  "path": "videos/convo3.mp4",
+  "quality": "720",
+  "duration": 5,
+  "fps": 30,
+  "type": "5sec_preview",
+  "source": "auto_generated",
+  "generatedAt": "2025-07-30T23:44:26.750764",
+  "fileSize": "0.27MB",
+  "settings": {
+    "quality": "720",
+    "duration": 5,
+    "fps": 30,
+    "frameSize": {
+      "width": 1280,
+      "height": 720
+    },
+    "cropArea": {
+      "enabled": false
+    },
+    "advancedOptions": {
+      "noSidepanel": true,
+      "hideUI": true,
+      "noTimeline": true,
+      "visualOnly": true,
+      "canvasOnly": true,
+      "cleanCapture": true,
+      "optimize": true,
+      "fullscreen": true
+    },
+    "backgroundColor": "#f7f9f3"
+  }
+}

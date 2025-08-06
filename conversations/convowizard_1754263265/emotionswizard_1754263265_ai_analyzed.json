@@ -1,0 +1,27 @@
+{
+  "wizard_recording.wav": {
+    "emotions": [
+      "סקרנות",
+      "חיבה"
+    ],
+    "transcript": "שלום מה נשמע",
+    "blur": 5,
+    "shine": 3,
+    "humor": 2,
+    "blobSize": 4,
+    "blobStrength": 1500,
+    "gridResolution": 40,
+    "blobHomeRegion": "center-left",
+    "confidence": 0.98,
+    "ai_analyzed": true,
+    "ai_analysis_date": "2025-08-04T02:21:05.781538",
+    "audio_volume": 0.5,
+    "audio_energy": 0.5,
+    "audio_duration": 1.0,
+    "primary_emotion": null,
+    "detected_emotions_original": null,
+    "duration": 0,
+    "speaker": 0,
+    "words": "שלום מה נשמע"
+  }
+}

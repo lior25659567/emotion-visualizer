@@ -1,16 +1,8 @@
 {
-  "conversationFolder": "convo8",
-  "filename": "convo8.mp4",
-  "path": "videos/convo8.mp4",
-  "quality": "720",
-  "duration": 12,
-  "fps": 15,
-  "captureMode": "clean",
-  "smartCrop": true,
-  "autoStart": true,
-  "loop": true,
-  "muted": true,
-  "hoverOnly": false,
-  "generatedAt": "2025-07-15T22:30:29.858376",
-  "fileSize": "1.23MB"
+  "conversation_id": "convo8",
+  "original_filename": "test_fixed.mp4",
+  "upload_date": "2025-08-03T00:14:48.071476",
+  "file_size": 6568,
+  "type": "custom_upload",
+  "source": "user_upload"
 }

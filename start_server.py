@@ -1041,9 +1041,11 @@ def transcribe_and_analyze_conversation():
         except Exception as e:
             return jsonify({"error": "Failed to initialize OpenAI client"}), 500
         
-        # Find MP3 files
+        # Find MP3 files and sort them properly to maintain order
         mp3_files = [f for f in os.listdir(conv_path) if f.endswith('.mp3') and not f.startswith('original_')]
-        mp3_files.sort(key=lambda x: int(x.split('.')[0]) if x.split('.')[0].isdigit() else 0)
+        mp3_files.sort(key=lambda x: int(x.split('.')[0]) if x.split('.')[0].isdigit() else 999)
+        
+        print(f"📋 Processing segments in order: {mp3_files[:5]}..." if len(mp3_files) > 5 else f"📋 Processing segments: {mp3_files}")
         
         if not mp3_files:
             return jsonify({"error": "No MP3 files found in conversation folder"}), 404
@@ -1075,22 +1077,32 @@ def transcribe_and_analyze_conversation():
         }
         
         results = {}
+        speaker_counts = {0: 0, 1: 0}  # Track speaker distribution
         
         for i, mp3_file in enumerate(mp3_files):
             try:
                 print(f"\n🔄 Processing {mp3_file} ({i+1}/{len(mp3_files)})...")
                 mp3_path = os.path.join(conv_path, mp3_file)
                 
-                # Initialize segment data if not exists
+                # Initialize segment data if not exists, but preserve existing emotions
                 if mp3_file not in emotion_data:
                     emotion_data[mp3_file] = create_default_segment_data()
                 
                 segment_data = emotion_data[mp3_file]
                 
+                # Preserve existing emotions and transcripts to prevent loss during processing
+                original_emotions = segment_data.get('emotions', []).copy() if segment_data.get('emotions') else []
+                original_transcript = segment_data.get('transcript', '')
+                original_blur = segment_data.get('blur', 0)
+                original_shine = segment_data.get('shine', 0)
+                original_humor = segment_data.get('humor', 0)
+                
+                print(f"  📊 Existing data - Emotions: {original_emotions}, Transcript: '{original_transcript[:30]}...'" if original_transcript else "  📊 No existing data")
+                
                 # Check if transcription should be skipped
                 existing_transcript = segment_data.get('transcript', '').strip()
-                if skip_existing and existing_transcript:
-                    print(f"  ⏭️ Skipping {mp3_file} - transcript exists")
+                if skip_existing and existing_transcript and not segment_data.get('transcription_error', False):
+                    print(f"  ⏭️ Skipping {mp3_file} - transcript exists and is valid")
                     stats["skipped"] += 1
                     continue
                 
@@ -1103,18 +1115,25 @@ def transcribe_and_analyze_conversation():
                 else:  # openai_fast
                     transcript = transcribe_with_openai_whisper(mp3_path, client)
                 
-                if transcript:
-                    segment_data['transcript'] = transcript
-                    segment_data['words'] = transcript
+                if transcript and transcript.strip():
+                    segment_data['transcript'] = transcript.strip()
+                    segment_data['words'] = transcript.strip()
                     segment_data['transcribed'] = True
                     segment_data['transcription_method'] = transcription_method
                     segment_data['transcription_date'] = datetime.now().isoformat()
                     stats["transcribed"] += 1
                     print(f"    ✅ Transcribed: \"{transcript[:50]}...\"")
                 else:
-                    print(f"    ⚠️ Transcription failed for {mp3_file}")
+                    # Don't delete the segment - provide fallback transcript to preserve segment order
+                    fallback_transcript = f"[Segment {mp3_file}]"
+                    segment_data['transcript'] = fallback_transcript
+                    segment_data['words'] = fallback_transcript
+                    segment_data['transcribed'] = False
+                    segment_data['transcription_method'] = f"{transcription_method}_failed"
+                    segment_data['transcription_date'] = datetime.now().isoformat()
+                    segment_data['transcription_error'] = True
                     stats["errors"] += 1
-                    continue
+                    print(f"    ⚠️ Transcription failed for {mp3_file} - using fallback transcript: '{fallback_transcript}'")
                 
                 # Step 2: Audio Analysis
                 try:
@@ -1128,66 +1147,95 @@ def transcribe_and_analyze_conversation():
                     print(f"    ⚠️ Audio analysis failed: {str(e)}")
                     audio_analysis = {"volume": 0.5, "energy": 0.5, "duration": 1.0}
                 
-                # Step 3: Speaker Assignment (alternating pattern)
+                # Step 3: Speaker Assignment (balanced pattern to ensure equal representation)
                 if 'speaker' not in segment_data:
+                    # Use a more balanced assignment pattern
                     speaker_id = 0 if i % 2 == 0 else 1
                     segment_data['speaker'] = speaker_id
                     print(f"    👥 Assigned to דובר {speaker_id + 1}")
                 
-                # Step 4: AI Analysis
-                print(f"    🤖 Analyzing emotions for {mp3_file}...")
+                # Track speaker distribution
+                speaker = segment_data.get('speaker', 0)
+                speaker_counts[speaker] = speaker_counts.get(speaker, 0) + 1
+                
+                # Step 4: AI Analysis with ChatGPT-4 and emotion preservation
+                print(f"    🤖 Analyzing emotions for {mp3_file} using ChatGPT-4...")
                 speaker = segment_data.get('speaker', 0)
                 
-                ai_result = analyze_text_emotion_advanced(transcript, client, speaker=speaker, audio_analysis=audio_analysis)
-                
-                if ai_result and 'error' not in ai_result:
-                    detected_emotions = ai_result.get("emotions_detected", [ai_result.get("emotion_detected", "ניטרלי")])
+                # Always analyze - don't skip segments based on transcript quality to ensure equal speaker representation
+                if transcript and transcript.strip():
+                    ai_result = analyze_text_emotion_advanced(transcript, speaker=speaker, audio_analysis=audio_analysis)
                     
-                    # Validate emotions
-                    validated_emotions = []
-                    for emotion in detected_emotions:
-                        validated = get_emotion_from_config(emotion, emotions_data)
-                        if validated and validated not in validated_emotions:
-                            validated_emotions.append(validated)
-                    
+                    if ai_result and 'error' not in ai_result:
+                        detected_emotions = ai_result.get("emotions_detected", [ai_result.get("emotion_detected", "ניטרלי")])
+                        
+                        # Validate emotions
+                        validated_emotions = []
+                        for emotion in detected_emotions:
+                            validated = get_emotion_from_config(emotion, emotions_data)
+                            if validated and validated not in validated_emotions:
+                                validated_emotions.append(validated)
+                        
+                        # If we had valid original emotions, consider preserving them
+                        if original_emotions and len(original_emotions) > 0 and original_emotions != ['ניטרלי'] and not validated_emotions:
+                            print(f"    🔄 Preserving existing emotions: {original_emotions}")
+                            final_emotions = original_emotions
+                        else:
+                            final_emotions = validated_emotions if validated_emotions else ['חיבה']  # Default fallback
+                        
+                        segment_data.update({
+                            'emotions': final_emotions,
+                            'blur': ai_result.get('blur', original_blur),
+                            'shine': ai_result.get('spark', ai_result.get('shine', original_shine)),
+                            'humor': ai_result.get('humor_score', ai_result.get('humor', original_humor)),
+                            'blobSize': ai_result.get('blob_size', 3),
+                            'blobStrength': ai_result.get('blob_intensity', 1000),
+                            'gridResolution': ai_result.get('grid_resolution', 60),
+                            'ai_analyzed': True,
+                            'ai_analysis_date': datetime.now().isoformat(),
+                            'ai_confidence': 95
+                        })
+                        print(f"    🎭 Final emotions: {final_emotions}")
+                    else:
+                        print(f"    ⚠️ AI analysis failed - preserving original data")
+                        # Preserve original emotions and visual effects
+                        segment_data.update({
+                            'emotions': original_emotions if original_emotions else ['חיבה'],
+                            'blur': original_blur,
+                            'shine': original_shine,
+                            'humor': original_humor,
+                            'ai_analyzed': False
+                        })
+                else:
+                    print(f"    ⚠️ No transcript available, using default neutral analysis to ensure speaker representation")
+                    # Use default neutral emotions to ensure segment is still processed
                     segment_data.update({
-                        'emotions': validated_emotions,
-                        'blur': ai_result.get('blur', 0),
-                        'shine': ai_result.get('spark', 0),
-                        'humor': ai_result.get('humor_score', 0),
-                        'blobSize': ai_result.get('blob_size', 3),
-                        'blobStrength': ai_result.get('blob_intensity', 1000),
-                        'gridResolution': ai_result.get('grid_resolution', 60),
+                        'emotions': ['ניטרלי'],
+                        'blur': 0,
+                        'shine': 0,
+                        'humor': 0,
                         'ai_analyzed': True,
                         'ai_analysis_date': datetime.now().isoformat(),
-                        'ai_confidence': 95
+                        'analysis_note': 'Default analysis due to missing transcript'
                     })
                     
-                    # Set speaker positioning
-                    if speaker == 0:
-                        segment_data['blobHomeRegion'] = 'מרכז שמאל'  # דובר 1 - left
-                    elif speaker == 1:
-                        segment_data['blobHomeRegion'] = 'מרכז ימין'   # דובר 2 - right
-                    
-                    stats["analyzed"] += 1
-                    print(f"    ✅ Analysis completed - emotions: {', '.join(validated_emotions)}")
-                    
-                    results[mp3_file] = {
-                        "transcript": transcript,
-                        "emotions": validated_emotions,
-                        "speaker": speaker,
-                        "success": True
-                    }
-                else:
-                    print(f"    ⚠️ AI analysis failed for {mp3_file}")
-                    stats["errors"] += 1
-                    results[mp3_file] = {
-                        "transcript": transcript,
-                        "emotions": ["ניטרלי"],
-                        "speaker": speaker,
-                        "success": False,
-                        "error": "AI analysis failed"
-                    }
+                
+                # Set speaker positioning
+                if speaker == 0:
+                    segment_data['blobHomeRegion'] = 'מרכז שמאל'  # דובר 1 - left
+                elif speaker == 1:
+                    segment_data['blobHomeRegion'] = 'מרכז ימין'   # דובר 2 - right
+                
+                stats["analyzed"] += 1
+                final_emotions = segment_data.get('emotions', ['חיבה'])
+                print(f"    ✅ Analysis completed - emotions: {', '.join(final_emotions)}")
+                
+                results[mp3_file] = {
+                    "transcript": transcript,
+                    "emotions": final_emotions,
+                    "speaker": speaker,
+                    "success": True
+                }
                 
             except Exception as e:
                 print(f"    ❌ Error processing {mp3_file}: {str(e)}")
@@ -1224,6 +1272,7 @@ def transcribe_and_analyze_conversation():
             "transcription_method": transcription_method,
             "stats": stats,
             "results": results,
+            "speaker_distribution": speaker_counts,
             "emotions_data": {
                 "available": emotions_data['active_hebrew'],
                 "mapping": emotions_data['mapping']
@@ -1232,6 +1281,14 @@ def transcribe_and_analyze_conversation():
         
         print(f"✅ Complete conversation processing finished for {conversation_folder}")
         print(f"📊 Stats: {stats['transcribed']} transcribed, {stats['analyzed']} analyzed, {stats['errors']} errors, {stats['skipped']} skipped")
+        print(f"👥 Speaker Distribution: דובר 1 (left): {speaker_counts.get(0, 0)} segments, דובר 2 (right): {speaker_counts.get(1, 0)} segments")
+        
+        # Check for balanced representation
+        total_segments = speaker_counts.get(0, 0) + speaker_counts.get(1, 0)
+        if total_segments > 0:
+            speaker0_percent = (speaker_counts.get(0, 0) / total_segments) * 100
+            speaker1_percent = (speaker_counts.get(1, 0) / total_segments) * 100
+            print(f"📈 Speaker Balance: דובר 1: {speaker0_percent:.1f}%, דובר 2: {speaker1_percent:.1f}%")
         
         return jsonify(response_data)
         
@@ -1500,6 +1557,159 @@ def segment_audio_fallback(conversation_folder, segment_length, original_file, c
         print(f"❌ Error in fallback segmentation: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/transcribe-audio', methods=['POST'])
+def transcribe_audio():
+    """
+    Transcribe uploaded audio file (for live microphone recordings)
+    Expected: FormData with 'audio' file and optional 'method' parameter
+    """
+    try:
+        if 'audio' not in request.files:
+            return jsonify({"error": "No audio file provided"}), 400
+            
+        audio_file = request.files['audio']
+        transcription_method = request.form.get('method', 'openai_fast')
+        
+        if audio_file.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+            
+        # Create temporary directory for audio processing
+        temp_dir = os.path.join("temp_audio")
+        os.makedirs(temp_dir, exist_ok=True)
+        
+        # Save the uploaded audio file
+        temp_filename = f"live_{int(time.time())}_{audio_file.filename}"
+        temp_path = os.path.join(temp_dir, temp_filename)
+        audio_file.save(temp_path)
+        
+        print(f"🎤 Transcribing uploaded audio: {temp_filename} using {transcription_method}")
+        
+        # Transcribe using the specified method
+        transcript = ""
+        try:
+            if transcription_method == 'openai_fast':
+                transcript = transcribe_with_openai_whisper(temp_path, client)
+            elif transcription_method == 'whisper':
+                transcript = transcribe_with_whisper(temp_path)
+            elif transcription_method == 'azure':
+                transcript = transcribe_with_azure_speech(temp_path)
+            elif transcription_method == 'google':
+                transcript = transcribe_with_google_speech(temp_path)
+            else:
+                transcript = transcribe_with_openai_whisper(temp_path, client)
+                
+            if not transcript:
+                transcript = "לא ניתן לתמלל את הקובץ"
+                
+        except Exception as transcribe_error:
+            print(f"⚠️ Transcription error: {transcribe_error}")
+            transcript = "שגיאה בתמלול"
+            
+        # Clean up temporary file
+        try:
+            os.remove(temp_path)
+        except:
+            pass
+            
+        print(f"✅ Transcription completed: '{transcript[:50]}...'")
+        
+        return jsonify({
+            "success": True,
+            "transcript": transcript,
+            "method": transcription_method
+        })
+        
+    except Exception as e:
+        print(f"❌ Error in transcribe-audio: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/create-conversation', methods=['POST'])
+def create_conversation():
+    """
+    Create a new conversation from wizard data
+    Expected: JSON with transcript, emotions, and metadata
+    """
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+            
+        print(f"🎯 Creating new conversation from wizard data...")
+        
+        # Generate unique conversation ID
+        timestamp = int(time.time())
+        conversation_id = f"wizard_{timestamp}"
+        conversation_folder = f"convo{conversation_id}"
+        
+        # Create conversation directory
+        conversation_path = os.path.join("conversations", conversation_folder)
+        os.makedirs(conversation_path, exist_ok=True)
+        print(f"📁 Created conversation directory: {conversation_path}")
+        
+        # Create emotions file with FULL format (same as upload & analyze)
+        emotions_data = {
+            "wizard_recording.wav": {
+                "emotions": data.get('emotions', ['ניטרלי']),
+                "transcript": data.get('transcript', ''),
+                "blur": data.get('blur', 0),
+                "shine": data.get('shine', 0),
+                "humor": data.get('humor', 0),
+                "blobSize": data.get('blobSize', 3),
+                "blobStrength": data.get('blobStrength', 1000),
+                "gridResolution": data.get('gridResolution', 60),
+                "blobHomeRegion": data.get('blobHomeRegion', 'center-left'),
+                "confidence": data.get('confidence', 0.95),
+                "ai_analyzed": data.get('ai_analyzed', True),
+                "ai_analysis_date": datetime.now().isoformat(),
+                "audio_volume": data.get('audio_volume', 0.5),
+                "audio_energy": data.get('audio_energy', 0.5),
+                "audio_duration": data.get('audio_duration', 1.0),
+                "primary_emotion": data.get('primary_emotion'),
+                "detected_emotions_original": data.get('detected_emotions_original'),
+                "duration": data.get('duration', 0),
+                "speaker": 0,
+                "words": data.get('transcript', '')
+            }
+        }
+        
+        emotions_file = os.path.join(conversation_path, f"emotions{conversation_id}_ai_analyzed.json")
+        with open(emotions_file, 'w', encoding='utf-8') as f:
+            json.dump(emotions_data, f, ensure_ascii=False, indent=2)
+        print(f"💾 Created emotions file: {emotions_file}")
+            
+        # Update conversations config
+        try:
+            with open('config/conversations_config.json', 'r', encoding='utf-8') as f:
+                conversations_config = json.load(f)
+        except:
+            conversations_config = {}
+            
+        conversations_config[conversation_folder] = {
+            "title": f"שיחה מהמדריך {timestamp}",
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "participants": ["מקליט", "מערכת"],
+            "duration": data.get('duration', 0),
+            "wizard_generated": True,
+            "transcript": data.get('transcript', ''),
+            "emotions": data.get('emotions', ['ניטרלי'])
+        }
+        
+        with open('config/conversations_config.json', 'w', encoding='utf-8') as f:
+            json.dump(conversations_config, f, ensure_ascii=False, indent=2)
+        print(f"🔄 Updated conversations config")
+            
+        print(f"✅ Successfully created conversation: {conversation_folder}")
+        return jsonify({
+            "success": True,
+            "conversation_id": conversation_id,
+            "conversation_folder": conversation_folder,
+            "message": "השיחה נוצרה בהצלחה"
+        })
+        
+    except Exception as e:
+        print(f"❌ Error creating conversation: {str(e)}")
+        return jsonify({"error": f"שגיאה ביצירת השיחה: {str(e)}"}), 500
+
 @app.route('/api/transcribe', methods=['POST'])
 def transcribe():
     """
@@ -1595,6 +1805,7 @@ def auto_transcribe_and_analyze():
         processed_count = 0
         transcribed_count = 0
         analyzed_count = 0
+        speaker_counts = {0: 0, 1: 0}  # Track speaker distribution
         
         # Ensure we have an OpenAI client for analysis
         api_key = os.environ.get('OPENAI_API_KEY', '').strip()
@@ -1645,6 +1856,10 @@ def auto_transcribe_and_analyze():
                     speaker_id = 0 if i % 2 == 0 else 1  # Alternating pattern
                     segment_data['speaker'] = speaker_id
                     print(f"    👥 Assigned to דובר {speaker_id + 1} ({'שמאל' if speaker_id == 0 else 'ימין'})")
+                
+                # Track speaker distribution
+                speaker = segment_data.get('speaker', 0)
+                speaker_counts[speaker] = speaker_counts.get(speaker, 0) + 1
                 
                 # Step 3: AI Analysis if we have transcript
                 transcript_for_analysis = segment_data.get('transcript', '').strip()
@@ -1701,11 +1916,20 @@ def auto_transcribe_and_analyze():
         
         print(f"✅ Auto-processing completed for {conversation_folder}")
         print(f"📊 Processed: {processed_count}, Transcribed: {transcribed_count}, Analyzed: {analyzed_count}")
+        print(f"👥 Speaker Distribution: דובר 1 (left): {speaker_counts.get(0, 0)} segments, דובר 2 (right): {speaker_counts.get(1, 0)} segments")
+        
+        # Check for balanced representation
+        total_segments = speaker_counts.get(0, 0) + speaker_counts.get(1, 0)
+        if total_segments > 0:
+            speaker0_percent = (speaker_counts.get(0, 0) / total_segments) * 100
+            speaker1_percent = (speaker_counts.get(1, 0) / total_segments) * 100
+            print(f"📈 Speaker Balance: דובר 1: {speaker0_percent:.1f}%, דובר 2: {speaker1_percent:.1f}%")
         
         return jsonify({
             "success": True,
             "conversationFolder": conversation_folder,
             "processedCount": processed_count,
+            "speaker_distribution": speaker_counts,
             "transcribedCount": transcribed_count,
             "analyzedCount": analyzed_count,
             "emotionFile": emotion_filename,
@@ -1938,10 +2162,22 @@ def transcribe_with_chatgpt4_direct(audio_path, client):
 
 def transcribe_with_openai_whisper(audio_path, client):
     """Transcribe audio using OpenAI Whisper API with enhanced GPT-4 processing"""
+    import os
     processed_audio = None
     try:
         # Preprocess audio for better transcription
         processed_audio = preprocess_audio_for_transcription(audio_path)
+        
+        # Check if file exists and has content
+        if not os.path.exists(processed_audio):
+            print(f"⚠️ Processed audio file not found: {processed_audio}")
+            return None
+            
+        # Check file size (avoid empty files)
+        file_size = os.path.getsize(processed_audio)
+        if file_size < 1000:  # Less than 1KB probably empty/corrupt
+            print(f"⚠️ Audio file too small ({file_size} bytes): {processed_audio}")
+            return None
         
         with open(processed_audio, "rb") as audio_file:
             transcript = client.audio.transcriptions.create(
@@ -1958,33 +2194,37 @@ def transcribe_with_openai_whisper(audio_path, client):
         
         # Enhanced GPT-4 processing for better results
         if raw_result and raw_result != "טקסט בעברית." and len(raw_result) > 2:
-            enhanced_result = enhance_transcription_with_gpt4(raw_result, client)
-            result_text = enhanced_result if enhanced_result else raw_result
+            try:
+                enhanced_result = enhance_transcription_with_gpt4(raw_result, client)
+                result_text = enhanced_result if enhanced_result else raw_result
+            except Exception as enhance_error:
+                print(f"⚠️ GPT-4 enhancement failed: {enhance_error}, using raw result")
+                result_text = raw_result
         else:
             result_text = raw_result
             
         print(f"✅ Final transcription result: '{result_text}'")
         
         # Clean up temp file
-        if processed_audio and processed_audio != audio_path:
-            import os
+        if processed_audio and processed_audio != audio_path and os.path.exists(processed_audio):
             try:
                 os.unlink(processed_audio)
-            except:
-                pass
+            except Exception as cleanup_error:
+                print(f"⚠️ Failed to cleanup temp file: {cleanup_error}")
                 
         return result_text
         
     except Exception as e:
         print(f"⚠️ OpenAI Whisper transcription failed: {str(e)}")
+        import traceback
+        traceback.print_exc()
         
         # Clean up temp file
-        if processed_audio and processed_audio != audio_path:
-            import os
+        if processed_audio and processed_audio != audio_path and os.path.exists(processed_audio):
             try:
                 os.unlink(processed_audio)
-            except:
-                pass
+            except Exception as cleanup_error:
+                print(f"⚠️ Failed to cleanup temp file: {cleanup_error}")
                 
         return None
 
@@ -2493,9 +2733,30 @@ def save_people_data():
 def get_speaker_info(conversation_id):
     """Get speaker information for a specific conversation"""
     try:
+        # First try to get speaker names from conversation metadata
+        conversations_config_path = 'config/conversations_config.json'
+        speaker_names = {}
+        if os.path.exists(conversations_config_path):
+            with open(conversations_config_path, 'r', encoding='utf-8') as f:
+                conversations_config = json.load(f)
+                conversation_data = conversations_config.get('conversations', {}).get(conversation_id, {})
+                metadata = conversation_data.get('metadata', {})
+                if metadata.get('speaker1Name'):
+                    speaker_names['0'] = metadata['speaker1Name']
+                if metadata.get('speaker2Name'):
+                    speaker_names['1'] = metadata['speaker2Name']
+        
         people_data_path = 'config/people_data.json'
         if not os.path.exists(people_data_path):
-            return jsonify({'speakers': {}})
+            # Return speaker names from metadata if no people data
+            speaker_info = {}
+            for speaker_num in ['0', '1']:
+                speaker_info[speaker_num] = {
+                    'name': speaker_names.get(speaker_num, f'דובר {int(speaker_num) + 1}'),
+                    'color': '#d32f2f' if speaker_num == '0' else '#00796b',
+                    'personId': None
+                }
+            return jsonify({'speakers': speaker_info})
             
         with open(people_data_path, 'r', encoding='utf-8') as f:
             people_data = json.load(f)
@@ -2505,18 +2766,29 @@ def get_speaker_info(conversation_id):
         
         # Create speaker info with names and colors
         speaker_info = {}
-        for speaker_num, person_id in speaker_mappings.items():
-            if person_id in people:
-                person = people[person_id]
-                speaker_info[speaker_num] = {
-                    'name': person.get('name', f'דובר {speaker_num}'),
-                    'color': person.get('color', '#667eea'),
-                    'personId': person_id
-                }
+        for speaker_num in ['0', '1']:  # Always include both speakers
+            if speaker_num in speaker_mappings:
+                person_id = speaker_mappings[speaker_num]
+                if person_id in people:
+                    person = people[person_id]
+                    # Prioritize conversation metadata speaker names over people data
+                    name = speaker_names.get(speaker_num) or person.get('name', f'דובר {int(speaker_num) + 1}')
+                    speaker_info[speaker_num] = {
+                        'name': name,
+                        'color': person.get('color', '#d32f2f' if speaker_num == '0' else '#00796b'),
+                        'personId': person_id
+                    }
+                else:
+                    speaker_info[speaker_num] = {
+                        'name': speaker_names.get(speaker_num, f'דובר {int(speaker_num) + 1}'),
+                        'color': '#999999',
+                        'personId': None
+                    }
             else:
+                # Use conversation metadata speaker name or fallback
                 speaker_info[speaker_num] = {
-                    'name': f'דובר {speaker_num}',
-                    'color': '#999999',
+                    'name': speaker_names.get(speaker_num, f'דובר {int(speaker_num) + 1}'),
+                    'color': '#d32f2f' if speaker_num == '0' else '#00796b',
                     'personId': None
                 }
         
@@ -3703,12 +3975,12 @@ def upload_video():
         if video_file.filename == '':
             return jsonify({"error": "No file selected"}), 400
             
-        # Validate file type
-        allowed_extensions = {'.mp4', '.mov', '.avi'}
+        # Validate file type - Added WebM support for better web performance
+        allowed_extensions = {'.mp4', '.mov', '.avi', '.webm'}
         file_ext = os.path.splitext(video_file.filename)[1].lower()
         
         if file_ext not in allowed_extensions:
-            return jsonify({"error": "Invalid file type. Only MP4, MOV, AVI allowed"}), 400
+            return jsonify({"error": "Invalid file type. Only MP4, MOV, AVI, WebM allowed"}), 400
             
         # Save to videos directory
         filename = secure_filename(video_file.filename)
@@ -3743,10 +4015,11 @@ def upload_mp4_preview():
         if preview_file.filename == '':
             return jsonify({"error": "No file selected"}), 400
             
-        # Validate file type - only MP4 for previews
+        # Validate file type - MP4 and WebM for previews (WebM for better web performance)
         file_ext = os.path.splitext(preview_file.filename)[1].lower()
-        if file_ext != '.mp4':
-            return jsonify({"error": "Invalid file type. Only MP4 files allowed for previews"}), 400
+        allowed_preview_formats = {'.mp4', '.webm'}
+        if file_ext not in allowed_preview_formats:
+            return jsonify({"error": "Invalid file type. Only MP4 and WebM files allowed for previews"}), 400
             
         # Validate file size (max 50MB for previews)
         if preview_file.content_length and preview_file.content_length > 50 * 1024 * 1024:
@@ -3767,14 +4040,24 @@ def upload_mp4_preview():
         else:
             return jsonify({"error": "Conversations configuration not found"}), 404
             
-        # Create backup of existing video if it exists
-        preview_path = os.path.join(videos_dir, f"{conversation_id}.mp4")
-        if os.path.exists(preview_path):
+        # Create backup of existing video if it exists (check for both mp4 and webm)
+        existing_preview_mp4 = os.path.join(videos_dir, f"{conversation_id}.mp4")
+        existing_preview_webm = os.path.join(videos_dir, f"{conversation_id}.webm")
+        
+        if os.path.exists(existing_preview_mp4):
             backup_path = os.path.join(videos_dir, f"{conversation_id}_backup_{int(time.time())}.mp4")
-            shutil.copy2(preview_path, backup_path)
-            print(f"📼 Created backup: {backup_path}")
+            shutil.copy2(existing_preview_mp4, backup_path)
+            os.remove(existing_preview_mp4)  # Remove old format
+            print(f"📼 Created backup and removed old MP4: {backup_path}")
             
-        # Save the preview file
+        if os.path.exists(existing_preview_webm):
+            backup_path = os.path.join(videos_dir, f"{conversation_id}_backup_{int(time.time())}.webm")
+            shutil.copy2(existing_preview_webm, backup_path)
+            os.remove(existing_preview_webm)  # Remove old format
+            print(f"📼 Created backup and removed old WebM: {backup_path}")
+            
+        # Save the preview file with original extension
+        preview_path = os.path.join(videos_dir, f"{conversation_id}{file_ext}")
         preview_file.save(preview_path)
         
         # Create metadata file for the preview
@@ -4872,6 +5155,158 @@ def update_conversation_transcript():
         print(f"❌ Error updating conversation: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/analyze-main-emotion', methods=['POST'])
+def analyze_main_emotion():
+    """
+    Analyze the main emotion of an entire conversation using ChatGPT
+    Expected payload:
+    {
+        "conversationFolder": "convo1"
+    }
+    """
+    try:
+        import openai
+        
+        data = request.get_json()
+        conversation_folder = data.get('conversationFolder')
+        
+        if not conversation_folder:
+            return jsonify({"error": "Missing conversation folder"}), 400
+            
+        conv_path = os.path.join("conversations", conversation_folder)
+        if not os.path.exists(conv_path):
+            return jsonify({"error": f"Conversation folder not found: {conv_path}"}), 404
+        
+        # Get OpenAI API key
+        api_key = os.environ.get('OPENAI_API_KEY', '').strip()
+        if not api_key or not api_key.startswith('sk-') or len(api_key) < 50:
+            return jsonify({"error": "OpenAI API key not properly configured"}), 500
+            
+        try:
+            client = openai.OpenAI(api_key=api_key)
+            print(f"🎯 Starting main emotion analysis for {conversation_folder}")
+        except Exception as e:
+            return jsonify({"error": "Failed to initialize OpenAI client"}), 500
+        
+        # Load all transcripts from the conversation
+        emotions_files = [f for f in os.listdir(conv_path) if f.endswith('_ai_analyzed.json')]
+        
+        if not emotions_files:
+            return jsonify({"error": "No analyzed conversation segments found"}), 404
+        
+        all_transcripts = []
+        
+        # Collect all transcripts from emotion files
+        for emotions_file in emotions_files:
+            emotions_path = os.path.join(conv_path, emotions_file)
+            try:
+                with open(emotions_path, 'r', encoding='utf-8') as f:
+                    emotion_data = json.load(f)
+                    
+                # Extract transcript from each segment
+                for segment_key, segment_data in emotion_data.items():
+                    if isinstance(segment_data, dict) and 'transcript' in segment_data:
+                        transcript = segment_data['transcript'].strip()
+                        if transcript:
+                            all_transcripts.append(transcript)
+                            
+            except Exception as e:
+                print(f"⚠️ Error reading {emotions_file}: {e}")
+                continue
+        
+        if not all_transcripts:
+            return jsonify({"error": "No transcripts found in conversation segments"}), 404
+        
+        # Combine all transcripts into one text
+        full_conversation = " ".join(all_transcripts)
+        
+        # Truncate if too long (ChatGPT has token limits)
+        if len(full_conversation) > 8000:
+            full_conversation = full_conversation[:8000] + "..."
+        
+        print(f"📝 Analyzing {len(all_transcripts)} segments with total length: {len(full_conversation)} characters")
+        
+        # Load emotions from admin panel for ChatGPT to choose from
+        emotions_data = load_emotions_config()
+        available_emotions = emotions_data['active_hebrew']
+        emotions_text = ', '.join(available_emotions[:20])  # Use first 20 emotions for brevity
+        
+        # Create ChatGPT prompt for main emotion analysis
+        prompt = f"""
+        נתח את השיחה המלאה הבאה וזהה את הרגש העיקרי הדומיננטי ביותר בכל השיחה:
+
+        טקסט השיחה:
+        "{full_conversation}"
+
+        בחר רגש אחד בלבד שמייצג הכי טוב את הטון הרגשי הכללי של השיחה.
+        
+        רגשות זמינים לבחירה: {emotions_text}
+        
+        החזר תשובה בפורמט JSON עם הערכים הבאים:
+        {{
+            "main_emotion": "רגש עיקרי בעברית",
+            "confidence": מספר בין 0 ל-1,
+            "intensity": מספר בין 1 ל-10,
+            "explanation": "הסבר קצר למה בחרת ברגש הזה"
+        }}
+        
+        חשוב: בחר רק רגש אחד שמתאים הכי טוב לטון הכללי של השיחה.
+        """
+        
+        # Call ChatGPT for analysis
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "אתה מנתח רגשות מקצועי המתמחה בזיהוי הרגש העיקרי בשיחות בעברית. החזר תמיד JSON תקין."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=300,
+            temperature=0.3
+        )
+        
+        result_text = response.choices[0].message.content.strip()
+        
+        # Parse JSON response
+        if result_text.startswith('```json'):
+            result_text = result_text.replace('```json', '').replace('```', '').strip()
+        
+        try:
+            analysis_result = json.loads(result_text)
+        except json.JSONDecodeError:
+            # Try to extract emotion from text if JSON parsing fails
+            import re
+            emotion_match = re.search(r'"main_emotion":\s*"([^"]+)"', result_text)
+            if emotion_match:
+                analysis_result = {
+                    "main_emotion": emotion_match.group(1),
+                    "confidence": 0.8,
+                    "intensity": 5,
+                    "explanation": "ניתוח ChatGPT"
+                }
+            else:
+                return jsonify({"error": "Failed to parse ChatGPT response"}), 500
+        
+        main_emotion = analysis_result.get('main_emotion', '')
+        confidence = analysis_result.get('confidence', 0.8)
+        intensity = analysis_result.get('intensity', 5)
+        explanation = analysis_result.get('explanation', '')
+        
+        print(f"✅ Main emotion analysis completed: {main_emotion} (confidence: {confidence})")
+        
+        return jsonify({
+            "success": True,
+            "mainEmotion": main_emotion,
+            "confidence": confidence,
+            "intensity": intensity,
+            "explanation": explanation,
+            "segmentsAnalyzed": len(all_transcripts),
+            "totalCharacters": len(full_conversation)
+        })
+        
+    except Exception as e:
+        print(f"❌ Main emotion analysis error: {e}")
+        return jsonify({"error": str(e)}), 500
+
 def check_port_available(port):
     """Check if a port is available"""
     import socket
@@ -4899,7 +5334,146 @@ def kill_process_on_port(port):
         print(f"⚠️ Could not kill process on port {port}: {e}")
     return False
 
-if __name__ == "__main__":
+@app.route('/api/generate-conversation-insights', methods=['POST'])
+def generate_conversation_insights():
+    """Generate AI-powered insights for a conversation"""
+    try:
+        import openai
+        
+        data = request.get_json()
+        conversation_key = data.get('conversation_key')
+        conversation_number = data.get('conversation_number')
+        segments = data.get('segments', [])
+        metadata = data.get('metadata', {})
+        
+        if not conversation_key or not segments:
+            return jsonify({"error": "Missing conversation_key or segments"}), 400
+        
+        # Get OpenAI API key
+        api_key = os.environ.get('OPENAI_API_KEY')
+        if not api_key:
+            return jsonify({"error": "OpenAI API key not configured"}), 500
+        
+        client = openai.OpenAI(api_key=api_key)
+        
+        # Prepare detailed conversation content for analysis
+        detailed_content = []
+        for i, segment in enumerate(segments):
+            speaker_name = f"דובר {segment.get('speaker', 0)}"
+            transcript = segment.get('transcript', '')
+            emotions = ', '.join(segment.get('emotions', ['שמחה']))  # 🚫 NEVER NEUTRAL
+            humor = segment.get('humor', 0)
+            blur = segment.get('blur', 0)
+            spark = segment.get('spark', 0)
+            
+            detailed_content.append(f"קטע {i+1} - {speaker_name}: {transcript}")
+            detailed_content.append(f"   רגשות: {emotions} | הומור: {humor} | טשטוש: {blur} | ברק: {spark}")
+        
+        full_conversation = '\n'.join(detailed_content)
+        
+        # Get speaker names from metadata
+        speaker1_name = metadata.get('speaker1Name', 'דובר ראשי')
+        speaker2_name = metadata.get('speaker2Name', 'דובר משני')
+        
+        # Create AI prompt for insights generation
+        system_prompt = f"""אתה מנתח שיחות מומחה המתמחה בזיהוי תובנות עמוקות ודפוסי תקשורת.
+        
+המשימה שלך היא לנתח שיחה ולספק תובנות מעמיקות על:
+1. דפוסי תקשורת של כל דובר
+2. איכות הקשר בין הדוברים
+3. סגנון תקשורת ודרכי ביטוי
+4. נקודות חוזק ואתגרים בתקשורת
+5. המלצות לשיפור התקשורת
+6. תובנות רגשיות ופסיכולוגיות
+7. דינמיקת הכוח והשפעה בשיחה
+
+השב בפורמט JSON עם המבנה הבא:
+{{
+  "communication_patterns": {{
+    "{speaker1_name}": "תיאור דפוס התקשורת של {speaker1_name}",
+    "{speaker2_name}": "תיאור דפוס התקשורת של {speaker2_name}"
+  }},
+  "relationship_quality": "הערכה של איכות הקשר בין הדוברים",
+  "communication_style": "תיאור סגנון התקשורת הכללי",
+  "strengths": ["חוזקה 1", "חוזקה 2", "חוזקה 3"],
+  "challenges": ["אתגר 1", "אתגר 2", "אתגר 3"],
+  "improvement_recommendations": ["המלצה 1", "המלצה 2", "המלצה 3"],
+  "emotional_insights": "תובנות רגשיות מעמיקות",
+  "power_dynamics": "ניתוח דינמיקת הכוח והשפעה",
+  "conversation_flow": "ניתוח זרימת השיחה והמעברים בין נושאים",
+  "attention_points": ["נקודה לתשומת לב 1", "נקודה לתשומת לב 2"],
+  "overall_assessment": "הערכה כללית של השיחה והתקשורת"
+}}"""
+        
+        user_prompt = f"""נתח את השיחה הבאה וצור תובנות מעמיקות:
+
+מספר שיחה: {conversation_number}
+מזהה שיחה: {conversation_key}
+מטא-נתונים: {json.dumps(metadata, ensure_ascii=False)}
+
+תוכן השיחה המפורט:
+{full_conversation}
+
+צור תובנות מעמיקות לפי ההנחיות שלעיל, תוך התמקדות בדפוסי תקשורת, יחסים, ורגשות."""
+        
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                max_tokens=2000,
+                temperature=0.4
+            )
+            
+            response_text = response.choices[0].message.content
+            if not response_text:
+                return jsonify({"error": "Empty response from OpenAI"}), 500
+            
+            response_text = response_text.strip()
+            
+            # Parse JSON response
+            if response_text.startswith('```json'):
+                response_text = response_text.replace('```json', '').replace('```', '').strip()
+            
+            insights_result = json.loads(response_text)
+            
+            # Save insights to conversation metadata
+            config_path = os.path.join("config", "conversations_config.json")
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+            
+            if conversation_key in config['conversations']:
+                if 'metadata' not in config['conversations'][conversation_key]:
+                    config['conversations'][conversation_key]['metadata'] = {}
+                
+                config['conversations'][conversation_key]['metadata']['ai_insights'] = insights_result
+                config['conversations'][conversation_key]['metadata']['insights_generated_date'] = datetime.now().isoformat()
+                
+                with open(config_path, 'w', encoding='utf-8') as f:
+                    json.dump(config, f, ensure_ascii=False, indent=2)
+            
+            print(f"✅ Generated insights for {conversation_key}")
+            return jsonify({
+                "success": True,
+                "insights": insights_result,
+                "conversation_key": conversation_key
+            })
+            
+        except json.JSONDecodeError as e:
+            print(f"❌ JSON parsing error: {str(e)}")
+            print(f"Raw response: {response_text}")
+            return jsonify({"error": "Failed to parse AI response"}), 500
+        except Exception as e:
+            print(f"❌ OpenAI API error: {str(e)}")
+            return jsonify({"error": f"Analysis failed: {str(e)}"}), 500
+        
+    except Exception as e:
+        print(f"❌ Error generating insights: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == '__main__':
     print("🚀 Starting Enhanced Emotion Visualizer Server...")
     print("📡 Features enabled:")
     print("   ✅ Segment updates via /api/update-segment")

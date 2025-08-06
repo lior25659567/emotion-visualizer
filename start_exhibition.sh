@@ -34,7 +34,7 @@ echo "⏳ Waiting for server to start..."
 sleep 5
 
 # Check if server started successfully
-if ! curl -s http://localhost:8000 > /dev/null; then
+if ! curl -s http://localhost:8001 > /dev/null; then
     echo "❌ Server failed to start! Check logs/server.log"
     exit 1
 fi
@@ -53,7 +53,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Open Chrome in kiosk mode
     open -a "Google Chrome" --args \
         --kiosk \
-        --app="http://localhost:8000/index.html" \
+        --app="http://localhost:8001/index.html" \
         --disable-pinch \
         --overscroll-history-navigation=0 \
         --disable-session-crashed-bubble \
@@ -72,7 +72,7 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if command -v google-chrome &> /dev/null; then
         google-chrome \
             --kiosk \
-            --app="http://localhost:8000/index.html" \
+            --app="http://localhost:8001/index.html" \
             --disable-pinch \
             --overscroll-history-navigation=0 \
             --disable-session-crashed-bubble \
@@ -82,7 +82,7 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     elif command -v chromium-browser &> /dev/null; then
         chromium-browser \
             --kiosk \
-            --app="http://localhost:8000/index.html" \
+            --app="http://localhost:8001/index.html" \
             --disable-pinch \
             --overscroll-history-navigation=0 \
             --disable-session-crashed-bubble \

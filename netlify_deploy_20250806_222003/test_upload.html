@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Upload Test - ChatGPT-4</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .progress-container { margin: 20px 0; }
+        .progress-bar { width: 100%; height: 30px; background: #f0f0f0; border-radius: 15px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #4CAF50, #45a049); transition: width 0.3s; }
+        .progress-text { text-align: center; margin-top: 10px; font-weight: bold; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 5px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
+        .log { background: #f8f9fa; border: 1px solid #dee2e6; padding: 10px; margin: 10px 0; font-family: monospace; max-height: 200px; overflow-y: auto; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        input[type="file"], input[type="text"] { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🎤🤖 Advanced Upload Test - ChatGPT-4 Analysis</h1>
+    <p><strong>Features:</strong> ChatGPT-4 transcription + Real-time progress + Detailed analysis</p>
+    
+    <form id="uploadForm">
+        <p>Select audio file (.m4a, .mp3, .wav):</p>
+        <input type="file" id="audioFile" accept=".m4a,.mp3,.wav,.flac,.aac,.ogg" required>
+        <br><br>
+        <input type="text" id="convName" placeholder="Conversation Name" value="ChatGPT4 Test" required>
+        <br><br>
+        <button type="submit" id="submitBtn">🚀 Upload & Process with ChatGPT-4</button>
+    </form>
+
+    <div class="progress-container" id="progressContainer" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">0% - מתכונן...</div>
+    </div>
+
+    <div id="result"></div>
+    <div id="analysisLog" class="log" style="display: none;"></div>
+
+    <script>
+        let currentConversationFolder = null;
+        let progressInterval = null;
+        
+        document.getElementById('uploadForm').onsubmit = async function(e) {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            const progressContainer = document.getElementById('progressContainer');
+            const submitBtn = document.getElementById('submitBtn');
+            const file = document.getElementById('audioFile').files[0];
+            const name = document.getElementById('convName').value;
+            
+            if (!file) {
+                resultDiv.innerHTML = '<div class="result error">❌ Please select a file</div>';
+                return;
+            }
+            
+            // Reset UI
+            resultDiv.innerHTML = '';
+            progressContainer.style.display = 'block';
+            submitBtn.disabled = true;
+            updateProgress(0, 'מתכונן...');
+            
+            try {
+                // Step 1: Upload
+                updateProgress(5, 'מעלה קובץ...');
+                const formData = new FormData();
+                formData.append('mp3File', file);
+                formData.append('conversationName', name);
+                formData.append('conversationType', 'general');
+                formData.append('segmentLength', '20');
+                formData.append('transcriptionQuality', 'chatgpt4_best'); // Use ChatGPT-4!
+                
+                console.log('🚀 Uploading with ChatGPT-4 quality to: http://localhost:8001/api/upload-and-process');
+                
+                const response = await fetch('http://localhost:8001/api/upload-and-process', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Upload failed: ${response.status} ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                currentConversationFolder = result.conversationFolder;
+                
+                updateProgress(15, `✅ נוצר: ${currentConversationFolder}`);
+                addToLog(`✅ Upload successful: ${currentConversationFolder}`);
+                
+                // Step 2: Start transcription with real-time progress
+                updateProgress(20, 'מתחיל תמלול וניתוח עם ChatGPT-4...');
+                
+                const transcribeResponse = await fetch('http://localhost:8001/api/auto-transcribe-and-analyze', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        conversationFolder: currentConversationFolder,
+                        quality: 'chatgpt4_best' // Use ChatGPT-4!
+                    })
+                });
+                
+                if (!transcribeResponse.ok) {
+                    const errorResult = await transcribeResponse.json();
+                    throw new Error(`Transcription failed: ${errorResult.error || transcribeResponse.statusText}`);
+                }
+                
+                // Start progress monitoring
+                startProgressMonitoring();
+                
+                const transcribeResult = await transcribeResponse.json();
+                
+                // Stop progress monitoring
+                if (progressInterval) {
+                    clearInterval(progressInterval);
+                }
+                
+                // Show completion
+                updateProgress(100, '🎉 הושלם בהצלחה!');
+                showCompletion(transcribeResult);
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                if (progressInterval) {
+                    clearInterval(progressInterval);
+                }
+                updateProgress(0, `❌ שגיאה: ${error.message}`);
+                resultDiv.innerHTML = `<div class="result error">❌ Error: ${error.message}</div>`;
+            } finally {
+                submitBtn.disabled = false;
+            }
+        };
+        
+        function updateProgress(percent, text) {
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressText').textContent = `${percent}% - ${text}`;
+        }
+        
+        function addToLog(message) {
+            const logDiv = document.getElementById('analysisLog');
+            logDiv.style.display = 'block';
+            logDiv.innerHTML += `${new Date().toLocaleTimeString()}: ${message}\n`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function startProgressMonitoring() {
+            if (!currentConversationFolder) return;
+            
+            addToLog('🔄 Starting real-time progress monitoring...');
+            let segmentCount = 0;
+            let lastProcessed = 0;
+            
+            progressInterval = setInterval(async () => {
+                try {
+                    // Check conversation config for segment count
+                    const configResponse = await fetch(`http://localhost:8001/config/conversations_config.json?v=${Date.now()}`);
+                    if (configResponse.ok) {
+                        const config = await configResponse.json();
+                        const convo = config.conversations[currentConversationFolder];
+                        if (convo && convo.mp3_count) {
+                            segmentCount = convo.mp3_count;
+                        }
+                    }
+                    
+                    // Check emotions file for progress
+                    const emotionsResponse = await fetch(`http://localhost:8001/conversations/${currentConversationFolder}/emotions${currentConversationFolder.replace('convo', '')}_ai_analyzed.json?t=${Date.now()}`);
+                    if (emotionsResponse.ok) {
+                        const emotions = await emotionsResponse.json();
+                        const processed = Object.keys(emotions).length;
+                        
+                        if (processed > lastProcessed) {
+                            lastProcessed = processed;
+                            const percent = segmentCount > 0 ? Math.min(90, 20 + (processed / segmentCount) * 70) : 50;
+                            updateProgress(percent, `מעבד קטע ${processed}/${segmentCount} עם ChatGPT-4...`);
+                            addToLog(`✅ Segment ${processed}/${segmentCount} analyzed with ChatGPT-4`);
+                        }
+                    }
+                } catch (e) {
+                    console.log('Progress monitoring error (normal):', e.message);
+                }
+            }, 2000); // Check every 2 seconds
+        }
+        
+        function showCompletion(result) {
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.innerHTML = `
+                <div class="result success">
+                    <h3>🎉 ChatGPT-4 Analysis Complete!</h3>
+                    <p><strong>Conversation:</strong> ${result.conversationFolder}</p>
+                    <p><strong>Segments Processed:</strong> ${result.processedCount}</p>
+                    <p><strong>Segments Transcribed:</strong> ${result.transcribedCount}</p>
+                    <p><strong>Segments Analyzed:</strong> ${result.analyzedCount}</p>
+                    <p><strong>Quality:</strong> ${result.quality} (ChatGPT-4)</p>
+                    <p><strong>Emotion File:</strong> ${result.emotionFile}</p>
+                </div>
+                <div class="result info">
+                    <h4>🔗 Next Steps:</h4>
+                    <p><a href="http://localhost:8001/admin_panel.html" target="_blank" style="color: #0c5460; font-weight: bold;">📊 Open Admin Panel</a></p>
+                    <p><a href="http://localhost:8001/visualization.html?folder=${result.conversationFolder}" target="_blank" style="color: #0c5460; font-weight: bold;">🎭 View Visualization</a></p>
+                </div>
+            `;
+            
+            addToLog(`🎉 COMPLETED: ${result.conversationFolder} with ChatGPT-4 analysis`);
+            addToLog(`📊 Stats: ${result.processedCount} processed, ${result.transcribedCount} transcribed, ${result.analyzedCount} analyzed`);
+            
+            // Play completion sound (if browser allows)
+            try {
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMZCS1+ze/BdCMF');
+                audio.play().catch(() => {}); // Ignore if audio fails
+            } catch (e) {}
+        }
+    </script>
+</body>
+</html> 

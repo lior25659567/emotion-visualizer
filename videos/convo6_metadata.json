@@ -3,14 +3,33 @@
   "filename": "convo6.mp4",
   "path": "videos/convo6.mp4",
   "quality": "720",
-  "duration": 12,
-  "fps": 15,
-  "captureMode": "clean",
-  "smartCrop": true,
-  "autoStart": true,
-  "loop": true,
-  "muted": true,
-  "hoverOnly": false,
-  "generatedAt": "2025-07-18T20:24:02.403756",
-  "fileSize": "0.77MB"
+  "duration": 5,
+  "fps": 30,
+  "type": "5sec_preview",
+  "source": "auto_generated",
+  "generatedAt": "2025-07-30T23:07:28.245314",
+  "fileSize": "0.63MB",
+  "settings": {
+    "quality": "720",
+    "duration": 5,
+    "fps": 30,
+    "frameSize": {
+      "width": 1280,
+      "height": 720
+    },
+    "cropArea": {
+      "enabled": false
+    },
+    "advancedOptions": {
+      "noSidepanel": true,
+      "hideUI": true,
+      "noTimeline": true,
+      "visualOnly": true,
+      "canvasOnly": true,
+      "cleanCapture": true,
+      "optimize": true,
+      "fullscreen": true
+    },
+    "backgroundColor": "#f7f9f3"
+  }
 }

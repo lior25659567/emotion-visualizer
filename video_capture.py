@@ -223,7 +223,7 @@ def capture_visualization_video(conversation_folder, output_path, options):
             
             # Use regular visualization page with parameters optimized for clean video capture
             # ENHANCED: Added scale=1.5 to make visualization larger and reduce background
-            url = f"http://localhost:8000/visualization.html?folder={conversation_folder}&viewMode=video&autostart=true&animate=true&static=false&scale=1.5&noSidepanel=true&noTimeline=true&visualOnly=true&noMP3=true&noaudio=true&optimize=true&lightweight=true&fullscreen=true&hideUI=true&canvasOnly=true&noControls=true&cleanCapture=true&zoomLevel=1.3&focusVisualization=true"
+            url = f"http://localhost:8001/visualization.html?folder={conversation_folder}&viewMode=video&autostart=true&animate=true&static=false&scale=1.5&noSidepanel=true&noTimeline=true&visualOnly=true&noMP3=true&noaudio=true&optimize=true&lightweight=true&fullscreen=true&hideUI=true&canvasOnly=true&noControls=true&cleanCapture=true&zoomLevel=1.3&focusVisualization=true"
             
             print(f"🌐 Opening URL: {url}")
             

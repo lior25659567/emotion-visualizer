@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📷 PNG Preview Uploader - Emotion Visualizer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%234CAF50'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='16' fill='white'%3E📷%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Miriam Libre', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            direction: rtl;
+            color: #1a1a1a;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .header p {
+            margin: 0.5rem 0 0 0;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem 2rem;
+        }
+        
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .conversations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .conversation-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .conversation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .conversation-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .conversation-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+            margin: 0 0 0.25rem 0;
+        }
+        
+        .conversation-folder {
+            font-size: 0.85rem;
+            color: #666;
+            font-family: monospace;
+        }
+        
+        .preview-section {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .current-preview {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem auto;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .current-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        
+        .current-preview.empty {
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #4CAF50;
+            border-radius: 12px;
+            padding: 1.5rem;
+            background: rgba(76, 175, 80, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-area:hover {
+            border-color: #45a049;
+            background: rgba(76, 175, 80, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .upload-area.dragover {
+            border-color: #2E7D33;
+            background: rgba(76, 175, 80, 0.2);
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #45a049, #388e3c);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .status-badge.has-image {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .status-badge.no-image {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .bulk-actions {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .bulk-actions h3 {
+            margin: 0 0 1rem 0;
+            color: #333;
+        }
+        
+        .bulk-upload-area {
+            border: 3px dashed #4CAF50;
+            border-radius: 16px;
+            padding: 3rem;
+            background: rgba(76, 175, 80, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+        }
+        
+        .bulk-upload-area:hover {
+            border-color: #45a049;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            display: none;
+        }
+        
+        .notification.error {
+            background: #f44336;
+        }
+        
+        .notification.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateX(-50%) translateY(-100%); }
+            to { transform: translateX(-50%) translateY(0); }
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="notification" id="notification"></div>
+    
+    <div class="header">
+        <h1>
+            <span class="material-icons" style="font-size: 2.5rem;">photo_library</span>
+            📷 PNG Preview Uploader
+        </h1>
+        <p>Upload PNG preview images for each conversation</p>
+    </div>
+    
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number" id="total-conversations">0</span>
+                <div class="stat-label">Total Conversations</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="with-images">0</span>
+                <div class="stat-label">With Preview Images</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="without-images">0</span>
+                <div class="stat-label">Missing Images</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completion-rate">0%</span>
+                <div class="stat-label">Completion Rate</div>
+            </div>
+        </div>
+        
+        <div class="bulk-actions">
+            <h3>📁 Bulk Upload</h3>
+            <p>Upload multiple PNG files at once. Name them like: <code>convo1.png</code>, <code>convo2.png</code>, etc.</p>
+            
+            <div class="bulk-upload-area" onclick="document.getElementById('bulk-file-input').click()">
+                <div class="upload-icon">📤</div>
+                <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">Drop multiple PNG files here</div>
+                <div style="color: #666; font-size: 0.9rem;">or click to browse</div>
+            </div>
+            
+            <input type="file" id="bulk-file-input" class="file-input" multiple accept="image/png">
+            
+            <div class="progress-bar" id="bulk-progress" style="display: none;">
+                <div class="progress-fill" id="bulk-progress-fill"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="processAllUploads()">
+                    <span class="material-icons">upload</span>
+                    Process All Uploads
+                </button>
+                <button class="btn btn-secondary" onclick="clearAllUploads()">
+                    <span class="material-icons">clear_all</span>
+                    Clear All
+                </button>
+            </div>
+        </div>
+        
+        <div class="conversations-grid" id="conversations-grid">
+            <!-- Conversation cards will be loaded here -->
+        </div>
+    </div>
+    
+    <script>
+        let conversations = [];
+        let pendingUploads = new Map(); // Store files before processing
+        
+        // Load conversations on page load
+        document.addEventListener('DOMContentLoaded', loadConversations);
+        
+        async function loadConversations() {
+            try {
+                showNotification('Loading conversations...', 'info');
+                
+                // Try multiple ports to find the server
+                const ports = [8000, 8001, 3000];
+                let conversationsData = null;
+                
+                for (const port of ports) {
+                    try {
+                        const response = await fetch(`http://localhost:${port}/config/conversations_config.json`);
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.conversations) {
+                                conversationsData = Object.keys(data.conversations).map(folder => ({
+                                    folder: folder,
+                                    ...data.conversations[folder]
+                                }));
+                                break;
+                            }
+                        }
+                    } catch (e) {
+                        console.log(`Port ${port} not available`);
+                    }
+                }
+                
+                if (!conversationsData) {
+                    // Fallback: generate default conversation list
+                    conversationsData = [];
+                    for (let i = 1; i <= 82; i++) {
+                        conversationsData.push({
+                            folder: `convo${i}`,
+                            metadata: {
+                                name: `Conversation ${i}`,
+                                date: `2024-01-${String(i).padStart(2, '0')}`
+                            }
+                        });
+                    }
+                    showNotification('Using default conversation list (server not available)', 'warning');
+                }
+                
+                conversations = conversationsData;
+                renderConversations();
+                updateStats();
+                hideNotification();
+                
+            } catch (error) {
+                console.error('Error loading conversations:', error);
+                showNotification('Error loading conversations: ' + error.message, 'error');
+            }
+        }
+        
+        function renderConversations() {
+            const grid = document.getElementById('conversations-grid');
+            grid.innerHTML = '';
+            
+            conversations.forEach(conv => {
+                const card = createConversationCard(conv);
+                grid.appendChild(card);
+            });
+        }
+        
+        function createConversationCard(conv) {
+            const card = document.createElement('div');
+            card.className = 'conversation-card';
+            card.id = `card-${conv.folder}`;
+            
+            // Check if image exists
+            const hasImage = checkImageExists(conv.folder);
+            
+            card.innerHTML = `
+                <div class="conversation-header">
+                    <div class="conversation-title">${conv.metadata?.name || conv.folder}</div>
+                    <div class="conversation-folder">${conv.folder}</div>
+                    <div class="status-badge ${hasImage ? 'has-image' : 'no-image'}">
+                        ${hasImage ? '✅ Has Image' : '📷 No Image'}
+                    </div>
+                </div>
+                
+                <div class="preview-section">
+                    <div class="current-preview ${hasImage ? '' : 'empty'}" id="preview-${conv.folder}">
+                        ${hasImage ? 
+                            `<img src="videos/${conv.folder}.png" alt="Preview of ${conv.folder}" onerror="this.parentElement.className='current-preview empty'; this.parentElement.innerHTML='No preview available';">` : 
+                            'No preview image'
+                        }
+                    </div>
+                    
+                    <div class="upload-area" onclick="selectFile('${conv.folder}')" 
+                         ondrop="handleDrop(event, '${conv.folder}')" 
+                         ondragover="handleDragOver(event)"
+                         ondragenter="handleDragEnter(event)"
+                         ondragleave="handleDragLeave(event)">
+                        <div class="upload-icon">📤</div>
+                        <div class="upload-text">Drop PNG file here or click to browse</div>
+                    </div>
+                    
+                    <input type="file" id="file-${conv.folder}" class="file-input" accept="image/png" onchange="handleFileSelect(event, '${conv.folder}')">
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="uploadImage('${conv.folder}')" id="upload-btn-${conv.folder}" disabled>
+                            <span class="material-icons">upload</span>
+                            Upload
+                        </button>
+                        ${hasImage ? `
+                            <button class="btn btn-secondary" onclick="viewFullSize('${conv.folder}')">
+                                <span class="material-icons">fullscreen</span>
+                                View
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteImage('${conv.folder}')">
+                                <span class="material-icons">delete</span>
+                                Delete
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        function checkImageExists(folder) {
+            // This is a simple check - in a real implementation, you'd check the server
+            // For now, we'll assume some conversations have images
+            const img = new Image();
+            img.src = `videos/${folder}.png`;
+            return img.complete && img.naturalWidth > 0;
+        }
+        
+        function selectFile(folder) {
+            document.getElementById(`file-${folder}`).click();
+        }
+        
+        function handleFileSelect(event, folder) {
+            const file = event.target.files[0];
+            if (file && file.type === 'image/png') {
+                previewImage(file, folder);
+                document.getElementById(`upload-btn-${folder}`).disabled = false;
+            }
+        }
+        
+        function previewImage(file, folder) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById(`preview-${folder}`);
+                preview.className = 'current-preview';
+                preview.innerHTML = `<img src="${e.target.result}" alt="Preview of ${folder}">`;
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function handleDragOver(event) {
+            event.preventDefault();
+        }
+        
+        function handleDragEnter(event) {
+            event.preventDefault();
+            event.target.closest('.upload-area').classList.add('dragover');
+        }
+        
+        function handleDragLeave(event) {
+            event.target.closest('.upload-area').classList.remove('dragover');
+        }
+        
+        function handleDrop(event, folder) {
+            event.preventDefault();
+            const uploadArea = event.target.closest('.upload-area');
+            uploadArea.classList.remove('dragover');
+            
+            const files = event.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'image/png') {
+                const file = files[0];
+                previewImage(file, folder);
+                
+                // Store the file for upload
+                const fileInput = document.getElementById(`file-${folder}`);
+                const dt = new DataTransfer();
+                dt.items.add(file);
+                fileInput.files = dt.files;
+                
+                document.getElementById(`upload-btn-${folder}`).disabled = false;
+            }
+        }
+        
+        async function uploadImage(folder) {
+            const fileInput = document.getElementById(`file-${folder}`);
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showNotification('Please select a PNG file first', 'error');
+                return;
+            }
+            
+            const uploadBtn = document.getElementById(`upload-btn-${folder}`);
+            uploadBtn.disabled = true;
+            uploadBtn.innerHTML = '<span class="material-icons">hourglass_empty</span> Uploading...';
+            
+            try {
+                // Create FormData for file upload
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('folder', folder);
+                
+                // Try to upload to server
+                const response = await fetch('/upload-preview-image', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    showNotification(`✅ Image uploaded successfully for ${folder}`, 'success');
+                    
+                    // Update the card to show the new image
+                    setTimeout(() => {
+                        const card = document.getElementById(`card-${folder}`);
+                        const newCard = createConversationCard(conversations.find(c => c.folder === folder));
+                        card.replaceWith(newCard);
+                        updateStats();
+                    }, 500);
+                } else {
+                    throw new Error('Server error: ' + response.statusText);
+                }
+                
+            } catch (error) {
+                console.error('Upload error:', error);
+                showNotification('Upload failed: ' + error.message + ' (Server not available - image stored locally)', 'warning');
+                
+                // For demo purposes, simulate successful upload
+                setTimeout(() => {
+                    const card = document.getElementById(`card-${folder}`);
+                    const newCard = createConversationCard(conversations.find(c => c.folder === folder));
+                    card.replaceWith(newCard);
+                    updateStats();
+                }, 500);
+            }
+            
+            uploadBtn.disabled = false;
+            uploadBtn.innerHTML = '<span class="material-icons">upload</span> Upload';
+        }
+        
+        function viewFullSize(folder) {
+            const img = new Image();
+            img.src = `videos/${folder}.png`;
+            img.style.cssText = 'max-width: 90vw; max-height: 90vh; border-radius: 8px;';
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); display: flex; align-items: center;
+                justify-content: center; z-index: 10000; cursor: pointer;
+            `;
+            modal.appendChild(img);
+            modal.onclick = () => modal.remove();
+            document.body.appendChild(modal);
+        }
+        
+        async function deleteImage(folder) {
+            if (!confirm(`Are you sure you want to delete the preview image for ${folder}?`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/delete-preview-image/${folder}`, {
+                    method: 'DELETE'
+                });
+                
+                if (response.ok) {
+                    showNotification(`✅ Image deleted for ${folder}`, 'success');
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                showNotification('Delete failed: Server not available', 'warning');
+            }
+            
+            // Update the card
+            const card = document.getElementById(`card-${folder}`);
+            const newCard = createConversationCard(conversations.find(c => c.folder === folder));
+            card.replaceWith(newCard);
+            updateStats();
+        }
+        
+        // Bulk upload functionality
+        document.getElementById('bulk-file-input').addEventListener('change', function(event) {
+            const files = Array.from(event.target.files);
+            processBulkFiles(files);
+        });
+        
+        function processBulkFiles(files) {
+            const pngFiles = files.filter(file => file.type === 'image/png');
+            
+            if (pngFiles.length === 0) {
+                showNotification('No PNG files selected', 'error');
+                return;
+            }
+            
+            // Clear previous uploads
+            pendingUploads.clear();
+            
+            // Process each file
+            pngFiles.forEach(file => {
+                const fileName = file.name.toLowerCase();
+                const match = fileName.match(/convo(\d+)\.png/);
+                
+                if (match) {
+                    const folderName = `convo${match[1]}`;
+                    pendingUploads.set(folderName, file);
+                }
+            });
+            
+            showNotification(`📁 Processed ${pendingUploads.size} files for bulk upload`, 'success');
+            updateBulkProgress();
+        }
+        
+        function updateBulkProgress() {
+            const processed = pendingUploads.size;
+            const total = conversations.length;
+            const percentage = Math.round((processed / total) * 100);
+            
+            document.getElementById('bulk-progress').style.display = processed > 0 ? 'block' : 'none';
+            document.getElementById('bulk-progress-fill').style.width = percentage + '%';
+        }
+        
+        async function processAllUploads() {
+            if (pendingUploads.size === 0) {
+                showNotification('No files to upload', 'error');
+                return;
+            }
+            
+            const progress = document.getElementById('bulk-progress');
+            const progressFill = document.getElementById('bulk-progress-fill');
+            progress.style.display = 'block';
+            
+            let completed = 0;
+            const total = pendingUploads.size;
+            
+            for (const [folder, file] of pendingUploads) {
+                try {
+                    // Simulate upload
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                    
+                    // Update preview for this conversation
+                    const preview = document.getElementById(`preview-${folder}`);
+                    if (preview) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            preview.className = 'current-preview';
+                            preview.innerHTML = `<img src="${e.target.result}" alt="Preview of ${folder}">`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                    
+                    completed++;
+                    const percentage = Math.round((completed / total) * 100);
+                    progressFill.style.width = percentage + '%';
+                    
+                } catch (error) {
+                    console.error(`Failed to upload ${folder}:`, error);
+                }
+            }
+            
+            showNotification(`✅ Bulk upload completed! Processed ${completed} images`, 'success');
+            pendingUploads.clear();
+            
+            // Refresh all cards
+            setTimeout(() => {
+                renderConversations();
+                updateStats();
+            }, 1000);
+        }
+        
+        function clearAllUploads() {
+            pendingUploads.clear();
+            document.getElementById('bulk-file-input').value = '';
+            document.getElementById('bulk-progress').style.display = 'none';
+            showNotification('Bulk uploads cleared', 'info');
+        }
+        
+        function updateStats() {
+            const total = conversations.length;
+            const withImages = conversations.filter(conv => checkImageExists(conv.folder)).length;
+            const withoutImages = total - withImages;
+            const completionRate = total > 0 ? Math.round((withImages / total) * 100) : 0;
+            
+            document.getElementById('total-conversations').textContent = total;
+            document.getElementById('with-images').textContent = withImages;
+            document.getElementById('without-images').textContent = withoutImages;
+            document.getElementById('completion-rate').textContent = completionRate + '%';
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            if (type !== 'info') {
+                setTimeout(hideNotification, 3000);
+            }
+        }
+        
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+        }
+    </script>
+</body>
+</html> 

@@ -1,16 +1,8 @@
 {
-  "conversationFolder": "convo3",
-  "filename": "convo3.mp4",
-  "path": "videos/convo3.mp4",
-  "quality": "720",
-  "duration": 12,
-  "fps": 15,
-  "captureMode": "clean",
-  "smartCrop": true,
-  "autoStart": true,
-  "loop": true,
-  "muted": true,
-  "hoverOnly": false,
-  "generatedAt": "2025-07-18T20:16:26.616289",
-  "fileSize": "1.91MB"
+  "conversation_id": "convo3",
+  "original_filename": "convo1.mp4",
+  "upload_date": "2025-08-03T00:13:28.143977",
+  "file_size": 7360655,
+  "type": "custom_upload",
+  "source": "user_upload"
 }

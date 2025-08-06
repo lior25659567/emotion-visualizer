@@ -1,16 +1,8 @@
 {
-  "conversationFolder": "convo7",
-  "filename": "convo7.mp4",
-  "path": "videos/convo7.mp4",
-  "quality": "720",
-  "duration": 12,
-  "fps": 15,
-  "captureMode": "clean",
-  "smartCrop": true,
-  "autoStart": true,
-  "loop": true,
-  "muted": true,
-  "hoverOnly": false,
-  "generatedAt": "2025-07-15T22:27:43.562512",
-  "fileSize": "0.01MB"
+  "conversation_id": "convo7",
+  "original_filename": "test_forced.mp4",
+  "upload_date": "2025-08-03T00:19:53.383584",
+  "file_size": 3204,
+  "type": "custom_upload",
+  "source": "user_upload"
 }

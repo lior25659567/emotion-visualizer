@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עורך הגדרות ניתוח AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #FFD700;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            background: #2a2a2a;
+        }
+        
+        .tab.active {
+            background: #2a2a2a;
+            border-bottom-color: #0a0a0a;
+            color: #FFD700;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .pattern-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .pattern-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .pattern-title {
+            font-size: 1.5em;
+            color: #FFD700;
+        }
+        
+        .pattern-description {
+            color: #888;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .word-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .word-tag {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .word-tag:hover {
+            background: #3a3a3a;
+            border-color: #FFD700;
+        }
+        
+        .remove-word {
+            color: #ff4444;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        
+        .remove-word:hover {
+            transform: scale(1.2);
+        }
+        
+        .add-word-section {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+        
+        button {
+            padding: 10px 20px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .save-section {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .save-status {
+            color: #888;
+        }
+        
+        .save-status.success {
+            color: #4CAF50;
+        }
+        
+        .save-status.error {
+            color: #ff4444;
+        }
+        
+        .weight-input {
+            width: 80px;
+            margin-right: 10px;
+        }
+        
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .scoring-item {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .scoring-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #FFD700;
+        }
+        
+        .visualization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .viz-item {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .viz-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #FFD700;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #FFD700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .back-link:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="admin_panel.html" class="back-link">
+            ← חזרה לפאנל ניהול
+        </a>
+        
+        <h1>עורך הגדרות ניתוח AI</h1>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('patterns')">דפוסי מילים</div>
+            <div class="tab" onclick="switchTab('scoring')">משקולות ניקוד</div>
+            <div class="tab" onclick="switchTab('visualization')">ברירות מחדל לויזואליזציה</div>
+        </div>
+        
+        <div id="patterns-tab" class="tab-content active">
+            <div class="pattern-section" style="background: #2a2a2a; margin-bottom: 30px;">
+                <h2 class="pattern-title">➕ הוסף רגש חדש</h2>
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" id="new-emotion-name" placeholder="שם הרגש באנגלית (לדוגמה: confused)" style="flex: 1;">
+                    <input type="text" id="new-emotion-title" placeholder="שם הרגש בעברית (לדוגמה: מבולבל)" style="flex: 1;">
+                    <input type="text" id="new-emotion-icon" placeholder="אייקון (לדוגמה: 😕)" style="width: 80px;">
+                </div>
+                <button onclick="addNewEmotion()" style="width: 100%;">➕ צור רגש חדש</button>
+            </div>
+            <div id="patterns-container"></div>
+        </div>
+        
+        <div id="scoring-tab" class="tab-content">
+            <div class="pattern-section">
+                <h2 class="pattern-title">משקולות ניקוד</h2>
+                <div class="scoring-grid" id="scoring-container"></div>
+            </div>
+        </div>
+        
+        <div id="visualization-tab" class="tab-content">
+            <div class="pattern-section">
+                <h2 class="pattern-title">ברירות מחדל לויזואליזציה</h2>
+                <div class="visualization-grid" id="visualization-container"></div>
+            </div>
+        </div>
+        
+        <div class="save-section">
+            <button onclick="saveConfig()">💾 שמור הגדרות</button>
+            <button onclick="loadConfig()">🔄 טען מחדש</button>
+            <button onclick="exportConfig()">📤 ייצא הגדרות</button>
+            <button onclick="importConfig()">📥 ייבא הגדרות</button>
+            <span class="save-status" id="save-status"></span>
+        </div>
+    </div>
+    
+    <input type="file" id="import-file" style="display: none;" accept=".json">
+    
+    <script>
+        let config = null;
+        
+        // Pattern metadata
+        let patternMetadata = {
+            humor_indicators: { title: 'מילות הומור', icon: '😄' },
+            blur_indicators: { title: 'מילות בלבול וחוסר בהירות', icon: '😵' },
+            agreement_indicators: { title: 'מילות הסכמה', icon: '👍' },
+            disagreement_indicators: { title: 'מילות אי-הסכמה', icon: '👎' },
+            intensity_indicators: { title: 'מילות עוצמה', icon: '🔥' },
+            voice_intensity_indicators: { title: 'מילות עוצמת קול וצעקות', icon: '📢' },
+            sadness_indicators: { title: 'מילות עצב', icon: '😢' },
+            happiness_indicators: { title: 'מילות שמחה', icon: '😊' },
+            joy_indicators: { title: 'מילות עליזות', icon: '🥳' },
+            anger_indicators: { title: 'מילות כעס', icon: '😠' },
+            fear_indicators: { title: 'מילות פחד', icon: '😨' },
+            surprise_indicators: { title: 'מילות הפתעה', icon: '😮' },
+            disgust_indicators: { title: 'מילות גועל', icon: '🤢' },
+            curiosity_indicators: { title: 'מילות סקרנות', icon: '🤔' },
+            frustration_indicators: { title: 'מילות תסכול', icon: '😤' },
+            excitement_indicators: { title: 'מילות התרגשות', icon: '🤩' },
+            love_indicators: { title: 'מילות אהבה', icon: '❤️' },
+            anxiety_indicators: { title: 'מילות חרדה', icon: '😰' },
+            hope_indicators: { title: 'מילות תקווה', icon: '🙏' },
+            pride_indicators: { title: 'מילות גאווה', icon: '💪' },
+            filler_words: { title: 'מילות מילוי', icon: '💭' },
+            repetition_words: { title: 'מילות חזרה', icon: '🔁' }
+        };
+        
+        async function loadConfig() {
+            try {
+                const response = await fetch('config/enhanced_analysis_config.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load config');
+                }
+                config = await response.json();
+                renderPatterns();
+                renderScoring();
+                renderVisualization();
+                showStatus('הגדרות נטענו בהצלחה', 'success');
+            } catch (error) {
+                console.error('Error loading config:', error);
+                showStatus('שגיאה בטעינת הגדרות', 'error');
+            }
+        }
+        
+        function renderPatterns() {
+            const container = document.getElementById('patterns-container');
+            container.innerHTML = '';
+            
+            for (const [key, data] of Object.entries(config.hebrew_patterns)) {
+                const metadata = patternMetadata[key] || { title: key, icon: '📝' };
+                const section = createPatternSection(key, data, metadata);
+                container.appendChild(section);
+            }
+        }
+        
+        function createPatternSection(key, data, metadata) {
+            const section = document.createElement('div');
+            section.className = 'pattern-section';
+            
+            const isEnhanced = typeof data === 'object' && !Array.isArray(data);
+            
+            section.innerHTML = `
+                <div class="pattern-header">
+                    <h3 class="pattern-title">${metadata.icon} ${metadata.title}</h3>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        ${isEnhanced && data.weight !== undefined ? 
+                            `<input type="number" class="weight-input" value="${data.weight}" 
+                             onchange="updateWeight('${key}', this.value)" 
+                             step="0.1" min="0" max="5" placeholder="משקל">` : ''}
+                        ${!['filler_words', 'repetition_words', 'blur_indicators', 'agreement_indicators', 
+                          'disagreement_indicators', 'intensity_indicators'].includes(key) ? 
+                            `<button onclick="deleteEmotion('${key}')" class="btn" style="background: #ff4444; padding: 5px 10px;">
+                                🗑️ מחק
+                            </button>` : ''}
+                    </div>
+                </div>
+                ${isEnhanced && data.description ? 
+                    `<p class="pattern-description">${data.description}</p>` : ''}
+            `;
+            
+            if (isEnhanced && data.words) {
+                // Enhanced format with words
+                const wordsDiv = document.createElement('div');
+                wordsDiv.innerHTML = '<h4>מילים:</h4>';
+                const wordsList = createWordList(key, data.words, 'words');
+                wordsDiv.appendChild(wordsList);
+                section.appendChild(wordsDiv);
+                
+                const addWordSection = createAddWordSection(key, 'words');
+                wordsDiv.appendChild(addWordSection);
+            }
+            
+            if (isEnhanced && data.phrases) {
+                // Enhanced format with phrases
+                const phrasesDiv = document.createElement('div');
+                phrasesDiv.innerHTML = '<h4>ביטויים:</h4>';
+                const phrasesList = createWordList(key, data.phrases, 'phrases');
+                phrasesDiv.appendChild(phrasesList);
+                section.appendChild(phrasesDiv);
+                
+                const addPhraseSection = createAddWordSection(key, 'phrases');
+                phrasesDiv.appendChild(addPhraseSection);
+            }
+            
+            if (Array.isArray(data)) {
+                // Basic format - just an array
+                const wordsList = createWordList(key, data, null);
+                section.appendChild(wordsList);
+                
+                const addWordSection = createAddWordSection(key, null);
+                section.appendChild(addWordSection);
+            }
+            
+            // Special handling for voice intensity indicators
+            if (key === 'voice_intensity_indicators' && isEnhanced) {
+                // Add punctuation rules section
+                if (data.punctuation_rules) {
+                    const punctDiv = document.createElement('div');
+                    punctDiv.innerHTML = '<h4>חוקי פיסוק:</h4>';
+                    punctDiv.style.marginTop = '20px';
+                    
+                    const rulesContainer = document.createElement('div');
+                    rulesContainer.style.display = 'grid';
+                    rulesContainer.style.gap = '10px';
+                    
+                    for (const [ruleName, rule] of Object.entries(data.punctuation_rules)) {
+                        const ruleDiv = document.createElement('div');
+                        ruleDiv.style.background = '#2a2a2a';
+                        ruleDiv.style.padding = '10px';
+                        ruleDiv.style.borderRadius = '5px';
+                        ruleDiv.innerHTML = `
+                            <strong>${rule.pattern}</strong> - 
+                            קול: +${rule.voice_boost}, גודל: +${rule.size_boost}
+                            ${rule.emotion_hint ? `, רמז: ${rule.emotion_hint}` : ''}
+                        `;
+                        rulesContainer.appendChild(ruleDiv);
+                    }
+                    punctDiv.appendChild(rulesContainer);
+                    section.appendChild(punctDiv);
+                }
+                
+                // Add visual effects section
+                if (data.visual_effects) {
+                    const effectsDiv = document.createElement('div');
+                    effectsDiv.innerHTML = '<h4>אפקטים ויזואליים:</h4>';
+                    effectsDiv.style.marginTop = '20px';
+                    
+                    const effectsGrid = document.createElement('div');
+                    effectsGrid.style.display = 'grid';
+                    effectsGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                    effectsGrid.style.gap = '10px';
+                    
+                    for (const [effectName, value] of Object.entries(data.visual_effects)) {
+                        const effectItem = document.createElement('div');
+                        effectItem.innerHTML = `
+                            <label style="font-size: 0.9em;">${effectName.replace(/_/g, ' ')}:</label>
+                            <input type="number" value="${value}" 
+                                   onchange="updateVoiceEffect('${effectName}', this.value)"
+                                   step="0.1" min="0" max="5"
+                                   style="width: 80px; margin-left: 10px;">
+                        `;
+                        effectsGrid.appendChild(effectItem);
+                    }
+                    effectsDiv.appendChild(effectsGrid);
+                    section.appendChild(effectsDiv);
+                }
+            }
+            
+            return section;
+        }
+        
+        function createWordList(patternKey, words, subKey) {
+            const div = document.createElement('div');
+            div.className = 'word-list';
+            
+            words.forEach((word, index) => {
+                const tag = document.createElement('div');
+                tag.className = 'word-tag';
+                tag.innerHTML = `
+                    <span>${word}</span>
+                    <span class="remove-word" onclick="removeWord('${patternKey}', ${index}, '${subKey || ''}')">×</span>
+                `;
+                div.appendChild(tag);
+            });
+            
+            return div;
+        }
+        
+        function createAddWordSection(patternKey, subKey) {
+            const div = document.createElement('div');
+            div.className = 'add-word-section';
+            
+            const inputId = `add-${patternKey}-${subKey || 'main'}`;
+            div.innerHTML = `
+                <input type="text" id="${inputId}" placeholder="הוסף ${subKey === 'phrases' ? 'ביטוי' : 'מילה'} חדשה...">
+                <button onclick="addWord('${patternKey}', '${subKey || ''}', '${inputId}')">+ הוסף</button>
+            `;
+            
+            return div;
+        }
+        
+        function removeWord(patternKey, index, subKey) {
+            if (subKey && config.hebrew_patterns[patternKey][subKey]) {
+                config.hebrew_patterns[patternKey][subKey].splice(index, 1);
+            } else if (Array.isArray(config.hebrew_patterns[patternKey])) {
+                config.hebrew_patterns[patternKey].splice(index, 1);
+            }
+            renderPatterns();
+        }
+        
+        function addWord(patternKey, subKey, inputId) {
+            const input = document.getElementById(inputId);
+            const word = input.value.trim();
+            
+            if (!word) return;
+            
+            if (subKey && config.hebrew_patterns[patternKey][subKey]) {
+                config.hebrew_patterns[patternKey][subKey].push(word);
+            } else if (Array.isArray(config.hebrew_patterns[patternKey])) {
+                config.hebrew_patterns[patternKey].push(word);
+            }
+            
+            input.value = '';
+            renderPatterns();
+        }
+        
+        function updateWeight(patternKey, value) {
+            if (config.hebrew_patterns[patternKey] && typeof config.hebrew_patterns[patternKey] === 'object') {
+                config.hebrew_patterns[patternKey].weight = parseFloat(value);
+            }
+        }
+        
+        function updateVoiceEffect(effectName, value) {
+            if (config.hebrew_patterns.voice_intensity_indicators && 
+                config.hebrew_patterns.voice_intensity_indicators.visual_effects) {
+                config.hebrew_patterns.voice_intensity_indicators.visual_effects[effectName] = parseFloat(value);
+            }
+        }
+        
+        function renderScoring() {
+            const container = document.getElementById('scoring-container');
+            container.innerHTML = '';
+            
+            for (const [key, value] of Object.entries(config.scoring_weights)) {
+                const item = document.createElement('div');
+                item.className = 'scoring-item';
+                item.innerHTML = `
+                    <label class="scoring-label">${key.replace(/_/g, ' ')}</label>
+                    <input type="number" value="${value}" 
+                           onchange="updateScoringWeight('${key}', this.value)"
+                           step="0.1" min="0" max="5">
+                `;
+                container.appendChild(item);
+            }
+        }
+        
+        function updateScoringWeight(key, value) {
+            config.scoring_weights[key] = parseFloat(value);
+        }
+        
+        function renderVisualization() {
+            const container = document.getElementById('visualization-container');
+            container.innerHTML = '';
+            
+            for (const [key, value] of Object.entries(config.visualization_defaults)) {
+                if (typeof value === 'object' && key === 'character_sizing_rules') {
+                    // Special handling for character sizing rules
+                    const rulesSection = document.createElement('div');
+                    rulesSection.style.marginTop = '20px';
+                    rulesSection.innerHTML = '<h3>חוקי גודל תווים:</h3>';
+                    
+                    const rulesGrid = document.createElement('div');
+                    rulesGrid.style.display = 'grid';
+                    rulesGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                    rulesGrid.style.gap = '10px';
+                    
+                    for (const [ruleKey, ruleValue] of Object.entries(value)) {
+                        const ruleItem = document.createElement('div');
+                        ruleItem.innerHTML = `
+                            <label style="font-size: 0.9em;">${ruleKey.replace(/_/g, ' ')}:</label>
+                            <input type="number" value="${ruleValue}" 
+                                   onchange="updateSizingRule('${ruleKey}', this.value)"
+                                   step="0.1" min="0" max="5"
+                                   style="width: 80px; margin-left: 10px;">
+                        `;
+                        rulesGrid.appendChild(ruleItem);
+                    }
+                    rulesSection.appendChild(rulesGrid);
+                    container.appendChild(rulesSection);
+                } else {
+                    const item = document.createElement('div');
+                    item.className = 'viz-item';
+                    item.innerHTML = `
+                        <label class="viz-label">${key.replace(/_/g, ' ')}</label>
+                        <input type="number" value="${value}" 
+                               onchange="updateVisualization('${key}', this.value)"
+                               step="${key.includes('size') || key.includes('scale') ? '0.1' : '1'}"
+                               min="0">
+                    `;
+                    container.appendChild(item);
+                }
+            }
+        }
+        
+        function updateVisualization(key, value) {
+            config.visualization_defaults[key] = parseFloat(value);
+        }
+        
+        function updateSizingRule(ruleKey, value) {
+            if (config.visualization_defaults.character_sizing_rules) {
+                config.visualization_defaults.character_sizing_rules[ruleKey] = parseFloat(value);
+            }
+        }
+        
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+        
+        async function saveConfig() {
+            try {
+                const response = await fetch('/api/save-config', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        filename: 'config/enhanced_analysis_config.json',
+                        content: config
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to save config');
+                }
+                
+                showStatus('הגדרות נשמרו בהצלחה!', 'success');
+            } catch (error) {
+                console.error('Error saving config:', error);
+                showStatus('שגיאה בשמירת הגדרות', 'error');
+            }
+        }
+        
+        function exportConfig() {
+            const dataStr = JSON.stringify(config, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'enhanced_analysis_config.json';
+            link.click();
+            URL.revokeObjectURL(url);
+            showStatus('הגדרות יוצאו בהצלחה', 'success');
+        }
+        
+        function importConfig() {
+            document.getElementById('import-file').click();
+        }
+        
+        document.getElementById('import-file').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            try {
+                const text = await file.text();
+                config = JSON.parse(text);
+                renderPatterns();
+                renderScoring();
+                renderVisualization();
+                showStatus('הגדרות יובאו בהצלחה', 'success');
+            } catch (error) {
+                console.error('Error importing config:', error);
+                showStatus('שגיאה בייבוא הגדרות', 'error');
+            }
+        });
+        
+        function showStatus(message, type) {
+            const status = document.getElementById('save-status');
+            status.textContent = message;
+            status.className = `save-status ${type}`;
+            setTimeout(() => {
+                status.textContent = '';
+                status.className = 'save-status';
+            }, 3000);
+        }
+        
+        function addNewEmotion() {
+            const name = document.getElementById('new-emotion-name').value.trim();
+            const title = document.getElementById('new-emotion-title').value.trim();
+            const icon = document.getElementById('new-emotion-icon').value.trim() || '🎭';
+            
+            if (!name || !title) {
+                showStatus('נא למלא שם רגש באנגלית ובעברית', 'error');
+                return;
+            }
+            
+            // Validate name is in English and lowercase
+            if (!/^[a-z_]+$/.test(name)) {
+                showStatus('שם הרגש חייב להיות באנגלית באותיות קטנות (אפשר להשתמש ב-_)', 'error');
+                return;
+            }
+            
+            // Check if emotion already exists
+            const indicatorName = `${name}_indicators`;
+            if (config.hebrew_patterns[indicatorName]) {
+                showStatus('רגש זה כבר קיים', 'error');
+                return;
+            }
+            
+            // Add new emotion pattern
+            config.hebrew_patterns[indicatorName] = {
+                words: [],
+                phrases: [],
+                weight: 1.0,
+                description: `מילים וביטויים המעידים על ${title}`
+            };
+            
+            // Add to emotion mapping
+            if (!config.emotion_mapping[name]) {
+                config.emotion_mapping[name] = [indicatorName];
+            }
+            
+            // Add to pattern metadata
+            patternMetadata[indicatorName] = { title: `מילות ${title}`, icon: icon };
+            
+            // Clear inputs
+            document.getElementById('new-emotion-name').value = '';
+            document.getElementById('new-emotion-title').value = '';
+            document.getElementById('new-emotion-icon').value = '';
+            
+            // Re-render patterns
+            renderPatterns();
+            
+            showStatus(`רגש "${title}" נוסף בהצלחה!`, 'success');
+            
+            // Also update emotion_config.json if needed
+            updateEmotionConfig(name, title, icon);
+        }
+        
+        async function updateEmotionConfig(name, hebrewName, icon) {
+            try {
+                // Load emotion config
+                const response = await fetch('config/emotion_config.json');
+                const emotionConfig = await response.json();
+                
+                // Add new emotion if not exists
+                if (!emotionConfig.emotions[name]) {
+                    emotionConfig.emotions[name] = {
+                        color: generateEmotionColor(name),
+                        charset: ["●", "◉", "○", "◯", "◦", "•", "∘"],
+                        description: hebrewName
+                    };
+                    
+                    // Add to appropriate group
+                    // You can enhance this logic to ask user which group
+                    emotionConfig.emotionGroups.neutral.push(name);
+                    
+                    // Save emotion config
+                    await fetch('/api/save-config', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            filename: 'config/emotion_config.json',
+                            content: emotionConfig
+                        })
+                    });
+                }
+            } catch (error) {
+                console.error('Error updating emotion config:', error);
+            }
+        }
+        
+        function generateEmotionColor(emotionName) {
+            // Generate a color based on emotion name
+            const colors = [
+                '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FECA57',
+                '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'
+            ];
+            const index = emotionName.charCodeAt(0) % colors.length;
+            return colors[index];
+        }
+        
+        function deleteEmotion(indicatorKey) {
+            if (!confirm(`האם אתה בטוח שברצונך למחוק את "${patternMetadata[indicatorKey]?.title || indicatorKey}"?`)) {
+                return;
+            }
+            
+            // Remove from hebrew_patterns
+            delete config.hebrew_patterns[indicatorKey];
+            
+            // Remove from emotion_mapping
+            const emotionName = indicatorKey.replace('_indicators', '');
+            delete config.emotion_mapping[emotionName];
+            
+            // Also remove references from other emotion mappings
+            for (const [emotion, indicators] of Object.entries(config.emotion_mapping)) {
+                const index = indicators.indexOf(indicatorKey);
+                if (index > -1) {
+                    indicators.splice(index, 1);
+                }
+            }
+            
+            // Re-render
+            renderPatterns();
+            showStatus(`הרגש נמחק בהצלחה`, 'success');
+        }
+        
+        // Load config on page load
+        loadConfig();
+    </script>
+</body>
+</html> 
