@@ -3586,29 +3586,35 @@
                 
                 // Send message to iframe to ensure emotion data is loaded
                 setTimeout(() => {
-                    iframe.contentWindow.postMessage({ 
-                        type: 'ensure-emotion-data',
-                        folder: folder,
-                        timestamp: Date.now()
-                    }, '*');
+                    if (iframe.contentWindow) {
+                        iframe.contentWindow.postMessage({ 
+                            type: 'ensure-emotion-data',
+                            folder: folder,
+                            timestamp: Date.now()
+                        }, '*');
+                    }
                 }, 500);
                 
                 // Send multiple color reload messages to ensure latest colors are used
                 setTimeout(() => {
-                    iframe.contentWindow.postMessage({
-                        type: 'reloadEmotionColors',
-                        timestamp: Date.now()
-                    }, '*');
-                    console.log(`🎨 Sent emotion color reload to iframe for ${folder}`);
+                    if (iframe.contentWindow) {
+                        iframe.contentWindow.postMessage({
+                            type: 'reloadEmotionColors',
+                            timestamp: Date.now()
+                        }, '*');
+                        console.log(`🎨 Sent emotion color reload to iframe for ${folder}`);
+                    }
                 }, 1500);
                 
                 // Send a second reload after more time to be extra sure
                 setTimeout(() => {
-                    iframe.contentWindow.postMessage({
-                        type: 'forceVisualRefresh',
-                        timestamp: Date.now()
-                    }, '*');
-                    console.log(`🔄 Sent force visual refresh to iframe for ${folder}`);
+                    if (iframe.contentWindow) {
+                        iframe.contentWindow.postMessage({
+                            type: 'forceVisualRefresh',
+                            timestamp: Date.now()
+                        }, '*');
+                        console.log(`🔄 Sent force visual refresh to iframe for ${folder}`);
+                    }
                 }, 2500);
                 
                 // Try direct function call if available
