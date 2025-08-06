@@ -1,0 +1,10 @@
+{
+  "conversation": "convo1",
+  "version": "clean",
+  "filename": "convo1_clean.mp4",
+  "duration": 15.3,
+  "createdAt": "2025-07-15T20:29:00.000Z",
+  "status": "completed",
+  "type": "backup",
+  "description": "Clean version of conversation 1"
+} 

@@ -1,0 +1,2997 @@
+{
+  "conversations": {
+    "convo1": {
+      "number": 1,
+      "mp3_count": 73,
+      "ai_file": "conversations/convo1/emotions1_ai_analyzed.json",
+      "image_path": "conversion images/convo1.png",
+      "metadata": {
+        "date": "2025-06-20",
+        "name": "פלאפל או שווארמה ",
+        "mainParticipant": "אבא",
+        "customParticipantName": "אבא",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "אבא",
+        "conversationTopics": [
+          "relationships"
+        ],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:34:29.273Z",
+        "duration": "1:50",
+        "totalWords": 330,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "אבא"
+        ]
+      }
+    },
+    "convo2": {
+      "number": 2,
+      "mp3_count": 174,
+      "ai_file": "conversations/convo2/emotions2_ai_analyzed.json",
+      "image_path": "conversion images/convo2.png",
+      "metadata": {
+        "date": "2025-06-20",
+        "name": "צבא וחברים",
+        "mainParticipant": "עדי ביטון",
+        "customParticipantName": "עדי ביטון",
+        "speaker1Name": "עדי ביטון",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [
+          "family"
+        ],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:14:26.378Z",
+        "duration": "4:21",
+        "totalWords": 1249,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "עדי ביטון"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, עדי ביטון, נוטה להשתמש בהומור כדי להתמודד עם מצבים מורכבים או מתסכלים. היא מביעה רגשות של תסכול ואכזבה, אך גם מדברת על תקווה ואהבה כלפי אנשים קרובים. היא משתמשת בשפה ישירה ומבטאת את רגשותיה בצורה פתוחה.",
+            "speaker_1": "דובר 1, ליאור, נוטה להביע בלבול וסקרנות בנוגע למצבם של אחרים. הוא משתמש בהומור כדי להפיג מתחים ולעיתים מביע תסכול וכעס כלפי מצבים מסוימים. ליאור נוטה להקשיב ולהגיב באופן שמראה על עניין במתרחש סביבו."
+          },
+          "relationship_quality": "הקשר בין עדי לליאור נראה חברי ופתוח. הם משתפים אחד את השני בחוויות אישיות ובדעותיהם על נושאים שונים, כולל נושאים רגישים כמו פוליטיקה ויחסים אישיים.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, אך גם ישיר ופתוח. שני הדוברים משתמשים בהומור כדי להתמודד עם מצבים מורכבים ומביעים את רגשותיהם בצורה גלויה.",
+          "strengths": [
+            "שימוש בהומור להפגת מתחים",
+            "תקשורת פתוחה וישירה",
+            "יכולת לשתף ולהקשיב"
+          ],
+          "challenges": [
+            "התמודדות עם תסכול וכעס",
+            "בלבול ואי ודאות במצבים מסוימים",
+            "ניהול שיחות על נושאים רגישים"
+          ],
+          "improvement_recommendations": [
+            "לנסות להפחית את רמת הטשטוש והבלבול בשיחה",
+            "למצוא דרכים נוספות להתמודד עם תסכול וכעס",
+            "להעמיק את ההבנה וההקשבה בנושאים רגישים"
+          ],
+          "emotional_insights": "עדי וליאור מביעים רגשות מורכבים של תסכול, כעס ואכזבה, אך גם אהבה, חיבה ותקווה. הם משתמשים בהומור כדי להתמודד עם מצבים קשים ומשתפים אחד את השני ברגשותיהם בצורה פתוחה.",
+          "power_dynamics": "אין דינמיקת כוח ברורה בשיחה. שני הדוברים משתתפים באופן שווה ומביעים את דעותיהם ורגשותיהם בצורה פתוחה.",
+          "conversation_flow": "השיחה זורמת בין נושאים שונים, כולל חוויות אישיות, פוליטיקה ויחסים בין אישיים. המעברים בין הנושאים חלקים, והדוברים מגיבים זה לזה בצורה טבעית.",
+          "attention_points": [
+            "היכולת של הדוברים להתמודד עם תסכול וכעס",
+            "השימוש בהומור ככלי תקשורתי"
+          ],
+          "overall_assessment": "השיחה בין עדי לליאור היא דוגמה לתקשורת חברית ופתוחה. הם משתמשים בהומור כדי להתמודד עם מצבים מורכבים ומשתפים אחד את השני ברגשותיהם בצורה גלויה. עם זאת, יש מקום לשיפור בניהול רגשות של תסכול וכעס ובפיתוח הבנה עמוקה יותר בנושאים רגישים."
+        },
+        "insights_generated_date": "2025-08-05T02:54:33.146455"
+      }
+    },
+    "convo3": {
+      "number": 3,
+      "mp3_count": 4,
+      "ai_file": "conversations/convo3/emotions3_ai_analyzed.json",
+      "image_path": "conversion images/convo3.png",
+      "metadata": {
+        "date": "2025-06-24",
+        "name": "לקחת את החבילה?",
+        "mainParticipant": "עדן",
+        "customParticipantName": "עדן",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "עדן",
+        "conversationTopics": [
+          "health"
+        ],
+        "mainEmotions": [
+          "נינוח"
+        ],
+        "emotionalIntensity": 3,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:15:00.866Z",
+        "duration": "0:06",
+        "totalWords": 23,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "עדן"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה לשאול שאלות ולהביע סקרנות, אך גם מציג בלבול ואי ודאות. הוא משתמש בהומור קל כדי להקל על האווירה.",
+            "speaker_1": "דובר 1 מציג נחישות ודחיפות בתקשורת שלו, אך גם הוא חווה בלבול ואי ודאות. הוא מגיב להומור של דובר 0 עם הומור משלו."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה נינוח ופתוח, עם יכולת לשלב הומור בשיחה, מה שמעיד על נוחות וביטחון ביניהם.",
+          "communication_style": "סגנון התקשורת הכללי הוא נינוח ולא פורמלי, עם שימוש בהומור קל ושאלות פתוחות. שני הדוברים מביעים רגשות בצורה ישירה.",
+          "strengths": [
+            "יכולת לשלב הומור בשיחה",
+            "תקשורת פתוחה וישירה",
+            "נכונות להביע רגשות ואי ודאות"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות בתקשורת",
+            "חוסר בהירות בנוגע למיקום ולתוכניות",
+            "תיאום לוגיסטי לא ברור"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את המיקומים והתוכניות מראש",
+            "להפחית את רמת הבלבול על ידי תכנון מוקדם",
+            "להשתמש ביותר פרטים כדי להימנע מאי ודאות"
+          ],
+          "emotional_insights": "שני הדוברים חווים רגשות של סקרנות ואי ודאות, אך גם נינוחות ונחישות. ההומור מסייע להתמודד עם אי הוודאות.",
+          "power_dynamics": "אין דינמיקה של כוח מובהקת בשיחה, שניהם משתתפים באופן שווה ומביעים את דעתם בחופשיות.",
+          "conversation_flow": "השיחה זורמת בצורה טבעית עם מעבר בין שאלות לתשובות. המעברים בין הנושאים הם חלקים למרות הבלבול הקל.",
+          "attention_points": [
+            "הצורך בהבהרת מיקומים ותוכניות",
+            "החשיבות של תיאום לוגיסטי ברור"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בנינוחות ופתיחות, עם שימוש בהומור כדי להקל על אי הוודאות. יש מקום לשיפור בתיאום והבהרת פרטים."
+        },
+        "insights_generated_date": "2025-08-05T03:06:16.168110"
+      }
+    },
+    "convo4": {
+      "number": 4,
+      "mp3_count": 20,
+      "ai_file": "conversations/convo4/emotions4_ai_analyzed.json",
+      "image_path": "conversion images/convo4.png",
+      "metadata": {
+        "date": "2025-06-24",
+        "name": "שיחה על החיים",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "טל מקלר",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "טל מקלר",
+        "conversationTopics": [
+          "future",
+          "emotions"
+        ],
+        "mainEmotions": [
+          "חיבה"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:15:07.099Z",
+        "duration": "0:30",
+        "totalWords": 105,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 מציג דפוסי תקשורת של דאגה ועניין כלפי דובר 1, תוך כדי שימוש בשאלות כדי להבין את מצב הרוח והמצב הכללי. הוא גם מבטא חיבה בסיום השיחה.",
+            "speaker_1": "דובר 1 מציג דפוסי תקשורת של בלבול ותסכול, אך גם סקרנות ועניין כלפי דובר 0. הוא מגיב לשאלות ומנסה לשמור על קשר חיובי."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב ואינטימי, עם ביטויים של דאגה, חיבה וציפייה להיפגש.",
+          "communication_style": "סגנון התקשורת הוא אישי ואינטימי, עם דגש על רגשות ודאגה הדדית. ישנה נטייה להשתמש בשאלות כדי להניע את השיחה.",
+          "strengths": [
+            "ביטוי חיבה ואהבה",
+            "עניין הדדי במצבו של האחר",
+            "נכונות להיפגש ולשמור על קשר"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות בתקשורת",
+            "טשטוש גבוה המוביל לחוסר בהירות",
+            "היסוס בנוגע לתכנון מפגשים"
+          ],
+          "improvement_recommendations": [
+            "להפחית את הטשטוש על ידי מתן מענה ברור יותר",
+            "להתמקד בהבהרת כוונות ותוכניות",
+            "להגביר את הביטחון העצמי בתקשורת"
+          ],
+          "emotional_insights": "השיחה מלאה ברגשות חיבה ודאגה, אך גם בלבול ואי ודאות. ישנה תחושת קרבה אך גם צורך בהבהרה נוספת של כוונות ותוכניות.",
+          "power_dynamics": "דינמיקת הכוח נראית שוויונית, עם דגש על הדדיות ועניין משותף. אין דומיננטיות ברורה של אחד הצדדים.",
+          "conversation_flow": "השיחה זורמת בעיקר סביב רגשות ומצבים אישיים, עם מעברים בין דאגה לחיבה, ותכנון מפגשים עתידיים.",
+          "attention_points": [
+            "הצורך בהבהרת כוונות ותוכניות",
+            "הימנעות מטשטוש גבוה בתקשורת"
+          ],
+          "overall_assessment": "השיחה מציגה קשר קרוב ואינטימי בין הדוברים, עם דגש על רגשות וחיבה. יש צורך לשפר את הבהירות בתקשורת כדי למנוע בלבול ואי ודאות."
+        },
+        "insights_generated_date": "2025-08-05T03:06:43.551675"
+      }
+    },
+    "convo5": {
+      "number": 5,
+      "mp3_count": 35,
+      "ai_file": "conversations/convo5/emotions5_ai_analyzed.json",
+      "image_path": "conversion images/convo5.png",
+      "metadata": {
+        "date": "2025-05-01",
+        "name": "שיחה זו תוקלט?",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "גיליבר",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:25:23.210Z",
+        "duration": "1:50",
+        "totalWords": 587,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo6": {
+      "number": 6,
+      "mp3_count": 48,
+      "ai_file": "conversations/convo6/emotions6_ai_analyzed.json",
+      "image_path": "conversion images/convo6.png",
+      "metadata": {
+        "date": "2025-06-28",
+        "name": "שיחה יום יום",
+        "mainParticipant": "פרדי",
+        "customParticipantName": "פרדי",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "פרדי",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:15:16.412Z",
+        "duration": "2:36",
+        "totalWords": 968,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה לשאול שאלות רבות ולהביע סקרנות ובלבול. הוא מביע רגשות בצורה גלויה ומחפש הבנה ואישור מדובר 1. לעיתים הוא מתמקד בפרטים טכניים ובוחן את האפשרויות השונות בצורה מעשית.",
+            "speaker_1": "דובר 1 מגיב בצורה ישירה ולעיתים מביע תסכול או כעס כאשר אינו מבין את הכוונה של דובר 0. הוא נוטה להציג את עמדותיו בצורה נחרצת ולעיתים קרובות מנסה להבהיר את עמדותיו באמצעות דוגמאות וחוויות אישיות."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי אך מעט מתוח. ישנה תחושה של חוסר הבנה הדדית לעיתים, אך גם רצון לשתף ולסייע זה לזה.",
+          "communication_style": "סגנון התקשורת הכללי הוא ישיר ופתוח, עם נטייה להומור קל ולעיתים בלבול. הדוברים משתמשים בשפה יומיומית ופשוטה, ומשלבים בין נושאים אישיים לטכניים.",
+          "strengths": [
+            "תקשורת פתוחה וישירה",
+            "יכולת להביע רגשות בצורה גלויה",
+            "רצון לשתף פעולה ולעזור"
+          ],
+          "challenges": [
+            "חוסר הבנה הדדי לעיתים קרובות",
+            "תסכול וכעס בתגובה לחוסר הבנה",
+            "מעבר מהיר מנושא לנושא ללא סגירת מעגל"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר את הכוונה והציפיות בתחילת השיחה",
+            "להשתמש בשפה ברורה ומדויקת יותר",
+            "להקדיש זמן לסגירת נושאים לפני מעבר לנושא הבא"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות של סקרנות, בלבול ותסכול. ישנה תחושה של חוסר ודאות המלווה את השיחה, אך גם רצון למצוא פתרונות ולהבין את המצב.",
+          "power_dynamics": "דובר 1 נראה כבעל השפעה רבה יותר בשיחה, שכן הוא נוטה להוביל את השיחה ולהציג את עמדותיו בצורה נחרצת. דובר 0 מחפש את אישורו ותשובות לשאלותיו.",
+          "conversation_flow": "השיחה עוברת בין נושאים טכניים לאישיים, עם דגש על הקלטת שיחות והבנת החוקיות סביב זה. המעברים בין הנושאים מהירים ולעיתים חסרי קשר ישיר.",
+          "attention_points": [
+            "הצורך בהבהרת כוונות וציפיות",
+            "החשיבות של סגירת נושאים לפני מעבר לנושא חדש"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בתקשורת פתוחה אך מעט מבולבלת. ישנה תחושה של חוסר הבנה הדדית, אך גם רצון לשתף פעולה ולמצוא פתרונות. מומלץ לשפר את הבהירות והדיוק בתקשורת כדי לשפר את ההבנה ההדדית."
+        },
+        "insights_generated_date": "2025-08-05T03:07:46.464121"
+      }
+    },
+    "convo7": {
+      "number": 7,
+      "mp3_count": 5,
+      "ai_file": "conversations/convo7/emotions7_ai_analyzed.json",
+      "image_path": "conversion images/convo7.png",
+      "metadata": {
+        "date": "2025-05-01",
+        "name": "מבחן ליואב ",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "גיליבר",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 8,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:26:00.649Z",
+        "duration": "1:42",
+        "totalWords": 479,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo8": {
+      "number": 8,
+      "mp3_count": 76,
+      "ai_file": "conversations/convo8/emotions8_ai_analyzed.json",
+      "image_path": "conversion images/convo8.png",
+      "metadata": {
+        "date": "2025-06-28",
+        "name": "נפגש ביריד",
+        "mainParticipant": "טל בר אברהם",
+        "customParticipantName": "טל בן אברהם",
+        "speaker1Name": "טל בר אברהם",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:26:18.813Z",
+        "duration": "0:21",
+        "totalWords": 77,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל בר אברהם"
+        ]
+      }
+    },
+    "convo10": {
+      "number": 10,
+      "mp3_count": 24,
+      "ai_file": "conversations/convo10/emotions10_ai_analyzed.json",
+      "image_path": "conversion images/convo10.png",
+      "metadata": {
+        "date": "2025-05-05",
+        "name": "התחלה מבלבלת",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "גיליבר",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "חיבה"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:26:35.116Z",
+        "duration": "0:36",
+        "totalWords": 132,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo11": {
+      "number": 11,
+      "mp3_count": 30,
+      "ai_file": "conversations/convo11/emotions19_ai_analyzed.json",
+      "image_path": "conversion images/convo11.png",
+      "metadata": {
+        "date": "2025-05-05",
+        "name": "מכירים לאט לאט ",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "גיליבר",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 4,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:26:50.125Z",
+        "duration": "0:36",
+        "totalWords": 134,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo18": {
+      "number": 18,
+      "mp3_count": 52,
+      "ai_file": "conversations/convo18/emotions18_ai_analyzed.json",
+      "image_path": "conversion images/convo18.png",
+      "metadata": {
+        "date": "2025-05-09",
+        "name": "גיליבר ורחלה",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "גיליבר",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "גיליבר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:15:30.973Z",
+        "duration": "1:18",
+        "totalWords": 257,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, ליאור, נוטה לשאול שאלות ולהביע סקרנות לגבי הנושאים המועלים על ידי דובר 1. הוא מגיב ברגשות מעורבים של שמחה ודאגה, ולעיתים מביע בלבול או אי ודאות.",
+            "speaker_1": "דובר 1, גיליבר, מבטא רגשות מגוונים כמו שמחה, כעס, וסקרנות. הוא נוטה להוביל את השיחה ולהביע את תחושותיו בצורה ישירה וברורה, לעיתים עם נימה של התרגשות או דאגה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי אך מלא במתח קל, כאשר דובר 1 מביע יותר רגשות ודובר 0 מגיב בסקרנות ולעיתים בלבול.",
+          "communication_style": "סגנון התקשורת הוא דינמי ורגשי, כאשר דובר 1 מוביל את השיחה ומביע רגשות רבים, ודובר 0 מגיב בעיקר בשאלות ובסקרנות.",
+          "strengths": [
+            "יכולת להביע רגשות בצורה פתוחה",
+            "סקרנות ועניין מצד דובר 0",
+            "יכולת להוביל שיחה מצד דובר 1"
+          ],
+          "challenges": [
+            "מתח קל בין הדוברים",
+            "בלבול ואי ודאות מצד דובר 0",
+            "דובר 1 עשוי להרגיש לא מובן או לא נתמך"
+          ],
+          "improvement_recommendations": [
+            "דובר 0 יכול לנסות להביע יותר תמיכה והבנה לדובר 1",
+            "דובר 1 יכול לנסות להסביר את עצמו בצורה ברורה יותר כדי למנוע בלבול",
+            "שימוש בהומור יכול להפחית את המתח ולהגביר את החיבור"
+          ],
+          "emotional_insights": "השיחה מלאה ברגשות מגוונים, כאשר דובר 1 מבטא תחושות של שמחה, כעס, ותסכול. דובר 0 נראה כמי שמנסה להבין ולהגיב בהתאם, אך לעיתים נראה מבולבל.",
+          "power_dynamics": "דובר 1 נראה כבעל השפעה רבה יותר בשיחה, מוביל את הנושאים ומביע את רגשותיו בצורה ברורה. דובר 0 מגיב ומנסה להבין, אך לעיתים נראה כמי שמחפש הכוונה.",
+          "conversation_flow": "השיחה מתקדמת בצורה דינמית עם מעברים בין נושאים אישיים ורגשיים. דובר 1 מוביל את השיחה עם הבעת רגשות ונושאים אישיים, ודובר 0 מגיב בשאלות ובסקרנות.",
+          "attention_points": [
+            "הצורך של דובר 1 בהבנה ותמיכה",
+            "הבלבול של דובר 0 בנוגע לנושאים מסוימים"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בדינמיקה רגשית חזקה, עם דובר 1 שמוביל את השיחה ומביע רגשות רבים, ודובר 0 שמנסה להבין ולהגיב. יש מקום לשיפור בתקשורת על ידי הבעת תמיכה והבנה רבה יותר מצד דובר 0."
+        },
+        "insights_generated_date": "2025-08-05T03:10:05.656562"
+      }
+    },
+    "convo27": {
+      "number": 27,
+      "mp3_count": 51,
+      "ai_file": "conversations/convo27/emotions27_ai_analyzed.json",
+      "emotion_file": "conversations/convo27/emotions27_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-02",
+        "name": "תקלוט ומסיבה",
+        "mainParticipant": "פרדי",
+        "customParticipantName": "",
+        "speaker1Name": "פרדי",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:04:40.741Z",
+        "duration": "1:17",
+        "totalWords": 282,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, פרדי, משתמש בהומור ובשעשוע כדי לתקשר ולהביע רגשות. הוא נוטה לשאול שאלות ולהביע עניין בנושאים המועלים על ידי דובר 1, תוך שמירה על טון קליל ונינוח.",
+            "speaker_1": "דובר 1, ליאור, מדבר בביטחון ומשלב רגשות של שמחה והתרגשות. הוא נוטה להוסיף פרטים ולהסביר את עמדתו בצורה ברורה, תוך שימוש בהומור מתון."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי וקליל, עם רמה גבוהה של הבנה הדדית ושיתוף פעולה. יש תחושה של נינוחות וקלות בתקשורת ביניהם.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, עם דגש על הומור ושיתוף רגשות חיוביים. הדוברים משתמשים בשפה פשוטה ומובנת, ומביעים רגשות בצורה גלויה.",
+          "strengths": [
+            "שימוש בהומור להקל על השיחה",
+            "הבעת רגשות בצורה גלויה",
+            "תקשורת ידידותית ונינוחה"
+          ],
+          "challenges": [
+            "טשטוש במקומות מסוימים",
+            "אי ודאות לגבי פרטים מסוימים",
+            "כעס ואכזבה במצבים מסוימים"
+          ],
+          "improvement_recommendations": [
+            "להפחית את הטשטוש על ידי הבהרת פרטים",
+            "לנסות להתמודד עם רגשות שליליים בצורה ישירה יותר",
+            "להגביר את הבהירות בנושאים שדורשים החלטה"
+          ],
+          "emotional_insights": "השיחה מראה על קשר רגשי חזק בין הדוברים, עם דגש על שמחה ושעשוע. ישנם רגעים של כעס ואכזבה, אך הם אינם משתלטים על האווירה הכללית של השיחה.",
+          "power_dynamics": "דינמיקת הכוח בשיחה מאוזנת, עם נטייה קלה לדובר 1 להוביל את השיחה מבחינת תוכן. עם זאת, דובר 0 שומר על שוויון באמצעות הומור ושאלות.",
+          "conversation_flow": "השיחה זורמת בצורה טבעית עם מעברים חלקים בין נושאים. הדוברים מתמקדים בעיקר בנושאים הקשורים למסיבה, עם התייחסות לאנשים נוספים ולאירועים נלווים.",
+          "attention_points": [
+            "יש לשים לב לטשטוש במקומות מסוימים",
+            "כדאי לשים דגש על הבהרת פרטים חשובים"
+          ],
+          "overall_assessment": "השיחה מתאפיינת באווירה קלילה ומשעשעת, עם דגש על קשר ידידותי ונינוח בין הדוברים. למרות שישנם רגעים של כעס ואי ודאות, הם אינם פוגעים באיכות התקשורת הכללית."
+        },
+        "insights_generated_date": "2025-08-05T03:10:32.338761"
+      }
+    },
+    "convo29": {
+      "number": 29,
+      "mp3_count": 27,
+      "ai_file": "conversations/convo29/emotions29_ai_analyzed.json",
+      "emotion_file": "conversations/convo29/emotions29_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-02",
+        "name": "מאחר כמו תמיד",
+        "mainParticipant": "פרדי",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "פרדי",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 8,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:05:14.789Z",
+        "duration": "0:41",
+        "totalWords": 177,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להשתמש בהומור כדי להקל על מצבים מתוחים ולעודד את דובר 1. הוא מביע רגשות מגוונים כמו בלבול, אכזבה ודאגה, ומנסה לשמור על תקשורת פתוחה למרות אי הוודאות.",
+            "speaker_1": "דובר 1 מביע תסכול וכעס, במיוחד בתחילת השיחה. הוא נוטה להיות ישיר וביקורתי כלפי דובר 0, אך גם מראה דאגה כלפי המצב ומנסה להניע את דובר 0 לפעולה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה מתוח, עם רגעים של חוסר שביעות רצון ותסכול מצד דובר 1 כלפי דובר 0. עם זאת, ישנם גם רגעים של דאגה הדדית וניסיון לשמור על תקשורת פתוחה.",
+          "communication_style": "סגנון התקשורת הוא ישיר ולעיתים ביקורתי, עם שימוש בהומור כדי להקל על המתח. ישנה נטייה לחוסר בהירות וטשטוש במידע המועבר.",
+          "strengths": [
+            "שימוש בהומור כדי להקל על המתח",
+            "נכונות להביע רגשות ולדבר עליהם",
+            "שמירה על תקשורת פתוחה"
+          ],
+          "challenges": [
+            "חוסר בהירות וטשטוש במידע",
+            "תסכול וכעס שמובעים בצורה ישירה",
+            "תחושת אי ודאות וחוסר ביטחון"
+          ],
+          "improvement_recommendations": [
+            "לשפר את הבהירות בתקשורת ולהימנע מטשטוש",
+            "להתמקד בהבעת רגשות בצורה בונה ולא ביקורתית",
+            "לנסות להפחית את תחושת התסכול על ידי תיאום ציפיות ברור"
+          ],
+          "emotional_insights": "השיחה מתאפיינת בעצבנות ותסכול, במיוחד מצד דובר 1, שמרגיש לא מרוצה מהתנהלותו של דובר 0. דובר 0 מנסה להתמודד עם המצב באמצעות הומור ושמירה על גישה חיובית.",
+          "power_dynamics": "דובר 1 נראה כבעל כוח והשפעה רבה יותר בשיחה, מכיוון שהוא מביע ביקורת ומשפיע על דובר 0 לפעול. דובר 0 מנסה לשמור על איזון באמצעות הומור ועידוד.",
+          "conversation_flow": "השיחה מתפתחת מנושא של עמידה בזמנים והבטחות לנושאים אישיים יותר כמו יחסים עם אנשים אחרים. המעברים בין הנושאים הם חלקים אך מלווים בתחושת אי ודאות.",
+          "attention_points": [
+            "הצורך לשפר את הבהירות והדיוק בתקשורת",
+            "החשיבות של התמודדות עם תסכול בצורה בונה"
+          ],
+          "overall_assessment": "השיחה מציגה מערכת יחסים מתוחה עם רגעים של תסכול ועצבנות. עם זאת, ישנה נכונות לשמור על תקשורת פתוחה ולנסות להתמודד עם המצב באמצעות הומור ועידוד. יש מקום לשיפור בהבהרת המידע והפחתת תחושת התסכול."
+        },
+        "insights_generated_date": "2025-08-05T03:10:55.881416"
+      }
+    },
+    "convo30": {
+      "number": 30,
+      "mp3_count": 14,
+      "ai_file": "conversations/convo30/emotions30_ai_analyzed.json",
+      "emotion_file": "conversations/convo30/emotions30_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-06",
+        "name": "חשוב להטעין",
+        "mainParticipant": "פרדי",
+        "customParticipantName": "",
+        "speaker1Name": "פרדי",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 4,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:05:38.170Z",
+        "duration": "0:21",
+        "totalWords": 65,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, פרדי, נוטה להוביל את השיחה ולהעלות נושאים טכניים כמו הצורך במטען טייפ סי. הוא מציג בלבול ואי ודאות לעיתים קרובות, ומשתמש בהומור כדי להקל על המצב.",
+            "speaker_1": "דובר 1, ליאור, מגיב לשאלות של פרדי ומנסה להבין את המצב. הוא מציג בלבול אך גם סקרנות, ומתאים את עצמו לקצב של פרדי תוך שימוש בהומור קל."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה חברי וקליל, עם נטייה להומור והבנה הדדית, אך ישנם רגעים של בלבול ואי ודאות.",
+          "communication_style": "סגנון התקשורת הוא קליל, הומוריסטי ולעיתים מבולבל. ישנה נטייה לשאול שאלות ולחפש אישור.",
+          "strengths": [
+            "שימוש בהומור להפחתת מתחים",
+            "יכולת התאמה והבנה הדדית",
+            "תקשורת פתוחה וחברית"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות תכופים",
+            "חוסר בהירות בנוגע לנושאים טכניים",
+            "קושי בהעברת מידע בצורה ברורה"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את הנושאים הטכניים בצורה מפורשת יותר",
+            "להפחית את רמת הטשטוש בשיחה",
+            "לשאול שאלות יותר ממוקדות כדי להפחית בלבול"
+          ],
+          "emotional_insights": "השיחה מלווה ברגשות של בלבול ואי ודאות, אך גם נינוחות ושעשוע. ישנה תחושת דחיפות קלה בתחילת השיחה.",
+          "power_dynamics": "פרדי נראה כמוביל השיחה ומכתיב את הנושאים, אך ליאור משפיע על כיוון השיחה דרך שאלותיו והסכמתו.",
+          "conversation_flow": "השיחה מתחילה בנושאים טכניים ומתקדמת לנושאים חברתיים יותר, כמו תיאום מפגש. המעברים בין הנושאים נעשים בצורה טבעית אך לעיתים מבולבלת.",
+          "attention_points": [
+            "הצורך במטען טייפ סי",
+            "תיאום זמן הגעה למפגש"
+          ],
+          "overall_assessment": "השיחה מתנהלת בצורה חברית וקלילה, עם שימוש בהומור להפחתת מתחים. עם זאת, ישנם רגעים של בלבול ואי ודאות שיכולים להיפתר על ידי הבהרה טובה יותר של הנושאים."
+        },
+        "insights_generated_date": "2025-08-05T03:11:21.307349"
+      }
+    },
+    "convo33": {
+      "number": 33,
+      "mp3_count": 41,
+      "ai_file": "conversations/convo33/emotions33_ai_analyzed.json",
+      "emotion_file": "conversations/convo33/emotions33_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-06",
+        "name": "ירדן שברה את הרגל ",
+        "mainParticipant": "פרדי",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "פרדי",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:06:02.002Z",
+        "duration": "1:02",
+        "totalWords": 159,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה לשאול שאלות ולהביע סקרנות, אך גם מביע רגשות של היסוס ואי ודאות. הוא משתמש בהומור כדי להקל על השיחה וליצור אווירה נעימה.",
+            "speaker_1": "דובר 1 מנהל את השיחה בצורה פתוחה ומגיב לשאלות של דובר 0. הוא מביע בלבול לעיתים קרובות, אך גם מראה עניין ומנסה לשמור על השיחה זורמת."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי ופתוח, עם שימוש בהומור ותחושת חיבה הדדית.",
+          "communication_style": "סגנון התקשורת הוא קליל ומשעשע, עם דגש על הומור ושימוש בשפה יומיומית. הדוברים נוטים לשאול שאלות ולהביע סקרנות.",
+          "strengths": [
+            "שימוש בהומור ליצירת אווירה נעימה",
+            "פתיחות לשיחה ושיתוף",
+            "הבעת סקרנות ועניין"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות בתשובות",
+            "חוסר בהירות במידע המועבר",
+            "הסתמכות על הומור לפתרון אי הבנות"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר נקודות לא ברורות במהלך השיחה",
+            "להתמקד במידע חשוב ולא רק בהומור",
+            "לשאול שאלות ממוקדות יותר כדי להימנע מבלבול"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות של סקרנות ושעשוע, אך ישנם גם רגעים של בלבול ואי ודאות שמצביעים על צורך בהבהרה.",
+          "power_dynamics": "אין דינמיקת כוח ברורה בשיחה; הדוברים מתייחסים זה לזה כשווים ומשתפים פעולה כדי לקדם את השיחה.",
+          "conversation_flow": "השיחה זורמת בצורה חופשית עם מעברים מהירים בין נושאים שונים, לעיתים ללא סגירת מעגלים ברורה.",
+          "attention_points": [
+            "הצורך בהבהרת מידע חשוב",
+            "הסתמכות על הומור לשיפור האווירה"
+          ],
+          "overall_assessment": "השיחה היא קלילה ומשעשעת, עם דגש על הומור ותחושת חיבה בין הדוברים. עם זאת, יש מקום לשיפור בהבהרת מידע והפחתת בלבול."
+        },
+        "insights_generated_date": "2025-08-05T03:11:46.118289"
+      }
+    },
+    "convo34": {
+      "number": 34,
+      "mp3_count": 30,
+      "ai_file": "conversations/convo34/emotions34_ai_analyzed.json",
+      "emotion_file": "conversations/convo34/emotions34_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-06",
+        "name": "מלביה ופרדי",
+        "mainParticipant": "פרדי",
+        "customParticipantName": "",
+        "speaker1Name": "פרדי",
+        "speaker2Name": "אדום",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 4,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:06:07.495Z",
+        "duration": "0:45",
+        "totalWords": 156,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "פרדי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להוביל את השיחה, מציג שאלות ומביע סקרנות ועניין. הוא משתמש בהומור כדי להקל על המתח ומביע רגשות מגוונים כמו תסכול ואכזבה. יש לו נטייה להשתמש בטשטוש, מה שמרמז על חוסר בהירות או חוסר ביטחון בנוגע למסר שהוא רוצה להעביר.",
+            "speaker_1": "דובר 1 מגיב לדובר 0 עם נחרצות וביטחון, אך גם הוא מראה בלבול ואי ודאות. הוא נוטה להדגיש את עמדתו בצורה ישירה, אך גם משתמש בטשטוש, מה שמצביע על חוסר בהירות או ספקות פנימיים."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי אך לא מאוד קרוב. ישנם רגעים של חוסר הבנה ובלבול, אך גם רגעים של הסכמה והומור משותף.",
+          "communication_style": "סגנון התקשורת הוא ישיר אך לעיתים מבולבל. שני הדוברים משתמשים בהומור כדי להקל על השיחה, אך ישנם רגעים של חוסר בהירות וטשטוש.",
+          "strengths": [
+            "שימוש בהומור",
+            "יכולת להביע רגשות מגוונים",
+            "נכונות להוביל את השיחה"
+          ],
+          "challenges": [
+            "חוסר בהירות במסרים",
+            "בלבול ואי ודאות",
+            "חוסר הבנה בין הדוברים"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את המסרים בצורה יותר ישירה",
+            "להפחית את השימוש בטשטוש",
+            "להגביר את ההקשבה ההדדית כדי למנוע חוסר הבנה"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות מעורבים של סקרנות, אכזבה ותסכול. ישנה תחושה של חוסר ביטחון מסוים מצד שני הדוברים, אך גם רצון לשמור על אווירה נעימה וידידותית.",
+          "power_dynamics": "דובר 0 נראה כמוביל השיחה, אך דובר 1 מציג נחרצות וביטחון שמאזנים את הדינמיקה. אין תחושה של שליטה מוחלטת מצד אחד הדוברים.",
+          "conversation_flow": "השיחה מתחילה בהזמנה למפגש וממשיכה לנושאים שונים כמו לימודים ויחסים עם אנשים אחרים. המעברים בין הנושאים אינם חלקים ולעיתים מבולבלים.",
+          "attention_points": [
+            "הצורך בהבהרת מסרים",
+            "הפחתת הטשטוש והבלבול בשיחה"
+          ],
+          "overall_assessment": "השיחה מתנהלת באווירה ידידותית אך מבולבלת. ישנם רגעים של חוסר הבנה וטשטוש, אך גם שימוש בהומור ורגשות מגוונים. לשיפור התקשורת, מומלץ להבהיר מסרים ולהגביר את ההקשבה ההדדית."
+        },
+        "insights_generated_date": "2025-08-05T03:12:11.470606"
+      }
+    },
+    "convo35": {
+      "number": 35,
+      "mp3_count": 87,
+      "ai_file": "conversations/convo35/emotions35_ai_analyzed.json",
+      "emotion_file": "conversations/convo35/emotions35_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-09-03",
+        "name": "לוטם משחקת טניס",
+        "mainParticipant": "custom",
+        "customParticipantName": "לוטם",
+        "speaker1Name": "לוטם",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:06:23.901Z",
+        "duration": "2:11",
+        "totalWords": 497,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "לוטם"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, לוטם, נוטה לשאול שאלות רבות ולהביע סקרנות ועניין במידע חדש. היא מגיבה במהירות ובאופן רגשי למצבים שונים, ומביעה רגשות כמו שמחה, התרגשות, ולעיתים כעס ותסכול.",
+            "speaker_1": "דובר 1, ליאור, מציג את עצמו כמעורב רגשית בפרויקט שלו, ומנסה להסביר את מטרותיו ואת תהליך העבודה שלו. הוא נוטה להיות רגוע ומנסה להרגיע את לוטם כשהיא מביעה דאגה או אי ודאות."
+          },
+          "relationship_quality": "הקשר בין לוטם לליאור נראה חם וידידותי, עם תחושת הערכה הדדית ותמיכה. הם מדברים באופן פתוח ומשתפים זה את זה ברגשותיהם ובחוויותיהם.",
+          "communication_style": "סגנון התקשורת הכללי הוא ידידותי ופתוח, עם דגש על שיתוף מידע והבעת רגשות. ישנה נטייה לשאול שאלות ולהגיב באופן אמפתי.",
+          "strengths": [
+            "תקשורת פתוחה וידידותית",
+            "יכולת להביע רגשות בצורה ברורה",
+            "סקרנות ועניין הדדי"
+          ],
+          "challenges": [
+            "אי הבנות קטנות שמובילות לתסכול",
+            "לעיתים ישנה חוסר בהירות במידע המועבר",
+            "נטייה להיכנס לדיונים על נושאים לא ברורים"
+          ],
+          "improvement_recommendations": [
+            "לנסות להיות יותר מדויקים וברורים בתקשורת",
+            "להקדיש זמן להבהרת אי הבנות מיד כשהן מתעוררות",
+            "להתמקד בהקשבה פעילה כדי למנוע אי הבנות"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות חיוביים של שמחה והתרגשות, אך גם ברגעים של כעס ותסכול, במיוחד כשיש אי הבנות או חוסר בהירות.",
+          "power_dynamics": "ליאור נראה כמוביל השיחה מבחינת תוכן, במיוחד בנושא הפרויקט שלו, אך לוטם מביעה דומיננטיות רגשית כשהיא משתפת בחוויותיה ובתחושותיה.",
+          "conversation_flow": "השיחה זורמת בין נושאים הקשורים לפרויקט של ליאור, חוויות הטניס של לוטם, והדיונים על עומר. המעברים בין הנושאים נעשים בצורה טבעית, אך לעיתים ישנן אי הבנות קטנות.",
+          "attention_points": [
+            "להיות מודעים לאי הבנות אפשריות ולהבהירן מיד",
+            "לשמור על תקשורת ברורה ומדויקת"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בתקשורת ידידותית ופתוחה, עם דגש על שיתוף רגשות ומידע. יש מקום לשיפור בהבהרת אי הבנות ושמירה על דיוק בתקשורת."
+        },
+        "insights_generated_date": "2025-08-05T03:12:38.060326"
+      }
+    },
+    "convo36": {
+      "number": 36,
+      "mp3_count": 33,
+      "ai_file": "conversations/convo36/emotions36_ai_analyzed.json",
+      "emotion_file": "conversations/convo36/emotions36_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-10",
+        "name": "חשבון בנק וסבתא",
+        "mainParticipant": "סבתא מלכה",
+        "customParticipantName": "סבתא מלכה ",
+        "speaker1Name": "סבתא מלכה",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "דאגה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:18:06.512Z",
+        "duration": "0:50",
+        "totalWords": 990,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "סבתא מלכה"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, סבתא מלכה, מדברת בצורה מבולבלת ולעיתים קרובות חוזרת על עצמה. היא נוטה להביע אי ודאות ואי נוחות בנוגע לנושאים פיננסיים, ולעיתים קרובות משתמשת בשפה מטושטשת ולא ברורה. היא מנסה להביע דאגה וחיבה כלפי ליאור, אך מתקשה להעביר את המסר בצורה ברורה.",
+            "speaker_1": "דובר 1, ליאור, מדבר בצורה יותר ישירה וממוקדת. הוא מנסה להרגיע את סבתא מלכה ולהבהיר את המצב הפיננסי. הוא מציג דאגה כלפי המצב הכלכלי ומנסה להציע פתרונות פרקטיים, אך לעיתים נתקל בקושי להבין את כוונותיה של סבתא מלכה."
+          },
+          "relationship_quality": "הקשר בין סבתא מלכה לליאור נראה חם ואכפתי, אך ישנם קשיים בתקשורת הנובעים מהבלבול של סבתא מלכה. ליאור מנסה לסייע ולהרגיע, אך לעיתים מתקשה להתמודד עם חוסר הבהירות בדבריה של סבתא מלכה.",
+          "communication_style": "סגנון התקשורת הכללי הוא מבולבל ומטושטש מצד סבתא מלכה, בעוד שליאור מנסה לשמור על בהירות ומיקוד. השיחה מתנהלת בצורה לא לינארית, עם חזרות רבות על נושאים.",
+          "strengths": [
+            "חום ואכפתיות בקשר",
+            "נכונות לעזור מצד ליאור",
+            "ניסיון להבהיר את המצב"
+          ],
+          "challenges": [
+            "בלבול וחוסר בהירות מצד סבתא מלכה",
+            "קשיים בהבנת כוונות הדדיות",
+            "חוסר החלטיות מצד סבתא מלכה"
+          ],
+          "improvement_recommendations": [
+            "לנסות להשתמש בשפה פשוטה וברורה יותר",
+            "להימנע מחזרות מיותרות על נושאים",
+            "ליאור יכול לנסות לשאול שאלות ממוקדות כדי להבהיר את המצב"
+          ],
+          "emotional_insights": "סבתא מלכה חשה בלבול ודאגה בנוגע למצב הפיננסי, אך גם מראה חיבה כלפי ליאור. ליאור מצידו מביע דאגה ורצון לעזור, אך גם תסכול מהקושי להבין את כוונותיה של סבתא מלכה.",
+          "power_dynamics": "ליאור נראה כבעל השפעה יותר גדולה בשיחה, שכן הוא מנסה להוביל את השיחה לפתרונות פרקטיים. סבתא מלכה, לעומת זאת, נראית תלויה בליאור להבנת המצב ולסיוע.",
+          "conversation_flow": "השיחה מתנהלת בצורה לא לינארית, עם חזרות רבות על נושאים פיננסיים ובלבול מצד סבתא מלכה. המעברים בין הנושאים אינם חלקים ולעיתים קרובות אינם ברורים.",
+          "attention_points": [
+            "הצורך בהבהרת המצב הפיננסי",
+            "הקושי של סבתא מלכה להבין את המצב",
+            "הצורך של ליאור לשמור על סבלנות"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בבלבול וחוסר בהירות מצד סבתא מלכה, אך גם בחום ואכפתיות בקשר עם ליאור. יש צורך בשיפור התקשורת על ידי שימוש בשפה ברורה ופשוטה יותר."
+        },
+        "insights_generated_date": "2025-08-05T03:13:03.828402"
+      }
+    },
+    "convo37": {
+      "number": 37,
+      "mp3_count": 16,
+      "ai_file": "conversations/convo37/emotions37_ai_analyzed.json",
+      "emotion_file": "conversations/convo37/emotions37_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-10",
+        "name": "תרופות וקניות",
+        "mainParticipant": "סבתא מלכה",
+        "customParticipantName": "סבתא מלכה ",
+        "speaker1Name": "סבתא מלכה",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "דאגה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:18:03.208Z",
+        "duration": "0:24",
+        "totalWords": 382,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "סבתא מלכה"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דפוס התקשורת של סבתא מלכה מאופיין בבלבול מסוים ובחזרתיות. היא מתמקדת בפרטים קטנים כמו תאריכי תפוגה ומספר המוצרים שיש לקנות, ומביעה דאגה לגבי איכות המוצרים. היא נוטה לשאול שאלות רבות ולהביע חוסר ודאות, אך גם מראה הכרת תודה בסיום השיחה."
+          },
+          "relationship_quality": "הקשר בין סבתא מלכה לליאור נראה חם ואכפתי, אך גם מתוח במידה מסוימת בשל הדאגה והבלבול של סבתא מלכה. ליאור נראה כתומך ועוזר, אך לא ברור מה תגובתו במהלך השיחה.",
+          "communication_style": "סגנון התקשורת הוא אינפורמטיבי וממוקד בפרטים, עם נטייה לבלבול וחזרתיות. ישנו שימוש בהומור קל כדי להקל על המתח והדאגה.",
+          "strengths": [
+            "הכרת תודה",
+            "תשומת לב לפרטים",
+            "דאגה לאחרים"
+          ],
+          "challenges": [
+            "בלבול וחוסר ודאות",
+            "חזרתיות",
+            "קושי בניהול שיחה ממוקדת"
+          ],
+          "improvement_recommendations": [
+            "להשתמש ברשימות כתובות כדי להימנע מבלבול",
+            "לנסות להישאר ממוקדים בנושאים המרכזיים",
+            "להפחית את החזרתיות בשיחה"
+          ],
+          "emotional_insights": "סבתא מלכה חווה דאגה ותסכול, במיוחד בנושאים הקשורים לקניות ולתרופות. היא מביעה דאגה לבריאותה ולמצבם של אחרים, ומראה הכרת תודה על העזרה שהיא מקבלת.",
+          "power_dynamics": "סבתא מלכה נראית כמובילה את השיחה, אך היא תלויה בליאור לביצוע המשימות. יש תחושת תלות מסוימת, אך גם הכרת תודה על התמיכה.",
+          "conversation_flow": "השיחה מתמקדת בעיקר בקניות ובתרופות, עם מעברים תכופים בין נושאים שונים, מה שמוביל לבלבול מסוים. יש חזרות על פרטים מסוימים, מה שמקשה על זרימת השיחה.",
+          "attention_points": [
+            "הצורך בהבהרת פרטים כדי להימנע מבלבול",
+            "החשיבות של תמיכה רגשית לסבתא מלכה"
+          ],
+          "overall_assessment": "השיחה מציגה קשר חם ואכפתי בין סבתא מלכה לליאור, אך ישנם אתגרים בתקשורת בשל בלבול וחזרתיות. יש מקום לשיפור בניהול השיחה כדי להקל על הדאגה והמתח."
+        },
+        "insights_generated_date": "2025-08-05T03:13:27.393661"
+      }
+    },
+    "convo38": {
+      "number": 38,
+      "mp3_count": 30,
+      "ai_file": "conversations/convo38/emotions38_ai_analyzed.json",
+      "emotion_file": "conversations/convo38/emotions38_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-10",
+        "name": "קניות לסבתא",
+        "mainParticipant": "סבתא מלכה",
+        "customParticipantName": "סבתא מלכה ",
+        "speaker1Name": "סבתא מלכה",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "דאגה"
+        ],
+        "emotionalIntensity": 8,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:18:00.848Z",
+        "duration": "0:45",
+        "totalWords": 156,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "סבתא מלכה"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, סבתא מלכה, מציגה דפוס תקשורת של דאגה ובלבול, עם נטייה לחזור על עצמה ולהביע דחיפות בנוגע לכרטיס האבוד. היא משתמשת בהומור קל כדי להפחית את המתח, אך בעיקר מתמקדת בהנחיות ברורות ובבקשות לפעולה.",
+            "speaker_1": "דובר 1, ליאור, מציג דפוס תקשורת של הסכמה והיסוס. הוא פחות דומיננטי בשיחה, מגיב להנחיות של סבתא מלכה ומביע בלבול ואי ודאות בנוגע למצב."
+          },
+          "relationship_quality": "הקשר בין סבתא מלכה לליאור נראה קרוב, עם דאגה הדדית וחיבה. ישנה תחושה של תלות מסוימת מצד סבתא מלכה בליאור, אך גם אמון בכך שהוא יטפל במצב.",
+          "communication_style": "סגנון התקשורת הוא ישיר וממוקד, עם דגש על פתרון בעיות והנחיות ברורות. ישנה נטייה לחזור על מידע כדי להבהיר ולהדגיש את הדחיפות.",
+          "strengths": [
+            "תקשורת ישירה וברורה",
+            "יכולת להביע דאגה ואכפתיות",
+            "שימוש בהומור להפחתת מתח"
+          ],
+          "challenges": [
+            "בלבול וחוסר ודאות",
+            "חזרה על מידע ללא צורך",
+            "תחושת דחיפות שמובילה ללחץ"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את המצב בצורה מסודרת יותר",
+            "לצמצם חזרות על מידע",
+            "להשתמש בטון מרגיע יותר כדי להפחית לחץ"
+          ],
+          "emotional_insights": "השיחה מלאה בדאגה ותחושת דחיפות מצד סבתא מלכה, שמביעה חשש מהאפשרות שמישהו ישתמש בכרטיס האבוד. ליאור מגיב בהיסוס, מה שמצביע על חוסר ביטחון או חוסר ידע בנוגע לפתרון המצב.",
+          "power_dynamics": "סבתא מלכה נראית כדמות הדומיננטית בשיחה, מנחה את ליאור ומצפה ממנו לפעול. ליאור מקבל את ההנחיות אך מביע היסוס, מה שמצביע על דינמיקה שבה סבתא מלכה מובילה את השיחה.",
+          "conversation_flow": "השיחה מתמקדת בעיקר בכרטיס האבוד, עם מעברים לנושאים כמו קניות והוראות פעולה. המעברים בין הנושאים חלקים, אך ישנה חזרה על מידע שמעט מעכבת את הזרימה.",
+          "attention_points": [
+            "הצורך להבהיר את המצב בצורה מסודרת יותר",
+            "הפחתת חזרות על מידע כדי לשמור על זרימה חלקה"
+          ],
+          "overall_assessment": "השיחה מדגימה קשר קרוב בין סבתא מלכה לליאור, עם דגש על דאגה ואכפתיות. ישנה דינמיקה שבה סבתא מלכה מובילה את השיחה, אך יש מקום לשיפור בהבהרת המצב והפחתת תחושת הדחיפות."
+        },
+        "insights_generated_date": "2025-08-05T03:13:59.312794"
+      }
+    },
+    "convo39": {
+      "number": 39,
+      "mp3_count": 26,
+      "ai_file": "conversations/convo39/emotions39_ai_analyzed.json",
+      "emotion_file": "conversations/convo39/emotions39_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-25",
+        "name": "אזעקות וכל הכיף",
+        "mainParticipant": "סבתא מלכה",
+        "customParticipantName": "סבתא מלכה ",
+        "speaker1Name": "סבתא מלכה",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "דאגה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:17:57.747Z",
+        "duration": "0:39",
+        "totalWords": 115,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "סבתא מלכה"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, סבתא מלכה, מציגה דפוסי תקשורת המאופיינים בסקרנות ודאגה מתמשכת. היא שואלת שאלות רבות ומבטאת בלבול ואי ודאות. היא נוטה לחזור על שאלות ולבקש אישור, מה שמצביע על חוסר ביטחון או חוסר בהירות במצב.",
+            "speaker_1": "דובר 1, ליאור, מגיב בקצרה ובאופן ישיר לשאלות של סבתא מלכה. הוא מספק תשובות ישירות אך לעיתים מציג גם בלבול ואי ודאות. הוא שומר על טון רגוע יחסית ומנסה להרגיע את סבתא מלכה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב ואינטימי, כאשר סבתא מלכה מביעה דאגה רבה לליאור ולמשפחתה. ליאור מגיב בכבוד ובסבלנות, מה שמצביע על קשר משפחתי טוב ותומך.",
+          "communication_style": "סגנון התקשורת הוא בעיקרו רגשי ומבוסס על דאגה וסקרנות. סבתא מלכה משתמשת בשאלות רבות כדי להבין את המצב, בעוד שליאור מספק תשובות ישירות ומרגיעות.",
+          "strengths": [
+            "קשר משפחתי חזק ותומך",
+            "יכולת של ליאור להרגיע ולהגיב בסבלנות",
+            "נכונות של סבתא מלכה להביע דאגה ואכפתיות"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות בתקשורת של סבתא מלכה",
+            "חזרה על שאלות מצד סבתא מלכה",
+            "חוסר בהירות במידע המועבר"
+          ],
+          "improvement_recommendations": [
+            "לספק לסבתא מלכה מידע ברור ומפורט יותר כדי להפחית את הבלבול",
+            "לעודד את סבתא מלכה לשאול שאלות ממוקדות יותר",
+            "ליאור יכול להשתמש בשפה מרגיעה יותר כדי להפחית את תחושת הדאגה"
+          ],
+          "emotional_insights": "השיחה מתאפיינת בתחושת דאגה וחרדה מצד סבתא מלכה, אך גם בהקלה ושמחה כאשר היא מקבלת מידע מרגיע. ליאור מנסה להרגיע ולהפחית את תחושת החרדה.",
+          "power_dynamics": "סבתא מלכה נראית כדמות דומיננטית יותר מבחינת רגשותיה, אך ליאור מחזיק בכוח להרגיע ולהשפיע על תחושותיה באמצעות מידע.",
+          "conversation_flow": "השיחה מתנהלת בצורה מעגלית, כאשר סבתא מלכה חוזרת על שאלות ומנסה להבין את המצב. המעברים בין הנושאים נעשים בעיקר על ידי שאלותיה של סבתא מלכה.",
+          "attention_points": [
+            "תחושת הדאגה המוגברת של סבתא מלכה",
+            "הצורך במידע ברור ומדויק יותר"
+          ],
+          "overall_assessment": "השיחה משקפת קשר משפחתי חזק וקרוב, אך מתאפיינת בתחושת דאגה ובלבול מצד סבתא מלכה. ליאור ממלא תפקיד חשוב בהרגעת המצב ומתן מידע מרגיע. יש מקום לשיפור בתקשורת על ידי מתן מידע ברור ומפורט יותר."
+        },
+        "insights_generated_date": "2025-08-05T03:14:26.927252"
+      }
+    },
+    "convo40": {
+      "number": 40,
+      "mp3_count": 17,
+      "ai_file": "conversations/convo40/emotions40_ai_analyzed.json",
+      "emotion_file": "conversations/convo40/emotions40_ai_analyzed.json",
+      "image_path": "conversion images/convo40.png",
+      "metadata": {
+        "date": "2025-07-14",
+        "name": "מקלר ואני מדברים ברכב ",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "",
+        "speaker1Name": "טל מקלר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:09:47.821Z",
+        "duration": "0:26",
+        "totalWords": 100,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה לשאול שאלות ולהביע בלבול וסקרנות. הוא מגיב להצהרות של דובר 1 עם ספקנות קלה ומחפש אישור.",
+            "speaker_1": "דובר 1 מגיב לשאלות בצורה ישירה, אך לעיתים מביע הגנתיות וחוסר אמון. הוא מדבר על פרויקט אישי ומביע נחישות וסקרנות לגבי התהליך."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי ולא פורמלי, עם נימה של שעשוע והומור. ישנה תחושה של חופש לבטא אי ודאות וסקרנות.",
+          "communication_style": "סגנון התקשורת הוא קליל ולא פורמלי, עם שימוש בהומור וביטויים של בלבול וסקרנות. הדוברים משתמשים בשפה יומיומית ולא רשמית.",
+          "strengths": [
+            "שימוש בהומור כדי להקל על האווירה",
+            "יכולת לבטא סקרנות ועניין",
+            "נכונות לשתף בפרויקטים אישיים"
+          ],
+          "challenges": [
+            "רמת טשטוש גבוהה שמקשה על הבנה ברורה",
+            "אי ודאות מתמשכת שמובילה לבלבול",
+            "חוסר אמון קל שמופיע בשיחה"
+          ],
+          "improvement_recommendations": [
+            "להפחית את רמת הטשטוש כדי לשפר את הבהירות",
+            "לנסות להבהיר את הנושאים המרכזיים בשיחה",
+            "לעודד ביטוי רגשות בצורה ישירה יותר"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות של סקרנות ושעשוע, אך ישנם גם רגעים של בלבול ותסכול. דובר 1 מביע נחישות לגבי הפרויקט שלו, בעוד דובר 0 נראה יותר מהסס.",
+          "power_dynamics": "דובר 1 נראה כבעל השפעה רבה יותר בשיחה, כיוון שהוא מוביל את הנושא של הפרויקט ומביע נחישות. דובר 0 מגיב בעיקר לשאלות ומביע ספקנות.",
+          "conversation_flow": "השיחה זורמת בצורה לא לינארית עם מעברים תכופים בין נושאים. הדוברים נוטים לחזור לנושאים קודמים ולהביע רגשות שונים לגבי אותם נושאים.",
+          "attention_points": [
+            "הצורך להבהיר את מטרת הפרויקט",
+            "החשיבות של ביטוי רגשות בצורה ברורה יותר"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בקשר ידידותי ולא פורמלי עם שימוש בהומור וסקרנות. עם זאת, ישנם אתגרים של טשטוש ואי ודאות שמקשים על הבנה ברורה של הנושאים המרכזיים."
+        },
+        "insights_generated_date": "2025-08-05T03:14:48.966392"
+      }
+    },
+    "convo41": {
+      "number": 41,
+      "mp3_count": 80,
+      "ai_file": "conversations/convo41/emotions41_ai_analyzed.json",
+      "emotion_file": "conversations/convo41/emotions41_ai_analyzed.json",
+      "image_path": "conversion images/convo41.png",
+      "metadata": {
+        "date": "2025-07-14",
+        "name": "מכיר את הבת זוג לחברה הכי טובה",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "טל מקלר ",
+        "speaker1Name": "טל מקלר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "חיבה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:09:53.759Z",
+        "duration": "2:00",
+        "totalWords": 400,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 מציג דפוס תקשורת ישיר, נחרץ ולעיתים דחוף, אך גם מביע חיבה ותמיכה. הוא נוטה ליזום ולהוביל את השיחה, ולעיתים משתמש בהומור כדי להקל על האווירה.",
+            "speaker_1": "דובר 1 מציג דפוס תקשורת סקרן ולעיתים מבולבל. הוא מגיב לדובר 0 בצורה פתוחה, אך נוטה לבטא אי ודאות ולעיתים מבוכה. הוא משתמש בהומור כדי להתמודד עם מצבים לא ברורים."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה חם ותומך, עם ביטויים של חיבה ואכפתיות הדדית. ישנה תחושת נוחות וקרבה בשיחה.",
+          "communication_style": "סגנון התקשורת הכללי הוא בלתי פורמלי, ישיר ולעיתים הומוריסטי. הדוברים מביעים רגשות באופן פתוח ומדברים על נושאים אישיים בצורה קלילה.",
+          "strengths": [
+            "חיבה ואכפתיות הדדית",
+            "תקשורת פתוחה וישירה",
+            "שימוש בהומור להקלת האווירה"
+          ],
+          "challenges": [
+            "טשטוש ואי ודאות בתקשורת",
+            "לעיתים מבוכה או בלבול",
+            "חוסר בהירות בנושאים מסוימים"
+          ],
+          "improvement_recommendations": [
+            "להבהיר יותר את הנושאים הלא ברורים",
+            "להפחית את הטשטוש בתקשורת",
+            "לנסות לשמור על קו ברור יותר בשיחה"
+          ],
+          "emotional_insights": "השיחה מלאה ברגשות חיוביים כמו חיבה, אהבה וציפייה. ישנה גם תחושת דאגה וחרדה בנוגע לאירוח אנשים רבים.",
+          "power_dynamics": "דובר 0 נראה כמי שמוביל את השיחה ומכוון את הנושאים, בעוד דובר 1 מגיב ומביע את דעתו. ישנה תחושת שוויון ואיזון בכוח בין הדוברים.",
+          "conversation_flow": "השיחה זורמת בין נושאים שונים כמו תכנון מפגשים, חוויות אישיות ותחושות כלליות. המעברים בין הנושאים חלקים יחסית, אך לעיתים ישנם רגעים של בלבול.",
+          "attention_points": [
+            "טשטוש בתקשורת",
+            "רגעים של מבוכה או בלבול"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בקשר חם ותומך בין הדוברים, עם תקשורת פתוחה וישירה. ישנם רגעים של בלבול וטשטוש, אך הם מתמודדים עם זאת באמצעות הומור ותמיכה הדדית."
+        },
+        "insights_generated_date": "2025-08-05T03:15:14.645747"
+      }
+    },
+    "convo42": {
+      "number": 42,
+      "mp3_count": 70,
+      "ai_file": "conversations/convo42/emotions42_ai_analyzed.json",
+      "emotion_file": "conversations/convo42/emotions42_ai_analyzed.json",
+      "image_path": "conversion images/convo42.png",
+      "metadata": {
+        "date": "2025-07-18",
+        "name": "יציאה עם חברים בסופ״שׁ",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "",
+        "speaker1Name": "טל מקלר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T21:06:48.884Z",
+        "duration": "1:45",
+        "totalWords": 413,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, טל, נוטה להשתמש בהומור וביטחון עצמי כדי להביע את עצמו. הוא נוטה להוביל את השיחה ולהביע דעות ברורות, אך גם מראה גמישות ויכולת להקשיב ולהגיב לדובר השני.",
+            "speaker_1": "דובר 1, ליאור, מתקשר בצורה שמכילה חוסר ודאות מסוימת, אך גם מראה עניין ורצון לשתף פעולה. הוא נוטה לשאול שאלות ולהביע סקרנות, ולעיתים משתמש בהומור כדי להקל על האווירה."
+          },
+          "relationship_quality": "הקשר בין טל לליאור נראה קרוב וידידותי, עם יכולת לתקשר בצורה פתוחה ומשעשעת. ישנם רגעים של בלבול וחוסר ודאות, אך הם נפתרים במהירות יחסית.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, עם נטייה להשתמש בהומור כדי להקל על נושאים רציניים או מבולבלים. ישנה תחושה של חופש וביטחון עצמי בשיחה.",
+          "strengths": [
+            "יכולת להשתמש בהומור כדי להקל על המתח",
+            "תקשורת פתוחה וישירה",
+            "יכולת להקשיב ולהגיב בהתאם לדובר השני"
+          ],
+          "challenges": [
+            "חוסר ודאות ובלבול בנושאים מסוימים",
+            "תחושת טשטוש גבוהה שמקשה על הבנה ברורה",
+            "קושי בקבלת החלטות ברורות במצבים מסוימים"
+          ],
+          "improvement_recommendations": [
+            "להבהיר נושאים עמומים כדי למנוע בלבול",
+            "להפחית את רמת הטשטוש על ידי שימוש בשפה ברורה ומדויקת",
+            "לעודד תקשורת ישירה יותר במצבים של חוסר ודאות"
+          ],
+          "emotional_insights": "השיחה מראה על קשר רגשי חזק בין הדוברים, עם רגשות של חיבה, ביטחון והערכה. ישנם גם רגעים של תסכול ודאגה, אך הם מטופלים בצורה קלילה.",
+          "power_dynamics": "טל נראה כמי שמוביל את השיחה ומכתיב את הקצב, אך ליאור משתתף באופן פעיל ומביע את דעתו. הדינמיקה היא שוויונית יחסית, עם נטייה קלה לטובת טל.",
+          "conversation_flow": "השיחה נעה בין נושאים שונים בצורה חלקה יחסית, עם מעברים טבעיים בין נושאים קלילים לרציניים יותר. ישנם רגעים של בלבול, אך הם נפתרים במהירות.",
+          "attention_points": [
+            "הצורך להבהיר נושאים עמומים כדי למנוע בלבול",
+            "היכולת להשתמש בהומור בצורה אפקטיבית כדי להקל על המתח"
+          ],
+          "overall_assessment": "השיחה מראה על קשר חזק וידידותי בין הדוברים, עם תקשורת פתוחה ומשעשעת. ישנם אתגרים של בלבול וחוסר ודאות, אך הם מטופלים בצורה טובה. השיחה מעידה על יכולת להתמודד עם מצבים שונים בצורה חיובית ומכילה."
+        },
+        "insights_generated_date": "2025-08-05T03:15:40.497041"
+      }
+    },
+    "convo43": {
+      "number": 43,
+      "mp3_count": 31,
+      "ai_file": "conversations/convo43/emotions43_ai_analyzed.json",
+      "emotion_file": "conversations/convo43/emotions43_ai_analyzed.json",
+      "image_path": "conversion images/convo43.png",
+      "metadata": {
+        "date": "2025-07-18",
+        "name": "הולך לבר",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "ציפייה"
+        ],
+        "emotionalIntensity": 8,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:10:07.324Z",
+        "duration": "0:47",
+        "totalWords": 177,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להשתמש בשפה הומוריסטית ומלאה בהפתעה והתרגשות. הוא מביע רגשות בצורה גלויה ומרבה לשאול שאלות שמביעות ציפייה וסקרנות. לעיתים קרובות הוא מביע בלבול ואי ודאות, אך גם מראה נחישות וקבלה.",
+            "speaker_1": "דובר 1 מתקשר בצורה רגועה ונינוחה, ומביע הערכה והתרגשות. הוא מתמקד במתן מידע ברור ומדויק, ומפגין סקרנות וציפייה. הוא נוטה לאשר ולהסכים עם דובר 0, אך גם מנסה לשמור על סדר והבנה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה חם וקרוב, עם דגש על תמיכה הדדית והבנה. ישנה תחושה של שותפות ושיתוף פעולה ביניהם.",
+          "communication_style": "הסגנון הכללי הוא קליל והומוריסטי, עם נטייה לשימוש בשפה רגשית ופתוחה. הדוברים משתמשים בשאלות ובאישורים כדי לשמור על זרימת השיחה.",
+          "strengths": [
+            "תקשורת פתוחה וישירה",
+            "הומור ושימוש בשפה קלילה",
+            "תמיכה והבנה הדדית"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות תכופים",
+            "טשטוש גבוה בשיחה",
+            "קושי לשמור על רצף ברור"
+          ],
+          "improvement_recommendations": [
+            "להפחית את רמת הטשטוש על ידי שימוש בשפה ברורה ומדויקת יותר",
+            "לנסות לשמור על רצף שיחה ברור יותר",
+            "להשתמש בפחות הומור במצבים הדורשים בהירות והבנה"
+          ],
+          "emotional_insights": "השיחה מלאה בציפייה והתרגשות, עם רגעים של בלבול ואי ודאות. ישנה תחושה של חיבור רגשי חזק בין הדוברים, המובילה לתקשורת פתוחה ותומכת.",
+          "power_dynamics": "הכוח בשיחה נראה מאוזן עם נטייה קלה לדובר 0 להוביל את השיחה ולהביע יותר רגשות. דובר 1 מספק תמיכה ומידע, אך פחות מוביל.",
+          "conversation_flow": "השיחה מתנהלת בצורה זורמת עם מעבר בין נושאים שונים, אך לעיתים היא מתבלבלת בשל רמת הטשטוש הגבוהה. הדוברים משתמשים בשאלות ואישורים כדי לשמור על רצף השיחה.",
+          "attention_points": [
+            "רמת הטשטוש הגבוהה עלולה להקשות על הבנה ברורה",
+            "הצורך לשמור על בהירות ורצף בשיחה"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בקשר חם וקרוב בין הדוברים, עם דגש על הומור ורגשות. עם זאת, יש מקום לשיפור בהפחתת הטשטוש ושמירה על בהירות ורצף בשיחה."
+        },
+        "insights_generated_date": "2025-08-05T03:16:20.097388"
+      }
+    },
+    "convo50": {
+      "number": 50,
+      "mp3_count": 19,
+      "ai_file": "conversations/convo50/emotions50_ai_analyzed.json",
+      "emotion_file": "conversations/convo50/emotions50_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-22",
+        "name": "טל בלימודים",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "טל מקלר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:23:38.227Z",
+        "duration": "0:29",
+        "totalWords": 101,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ]
+      }
+    },
+    "convo51": {
+      "number": 51,
+      "mp3_count": 35,
+      "ai_file": "conversations/convo51/emotions51_ai_analyzed.json",
+      "emotion_file": "conversations/convo51/emotions51_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-22",
+        "name": "השלמת עם טל?",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "",
+        "speaker1Name": "טל מקלר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:10:20.321Z",
+        "duration": "0:53",
+        "totalWords": 129,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה לשאול שאלות ולנסות להוביל את השיחה, אך לעיתים קרובות מביע בלבול ואי ודאות. הוא משתמש בהומור כדי להקל על המתח ולשמור על אווירה קלילה.",
+            "speaker_1": "דובר 1 מגיב לרוב לשאלות של דובר 0, מביע רגשות חזקים כמו כעס ותסכול, אך גם משתמש בהומור ובשעשוע כדי לשמור על אווירה חיובית. הוא נוטה להראות חיבה וחרדה כאשר דובר 0 מביע רצון לעזוב."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב ואינטימי, עם יכולת להביע רגשות חזקים ולשמור על אווירה קלילה בו זמנית. ישנה תחושת חיבה ודאגה הדדית.",
+          "communication_style": "סגנון התקשורת הוא קליל ומשעשע, עם שימוש בהומור כדי להקל על מתחים. הדוברים מביעים רגשות מגוונים, ולעיתים קרובות ישנה תחושת בלבול ואי ודאות.",
+          "strengths": [
+            "יכולת לשמור על אווירה קלילה ומשעשעת",
+            "יכולת להביע רגשות חזקים בצורה פתוחה",
+            "תחושת חיבה ודאגה הדדית"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות שמופיעים לעיתים קרובות",
+            "כעס ותסכול שמובעים בצורה ישירה",
+            "חוסר בהירות לגבי נושאים מסוימים בשיחה"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר נושאים לא ברורים כדי להפחית בלבול",
+            "לעבוד על דרכים להביע כעס ותסכול בצורה בונה יותר",
+            "לשמור על איזון בין הומור לרצינות במצבים חשובים"
+          ],
+          "emotional_insights": "השיחה משקפת רגשות מגוונים, כולל שעשוע, כעס, תסכול, חיבה וחרדה. הדוברים נראים נוחים להביע את רגשותיהם, אך לעיתים קרובות ישנה תחושת בלבול ואי ודאות.",
+          "power_dynamics": "דובר 0 נראה כמוביל השיחה, שואל שאלות ומנסה להנחות את הנושאים. דובר 1 מגיב לרוב, אך מביע רגשות חזקים שיכולים להשפיע על דינמיקת הכוח בשיחה.",
+          "conversation_flow": "השיחה נעה בין נושאים שונים בצורה קלילה, עם מעבר מהיר בין רגשות ונושאים. ישנם רגעים של בלבול ואי ודאות, אך האווירה הכללית נשמרת קלילה ומשעשעת.",
+          "attention_points": [
+            "הצורך להבהיר נושאים לא ברורים",
+            "הבעת רגשות חזקים בצורה בונה"
+          ],
+          "overall_assessment": "השיחה מציגה קשר קרוב ואינטימי בין הדוברים, עם יכולת להביע רגשות מגוונים ולשמור על אווירה קלילה. עם זאת, יש מקום לשיפור בהבהרת נושאים ובניהול רגשות חזקים."
+        },
+        "insights_generated_date": "2025-08-05T03:17:06.793440"
+      }
+    },
+    "convo53": {
+      "number": 53,
+      "mp3_count": 44,
+      "ai_file": "conversations/convo53/emotions53_ai_analyzed.json",
+      "emotion_file": "conversations/convo53/emotions53_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-26",
+        "name": "לא כיף בעבודה",
+        "mainParticipant": "טל מקלר",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור ",
+        "speaker2Name": "טל מקלר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:10:33.747Z",
+        "duration": "1:06",
+        "totalWords": 247,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל מקלר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, טל מקלר, נוטה להשתמש בהומור ובסקרנות כדי להתמודד עם מצבים לא נוחים. הוא מביע רגשות של אי נוחות ותסכול לגבי העבודה, אך גם מתייחס לנושאים בצורה קלילה ומבדרת. ישנה נטייה לחזור על מידע ולבקש אישור מהשני.",
+            "speaker_1": "דובר 1, ליאור, מגיב בעיקר בתגובות קצרות ובשאלות. הוא מביע סקרנות ותמיהה, ולעיתים מראה עניין אישי בנושאים שאינם קשורים ישירות לשיחה עם טל. ישנה תחושת אי נוחות מסוימת בנוגע להקלטה ולחוקיות של המצב."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי אך לא מאוד קרוב. ישנו שימוש בהומור ובשאלות כדי לשמור על שיחה זורמת, אך ישנם רגעים של אי נוחות וספקנות.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, עם נטייה לשימוש בהומור כדי להתמודד עם נושאים לא נוחים. הדוברים משתמשים בשאלות ובאישורים כדי לשמור על השיחה זורמת.",
+          "strengths": [
+            "שימוש בהומור כדי להתמודד עם מצבים לא נוחים",
+            "יכולת לשמור על שיחה זורמת באמצעות שאלות ואישורים",
+            "הבעת רגשות בצורה פתוחה"
+          ],
+          "challenges": [
+            "תחושת אי נוחות וספקנות בנוגע לנושאים מסוימים",
+            "חוסר בהירות והבנה בין הדוברים",
+            "נטייה לחזור על מידע במקום להתקדם לנושאים חדשים"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את הנושאים הלא מובנים כדי למנוע בלבול",
+            "לנסות להתמקד בנושאים חשובים יותר לשני הצדדים",
+            "לשפר את ההקשבה והתגובה לנושאים המועלים על ידי הצד השני"
+          ],
+          "emotional_insights": "טל מביע תחושות של תסכול ואי נוחות לגבי העבודה, אך משתמש בהומור כדי להקל על המצב. ליאור מציג סקרנות ותמיהה, אך גם אי נוחות לגבי חוקיות המצב.",
+          "power_dynamics": "טל נראה כמי שמוביל את השיחה ומציג את רוב הנושאים, בעוד שליאור מגיב ומביע דעותיו בצורה פחות דומיננטית. ישנה תחושת חוסר ביטחון מסוימת מצד ליאור בנוגע לנושאים המועלים.",
+          "conversation_flow": "השיחה מתחילה בנושא העבודה של טל, עוברת לנושאים אישיים יותר כמו קניות ושמלות, וחוזרת לעבודה ולנושאים הקשורים לחוויית משתמש. המעברים בין הנושאים נעשים בצורה טבעית אך לעיתים מעט מבולבלת.",
+          "attention_points": [
+            "תחושת אי נוחות של ליאור לגבי הקלטת השיחה",
+            "התסכול של טל מהמשימות בעבודה",
+            "הצורך של טל באישור ותמיכה מהסביבה"
+          ],
+          "overall_assessment": "השיחה מתנהלת בצורה קלילה ומשעשעת, אך ישנם רגעים של אי נוחות וספקנות. הקשר בין הדוברים נראה ידידותי אך לא מאוד קרוב, ויש מקום לשיפור בהבנה ובהתמקדות בנושאים החשובים לשני הצדדים."
+        },
+        "insights_generated_date": "2025-08-05T03:17:48.775682"
+      }
+    },
+    "convo54": {
+      "number": 54,
+      "mp3_count": 35,
+      "ai_file": "conversations/convo54/emotions54_ai_analyzed.json",
+      "emotion_file": "conversations/convo54/emotions54_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-26",
+        "name": "לעזור לסבא",
+        "mainParticipant": "סבא",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור ",
+        "speaker2Name": "סבא",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "דאגה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:10:46.832Z",
+        "duration": "0:53",
+        "totalWords": 139,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "סבא"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 (ליאור) מציג דפוס תקשורת של קבלה והסכמה, עם נטייה לחזור על דברים ולהביע בלבול ואי ודאות. הוא מגיב לרוב בשקט ובניסיון להרגיע את המצב.",
+            "speaker_1": "דובר 1 (סבא) מציג דפוס תקשורת של חיבה ודאגה, עם נטייה לשאול שאלות ולהביע דחיפות. הוא מנסה להנחות ולהדריך את ליאור, ולעיתים מביע חוסר אמון ותסכול."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב ואכפתי, כאשר סבא מראה דאגה לליאור וליאור מנסה להרגיע את סבא. יש תחושה של תמיכה הדדית למרות הבלבול והאי ודאות.",
+          "communication_style": "סגנון התקשורת הכללי הוא אכפתי ודואג, עם נימה של בלבול וחוסר ודאות. יש שימוש בהומור קל כדי להקל על המתח.",
+          "strengths": [
+            "תמיכה הדדית",
+            "נכונות להקשיב ולהגיב",
+            "ניסיון להרגיע ולהפחית מתחים"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות בתקשורת",
+            "חוסר בהירות בהעברת מידע",
+            "תחושת דחיפות ותסכול"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר את המידע לפני העברת המסר",
+            "להשתמש בשפה ברורה וממוקדת יותר",
+            "לנסות להפחית את תחושת הדחיפות על ידי תכנון מוקדם"
+          ],
+          "emotional_insights": "השיחה מלאה ברגשות דאגה ואכפתיות, כאשר סבא מראה דאגה לליאור וליאור מנסה להרגיע את סבא. יש גם תחושה של בלבול ואי ודאות שמלווה את השיחה.",
+          "power_dynamics": "סבא נראה כמוביל השיחה, מנסה להנחות ולהדריך את ליאור. עם זאת, ליאור מנסה לשמור על איזון ולהרגיע את סבא, מה שמראה על דינמיקה של תמיכה הדדית.",
+          "conversation_flow": "השיחה נעה בין דאגה לאכפתיות, עם מעבר תכוף בין נושאים שונים. יש תחושה של חוסר בהירות שגורמת לבלבול ואי ודאות.",
+          "attention_points": [
+            "הצורך בהבהרת מידע כדי להפחית בלבול",
+            "החשיבות של תקשורת ברורה וממוקדת"
+          ],
+          "overall_assessment": "השיחה מציגה קשר קרוב ואכפתי בין ליאור לסבא, עם דגש על דאגה ותמיכה הדדית. עם זאת, ישנם אתגרים של בלבול ואי ודאות שמקשים על התקשורת, וניתן לשפר זאת באמצעות תקשורת ברורה וממוקדת יותר."
+        },
+        "insights_generated_date": "2025-08-05T03:18:11.665229"
+      }
+    },
+    "convo55": {
+      "number": 55,
+      "mp3_count": 7,
+      "ai_file": "conversations/convo55/emotions55_ai_analyzed.json",
+      "emotion_file": "conversations/convo55/emotions55_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-30",
+        "name": "קנינו רכב וצריך לשפץ",
+        "mainParticipant": "עדן",
+        "customParticipantName": "",
+        "speaker1Name": "עדן ",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:16:14.218Z",
+        "duration": "0:11",
+        "totalWords": 41,
+        "avgSegmentDuration": "1.6",
+        "participants": [
+          "עדן"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, עדן, מבטא רגשות של גועל ואכזבה, תוך שימוש בתיאורים מפורטים של הבעיות ברכב. הוא נוטה לחזור על דברים ולהביע בלבול ואי ודאות, מה שמצביע על חוסר בהירות לגבי הצעדים הבאים.",
+            "speaker_1": "דובר 1, ליאור, נוטה להסכים עם עדן ולהביע אישור, אך גם הוא מציג אי ודאות. התגובות שלו קצרות וממוקדות, עם דגש על דחיפות בביצוע הפעולות הנדרשות."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ככזה שבו יש הבנה בסיסית והסכמה על הבעיות, אך חסרה תקשורת ברורה ומדויקת לגבי הפתרונות.",
+          "communication_style": "התקשורת היא ישירה אך לא תמיד ברורה. ישנה נטייה לחזור על הדברים ולבטא רגשות של תסכול ואי ודאות.",
+          "strengths": [
+            "הבעת רגשות כנה",
+            "הסכמה על הבעיות המרכזיות",
+            "נכונות לפעול"
+          ],
+          "challenges": [
+            "חוסר בהירות בתקשורת",
+            "חזרה על דברים ללא התקדמות",
+            "אי ודאות לגבי הצעדים הבאים"
+          ],
+          "improvement_recommendations": [
+            "להגדיר תוכנית פעולה ברורה",
+            "לשפר את הדיוק בתקשורת",
+            "להתמקד בפתרונות ולא רק בבעיות"
+          ],
+          "emotional_insights": "השיחה מלווה בעצבנות ותסכול, בעיקר מצד עדן, שמרגיש אכזבה מהמצב. ליאור מבטא הסכמה אך גם אי ודאות, מה שמוסיף לתחושת הבלבול הכללית.",
+          "power_dynamics": "נראה כי עדן מוביל את השיחה ומביע את הרגשות החזקים ביותר, בעוד ליאור מסכים ומאשר אך לא מציע פתרונות ברורים.",
+          "conversation_flow": "השיחה מתמקדת בבעיות ברכב ובצורך להבין את הצעדים הבאים. המעברים בין הנושאים אינם חלקים, ויש נטייה לחזור על אותם נושאים.",
+          "attention_points": [
+            "חוסר בהירות בתקשורת",
+            "צורך בהגדרת צעדים ברורים"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בעצבנות ותסכול, עם דגש על הבעיות ברכב. יש צורך בשיפור התקשורת והגדרת תוכנית פעולה ברורה כדי להתקדם בפתרון הבעיות."
+        },
+        "insights_generated_date": "2025-08-05T03:18:29.759425"
+      }
+    },
+    "convo56": {
+      "number": 56,
+      "mp3_count": 14,
+      "ai_file": "conversations/convo56/emotions56_ai_analyzed.json",
+      "emotion_file": "conversations/convo56/emotions56_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-30",
+        "name": "לצאת עם הכלב של נילי",
+        "mainParticipant": "עדן",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "עדן",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:10:58.347Z",
+        "duration": "0:21",
+        "totalWords": 82,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "עדן"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 מבטא בעיקר בלבול וסקרנות, עם שאלות רבות שמביעות חוסר ודאות. הוא משתמש בהומור ברמה נמוכה כדי להקל על המתח.",
+            "speaker_1": "דובר 1 מציג ביטחון ונחישות, אך גם ספקנות ואכזבה. הוא משתמש בהומור כדי להקל על השיחה, אך גם מביע רגשות עמוקים יותר של חיבה ואכזבה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב, עם יכולת לשתף רגשות ולהביע דעות בצורה פתוחה, אך ישנם רגעים של מתח וחוסר הבנה.",
+          "communication_style": "סגנון התקשורת הוא ישיר, עם נטייה לשאול שאלות ולהביע רגשות בצורה גלויה. השימוש בהומור הוא כלי מרכזי להקלת המתח.",
+          "strengths": [
+            "יכולת להביע רגשות בצורה פתוחה",
+            "שימוש בהומור להקלת המתח",
+            "תקשורת ישירה ופתוחה"
+          ],
+          "challenges": [
+            "חוסר הבנה הדדי",
+            "מתח שנובע מחוסר ודאות",
+            "רגשות של אכזבה ותסכול"
+          ],
+          "improvement_recommendations": [
+            "לשפר את ההבנה ההדדית על ידי הבהרת כוונות",
+            "להפחית את המתח באמצעות תקשורת ברורה יותר",
+            "לנסות להימנע מהבעת אכזבה בצורה ישירה מדי"
+          ],
+          "emotional_insights": "השיחה מבטאת רגשות של בלבול, אכזבה וחיבה. הדוברים מנסים להתמודד עם רגשות אלו באמצעות הומור ושאלות ישירות.",
+          "power_dynamics": "דובר 1 נראה כבעל השפעה רבה יותר בשיחה, עם ביטחון ונחישות ברורים יותר. דובר 0 מביע יותר חוסר ודאות ותלות בדובר 1.",
+          "conversation_flow": "השיחה מתנהלת בצורה של שאלות ותשובות, עם מעבר נושאים מהיר בין סיבות להאכלת הכלב לבין מי צריך לצאת איתו.",
+          "attention_points": [
+            "הצורך בהבהרת כוונות כדי להפחית מתח",
+            "השימוש בהומור כדי להקל על רגשות קשים"
+          ],
+          "overall_assessment": "השיחה מתאפיינת בתקשורת פתוחה וישירה, עם שימוש בהומור להקלת מתח. עם זאת, ישנם רגעים של חוסר הבנה ומתח שניתן לשפר באמצעות הבהרת כוונות ותקשורת ברורה יותר."
+        },
+        "insights_generated_date": "2025-08-05T03:18:45.849321"
+      }
+    },
+    "convo57": {
+      "number": 57,
+      "mp3_count": 9,
+      "ai_file": "conversations/convo57/emotions57_ai_analyzed.json",
+      "emotion_file": "conversations/convo57/emotions57_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-07-30",
+        "name": "עוד שיחה רגילה",
+        "mainParticipant": "עדן",
+        "customParticipantName": "",
+        "speaker1Name": "עדן ",
+        "speaker2Name": "ליאור ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "כעס"
+        ],
+        "emotionalIntensity": 8,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:11:03.660Z",
+        "duration": "0:14",
+        "totalWords": 85,
+        "avgSegmentDuration": "1.6",
+        "participants": [
+          "עדן"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להשתמש בשפה ישירה ובוטה, עם נטייה לביטויים של כעס ותסכול. הוא משתמש בכינויים מעליבים כמו 'אידיוט' ו'מפגר', מה שמעיד על רמת כעס גבוהה. הוא גם נוטה להאשים ולהביע אכזבה.",
+            "speaker_1": "דובר 1 מבטא בלבול ואי ודאות, אך גם מנסה לשמור על הומור קל. הוא נוטה להסכים ולשתף פעולה, אך גם מביע ספקנות כלפי דובר 0. הוא מנסה להציע פתרונות, אך גם מביע תסכול מכך שדובר 0 לא פועל."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה מתוח ומלא בכעס ותסכול. ישנה תחושה של חוסר הבנה הדדית וחוסר סבלנות.",
+          "communication_style": "סגנון התקשורת הוא ישיר ולעיתים תוקפני. הדוברים משתמשים בשפה בוטה וביטויים של כעס ותסכול. ישנה מידה מסוימת של הומור, אך הוא לא מצליח להקל על המתח.",
+          "strengths": [
+            "הומור קל שנשמר בשיחה",
+            "נכונות לשתף פעולה ולהציע פתרונות",
+            "ישירות בתקשורת"
+          ],
+          "challenges": [
+            "שימוש בשפה פוגענית",
+            "רמת כעס גבוהה",
+            "חוסר הבנה הדדית"
+          ],
+          "improvement_recommendations": [
+            "להימנע משימוש בכינויים מעליבים",
+            "לנסות להבין את נקודת המבט של הצד השני",
+            "לשמור על טון רגוע יותר"
+          ],
+          "emotional_insights": "השיחה מלווה ברגשות עזים של כעס ותסכול, במיוחד מצד דובר 0. דובר 1 מבטא בלבול ואי ודאות, אך גם מנסה לשמור על הומור קל.",
+          "power_dynamics": "דובר 0 נראה דומיננטי יותר בשיחה, משתמש בשפה בוטה ומביע כעס ותסכול. דובר 1 מנסה לשמור על איזון ולהציע פתרונות, אך נכנע לעיתים לכעס של דובר 0.",
+          "conversation_flow": "השיחה מתנהלת בצורה לא רציפה עם מעברים חדים בין נושאים. הכעס וההאשמות מפריעים לזרימה הטבעית של השיחה.",
+          "attention_points": [
+            "השימוש בכינויים מעליבים",
+            "הכעס והתסכול המובעים בשיחה"
+          ],
+          "overall_assessment": "השיחה מתאפיינת במתח גבוה וכעס. ישנה תחושת חוסר הבנה הדדית ושימוש בשפה בוטה. עם זאת, ישנה נכונות לשתף פעולה ולפתור בעיות, אך יש צורך בעבודה על הטון והגישה הכללית."
+        },
+        "insights_generated_date": "2025-08-05T03:19:04.739883"
+      }
+    },
+    "convo58": {
+      "number": 58,
+      "mp3_count": 11,
+      "ai_file": "conversations/convo58/emotions58_ai_analyzed.json",
+      "emotion_file": "conversations/convo58/emotions58_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-03",
+        "name": "מספר לטל על הפרויקט ואבא מפריע באמצע",
+        "mainParticipant": "טל בר אברהם",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "טל",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:29:04.314Z",
+        "duration": "0:17",
+        "totalWords": 69,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל בר אברהם"
+        ]
+      }
+    },
+    "convo59": {
+      "number": 59,
+      "mp3_count": 63,
+      "ai_file": "conversations/convo59/emotions59_ai_analyzed.json",
+      "emotion_file": "conversations/convo59/emotions59_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-03",
+        "name": "מספר לטל על הפרידה מיגליבר",
+        "mainParticipant": "טל בר אברהם",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור ",
+        "speaker2Name": "טל",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "קבלה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:11:17.935Z",
+        "duration": "1:35",
+        "totalWords": 427,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל בר אברהם"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, טל, נוטה לדבר בצורה מבולבלת ומתמשכת, עם הרבה חזרות ותחושת אי ודאות. הוא מביע רגשות של בלבול ותסכול, אך גם שמחה והקלה כשהוא מדבר על סיום הקשר. יש לו נטייה להוסיף הומור קל כדי להקל על המצב.",
+            "speaker_1": "דובר 1, ליאור, ממעט לדבר אך כשהוא מדבר, הוא מביע רגשות של הפתעה והתרגשות. הוא תומך בטל ומנסה להבין את המצב, אך לא מעורב באופן פעיל בשיחה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה חם ותומך, כאשר ליאור מספק תמיכה רגשית לטל. עם זאת, יש תחושת חוסר איזון בתקשורת, כאשר טל מדבר הרבה יותר מאשר ליאור.",
+          "communication_style": "סגנון התקשורת הכללי הוא פתוח וגלוי, עם דגש על ביטוי רגשות וחוויות אישיות. יש דגש על חוויות אישיות ורגשות, עם נטייה להומור קל.",
+          "strengths": [
+            "פתיחות רגשית",
+            "תמיכה הדדית",
+            "יכולת להביע רגשות מורכבים"
+          ],
+          "challenges": [
+            "חוסר איזון בכמות הדיבור בין הדוברים",
+            "בלבול וחוסר בהירות במסרים",
+            "תחושת אי ודאות מתמשכת"
+          ],
+          "improvement_recommendations": [
+            "לנסות לשפר את הבהירות והסדר בדיבור של טל",
+            "לעודד את ליאור להשתתף יותר בשיחה",
+            "לנסות להפחית את תחושת הבלבול על ידי שימוש בשפה ברורה ומדויקת יותר"
+          ],
+          "emotional_insights": "טל חווה תהליך של קבלה והשלמה עם סיום הקשר, אך עדיין מתמודד עם רגשות של בלבול ואי ודאות. ישנה תחושת הקלה ושמחה על סיום הקשר, לצד תקווה לעתיד טוב יותר.",
+          "power_dynamics": "טל נראה כבעל השפעה רבה יותר בשיחה, כאשר הוא מוביל את השיחה ומביע את רגשותיו בצורה פתוחה. ליאור נמצא בתפקיד תומך, אך פחות מעורב באופן פעיל.",
+          "conversation_flow": "השיחה נעה בין תיאור האירועים שהובילו לפרידה לבין רגשות ותחושות הקשורים לכך. המעברים בין הנושאים הם לעיתים מבולבלים ולא תמיד ברורים.",
+          "attention_points": [
+            "הנטייה של טל לחזור על עצמו ולהביע בלבול",
+            "הצורך לשפר את האיזון בתקשורת בין הדוברים"
+          ],
+          "overall_assessment": "השיחה מציגה תהליך של קבלה והשלמה עם סיום קשר, עם דגש על רגשות ותחושות אישיות. יש מקום לשיפור בבהירות התקשורת ובאיזון בין הדוברים, אך הקשר בין הדוברים נראה תומך וחם."
+        },
+        "insights_generated_date": "2025-08-05T03:19:46.435119"
+      }
+    },
+    "convo62": {
+      "number": 62,
+      "mp3_count": 35,
+      "ai_file": "conversations/convo62/emotions62_ai_analyzed.json",
+      "emotion_file": "conversations/convo62/emotions62_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-06-10",
+        "name": "מספר לטל על האקתון בירשולים",
+        "mainParticipant": "טל בר אברהם",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור ",
+        "speaker2Name": "טל",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נינוח"
+        ],
+        "emotionalIntensity": 4,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T22:34:12.928Z",
+        "duration": "0:53",
+        "totalWords": 187,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל בר אברהם"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להוביל את השיחה, מציג מידע ומבקש תגובות. הוא משתמש בהומור קל ומביע רגשות של ציפייה והתלהבות, אך גם בלבול לעיתים.",
+            "speaker_1": "דובר 1 מגיב לשאלות ומביע בלבול ואי ודאות. הוא נוטה לשאול שאלות נוספות כדי להבהיר את המצב ומביע רגשות של סקרנות ותסכול."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי ופתוח, עם יכולת לשתף רגשות ומחשבות בצורה נינוחה.",
+          "communication_style": "סגנון התקשורת הוא בלתי פורמלי וידידותי, עם שימוש בהומור קל ואווירה נינוחה.",
+          "strengths": [
+            "יכולת להוביל שיחה בצורה נינוחה",
+            "פתיחות לשתף רגשות ומחשבות",
+            "שימוש בהומור כדי להקל על השיחה"
+          ],
+          "challenges": [
+            "חוסר בהירות בנוגע לנושאים מסוימים",
+            "תחושת בלבול ואי ודאות שמופיעה לעיתים קרובות",
+            "קושי במיקוד בנושא השיחה"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את הנושאים המרכזיים בתחילת השיחה",
+            "להשתמש בשאלות ממוקדות כדי להפחית בלבול",
+            "לסכם נקודות חשובות כדי להבטיח הבנה משותפת"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות מעורבים של ציפייה, סקרנות, בלבול ואי ודאות. ישנה תחושת חיבה וידידות בין הדוברים.",
+          "power_dynamics": "דובר 0 נוטה להוביל את השיחה ולהציג מידע, בעוד דובר 1 מגיב ומבקש הבהרות. ישנה תחושת שוויון בין הדוברים, אך דובר 0 מחזיק במעט יותר כוח בשל יכולתו להוביל את השיחה.",
+          "conversation_flow": "השיחה מתחילה בנושא ההאקתון וזורמת לנושאים אישיים יותר כמו עבודה וחוויות יומיות. המעברים בין הנושאים הם חלקים ונעשים בצורה טבעית.",
+          "attention_points": [
+            "יש לשים לב לחוסר הבהירות שגורם לבלבול",
+            "יש לשים לב לשימוש בהומור כדי להקל על השיחה"
+          ],
+          "overall_assessment": "השיחה מתנהלת בצורה נינוחה וידידותית, אך ישנם רגעים של בלבול ואי ודאות. הדוברים מצליחים לשמור על אווירה חיובית ופתוחה, אך יש מקום לשיפור בהבהרת נושאים ומיקוד השיחה."
+        },
+        "insights_generated_date": "2025-08-05T03:20:04.518645"
+      }
+    },
+    "convo63": {
+      "number": 63,
+      "mp3_count": 80,
+      "ai_file": "conversations/convo63/emotions63_ai_analyzed.json",
+      "emotion_file": "conversations/convo63/emotions63_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-07",
+        "name": "זרקו תפוזים על הרכב של טל",
+        "mainParticipant": "טל בר אברהם",
+        "customParticipantName": "",
+        "speaker1Name": "טל ",
+        "speaker2Name": "ליאור ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:11:29.851Z",
+        "duration": "2:00",
+        "totalWords": 463,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "טל בר אברהם"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה לשתף חוויות אישיות, בעיקר בנוגע לאירועים שהתרחשו לאחרונה. הוא מביע רגשות כמו כעס ותסכול, אך גם משתמש בהומור כדי להקל על הסיטואציה. יש נטייה לחזור על פרטים ולנסות להבין את המצב בצורה מעמיקה יותר.",
+            "speaker_1": "דובר 1 מגיב בעיקר להצהרות של דובר 0, ומשתמש בהומור כדי לשמור על אווירה קלילה. הוא מפגין סקרנות ומעורבות, במיוחד בנוגע לאירועים שדובר 0 מתאר, ומוסיף פרטים על חייו האישיים כדי לשמור על הדינמיקה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי ומשוחרר. ישנה תחושת נוחות ביניהם, המתבטאת בשיתוף חוויות אישיות ושימוש בהומור.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, עם נטייה להומור כדי להקל על נושאים רציניים יותר. הדוברים משתמשים בשאלות ובתגובות כדי לשמור על זרימת השיחה.",
+          "strengths": [
+            "שימוש בהומור להקל על סיטואציות",
+            "נכונות לשתף חוויות אישיות",
+            "מעורבות וסקרנות בנוגע לחוויות של האחר"
+          ],
+          "challenges": [
+            "חזרה על פרטים ללא צורך",
+            "בלבול ואי ודאות בתשובות",
+            "טשטוש במידע המועבר"
+          ],
+          "improvement_recommendations": [
+            "לנסות להימנע מחזרה על פרטים שכבר נאמרו",
+            "לשאול שאלות ממוקדות יותר כדי להבהיר אי ודאות",
+            "לשפר את בהירות התקשורת על ידי שימוש במשפטים קצרים וברורים"
+          ],
+          "emotional_insights": "השיחה נעה בין רגשות של כעס ותסכול לבין שעשוע והנאה. הדוברים מצליחים לשמור על אווירה חיובית למרות הנושאים הפחות נעימים, כמו נזק לרכב.",
+          "power_dynamics": "אין דינמיקת כוח ברורה בשיחה. שני הדוברים משתתפים באופן שווה, כאשר כל אחד מהם משתף ומגיב לתוכן של האחר.",
+          "conversation_flow": "השיחה מתחילה בתיאור אירוע לא נעים, אך מהר מאוד עוברת לנושאים קלילים יותר, כמו חוויות מהעבודה והטיולים. המעברים בין הנושאים חלקים ומתבצעים דרך שאלות ותגובות.",
+          "attention_points": [
+            "התמקדות בהומור כדי להקל על נושאים רציניים",
+            "שימוש בשאלות כדי לשמור על זרימת השיחה"
+          ],
+          "overall_assessment": "השיחה מתנהלת באווירה ידידותית ומשוחררת, עם שימוש בהומור כדי להתמודד עם נושאים פחות נעימים. הדוברים מגלים מעורבות וסקרנות זה כלפי זה, אך יש מקום לשפר את בהירות התקשורת ולהימנע מחזרה על פרטים."
+        },
+        "insights_generated_date": "2025-08-05T03:20:35.437139"
+      }
+    },
+    "convo64": {
+      "number": 64,
+      "mp3_count": 9,
+      "ai_file": "conversations/convo64/emotions64_ai_analyzed.json",
+      "emotion_file": "conversations/convo64/emotions64_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-07",
+        "name": "מכון פרמטר בר",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר",
+        "speaker2Name": "ליאור ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "הסכמה"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:11:35.294Z",
+        "duration": "0:14",
+        "totalWords": 47,
+        "avgSegmentDuration": "1.6",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 משתמש בהומור ובקלילות כדי לעודד את דובר 1 להצטרף אליו. הוא מראה סקרנות וציפייה, ומשתמש בשפה פשוטה וישירה. הוא נוטה להוביל את השיחה ולהציע רעיונות.",
+            "speaker_1": "דובר 1 מראה בלבול בתחילה אך בהדרגה מביע עניין והסכמה. הוא מתעניין בפרטים ומחפש מידע נוסף לפני קבלת החלטה. הוא מגיב לשאלות ומביע את רגשותיו בצורה גלויה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה נעים וקליל, עם יכולת להסכים ולהגיע להבנות בצורה מהירה ויעילה. ישנה תחושת שיתוף פעולה והבנה הדדית.",
+          "communication_style": "סגנון התקשורת הוא ישיר, קליל ומלא הומור. הדוברים משתמשים בשפה פשוטה ומובנת, ומביעים רגשות בצורה גלויה.",
+          "strengths": [
+            "יכולת הגעה להסכמה מהירה",
+            "שימוש בהומור להקלת האווירה",
+            "תקשורת ישירה ופשוטה"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות בתחילת השיחה",
+            "חוסר בהירות לגבי תכניות עתידיות",
+            "טשטוש גבוה שיכול להוביל לאי הבנות"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את התכניות בצורה מפורטת יותר",
+            "להפחית את הטשטוש בשיחה",
+            "לשאול שאלות ממוקדות יותר כדי להימנע מבלבול"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות חיוביים כמו סקרנות וציפייה, אך גם בבלבול ואי ודאות בתחילת השיחה. ההומור משחק תפקיד חשוב בהפגת מתחים.",
+          "power_dynamics": "אין דינמיקת כוח ברורה בשיחה. שני הדוברים משתפים פעולה ומגיעים להסכמה בצורה שווה.",
+          "conversation_flow": "השיחה מתחילה בהצעה של דובר 0, ממשיכה בשאלות ובירורים של דובר 1, ומסתיימת בהסכמה והחלטה משותפת.",
+          "attention_points": [
+            "להבהיר את התכניות בתחילת השיחה",
+            "להפחית את הטשטוש כדי למנוע אי הבנות"
+          ],
+          "overall_assessment": "השיחה מתאפיינת באווירה נינוחה וקלילה, עם שימוש בהומור להקלת האווירה. הדוברים מצליחים להגיע להסכמה בצורה מהירה, אך יש מקום לשיפור בהבהרת התכניות והפחתת הטשטוש."
+        },
+        "insights_generated_date": "2025-08-05T03:21:11.757225"
+      }
+    },
+    "convo69": {
+      "number": 69,
+      "mp3_count": 10,
+      "ai_file": "conversations/convo69/emotions69_ai_analyzed.json",
+      "emotion_file": "conversations/convo69/emotions69_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-15",
+        "name": "התקדמות בפרויקט של בר ",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "בר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:00.639Z",
+        "duration": "0:15",
+        "totalWords": 60,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 מאופיין בתקשורת מעורפלת עם רמות טשטוש גבוהות, מביע בלבול ואי ודאות לעיתים קרובות. הדובר משתמש בהומור קל כדי להקל על המצב, ומראה נחישות וביטחון במספר קטעים.",
+            "speaker_1": "אין מידע ישיר על דובר 1 בשיחה זו, אך נראה שיש לו תפקיד חשוב בתקשורת עם דובר 0, שכן דובר 0 מתייחס אליו ישירות ומביע צורך לדבר איתו."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה מקצועי עם מידה מסוימת של קרבה, כאשר דובר 0 מרגיש בנוח להביע בלבול ואי ודאות מול דובר 1.",
+          "communication_style": "סגנון התקשורת הוא בלתי פורמלי, עם שימוש בהומור קל, אך גם עם רמות גבוהות של טשטוש ואי ודאות.",
+          "strengths": [
+            "יכולת להביע רגשות מגוונים",
+            "נכונות להמשיך לעבוד על הפרויקט",
+            "שימוש בהומור להקל על מצבים"
+          ],
+          "challenges": [
+            "רמות גבוהות של טשטוש ואי ודאות",
+            "חוסר בהירות בתקשורת",
+            "הבעת בלבול תכופה"
+          ],
+          "improvement_recommendations": [
+            "להגביר את הבהירות והדיוק בתקשורת",
+            "להפחית את רמות הטשטוש באמצעות הכנה מוקדמת",
+            "לשפר את ההבנה ההדדית באמצעות שאלות ברורות"
+          ],
+          "emotional_insights": "דובר 0 חווה רגשות מעורבים של בלבול ואי ודאות, אך גם מראה נחישות וביטחון במצבים מסוימים. ישנה תחושת הערכה והתרגשות כלפי הפרויקט.",
+          "power_dynamics": "נראה שדובר 1 (ליאור) מחזיק בעמדת כוח מסוימת, שכן דובר 0 מתייחס אליו ומבקש לדבר איתו ישירות. דובר 0 מראה נכונות לשתף פעולה ולהישאר מעורב בפרויקט.",
+          "conversation_flow": "השיחה מתמקדת בעיקר בהתקדמות הפרויקט, עם מעברים בין רגשות בלבול לאישור וביטחון. המעברים נעשים בצורה טבעית אך עם רמות טשטוש גבוהות.",
+          "attention_points": [
+            "הצורך בהבהרת התקשורת",
+            "הבעת רגשות בצורה ברורה יותר"
+          ],
+          "overall_assessment": "השיחה מציגה תקשורת בלתי פורמלית עם רמות גבוהות של טשטוש, אך גם עם נחישות להמשיך בפרויקט. יש מקום לשיפור בהבהרת התקשורת והפחתת אי הוודאות."
+        },
+        "insights_generated_date": "2025-08-05T03:22:47.799024"
+      }
+    },
+    "convo70": {
+      "number": 70,
+      "mp3_count": 31,
+      "ai_file": "conversations/convo70/emotions70_ai_analyzed.json",
+      "emotion_file": "conversations/convo70/emotions70_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-19",
+        "name": "פעם ראשונה בבית של בר ",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר",
+        "speaker2Name": "ליאור ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "הערכה"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:08.219Z",
+        "duration": "0:47",
+        "totalWords": 177,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 משתמש בתקשורת רגשית מגוונת, עם דגש על תחושות של הכרת תודה, הערכה וציפייה. השיחה מאופיינת בהומור קל ובטשטוש מסוים, מה שמעיד על סגנון דיבור חופשי ובלתי פורמלי. הדובר מביע רגשות חיוביים כמו התרגשות ונחישות, אך גם בלבול ואי ודאות במקומות מסוימים."
+          },
+          "relationship_quality": "השיחה משדרת תחושת קרבה ונוחות בין הדוברים, עם דגש על הכרת תודה והערכה. ישנה תחושה של חיבה וקבלה, מה שמעיד על קשר חיובי ותומך.",
+          "communication_style": "סגנון התקשורת הוא חופשי ובלתי פורמלי, עם שימוש בהומור קל וביטויים רגשיים מגוונים. הדובר נוטה לשלב בין רגשות חיוביים לבין תחושות של בלבול ואי ודאות.",
+          "strengths": [
+            "יכולת להביע רגשות חיוביים בצורה ברורה",
+            "שימוש בהומור כדי להקל על השיחה",
+            "הבעת הכרת תודה והערכה"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות במקומות מסוימים",
+            "טשטוש רגשי שמקשה על הבנת המסר",
+            "חוסר עקביות בתחושות ובמסרים"
+          ],
+          "improvement_recommendations": [
+            "להבהיר את המסרים ולהפחית את הטשטוש",
+            "להתמקד בהבעת רגשות באופן עקבי וברור יותר",
+            "לנסות לצמצם את תחושת הבלבול ואי הוודאות"
+          ],
+          "emotional_insights": "השיחה מלאה ברגשות חיוביים כמו הכרת תודה, הערכה וציפייה, אך גם כוללת תחושות של בלבול ואי ודאות. הדובר מביע רצון לקשר משמעותי ותומך, ומראה נכונות להיות פתוח ורגיש.",
+          "power_dynamics": "דובר 0 נראה כמי שמוביל את השיחה, עם השפעה רבה על הטון והכיוון שלה. אין תחושת חוסר איזון משמעותי בכוח, אך הדובר מפגין ביטחון ויכולת להנחות את השיחה.",
+          "conversation_flow": "השיחה זורמת בצורה חופשית, עם מעברים בין נושאים שונים ותחושות מגוונות. הדובר נוטה לקפוץ בין רגשות ומחשבות, מה שמקשה לעיתים על מעקב אחר הנושא המרכזי.",
+          "attention_points": [
+            "הצורך להבהיר את המסרים ולהפחית את הטשטוש",
+            "היכולת לבטא רגשות חיוביים באופן עקבי וברור"
+          ],
+          "overall_assessment": "השיחה מאופיינת בתחושת קרבה ונוחות בין הדוברים, עם דגש על רגשות חיוביים כמו הכרת תודה והערכה. עם זאת, ישנם אתגרים הנובעים מטשטוש ובלבול, המחייבים שיפור בהבהרת המסרים והבעת הרגשות."
+        },
+        "insights_generated_date": "2025-08-05T03:23:05.786912"
+      }
+    },
+    "convo66": {
+      "number": 66,
+      "mp3_count": 41,
+      "ai_file": "conversations/convo66/emotions66_ai_analyzed.json",
+      "emotion_file": "conversations/convo66/emotions66_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-11",
+        "name": "שווארמה טעימה ליד שנקר",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר ",
+        "speaker2Name": "ליאור ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:11:40.274Z",
+        "duration": "1:02",
+        "totalWords": 288,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להציע עזרה ולהביע סקרנות כלפי דובר 1. הוא משתמש בהומור כדי להקל על האווירה ומביע עניין בנושאים שמועלים על ידי דובר 1. יש לו נטייה לסיים משפטים בנימה של תקווה או ציפייה.",
+            "speaker_1": "דובר 1 מביע רגשות מגוונים כמו תסכול, בלבול והתרגשות. הוא נוטה לשתף חוויות אישיות ולהביע את דעתו בצורה ישירה. דובר 1 משתמש בהומור כדי להתמודד עם מצבים מאתגרים ומביע חיבה כלפי דובר 0."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה חם וידידותי. יש ביניהם חיבה והבנה הדדית, עם נטייה לשתף ולתמוך אחד בשני.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומלא בהומור. הדוברים משתמשים בשפה פשוטה וישירה, ומשלבים הומור כדי להקל על נושאים רציניים.",
+          "strengths": [
+            "שיתוף פעולה ותמיכה הדדית",
+            "שימוש בהומור להקלת מצבים",
+            "פתיחות לשיתוף חוויות אישיות"
+          ],
+          "challenges": [
+            "רמת טשטוש גבוהה שמקשה על הבנת המסרים",
+            "מעברים תכופים בין נושאים שמקשים על שמירה על רצף השיחה",
+            "רגשות של בלבול ותסכול שמופיעים לעיתים קרובות"
+          ],
+          "improvement_recommendations": [
+            "לנסות להוריד את רמת הטשטוש כדי להבהיר את המסרים",
+            "לשמור על רצף נושאים ברור יותר במהלך השיחה",
+            "להתמקד בהבעת רגשות בצורה ישירה יותר"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות של תסכול ובלבול, אך גם בהומור ושעשוע שמקלים על ההתמודדות עם מצבים מאתגרים. דובר 1 מביע לעיתים קרובות תסכול מהסביבה המקצועית שלו, בעוד דובר 0 מנסה להציע תמיכה ועזרה.",
+          "power_dynamics": "דובר 0 נראה כבעל השפעה חיובית על דובר 1, מציע עזרה ותמיכה. דובר 1 נוטה לשתף את דובר 0 בחוויותיו ולבקש את דעתו, מה שמצביע על אמון והערכה.",
+          "conversation_flow": "השיחה נעה בין נושאים מקצועיים לאישיים, עם מעברים תכופים שמקשים על שמירה על רצף ברור. הדוברים משתמשים בהומור כדי להקל על המעברים ולשמור על אווירה קלילה.",
+          "attention_points": [
+            "רמת הטשטוש הגבוהה בשיחה",
+            "המעברים התכופים בין נושאים"
+          ],
+          "overall_assessment": "השיחה מתאפיינת באווירה קלילה וחברית, עם דגש על תמיכה הדדית ושימוש בהומור. עם זאת, רמת הטשטוש והמעברים התכופים בין נושאים עלולים להקשות על הבנת המסרים. יש מקום לשיפור בהבהרת המסרים ושמירה על רצף נושאים."
+        },
+        "insights_generated_date": "2025-08-05T03:21:33.898488"
+      }
+    },
+    "convo67": {
+      "number": 67,
+      "mp3_count": 54,
+      "ai_file": "conversations/convo67/emotions67_ai_analyzed.json",
+      "emotion_file": "conversations/convo67/emotions67_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-11",
+        "name": "בר ניפגש עם סיוון ללמוד",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר ",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T07:01:36.216Z",
+        "duration": "1:21",
+        "totalWords": 319,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ]
+      }
+    },
+    "convo68": {
+      "number": 68,
+      "mp3_count": 70,
+      "ai_file": "conversations/convo68/emotions68_ai_analyzed.json",
+      "emotion_file": "conversations/convo68/emotions68_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-15",
+        "name": "ביקשו ממני להציג פוסטר",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "בר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "הערכה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:11:54.222Z",
+        "duration": "1:45",
+        "totalWords": 430,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, בר, נוטה לשתף בחוויות האישיות שלו ולעיתים קרובות מביע רגשות של בלבול ואי ודאות. הוא משתמש בהומור כדי להקל על המתח ומביע התרגשות כאשר מדובר בהצלחותיו. הוא גם מראה יכולת להקשיב ולהגיב לדובר 1, אך לעיתים קרובות חוזר על תחושות של בלבול ותסכול.",
+            "speaker_1": "דובר 1, ליאור, מגיב לרוב בהתלהבות ובשמחה להצלחות של בר, אך גם מביע רגשות של אכזבה ותסכול כאשר מדובר בכישלונות אישיים שלו. הוא נוטה לשאול שאלות ולהביע סקרנות, אך לעיתים קרובות מרגיש מבולבל וחסר ביטחון לגבי החלטותיו."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה חם ותומך. ליאור מראה הערכה ושמחה להצלחות של בר, בעוד בר משתף את ליאור בחוויותיו ובתחושותיו. ישנה תחושת אמון הדדית שמאפשרת לשניהם לשתף גם ברגעים של הצלחה וגם בכישלונות.",
+          "communication_style": "סגנון התקשורת הכללי הוא בלתי פורמלי, עם שימוש בהומור ופתיחות רגשית. שני הדוברים נוטים לשתף בתחושותיהם האישיות ולהגיב אחד לשני בצורה תומכת ומבינה.",
+          "strengths": [
+            "שיתוף רגשי פתוח",
+            "תמיכה והערכה הדדית",
+            "שימוש בהומור להקלת המתח"
+          ],
+          "challenges": [
+            "תחושות חוזרות של בלבול ואי ודאות",
+            "תסכול מכישלונות אישיים",
+            "חוסר ביטחון בהחלטות"
+          ],
+          "improvement_recommendations": [
+            "לשפר את הביטחון העצמי בהחלטות על ידי חיפוש ייעוץ מקצועי",
+            "להפחית את תחושת הבלבול על ידי תכנון והכנה מוקדמים",
+            "להמשיך ולפתח את התמיכה ההדדית על ידי שיתוף בחוויות חיוביות"
+          ],
+          "emotional_insights": "השיחה מראה על קשר רגשי עמוק בין הדוברים, עם יכולת לשתף ברגשות חיוביים ושליליים כאחד. ישנה תחושת הערכה הדדית, אך גם חשש מכישלונות וחוסר ביטחון עצמי.",
+          "power_dynamics": "אין תחושה של דינמיקת כוח ברורה בשיחה. שני הדוברים נראים שווים במעמדם, עם נטייה לתמוך ולהבין אחד את השני.",
+          "conversation_flow": "השיחה זורמת בין נושאים של הצלחות אישיות לכישלונות, עם מעברים חלקים בין שיתוף אישי לתגובות תומכות. ישנה חזרה על נושאים של בלבול ואי ודאות, אך גם רגעים של שמחה והתרגשות.",
+          "attention_points": [
+            "הצורך להתמודד עם תחושות של בלבול ואי ודאות",
+            "החשיבות של תמיכה הדדית והערכה"
+          ],
+          "overall_assessment": "השיחה משקפת קשר חזק ותומך בין הדוברים, עם יכולת לשתף ולהגיב בצורה אמפתית. למרות האתגרים של בלבול ואי ודאות, ישנה תחושת שמחה והערכה הדדית שמחזקת את הקשר."
+        },
+        "insights_generated_date": "2025-08-05T03:22:22.960109"
+      }
+    },
+    "convo71": {
+      "number": 71,
+      "mp3_count": 29,
+      "ai_file": "conversations/convo71/emotions71_ai_analyzed.json",
+      "emotion_file": "conversations/convo71/emotions71_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-19",
+        "name": "אתגרים טכניים",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר",
+        "speaker2Name": "ליאור ",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:14.470Z",
+        "duration": "0:44",
+        "totalWords": 160,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להשתמש בהומור ובסקרנות כדי להתמודד עם מצבים מאתגרים. הוא מביע רגשות בצורה ישירה ולעיתים משתמש בטשטוש כדי להקל על המתח. יש לו נטייה להוביל את השיחה עם שאלות והצעות.",
+            "speaker_1": "דובר 1 מביע תסכול ובלבול, אך גם סקרנות והתחשבות. הוא נוטה לשתף חוויות אישיות ולהתייעץ עם דובר 0, מה שמצביע על אמון ופתיחות."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב ופתוח, עם יכולת לשתף ולהתייעץ בנושאים אישיים. יש תחושת אמון והומור משותף שמחזק את הקשר.",
+          "communication_style": "סגנון התקשורת הוא בלתי פורמלי, עם שימוש בהומור וטשטוש כדי להתמודד עם מצבים מאתגרים. הדוברים נוטים לשאול שאלות ולהביע רגשות בצורה ישירה.",
+          "strengths": [
+            "פתיחות לשיתוף חוויות אישיות",
+            "שימוש בהומור להקלת מצבים מתוחים",
+            "יכולת לשאול שאלות ולחקור מצבים"
+          ],
+          "challenges": [
+            "נטייה לטשטוש ברגעים מאתגרים",
+            "קושי בהתמודדות עם תסכולים",
+            "חוסר ודאות בניהול שיחות אישיות"
+          ],
+          "improvement_recommendations": [
+            "להפחית את הטשטוש ולהתמקד בתקשורת ברורה יותר",
+            "לפתח כלים להתמודדות עם תסכולים בצורה יותר פרודוקטיבית",
+            "לעבוד על ביטחון עצמי בניהול שיחות אישיות"
+          ],
+          "emotional_insights": "השיחה מראה על תחושת תסכול ובלבול, אך גם על סקרנות והתחשבות. ההומור משמש כלי חשוב להקלת המתח והבעת רגשות.",
+          "power_dynamics": "אין דינמיקת כוח ברורה בשיחה, הדוברים נראים שווים במעמדם ומשתפים פעולה בצורה הדדית.",
+          "conversation_flow": "השיחה זורמת בין נושאים אישיים לאתגרים טכניים, עם מעברים טבעיים בין נושאים. הדוברים משתמשים בהומור כדי להקל על המעברים ולהתמודד עם מצבים מאתגרים.",
+          "attention_points": [
+            "הנטייה לטשטוש ברגעים מאתגרים",
+            "הצורך בשיפור בטחון עצמי בשיחות אישיות"
+          ],
+          "overall_assessment": "השיחה מציגה תקשורת פתוחה וקרובה בין הדוברים, עם שימוש בהומור וטשטוש כדי להתמודד עם אתגרים. יש מקום לשיפור בהתמודדות עם תסכולים ובניהול שיחות אישיות בצורה ברורה יותר."
+        },
+        "insights_generated_date": "2025-08-05T03:23:24.836576"
+      }
+    },
+    "convo75": {
+      "number": 75,
+      "mp3_count": 3,
+      "ai_file": "conversations/convo75/emotions75_ai_analyzed.json",
+      "emotion_file": "conversations/convo75/emotions75_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-13",
+        "name": "לא בא לי פייסטיים",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור ",
+        "speaker2Name": "גיליבר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נינוח"
+        ],
+        "emotionalIntensity": 3,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:33.089Z",
+        "duration": "0:05",
+        "totalWords": 15,
+        "avgSegmentDuration": "1.7",
+        "participants": [
+          "גיליבר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להשתמש בהומור ובסקרנות כדי לנהל את השיחה. יש לו גישה קלילה ומעוניינת, אך עם זאת ישנה תחושת טשטוש גבוהה.",
+            "speaker_1": "דובר 1 מביע רגשות של נוסטלגיה וחיבה. הוא חוזר על אותו משפט, מה שמעיד על חזרה או חוסר ביטחון מסוים בתקשורת."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה נינוח ובלתי פורמלי, עם תחושת קרבה מסוימת. ישנה תחושה של הבנה הדדית וקלות בתקשורת.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ולא פורמלי, עם שימוש בהומור ורגשות חיבה. הדוברים נראים נינוחים ומכירים אחד את השני היטב.",
+          "strengths": [
+            "שימוש בהומור ליצירת אווירה נינוחה",
+            "הבעת רגשות חיבה ונוסטלגיה",
+            "תחושת קרבה ואינטימיות"
+          ],
+          "challenges": [
+            "חזרה על משפטים יכולה להעיד על חוסר ביטחון",
+            "תחושת טשטוש גבוהה עשויה להקשות על הבנה ברורה",
+            "מיעוט במילים עשוי להוביל לחוסר בהירות"
+          ],
+          "improvement_recommendations": [
+            "להפחית את החזרה על משפטים כדי לשפר את הבהירות",
+            "לנסות להפחית את הטשטוש בתקשורת",
+            "להוסיף פרטים נוספים לשיחה כדי להעמיק את ההבנה"
+          ],
+          "emotional_insights": "השיחה מבטאת רגשות של קרבה ונוסטלגיה, במיוחד מצד דובר 1. ישנה תחושת חיבה וקלילות המאפיינת את הקשר בין הדוברים.",
+          "power_dynamics": "דינמיקת הכוח בשיחה נראית שווה, עם דגש על הבנה הדדית ותחושת קרבה. אין תחושת עליונות או כפיפות בין הדוברים.",
+          "conversation_flow": "השיחה זורמת בצורה חלקה, אך ישנה חזרה על משפטים מצד דובר 1. המעברים בין הנושאים אינם מורגשים במיוחד בשל מיעוט המילים.",
+          "attention_points": [
+            "החזרה על משפטים מצד דובר 1",
+            "תחושת הטשטוש הגבוהה בשיחה"
+          ],
+          "overall_assessment": "השיחה מתאפיינת באווירה נינוחה וקרבה בין הדוברים. עם זאת, ישנם אתגרים הקשורים לחזרה על משפטים ותחושת טשטוש גבוהה, אשר יכולים להקשות על הבנה ברורה. השיחה יכולה להרוויח מהוספת פרטים נוספים ושיפור הבהירות."
+        },
+        "insights_generated_date": "2025-08-05T03:24:34.233256"
+      }
+    },
+    "convo76": {
+      "number": 76,
+      "mp3_count": 5,
+      "ai_file": "conversations/convo76/emotions76_ai_analyzed.json",
+      "emotion_file": "conversations/convo76/emotions76_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-13",
+        "name": "עבודה ותספורת",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 5,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:30:55.178Z",
+        "duration": "0:08",
+        "totalWords": 24,
+        "avgSegmentDuration": "1.6",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo74": {
+      "number": 74,
+      "mp3_count": 19,
+      "ai_file": "conversations/convo74/emotions74_ai_analyzed.json",
+      "emotion_file": "conversations/convo74/emotions74_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-23",
+        "name": "יש רכב או אין",
+        "mainParticipant": "אבא",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "אבא",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:26.605Z",
+        "duration": "0:29",
+        "totalWords": 91,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "אבא"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, ליאור, מביע סקרנות ודאגה לגבי מצב הרכב והנסיעות של המשפחה. הוא משתמש בשאלות חוזרות כדי לנסות להבין את המצב, ומביע בלבול קל לאורך השיחה.",
+            "speaker_1": "דובר 1, אבא, מגיב בצורה מבולבלת אך מנסה לספק תשובות ברורות ככל האפשר. הוא מנסה להרגיע את ליאור ולספק מידע למרות חוסר הבהירות."
+          },
+          "relationship_quality": "הקשר בין ליאור לאבא נראה קרוב ובעל חיבה, אך ישנם רגעים של בלבול וחוסר הבנה שמובילים לתסכול קל.",
+          "communication_style": "סגנון התקשורת הכללי הוא ישיר וממוקד בשאלות ותשובות. ישנה תחושת דחיפות קלה עקב הצורך להבין את מצב הרכב.",
+          "strengths": [
+            "תקשורת ישירה",
+            "נכונות לספק מידע",
+            "חיבה וקשר קרוב"
+          ],
+          "challenges": [
+            "בלבול וחוסר בהירות",
+            "חזרה על שאלות",
+            "תחושת תסכול קלה"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר את השאלות בצורה יותר מדויקת",
+            "להשתמש באמצעי תקשורת נוספים להבהרה",
+            "לשמור על סבלנות ולהימנע מתסכול"
+          ],
+          "emotional_insights": "השיחה מלווה בתחושת סקרנות ודאגה מצד ליאור, בעוד האבא מנסה להרגיע את המצב למרות בלבולו.",
+          "power_dynamics": "דינמיקת הכוח שווה יחסית, עם נטייה קלה של ליאור להוביל את השיחה בשאלותיו. האבא מגיב ומספק מידע בהתאם.",
+          "conversation_flow": "השיחה מתמקדת בעיקר סביב נושא הרכב והנסיעות, עם חזרה על שאלות בניסיון להבין את המצב. המעברים בין הנושאים חלקים אך מלווה בבלבול.",
+          "attention_points": [
+            "חוסר בהירות בתקשורת",
+            "צורך בהבהרת המצב"
+          ],
+          "overall_assessment": "השיחה מראה על קשר קרוב בין ליאור לאבא, אך ישנם רגעים של בלבול ותסכול. ניתן לשפר את התקשורת על ידי הבהרת השאלות ושימוש באמצעים נוספים להבהרה."
+        },
+        "insights_generated_date": "2025-08-05T03:24:16.497880"
+      }
+    },
+    "convo73": {
+      "number": 73,
+      "mp3_count": 50,
+      "ai_file": "conversations/convo73/emotions73_ai_analyzed.json",
+      "emotion_file": "conversations/convo73/emotions73_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-08-23",
+        "name": "מספר לבר על יציאה ",
+        "mainParticipant": "בר מזרחי",
+        "customParticipantName": "",
+        "speaker1Name": "בר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:20.775Z",
+        "duration": "1:15",
+        "totalWords": 273,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "בר מזרחי"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 נוטה להשתמש בהומור ובשעשוע כדי להביע את רגשותיו וליצור אווירה קלילה. הוא מביע ספקנות ועניין בצורה מתונה ומנסה לשמור על השיחה זורמת, גם כאשר הוא לא מתעניין במיוחד בנושא.",
+            "speaker_1": "דובר 1 נוטה להביע עניין וסקרנות בנושאים שונים, במיוחד כאשר מדובר בנושאים אינטלקטואליים. הוא משתמש בהומור כדי להקל על מצבים של בלבול או אי ודאות, ומראה יכולת להסתגל לשינויים בנושאי השיחה."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי וקליל, עם יכולת לשתף חוויות ולדון בנושאים שונים בצורה פתוחה. ישנה תחושת נוחות בין הדוברים, המאפשרת להם לבטא את עצמם בחופשיות.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, עם נטייה להומור ולשימוש בטשטוש כדי להקל על מצבים מורכבים או לא ברורים. הדוברים מנסים לשמור על שיחה זורמת ומעניינת, גם כאשר הנושאים אינם מעניינים במיוחד.",
+          "strengths": [
+            "שימוש בהומור כדי להקל על השיחה",
+            "יכולת להסתגל לשינויים בנושאי השיחה",
+            "תקשורת פתוחה וידידותית"
+          ],
+          "challenges": [
+            "רמת טשטוש גבוהה שמקשה על הבנת המסר",
+            "מעבר מהיר בין נושאים שעשוי לבלבל",
+            "חוסר עניין בנושאים מסוימים שמוביל לאיבוד ריכוז"
+          ],
+          "improvement_recommendations": [
+            "לנסות להוריד את רמת הטשטוש כדי לשפר את הבנת המסר",
+            "להתמקד בנושאים שמעניינים את שני הצדדים כדי לשמור על ריכוז",
+            "לנסות להעמיק בנושאים מסוימים במקום לעבור במהירות לנושא הבא"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות חיוביים כמו שעשוע ושמחה, אך ישנם גם רגעים של בלבול ואי ודאות. הדוברים משתמשים בהומור כדי להתמודד עם רגשות אלו ולשמור על אווירה חיובית.",
+          "power_dynamics": "אין דינמיקת כוח מובהקת בשיחה זו. שני הדוברים משתתפים באופן שווה, כאשר כל אחד מהם מביא את נקודת המבט שלו ומגיב לדברי השני בצורה פתוחה וקלילה.",
+          "conversation_flow": "השיחה מתחילה בתיאור חוויות אישיות וממשיכה לדיון על נושאים יומיומיים כמו אוכל. המעברים בין הנושאים מהירים ולעיתים מבלבלים, אך נשמרת אווירה קלילה ומשעשעת לאורך כל השיחה.",
+          "attention_points": [
+            "רמת טשטוש גבוהה שמקשה על הבנת המסר",
+            "מעברים מהירים בין נושאים שעשויים לבלבל"
+          ],
+          "overall_assessment": "השיחה מתאפיינת באווירה קלילה ומשעשעת, עם שימוש נרחב בהומור ובטשטוש. ישנה תחושת נוחות ופתיחות בין הדוברים, אך המעברים המהירים בין הנושאים ורמת הטשטוש הגבוהה עשויים להקשות על הבנת המסר. מומלץ לנסות להתמקד בנושאים שמעניינים את שני הצדדים ולהוריד את רמת הטשטוש כדי לשפר את התקשורת."
+        },
+        "insights_generated_date": "2025-08-05T03:23:57.114599"
+      }
+    },
+    "convo77": {
+      "number": 77,
+      "mp3_count": 23,
+      "ai_file": "conversations/convo77/emotions77_ai_analyzed.json",
+      "emotion_file": "conversations/convo77/emotions77_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-17",
+        "name": "מי זה אורון?",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "חיבה"
+        ],
+        "emotionalIntensity": 7,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-05T04:31:07.303Z",
+        "duration": "0:35",
+        "totalWords": 142,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ]
+      }
+    },
+    "convo79": {
+      "number": 79,
+      "mp3_count": 25,
+      "ai_file": "conversations/convo79/emotions79_ai_analyzed.json",
+      "emotion_file": "conversations/convo79/emotions79_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-21",
+        "name": "נטפליקס ועיצובים",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "נעים"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:12:53.163Z",
+        "duration": "0:38",
+        "totalWords": 151,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0, גיליבר, נוטה להביע רגשות חיוביים כמו אהבה והתרגשות כלפי נושאים שמעניינים אותו, כמו סדרות טלוויזיה. הוא משתמש בהומור כדי להוסיף קלילות לשיחה, אך לעיתים מביע בלבול או חוסר ודאות, במיוחד כשמדובר בפרטים מסוימים.",
+            "speaker_1": "דובר 1, ליאור, נוטה לשאול שאלות ולהביע סקרנות, מה שמראה על עניין בנושאים שמעלים אחרים. הוא מביע רגשות חיוביים כמו חיבה ושמחה, אך גם מציין אכזבה ותסכול כאשר הדברים אינם תואמים את ציפיותיו."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי ופתוח, עם יכולת לשתף דעות ולהביע רגשות בצורה חופשית. ישנה תחושת נוחות בשיחה, למרות שישנם רגעים של אי הבנה או בלבול.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל וידידותי, עם שימוש בהומור וביטוי רגשות חיוביים. הדוברים נוטים לשתף חוויות אישיות ולהביע דעות בצורה פתוחה.",
+          "strengths": [
+            "שיתוף רגשות חיוביים",
+            "שימוש בהומור",
+            "הבעת סקרנות ועניין"
+          ],
+          "challenges": [
+            "בלבול ואי ודאות",
+            "אכזבה מתגובות לא צפויות",
+            "חוסר בהירות בנושאים מסוימים"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר נקודות לא ברורות במהלך השיחה",
+            "להתמודד עם אכזבות בצורה פתוחה ומבינה",
+            "להגביר את ההקשבה כדי למנוע אי הבנות"
+          ],
+          "emotional_insights": "השיחה מתאפיינת ברגשות חיוביים כמו אהבה, חיבה והתרגשות, אך ישנם גם רגעים של בלבול ואי ודאות. הדוברים נראים כנהנים מהשיחה ומביעים הערכה הדדית.",
+          "power_dynamics": "דינמיקת הכוח בשיחה נראית מאוזנת, כאשר שני הדוברים מביעים דעות ומרגישים בנוח לשתף ולהגיב זה לזה. אין תחושה של שליטה או דומיננטיות מצד אף אחד מהדוברים.",
+          "conversation_flow": "זרימת השיחה היא טבעית וזורמת, עם מעברים חלקים בין נושאים שונים, בעיקר סביב סדרות טלוויזיה ותגובות אישיות אליהן.",
+          "attention_points": [
+            "הנטייה לבלבול ואי ודאות",
+            "הבעת אכזבה בצורה ישירה"
+          ],
+          "overall_assessment": "השיחה מתאפיינת באווירה נעימה וידידותית, עם דגש על רגשות חיוביים ושיתוף חוויות. ישנה פתיחות להביע דעות ותחושות, אך כדאי לשים לב לאי הבנות ולנסות לפתור אותן בזמן אמת."
+        },
+        "insights_generated_date": "2025-08-05T03:25:33.540350"
+      }
+    },
+    "convo80": {
+      "number": 80,
+      "mp3_count": 32,
+      "ai_file": "conversations/convo80/emotions80_ai_analyzed.json",
+      "emotion_file": "conversations/convo80/emotions80_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-21",
+        "name": "מדבר עם גיליבר על השראה לפרויקט גמר",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:13:10.525Z",
+        "duration": "0:48",
+        "totalWords": 270,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 (ליאור) מתערב מדי פעם, בעיקר כדי להביע הסכמה או ספקנות. הוא משתמש בהומור כדי להקל על האווירה ולעיתים קרובות משלב ביטויים כמו 'אה, נו' ו'לא כל הנוצץ זהב'.",
+            "speaker_1": "דובר 1 (גיליבר) דומיננטי בשיחה, משתף הרבה מידע ומביע רגשות מגוונים כמו בלבול, סקרנות ואכזבה. הוא נוטה לחזור על רעיונות ולחקור אותם לעומק, תוך שהוא מביע חוסר ודאות לעיתים קרובות."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה ידידותי ופתוח, עם נימה של שעשוע והומור. ישנה תחושת נוחות בין הדוברים, אך גם חוסר ודאות מסוים מצד גיליבר.",
+          "communication_style": "התקשורת היא בעיקרה דיאלוגית, עם דומיננטיות של דובר 1. השיחה מתנהלת בסגנון חופשי, עם מעבר בין נושאים שונים והבעת רגשות מגוונים.",
+          "strengths": [
+            "שימוש בהומור להקל על האווירה",
+            "פתיחות לשתף מידע ורגשות",
+            "נכונות לחקור רעיונות לעומק"
+          ],
+          "challenges": [
+            "חוסר ודאות מתמשך מצד גיליבר",
+            "תחושת בלבול חוזרת",
+            "העדר מיקוד ברור בנושאים"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר את המטרות והנושאים המרכזיים בשיחה",
+            "להפחית את רמת הטשטוש והבלבול על ידי שאילת שאלות ממוקדות",
+            "לנסות לסכם את הנקודות החשובות בסוף השיחה כדי להבטיח הבנה משותפת"
+          ],
+          "emotional_insights": "גיליבר חווה תחושת אכזבה ובלבול, אך גם סקרנות ועניין. הוא מבטא חוסר ודאות לגבי הפרויקט, אך יש בו גם הערכה כלפי הישגי אחרים.",
+          "power_dynamics": "גיליבר מוביל את השיחה ומביע את רוב הדעות והרגשות. ליאור תומך ומספק אישורים או ספקנות, אך אינו דומיננטי.",
+          "conversation_flow": "השיחה זורמת בצורה חופשית, עם הרבה קטעים של גיליבר שבהם הוא משתף בתובנות ובתחושות שלו. ליאור מתערב בעיקר כדי להביע הסכמה או ספקנות.",
+          "attention_points": [
+            "הצורך בהבהרת מטרות השיחה",
+            "הפחתת תחושת הבלבול והטשטוש"
+          ],
+          "overall_assessment": "השיחה מתנהלת באווירה חיובית ופתוחה, עם דגש על הבעת רגשות ושיתוף מידע. עם זאת, יש מקום לשיפור בהבהרת מטרות השיחה והפחתת תחושת הבלבול."
+        },
+        "insights_generated_date": "2025-08-05T03:25:53.501965"
+      }
+    },
+    "convo81": {
+      "number": 81,
+      "mp3_count": 42,
+      "ai_file": "conversations/convo81/emotions81_ai_analyzed.json",
+      "emotion_file": "conversations/convo81/emotions81_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-25",
+        "name": "הכל מהכל",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "גיליבר",
+        "speaker2Name": "ליאור",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "עצבנות"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:13:28.671Z",
+        "duration": "1:03",
+        "totalWords": 182,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 מגיב לדובר 1 בעיקר בשאלות ובתגובות קצרות. הוא מציג סקרנות אך גם בלבול, ומשתמש בהומור כדי להקל על התקשורת.",
+            "speaker_1": "דובר 1 הוא הדומיננטי בשיחה, מדבר בצורה מתמשכת ומביע מגוון רגשות, כולל תסכול, דאגה ואהבה. הוא משתמש בהומור כדי להקל על המתח."
+          },
+          "relationship_quality": "הקשר בין הדוברים נראה קרוב ואינטימי, אך ישנם רגעים של תסכול ואי הבנה שיכולים להעיד על תקשורת לא חלקה.",
+          "communication_style": "סגנון התקשורת הוא לא פורמלי, עם שימוש בהומור ורגשות כדי להעביר מסרים. דובר 1 נוטה להיות ישיר ודומיננטי, בעוד דובר 0 מגיב בצורה מתונה יותר.",
+          "strengths": [
+            "שימוש בהומור להקלת המתח",
+            "יכולת להביע רגשות בצורה פתוחה",
+            "נכונות לשאול שאלות ולהביע סקרנות"
+          ],
+          "challenges": [
+            "תחושת תסכול ואי הבנה",
+            "חוסר בהירות בתקשורת",
+            "נטייה לדומיננטיות מצד דובר 1"
+          ],
+          "improvement_recommendations": [
+            "לשפר את ההקשבה הפעילה של דובר 1",
+            "להבהיר מסרים כדי להפחית בלבול",
+            "לעודד את דובר 0 להביע את רגשותיו בצורה פתוחה יותר"
+          ],
+          "emotional_insights": "השיחה מראה על רגשות מעורבים של דאגה, תסכול ואהבה. ישנה תחושת חוסר ודאות שמובילה לאי הבנות.",
+          "power_dynamics": "דובר 1 מחזיק בעוצמה רבה יותר בשיחה, מכתיב את הקצב והנושאים, בעוד דובר 0 מגיב ומנסה לעמוד בקצב.",
+          "conversation_flow": "השיחה נעה בין נושאים שונים במהירות, עם דגש על רגשות אישיים והומור. המעברים בין הנושאים לא תמיד חלקים, מה שמוביל לבלבול.",
+          "attention_points": [
+            "הצורך בהבהרת מסרים למניעת בלבול",
+            "החשיבות של הקשבה פעילה מצד דובר 1"
+          ],
+          "overall_assessment": "השיחה מציגה קשר קרוב אך מאתגר בין הדוברים, עם דומיננטיות של דובר 1 ותסכול שנובע מאי הבנות ותקשורת לא חלקה. יש מקום לשיפור בהקשבה ובהבהרת מסרים."
+        },
+        "insights_generated_date": "2025-08-05T03:26:13.747371"
+      }
+    },
+    "convo82": {
+      "number": 82,
+      "mp3_count": 64,
+      "ai_file": "conversations/convo82/emotions82_ai_analyzed.json",
+      "emotion_file": "conversations/convo82/emotions82_ai_analyzed.json",
+      "metadata": {
+        "date": "2025-05-25",
+        "name": "גיליבר הולכת לחתונה",
+        "mainParticipant": "גיליבר",
+        "customParticipantName": "",
+        "speaker1Name": "ליאור",
+        "speaker2Name": "גיליבר",
+        "conversationTopics": [],
+        "mainEmotions": [
+          "שעשוע"
+        ],
+        "emotionalIntensity": 6,
+        "notes": "",
+        "tags": [],
+        "isImportant": false,
+        "isPrivate": false,
+        "needsReview": false,
+        "lastModified": "2025-08-04T15:13:35.226Z",
+        "duration": "1:36",
+        "totalWords": 370,
+        "avgSegmentDuration": "1.5",
+        "participants": [
+          "גיליבר"
+        ],
+        "ai_insights": {
+          "communication_patterns": {
+            "speaker_0": "דובר 0 מציג דפוס תקשורת שמבוסס על סיפור אישי, עם נטייה לשתף חוויות אישיות ורגשות במגוון רחב של נושאים. הוא נוטה להשתמש בהומור קליל כדי להקל על השיחה, אך גם מביע תסכול ואי נוחות במצבים מסוימים.",
+            "speaker_1": "דובר 1 לא מופיע בשיחה זו, ולכן לא ניתן לנתח את דפוס התקשורת שלו."
+          },
+          "relationship_quality": "השיחה מציגה מערכת יחסים ידידותית וקלילה, עם תחושת קרבה והבנה בין הדוברים, אם כי ישנם רגעים של תסכול ואי הבנה.",
+          "communication_style": "סגנון התקשורת הכללי הוא קליל ומשעשע, עם שימוש בהומור כדי להקל על השיחה. הדובר נוטה לשתף חוויות אישיות ולבטא רגשות באופן פתוח.",
+          "strengths": [
+            "שיתוף חוויות אישיות",
+            "שימוש בהומור להקלת השיחה",
+            "ביטוי רגשות באופן פתוח"
+          ],
+          "challenges": [
+            "תסכול ואי נוחות במצבים מסוימים",
+            "אי הבנה או חוסר בהירות בנושאים מסוימים",
+            "נטייה לטשטוש במצבים של אי ודאות"
+          ],
+          "improvement_recommendations": [
+            "לנסות להבהיר יותר את הנקודות הלא ברורות בשיחה",
+            "להתמודד עם תחושות תסכול בצורה ישירה יותר",
+            "לנסות לשמור על בהירות וריכוז גם במצבים של אי ודאות"
+          ],
+          "emotional_insights": "השיחה מראה על מגוון רגשות, כולל שמחה, תסכול, והערכה. ישנו ניסיון לשמור על אווירה חיובית למרות התסכולים והאתגרים.",
+          "power_dynamics": "דובר 0 נראה כמי שמוביל את השיחה, עם שליטה ברורה על הנושאים הנדונים. אין דינמיקת כוח בולטת בין הדוברים, והשיחה מתנהלת בצורה שוויונית יחסית.",
+          "conversation_flow": "השיחה זורמת בין נושאים שונים, כולל חוויות אישיות, תסכולים, והכנות לאירוע. המעברים בין הנושאים נעשים בצורה חלקה יחסית, עם דגש על סיפורים אישיים.",
+          "attention_points": [
+            "הנטייה לטשטוש במצבים של אי ודאות",
+            "הצורך בהבהרת נקודות לא ברורות"
+          ],
+          "overall_assessment": "השיחה מתנהלת בצורה קלילה ומשעשעת, עם דגש על שיתוף חוויות אישיות ורגשות. ישנם רגעים של תסכול ואי נוחות, אך הם מאוזנים על ידי שימוש בהומור ותחושת קרבה בין הדוברים."
+        },
+        "insights_generated_date": "2025-08-05T03:26:36.704252"
+      }
+    }
+  },
+  "total_conversations": 52,
+  "file_mappings": {
+    "convo1": "conversations/convo1/emotions1.json",
+    "convo2": "conversations/convo2/emotions2.json",
+    "convo3": "conversations/convo3/emotions3.json",
+    "convo4": "conversations/convo4/emotions4.json",
+    "convo5": "conversations/convo5/emotions5.json",
+    "convo6": "conversations/convo6/emotions6.json",
+    "convo7": "conversations/convo7/emotions7.json",
+    "convo8": "conversations/convo8/emotions8.json",
+    "convo10": "conversations/convo10/emotions10.json",
+    "convo11": "conversations/convo11/emotions11.json",
+    "convo18": "conversations/convo18/emotions18.json",
+    "convo27": "conversations/convo27/emotions27_ai_analyzed.json",
+    "convo29": "conversations/convo29/emotions29_ai_analyzed.json",
+    "convo30": "conversations/convo30/emotions30_ai_analyzed.json",
+    "convo33": "conversations/convo33/emotions33_ai_analyzed.json",
+    "convo34": "conversations/convo34/emotions34_ai_analyzed.json",
+    "convo35": "conversations/convo35/emotions35_ai_analyzed.json",
+    "convo36": "conversations/convo36/emotions36_ai_analyzed.json",
+    "convo37": "conversations/convo37/emotions37_ai_analyzed.json",
+    "convo38": "conversations/convo38/emotions38_ai_analyzed.json",
+    "convo39": "conversations/convo39/emotions39_ai_analyzed.json",
+    "convo40": "conversations/convo40/emotions40_ai_analyzed.json",
+    "convo41": "conversations/convo41/emotions41_ai_analyzed.json",
+    "convo42": "conversations/convo42/emotions42_ai_analyzed.json",
+    "convo43": "conversations/convo43/emotions43_ai_analyzed.json",
+    "convo50": "conversations/convo50/emotions50_ai_analyzed.json",
+    "convo51": "conversations/convo51/emotions51_ai_analyzed.json",
+    "convo53": "conversations/convo53/emotions53_ai_analyzed.json",
+    "convo54": "conversations/convo54/emotions54_ai_analyzed.json",
+    "convo55": "conversations/convo55/emotions55_ai_analyzed.json",
+    "convo56": "conversations/convo56/emotions56_ai_analyzed.json",
+    "convo57": "conversations/convo57/emotions57_ai_analyzed.json",
+    "convo58": "conversations/convo58/emotions58_ai_analyzed.json",
+    "convo59": "conversations/convo59/emotions59_ai_analyzed.json",
+    "convo62": "conversations/convo62/emotions62_ai_analyzed.json",
+    "convo63": "conversations/convo63/emotions63_ai_analyzed.json",
+    "convo64": "conversations/convo64/emotions64_ai_analyzed.json",
+    "convo69": "conversations/convo69/emotions69_ai_analyzed.json",
+    "convo70": "conversations/convo70/emotions70_ai_analyzed.json",
+    "convo66": "conversations/convo66/emotions66_ai_analyzed.json",
+    "convo67": "conversations/convo67/emotions67_ai_analyzed.json",
+    "convo68": "conversations/convo68/emotions68_ai_analyzed.json",
+    "convo71": "conversations/convo71/emotions71_ai_analyzed.json",
+    "convo75": "conversations/convo75/emotions75_ai_analyzed.json",
+    "convo76": "conversations/convo76/emotions76_ai_analyzed.json",
+    "convo74": "conversations/convo74/emotions74_ai_analyzed.json",
+    "convo73": "conversations/convo73/emotions73_ai_analyzed.json",
+    "convo77": "conversations/convo77/emotions77_ai_analyzed.json",
+    "convo79": "conversations/convo79/emotions79_ai_analyzed.json",
+    "convo80": "conversations/convo80/emotions80_ai_analyzed.json",
+    "convo81": "conversations/convo81/emotions81_ai_analyzed.json",
+    "convo82": "conversations/convo82/emotions82_ai_analyzed.json"
+  },
+  "last_metadata_update": "2025-08-05T07:01:36.217Z"
+}

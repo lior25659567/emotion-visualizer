@@ -843,14 +843,12 @@
         
         // Click handler with zoom effect
         itemCell.addEventListener('click', (e) => {
-            console.log(`🎯 Clicked on conversation: ${conv.folder}`);
             e.preventDefault();
             itemCell.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             itemCell.style.transform = 'scale(1.3)';
             itemCell.style.zIndex = '100';
             
             setTimeout(() => {
-                console.log(`🚀 Opening visualization for: ${conv.folder}`);
                 openVisualizationInModal(conv.folder);
                 setTimeout(() => {
                     itemCell.style.transform = 'scale(1)';
@@ -3520,13 +3518,8 @@
     }
 
     function openVisualizationInModal(folder) {
-        console.log(`🔍 openVisualizationInModal called for: ${folder}`);
         const modalContainer = document.getElementById('visualization-modal-container');
-        if (!modalContainer) {
-            console.error(`❌ Modal container not found for: ${folder}`);
-            return;
-        }
-        console.log(`✅ Modal container found for: ${folder}`);
+        if (!modalContainer) return;
         
         // Check if we already have an iframe for this folder
         const existingIframe = modalContainer.querySelector(`iframe[data-folder="${folder}"]`);

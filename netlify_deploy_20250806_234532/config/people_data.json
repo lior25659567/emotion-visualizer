@@ -1,0 +1,565 @@
+{
+  "people": {
+    "person_eden": {
+      "name": "עדן",
+      "description": "המתנדב הראשי, משתתף ברוב השיחות",
+      "color": "#667eea",
+      "status": "active",
+      "conversations": [
+        "convo2",
+        "convo3",
+        "convo4",
+        "convo5",
+        "convo6",
+        "convo7",
+        "convo8",
+        "convo9",
+        "convo10",
+        "convo11",
+        "convo12",
+        "convo13",
+        "convo14",
+        "convo15",
+        "convo16",
+        "convo17",
+        "convo18",
+        "convo19",
+        "convo20",
+        "convo21",
+        "convo22",
+        "convo23",
+        "convo24",
+        "convo25",
+        "convo26",
+        "convo27",
+        "convo28",
+        "convo29",
+        "convo30",
+        "convo31",
+        "convo32",
+        "convo33",
+        "convo34",
+        "convo35",
+        "convo36",
+        "convo37",
+        "convo38",
+        "convo39",
+        "convo40",
+        "convo41",
+        "convo42"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 0,
+      "createdAt": "2025-07-20T00:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_avi": {
+      "name": "אבא",
+      "description": "משתתף בשיחות משפחתיות",
+      "color": "#28a745",
+      "status": "active",
+      "conversations": [
+        "convo1"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-20T00:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_adi": {
+      "name": "עדי ביטון",
+      "description": "משתתף בשיחות על הצבא",
+      "color": "#dc3545",
+      "status": "active",
+      "conversations": [
+        "convo2"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-20T00:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_gulliver": {
+      "name": "גיליבר",
+      "description": "משתתף בשיחות רבות במחובר",
+      "color": "#6f42c1",
+      "status": "active",
+      "conversations": [
+        "convo5",
+        "convo7",
+        "convo11",
+        "convo12",
+        "convo13",
+        "convo14",
+        "convo15",
+        "convo16",
+        "convo17",
+        "convo18",
+        "convo19",
+        "convo20",
+        "convo21",
+        "convo22",
+        "convo23",
+        "convo24",
+        "convo25",
+        "convo26",
+        "convo27",
+        "convo28",
+        "convo29",
+        "convo30",
+        "convo31",
+        "convo32",
+        "convo33",
+        "convo34",
+        "convo35",
+        "convo36",
+        "convo37",
+        "convo38",
+        "convo39",
+        "convo40",
+        "convo41",
+        "convo42"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-25T18:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_tal": {
+      "name": "טל מקלר",
+      "description": "משתתף בשיחות על החיים",
+      "color": "#fd7e14",
+      "status": "active",
+      "conversations": [
+        "convo4"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-25T18:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_fredy": {
+      "name": "פרדי",
+      "description": "משתתף בשיחות יום יום",
+      "color": "#20c997",
+      "status": "active",
+      "conversations": [
+        "convo6"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-25T18:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_tal_ben": {
+      "name": "טל בר אברהם",
+      "description": "נפגש ביריד",
+      "color": "#e83e8c",
+      "status": "active",
+      "conversations": [
+        "convo8"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-25T18:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_bar": {
+      "name": "בר מזרחי",
+      "description": "פרידה מגיליבר",
+      "color": "#17a2b8",
+      "status": "active",
+      "conversations": [
+        "convo10"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 1,
+      "createdAt": "2025-07-25T18:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person__": {
+      "name": "סבתא מלכה",
+      "description": "נוסף דרך ניהול שיחות",
+      "color": "#0d2baf",
+      "status": "active",
+      "conversations": [],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 0,
+      "createdAt": "2025-07-31T01:51:51.538Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_": {
+      "name": "סבא",
+      "description": "נוסף דרך ניהול שיחות",
+      "color": "#86d920",
+      "status": "active",
+      "conversations": [],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 0,
+      "createdAt": "2025-08-03T15:08:46.586Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    },
+    "person_lior": {
+      "name": "עדן",
+      "description": "משתתף בשיחות",
+      "color": "#2196f3",
+      "status": "active",
+      "conversations": [
+        "convo1"
+      ],
+      "totalSegments": 0,
+      "totalDuration": 0,
+      "defaultSpeaker": 0,
+      "createdAt": "2025-08-04T00:00:00.000Z",
+      "lastModified": "2025-08-04T12:50:05.315Z"
+    }
+  },
+  "conversationAssignments": {
+    "convo1": [
+      "person_lior",
+      "person_avi"
+    ],
+    "convo2": [
+      "person_eden",
+      "person_adi"
+    ],
+    "convo3": [
+      "person_eden"
+    ],
+    "convo4": [
+      "person_eden",
+      "person_tal"
+    ],
+    "convo5": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo6": [
+      "person_eden",
+      "person_fredy"
+    ],
+    "convo7": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo8": [
+      "person_eden",
+      "person_tal_ben"
+    ],
+    "convo9": [
+      "person_eden"
+    ],
+    "convo10": [
+      "person_eden",
+      "person_bar"
+    ],
+    "convo11": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo12": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo13": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo14": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo15": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo16": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo17": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo18": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo19": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo20": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo21": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo22": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo23": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo24": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo25": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo26": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo27": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo28": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo29": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo30": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo31": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo32": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo33": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo34": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo35": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo36": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo37": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo38": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo39": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo40": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo41": [
+      "person_eden",
+      "person_gulliver"
+    ],
+    "convo42": [
+      "person_eden",
+      "person_gulliver"
+    ]
+  },
+  "speakerMappings": {
+    "convo1": {
+      "0": "person_lior",
+      "1": "person_avi"
+    },
+    "convo2": {
+      "0": "person_eden",
+      "1": "person_adi"
+    },
+    "convo3": {
+      "0": "person_eden"
+    },
+    "convo4": {
+      "0": "person_eden",
+      "1": "person_tal"
+    },
+    "convo5": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo6": {
+      "0": "person_eden",
+      "1": "person_fredy"
+    },
+    "convo7": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo8": {
+      "0": "person_eden",
+      "1": "person_tal_ben"
+    },
+    "convo9": {
+      "0": "person_eden"
+    },
+    "convo10": {
+      "0": "person_eden",
+      "1": "person_bar"
+    },
+    "convo11": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo12": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo13": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo14": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo15": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo16": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo17": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo18": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo19": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo20": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo21": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo22": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo23": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo24": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo25": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo26": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo27": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo28": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo29": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo30": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo31": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo32": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo33": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo34": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo35": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo36": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo37": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo38": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo39": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo40": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo41": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    },
+    "convo42": {
+      "0": "person_eden",
+      "1": "person_gulliver"
+    }
+  },
+  "lastUpdated": "2025-08-04T12:50:05.315Z",
+  "version": "1.2"
+}
