@@ -684,6 +684,9 @@
             addMP4PreviewEventHandlers(itemCell, conv, video);
         }
         
+        // Add click and hover events to the itemCell itself
+        addConversationItemEventHandlers(itemCell, conv);
+        
         // Add to intersection observer for performance optimization
         if (conversationObserver) {
             conversationObserver.observe(itemCell);
@@ -764,6 +767,41 @@
         });
     }
 
+    // UNIFIED EVENT HANDLERS for Conversation Items
+    function addConversationItemEventHandlers(itemCell, conv) {
+        // Click handler with zoom effect
+        itemCell.addEventListener('click', (e) => {
+            console.log(`🎯 Clicked on conversation: ${conv.folder}`);
+            e.preventDefault();
+            itemCell.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            itemCell.style.transform = 'scale(1.3)';
+            itemCell.style.zIndex = '100';
+            
+            setTimeout(() => {
+                console.log(`🚀 Opening visualization for: ${conv.folder}`);
+                openVisualizationInModal(conv.folder);
+                setTimeout(() => {
+                    itemCell.style.transform = 'scale(1)';
+                    itemCell.style.zIndex = '2';
+                    setTimeout(() => {
+                        itemCell.style.transition = 'all 1.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+                    }, 400);
+                }, 100);
+            }, 200);
+        });
+        
+        // Simplified hover handlers - let CSS handle visual effects
+        itemCell.addEventListener('mouseenter', () => {
+            // Only show hover panel, let CSS handle visual styling
+            showHoverPanel(conv);
+        });
+        
+        itemCell.addEventListener('mouseleave', () => {
+            // Only hide hover panel, let CSS handle visual styling
+            hideHoverPanel(true);
+        });
+    }
+    
     // UNIFIED EVENT HANDLERS for MP4 Preview Components
     function addMP4PreviewEventHandlers(itemCell, conv, video) {
         // Only add video event handlers if this is actually a video element
