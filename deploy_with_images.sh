@@ -30,6 +30,7 @@ STATIC_DIRS=(
     "config"
     "assets"
     "frontend"
+    "videos"
 )
 
 echo "📄 Copying static files..."

@@ -39,6 +39,7 @@ ESSENTIAL_DIRS=(
     "config"
     "assets"
     "frontend"
+    "videos"
 )
 
 echo "📄 Copying essential files..."
