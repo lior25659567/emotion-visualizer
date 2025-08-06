@@ -95,7 +95,7 @@ cat > "$DEPLOY_DIR/netlify.toml" << 'EOF'
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
+    # X-Frame-Options = "DENY"  # Removed to allow iframe embedding
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
@@ -180,7 +180,7 @@ echo ""
 echo "🔒 Creating security headers..."
 cat > "$DEPLOY_DIR/_headers" << 'EOF'
 /*
-  X-Frame-Options: DENY
+  # X-Frame-Options: DENY  # Removed to allow iframe embedding
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
